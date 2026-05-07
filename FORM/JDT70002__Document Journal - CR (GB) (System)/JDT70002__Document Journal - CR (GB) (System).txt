@@ -1,0 +1,484 @@
+﻿============================================================
+Report: JDT70002__Document Journal - CR (GB) (System).rpt
+Path:   JDT70002__Document Journal - CR (GB) (System).rpt
+Extracted: 2026-05-07 18:03:13
+============================================================
+
+************************************************************
+  PARAMETERS
+************************************************************
+Parameter: (error)
+  Type:     You cannot call a method on a null-valued expression.
+  Report:   
+  Default:  
+
+
+************************************************************
+  FORMULA FIELDS
+************************************************************
+Formula: {@F_235}
+--- BEGIN ---
+Shared stringvar TitleStr;
+if {PLD__ITEMS._Page} = 1 and {PLD__ITEMS._Section} = 'PH' and {PLD__ITEMS.F_235} <> '' then
+   TitleStr := {OADM.CompnyName};
+TitleStr
+
+--- END ---
+
+Formula: {@F_236}
+--- BEGIN ---
+Shared stringvar AddressStr;
+if {PLD__ITEMS._Page} = 1 and {PLD__ITEMS._Section} = 'PH' and {PLD__ITEMS.F_236} <> '' then
+   AddressStr := {PLD__ITEMS.F_236};
+AddressStr
+//if {PLD__ITEMS.F_236}='' then ' ' else {PLD__ITEMS.F_236}
+--- END ---
+
+Formula: {@F_200}
+--- BEGIN ---
+Shared stringvar VatNumStr;
+if {PLD__ITEMS._Page} = 1 and {PLD__ITEMS._Section} = 'PH' and {PLD__ITEMS.F_200} <> '' then
+   VatNumStr := {PLD__ITEMS.F_200};
+VatNumStr
+//if {PLD__ITEMS.F_200}='' then ' ' else {PLD__ITEMS.F_200}
+--- END ---
+
+Formula: {@F_240}
+--- BEGIN ---
+//if {PLD__ITEMS.F_240}='' then ' ' else 
+Shared StringVar strDate;
+strDate := {PLD__ITEMS.F_240};
+
+strDate;
+--- END ---
+
+Formula: {@F_241}
+--- BEGIN ---
+Shared StringVar strTime;
+
+strTime :=  {PLD__ITEMS.F_241};
+
+If strTime = '' Then ' ' Else strTime;
+--- END ---
+
+Formula: {@F_242}
+--- BEGIN ---
+if {PLD__ITEMS.F_242}='' then ' ' else {PLD__ITEMS.F_242}
+--- END ---
+
+Formula: {@F_243}
+--- BEGIN ---
+if {PLD__ITEMS.F_243}='' then ' ' else {PLD__ITEMS.F_243}
+--- END ---
+
+Formula: {@F_246}
+--- BEGIN ---
+if {PLD__ITEMS.F_246}='' then ' ' else {PLD__ITEMS.F_246}
+--- END ---
+
+Formula: {@F_247}
+--- BEGIN ---
+if {PLD__ITEMS.F_247}='' then ' ' else {PLD__ITEMS.F_247}
+--- END ---
+
+Formula: {@F_248}
+--- BEGIN ---
+if {PLD__ITEMS.F_248}='' then ' ' else {PLD__ITEMS.F_248}
+--- END ---
+
+Formula: {@F_249}
+--- BEGIN ---
+if {PLD__ITEMS.F_249}='' then ' ' else {PLD__ITEMS.F_249}
+--- END ---
+
+Formula: {@F_215}
+--- BEGIN ---
+if {PLD__ITEMS.F_215}='' then ' ' else {PLD__ITEMS.F_215}
+--- END ---
+
+Formula: {@F_216}
+--- BEGIN ---
+if {PLD__ITEMS.F_216}='' then ' ' else {PLD__ITEMS.F_216}
+--- END ---
+
+Formula: {@F_220}
+--- BEGIN ---
+//if {PLD__ITEMS.F_220}='' then ' ' else {PLD__ITEMS.F_220}
+If {PLD__ITEMS._Section} = 'RAD0' and {PLD__ITEMS.F_188} <>'' Then
+    {#UpTotalDebit} - {PLD__ITEMS.F_188f}
+Else
+    {#UpTotalDebit}
+--- END ---
+
+Formula: {@F_221}
+--- BEGIN ---
+//if {PLD__ITEMS.F_221}='' then ' ' else {PLD__ITEMS.F_221}
+
+If {PLD__ITEMS._Section} = 'RAD0' and {PLD__ITEMS.F_189}<>''Then
+    {#UpTotalCredit} - {PLD__ITEMS.F_189f}
+Else
+    {#UpTotalCredit}
+--- END ---
+
+Formula: {@F_197}
+--- BEGIN ---
+if {PLD__ITEMS.F_197}='' then ' ' else {PLD__ITEMS.F_197}
+--- END ---
+
+Formula: {@F_188}
+--- BEGIN ---
+////if {PLD__ITEMS.F_188}='' then ' ' else {PLD__ITEMS.F_188}
+//
+//Shared Stringvar Symbol;
+////Local StringVar str:=trim({PLD__ITEMS.F_188});
+////if str ='' then ' ' 
+////else 
+////( if {PLD__ITEMS.F_188_Symbol} = Symbol then
+////		 str := split( str, Symbol)[2];
+////  str; 
+////)
+//
+//if {PLD__ITEMS.F_188}='' then ' '
+//else 
+//    if {PLD__ITEMS.F_188_Symbol} <> Symbol then
+//        {PLD__ITEMS.F_188}
+//    else
+//        TrailCurrency (Trim({PLD__ITEMS.F_188}), {OADM.CurOnRight})
+//
+
+
+Shared StringVar currSymbol;
+
+if {PLD__ITEMS.F_188}='' then ' '
+Else TrailCurrency ({PLD__ITEMS.F_188},  {OADM.CurOnRight}, currSymbol, {PLD__ITEMS.F_188_Symbol})
+
+--- END ---
+
+Formula: {@F_189}
+--- BEGIN ---
+////if {PLD__ITEMS.F_189}='' then ' ' else {PLD__ITEMS.F_189}
+////Shared Stringvar Symbol;
+////Local StringVar str:=trim({PLD__ITEMS.F_189});
+////if str ='' then ' ' 
+////else 
+////( if {PLD__ITEMS.F_189_Symbol} = Symbol then
+////		 str := split( str, Symbol)[2];
+////  str; 
+////)
+//
+//shared stringvar Symbol;
+//
+//if {PLD__ITEMS.F_189}='' then ' '
+//else 
+//    if {PLD__ITEMS.F_189_Symbol} <> Symbol then
+//        {PLD__ITEMS.F_189}
+//    else
+//        TrailCurrency (Trim({PLD__ITEMS.F_189}), {OADM.CurOnRight})
+//
+
+Shared StringVar currSymbol;
+
+if {PLD__ITEMS.F_189}='' then ' '
+Else TrailCurrency ({PLD__ITEMS.F_189},  {OADM.CurOnRight}, currSymbol, {PLD__ITEMS.F_189_Symbol})
+
+
+--- END ---
+
+Formula: {@F_252}
+--- BEGIN ---
+if {PLD__ITEMS.F_252}='' then ' ' else {PLD__ITEMS.F_252}
+--- END ---
+
+Formula: {@F_253}
+--- BEGIN ---
+if {PLD__ITEMS.F_253}='' then ' ' else {PLD__ITEMS.F_253}
+--- END ---
+
+Formula: {@F_254}
+--- BEGIN ---
+if {PLD__ITEMS.F_254}='' then ' ' else {PLD__ITEMS.F_254}
+--- END ---
+
+Formula: {@F_158}
+--- BEGIN ---
+if {PLD__ITEMS.F_158}='' then ' ' else {PLD__ITEMS.F_158}
+--- END ---
+
+Formula: {@F_160}
+--- BEGIN ---
+if {PLD__ITEMS.F_160}='' then ' ' else {PLD__ITEMS.F_160}
+--- END ---
+
+Formula: {@F_161}
+--- BEGIN ---
+if {PLD__ITEMS.F_161}='' then ' ' else {PLD__ITEMS.F_161}
+--- END ---
+
+Formula: {@F_163}
+--- BEGIN ---
+if {PLD__ITEMS.F_163}='' then ' ' else {PLD__ITEMS.F_163}
+--- END ---
+
+Formula: {@F_164}
+--- BEGIN ---
+if {PLD__ITEMS.F_164}='' then ' ' else {PLD__ITEMS.F_164}
+--- END ---
+
+Formula: {@F_165}
+--- BEGIN ---
+if {PLD__ITEMS.F_165}='' then ' ' else {PLD__ITEMS.F_165}
+--- END ---
+
+Formula: {@F_201}
+--- BEGIN ---
+//if {PLD__ITEMS.F_201}='' then ' ' else {PLD__ITEMS.F_201}
+{#UpTotalCredit}
+--- END ---
+
+Formula: {@F_202}
+--- BEGIN ---
+//if {PLD__ITEMS.F_202}='' then ' ' else {PLD__ITEMS.F_202}
+{#UpTotalDebit}
+--- END ---
+
+Formula: {@F_230}
+--- BEGIN ---
+if {PLD__ITEMS.F_230}='' then ' ' else {PLD__ITEMS.F_230}
+--- END ---
+
+Formula: {@F_234}
+--- BEGIN ---
+if {PLD__ITEMS.F_234}='' then ' ' else {PLD__ITEMS.F_234}
+--- END ---
+
+Formula: {@Declare}
+--- BEGIN ---
+Shared stringvar TitleStr:= ' ';
+Shared stringvar AddressStr:= ' ';
+Shared stringvar VatNumStr:= ' ';
+
+Shared StringVar strDate;
+Shared StringVar strTime;
+--- END ---
+
+Formula: {@F_219}
+--- BEGIN ---
+if {PLD__ITEMS.F_219}='' then ' ' else {PLD__ITEMS.F_219}
+--- END ---
+
+Formula: {@F_218}
+--- BEGIN ---
+if {PLD__ITEMS.F_218}='' then ' ' else {PLD__ITEMS.F_218}
+--- END ---
+
+Formula: {@F_217}
+--- BEGIN ---
+if {PLD__ITEMS.F_217}='' then ' ' else {PLD__ITEMS.F_217}
+--- END ---
+
+Formula: {@ColorContentText}
+--- BEGIN ---
+Color(30, 30, 30)
+--- END ---
+
+Formula: {@ColorTableHdr}
+--- BEGIN ---
+Color(240, 244, 247)
+--- END ---
+
+Formula: {@__PrintedOn}
+--- BEGIN ---
+"Printed On:"
+--- END ---
+
+Formula: {@PrintTimeInfo}
+--- BEGIN ---
+Shared StringVar strDate;
+Shared StringVar strTime;
+
+{@__PrintedOn} + ' ' + strTime  + ' ' + strDate
+--- END ---
+
+Formula: {@PageIndicator}
+--- BEGIN ---
+{@__Page} + ' ' + ToText(PageNumber, 0) + {@__Of} + ToText(TotalPageCount, 0)
+--- END ---
+
+Formula: {@ColorTableHeader}
+--- BEGIN ---
+Color(240, 244, 247)
+--- END ---
+
+Formula: {@__Page}
+--- BEGIN ---
+"Page:"
+--- END ---
+
+Formula: {@__Of}
+--- BEGIN ---
+" / "
+--- END ---
+
+Formula: {@CurrencySymbol}
+--- BEGIN ---
+//Shared Stringvar Symbol;
+//if {PLD__ITEMS._Page} = 1 then
+// Symbol:= NthLargest (1, {PLD__ITEMS.F_188_Symbol});
+//Symbol
+
+shared stringvar currSymbol;
+evaluateafter ({@CurrencyCount});
+currSymbol
+--- END ---
+
+Formula: {@CurrencyCount}
+--- BEGIN ---
+evaluateafter({@CurrencyCount2});
+shared booleanvar multiCurr2;
+Shared Stringvar currSymbol2;
+Shared booleanvar multiCurr;
+Shared numbervar currCount;
+local numbervar currNum;
+Shared Stringvar currSymbol;
+local numbervar i;
+local stringvar tmp;
+local stringvar curr1;
+local stringvar curr2;
+local stringvar curr3;
+local stringvar array x;
+local numbervar tempcount := 0;
+local numbervar tempcount2 :=0;
+
+if multiCurr2 = true then (multiCurr := true; currSymbol := currSymbol2;)
+else(
+
+multiCurr := false;
+currNum := 1;
+
+currCount := distinctcount ({PLD__ITEMS.F_188_Symbol});
+
+if currCount > 3 then (multiCurr := true; currSymbol := '******';)
+else
+    if currCount = 1 then (multiCurr := false; currSymbol := NthMostFrequent (1, {PLD__ITEMS.F_188_Symbol}) )
+    else
+        if currCount = 2 then
+        (
+            curr1 := trim(NthMostFrequent (1, {PLD__ITEMS.F_188_Symbol}));
+            curr2 := trim(NthMostFrequent (2, {PLD__ITEMS.F_188_Symbol}));
+            if curr1 <> '' and right(curr1, 1) <> '*' and curr2 <> '' and right(curr2,1) <> '*' then
+            (
+                multiCurr := true; 
+                currSymbol := '******';
+            )else 
+                if curr1 <> '' and right(curr1, 1) <> '*' then currSymbol := curr1
+                    else if curr2 <> '' and right(curr2,1) <> '*' then currSymbol := curr2
+            
+        )else (
+            if currCount = 3 then
+            (
+                curr1 := trim(NthMostFrequent (1, {PLD__ITEMS.F_188_Symbol}));
+                curr2 := trim(NthMostFrequent (2, {PLD__ITEMS.F_188_Symbol}));
+                curr3 := trim(NthMostFrequent (3, {PLD__ITEMS.F_188_Symbol}));
+                x := makearray(curr1, curr2, curr3);
+                for i := 1 to 3 do
+                    if x[i] <> '' and right(x[i],1) <> '*' then (tempcount := tempcount + 1; tempcount2 := i);
+                if tempcount > 1 then (multiCurr := true; currSymbol := '******';)
+                else (multiCurr := false; currSymbol := x[tempcount2];)
+            )
+        );
+);
+
+if multiCurr2 = false and multiCurr = false and currSymbol <> currSymbol2 then 
+(
+    multiCurr :=true;currSymbol := '******';
+
+);
+
+''
+
+--- END ---
+
+Formula: {@CurrencyCount2}
+--- BEGIN ---
+Shared booleanvar multiCurr2;
+Shared numbervar currCount2;
+local numbervar currNum;
+Shared Stringvar currSymbol2;
+local numbervar i;
+local stringvar tmp;
+local stringvar curr1;
+local stringvar curr2;
+local stringvar curr3;
+local stringvar array x;
+local numbervar tempcount := 0;
+local numbervar tempcount2 :=0;
+
+multiCurr2 := false;
+currNum := 1;
+
+currCount2 := distinctcount ({PLD__ITEMS.F_189_Symbol});
+
+if currCount2 > 3 then (multiCurr2 := true; currSymbol2 := '******';)
+else
+    if currCount2 = 1 then (multiCurr2 := false; currSymbol2 := NthMostFrequent (1, {PLD__ITEMS.F_189_Symbol}) )
+    else
+        if currCount2 = 2 then
+        (
+            curr1 := trim(NthMostFrequent (1, {PLD__ITEMS.F_189_Symbol}));
+            curr2 := trim(NthMostFrequent (2, {PLD__ITEMS.F_189_Symbol}));
+            if curr1 <> '' and right(curr1, 1) <> '*' and curr2 <> '' and right(curr2,1) <> '*' then
+            (
+                multiCurr2 := true; 
+                currSymbol2 := '******';
+            )else 
+                if curr1 <> '' and right(curr1, 1) <> '*' then currSymbol2 := curr1
+                    else if curr2 <> '' and right(curr2,1) <> '*' then currSymbol2 := curr2
+            
+        )else (
+            if currCount2 = 3 then
+            (
+                curr1 := trim(NthMostFrequent (1, {PLD__ITEMS.F_189_Symbol}));
+                curr2 := trim(NthMostFrequent (2, {PLD__ITEMS.F_189_Symbol}));
+                curr3 := trim(NthMostFrequent (3, {PLD__ITEMS.F_189_Symbol}));
+                x := makearray(curr1, curr2, curr3);
+                for i := 1 to 3 do
+                    if x[i] <> '' and right(x[i],1) <> '*' then (tempcount := tempcount + 1; tempcount2 := i);
+                if tempcount > 1 then (multiCurr2 := true; currSymbol2 := '******';)
+                else (multiCurr2 := false; currSymbol2 := x[tempcount2];)
+            )
+        );
+''
+
+--- END ---
+
+
+************************************************************
+  CONNECTION INFO
+************************************************************
+Table:    PLD__ITEMS
+  Server:   PLDReportSource
+  Database: 
+  UserID:   
+
+Table:    OADP
+  Server:   DRIVER={HDBODBC32};UID=SYSTEM;PWD=manager;SERVERNODE=10.55.178.115:30915;DATABASE=SBODEMODE
+  Database: 
+  UserID:   
+
+Table:    OADM
+  Server:   DRIVER={HDBODBC32};UID=SYSTEM;PWD=manager;SERVERNODE=10.55.178.115:30915;DATABASE=SBODEMODE
+  Database: 
+  UserID:   
+
+
+************************************************************
+  TABLE LINKS
+************************************************************
+(No table links)
+
+************************************************************
+  RECORD SELECTION FORMULA
+************************************************************
+(No record selection formula)
+
+

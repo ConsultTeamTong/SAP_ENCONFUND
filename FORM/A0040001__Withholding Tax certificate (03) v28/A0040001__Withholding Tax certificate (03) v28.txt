@@ -1,0 +1,137 @@
+﻿============================================================
+Report: A0040001__Withholding Tax certificate (03) v28.rpt
+Path:   A0040001__Withholding Tax certificate (03) v28.rpt
+Extracted: 2026-05-07 18:02:34
+============================================================
+
+************************************************************
+  PARAMETERS
+************************************************************
+Parameter: (error)
+  Type:     You cannot call a method on a null-valued expression.
+  Report:   
+  Default:  
+
+
+************************************************************
+  FORMULA FIELDS
+************************************************************
+Formula: {@1}
+--- BEGIN ---
+Left({Detail.TaxId},1)
+--- END ---
+
+Formula: {@2}
+--- BEGIN ---
+Right(Left({Detail.TaxId},5),4)
+--- END ---
+
+Formula: {@3}
+--- BEGIN ---
+Right(Left({Detail.TaxId},10),5)
+--- END ---
+
+Formula: {@4}
+--- BEGIN ---
+Left(Right({Detail.TaxId},3),2)
+--- END ---
+
+Formula: {@5}
+--- BEGIN ---
+Right({Detail.TaxId},1)
+--- END ---
+
+Formula: {@C1}
+--- BEGIN ---
+Left({Header.U_SLD_VTAXID},1)
+--- END ---
+
+Formula: {@C2}
+--- BEGIN ---
+Right(Left({Header.U_SLD_VTAXID},5),4)
+--- END ---
+
+Formula: {@C3}
+--- BEGIN ---
+Right(Left({Header.U_SLD_VTAXID},10),5)
+--- END ---
+
+Formula: {@C4}
+--- BEGIN ---
+Left(Right({Header.U_SLD_VTAXID},3),2)
+--- END ---
+
+Formula: {@C5}
+--- BEGIN ---
+Right({Header.U_SLD_VTAXID},1)
+--- END ---
+
+Formula: {@Address}
+--- BEGIN ---
+replace(replace({Detail.Address}, chr(13)," "), chr(10)," ")
+--- END ---
+
+Formula: {@WhtType}
+--- BEGIN ---
+Left({Detail.RunNo},2)
+--- END ---
+
+Formula: {@THB}
+--- BEGIN ---
+
+--- END ---
+
+Formula: {@date}
+--- BEGIN ---
+Left(ToText({Detail.TaxDate}, "ddMMyyyy"),2)
+--- END ---
+
+Formula: {@mount}
+--- BEGIN ---
+stringVar MM;
+MM := Right(Left(ToText({Detail.TaxDate}, "ddMMyyyy"),4),2);
+if MM = "12" then "ธันวาคม" else
+if MM = "11" then "พฤศจิกายน"else
+if MM = "10" then "ตุลาคม"else
+if MM = "09" then "กันยายน"else
+if MM = "08" then "สิงหาคม"else
+if MM = "07" then "กรกฎาคม"else
+if MM = "06" then "มิถุนายน"else
+if MM = "05" then "พฤษภาคม"else
+if MM = "04" then "เมษายน"else
+if MM = "03" then "มีนาคม"else
+if MM = "02" then "กุมภาพันธ์"else
+if MM = "01" then "มกราคม";
+--- END ---
+
+Formula: {@year}
+--- BEGIN ---
+ToNumber(Right(ToText({Detail.TaxDate}, "ddMMyyyy"),4))+543
+--- END ---
+
+
+************************************************************
+  CONNECTION INFO
+************************************************************
+Table:    Detail
+  Server:   NDB@10.1.1.100:30013
+  Database: SBO_CVM
+  UserID:   B1_53424F5F43564D_RW
+
+Table:    Header
+  Server:   NDB@10.1.1.100:30013
+  Database: SBO_CVM
+  UserID:   B1_53424F5F43564D_RW
+
+
+************************************************************
+  TABLE LINKS
+************************************************************
+Detail.U_SLD_VatBranch --[Equal]--> Header.Code
+
+************************************************************
+  RECORD SELECTION FORMULA
+************************************************************
+(No record selection formula)
+
+

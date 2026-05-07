@@ -1,0 +1,558 @@
+﻿============================================================
+Report: PQT20001__AP Purchase Quotation  (Items)- CR (System).rpt
+Path:   PQT20001__AP Purchase Quotation  (Items)- CR (System).rpt
+Extracted: 2026-05-07 18:03:22
+============================================================
+
+************************************************************
+  PARAMETERS
+************************************************************
+Parameter: (error)
+  Type:     You cannot call a method on a null-valued expression.
+  Report:   
+  Default:  
+
+
+************************************************************
+  FORMULA FIELDS
+************************************************************
+Formula: {@Amount}
+--- BEGIN ---
+
+
+
+If  {TmSp_DocLineTypeLayout;1.LineType} = "R" or {TmSp_DocLineTypeLayout;1.LineType} = "A"  then 
+   If {OPQT.CurSource} = "L"
+    then {PQT1.LineTotal}
+    else if {OPQT.CurSource} = "S"
+      then {PQT1.TotalSumSy}
+    else if {OPQT.CurSource} = "C"
+      then {PQT1.TotalFrgn}
+--- END ---
+
+Formula: {@DiscountTotal}
+--- BEGIN ---
+If {OPQT.CurSource} = "L"
+    then {OPQT.DiscSum}
+    else if {OPQT.CurSource} = "S"
+      then {OPQT.DiscSumSy}
+    else if {OPQT.CurSource} = "C"
+      then {OPQT.DiscSumFC}
+--- END ---
+
+Formula: {@AmountCur}
+--- BEGIN ---
+If {OPQT.CurSource} = "L"
+    then ({OADM.MainCurncy})
+    else if {OPQT.CurSource} = "S"
+      then ({OADM.SysCurrncy})
+    else if {OPQT.CurSource} = "C"                 
+      then ({OPQT.DocCur}) 
+--- END ---
+
+Formula: {@ItemCode}
+--- BEGIN ---
+//if {TmSp_DocLineTypeLayout;1.LineType} = "R"
+//   then totext ({PQT1.ItemCode})
+//   else if {TmSp_DocLineTypeLayout;1.LineType} = "A"
+//     then {PQT1.ItemCode}// + "(Alternative)" - handle in other place
+//   else if {TmSp_DocLineTypeLayout;1.LineType} = "S"
+//     then {TmSp_DocLineTypeLayout;1.LineText}
+//   else if {TmSp_DocLineTypeLayout;1.LineType} = "T"
+//     then {TmSp_DocLineTypeLayout;1.LineText}
+
+If  {TmSp_DocLineTypeLayout;1.LineType} = 'A' or 
+    {TmSp_DocLineTypeLayout;1.LineType} = 'R' Then
+(
+    If {ADP1.VndrNum} = 'N' Then  {PQT1.ItemCode}
+    Else {PQT1.VendorNum}
+)
+Else  // 'S' or 'T', shouldn't go to here
+    {TmSp_DocLineTypeLayout;1.LineText}
+--- END ---
+
+Formula: {@SubtotalAmount}
+--- BEGIN ---
+Shared numbervar subtotal;
+If  {TmSp_DocLineTypeLayout;1.LineType} = "S" then 
+   (If {OPQT.CurSource} = "L"
+    then (if isnull({TmSp_DocLineTypeLayout;1.SubTotal}) then subtotal else {TmSp_DocLineTypeLayout;1.SubTotal})
+    else if {OPQT.CurSource} = "S"
+      then (if isnull({TmSp_DocLineTypeLayout;1.TotalSumSy}) then subtotal else {TmSp_DocLineTypeLayout;1.TotalSumSy})
+    else if {OPQT.CurSource} = "C"
+      then (if isnull({TmSp_DocLineTypeLayout;1.TotalFrgn})then subtotal else {TmSp_DocLineTypeLayout;1.TotalFrgn}));
+--- END ---
+
+Formula: {@_DateFormat}
+--- BEGIN ---
+select {OADM.DateFormat}
+    case "0":
+        "DD/MM/YY"
+    case "1":
+        "DD/MM/CCYY"
+    case "2":
+        "MM/DD/YY"
+    case "3":
+        "MM/DD/CCYY"
+    case "4":
+        "CCYY/MM/DD"
+    case "5":
+        "DD/Month/YYYY"
+    case "6":
+        "YY/MM/DD"
+    default:
+        "";
+
+--- END ---
+
+Formula: {@_DateOrder}
+--- BEGIN ---
+ If {@_DateFormat} in ["DD/MM/YY","DD/MM/CCYY","DD/Month/YYYY"]
+ then crDayMonthYear
+else if {@_DateFormat} in ["MM/DD/YY","MM/DD/CCYY"] then crMonthDayYear
+else if {@_DateFormat} in ["CCYY/MM/DD","YY/MM/DD"] then crYearMonthDay
+
+--- END ---
+
+Formula: {@_Month}
+--- BEGIN ---
+if "Month" in {@_DateFormat} then 
+    (if {OADM.CharMonth} <= 3 then crShortMonth
+    else if {OADM.CharMonth} > 3 then crLongMonth)
+else crLeadingZeroMonth
+
+--- END ---
+
+Formula: {@_Year}
+--- BEGIN ---
+If "Month" in {@_DateFormat} then crLongYear
+else if "CC" in {@_DateFormat} then crLongYear
+else crShortYear
+
+--- END ---
+
+Formula: {@_LinkSep}
+--- BEGIN ---
+{OADM.DateSep}
+--- END ---
+
+Formula: {@_QtyDec}
+--- BEGIN ---
+{OADM.QtyDec}
+--- END ---
+
+Formula: {@_PriceDec}
+--- BEGIN ---
+{OADM.PriceDec}
+--- END ---
+
+Formula: {@_DecSep}
+--- BEGIN ---
+{OADM.DecSep}
+--- END ---
+
+Formula: {@_ThousSep}
+--- BEGIN ---
+not isnull({OADM.ThousSep})  
+--- END ---
+
+Formula: {@_ThouSepSym}
+--- BEGIN ---
+{OADM.ThousSep}
+--- END ---
+
+Formula: {@_CurPosition}
+--- BEGIN ---
+if {OADM.CurOnRight} = "Y" then crTrailingCurrencyOutsideNegative
+else crLeadingCurrencyOutsideNegative
+
+--- END ---
+
+Formula: {@_AmDec}
+--- BEGIN ---
+{OADM.SumDec}
+--- END ---
+
+Formula: {@Unit Currency Code}
+--- BEGIN ---
+if {OADM.CurOnRight} = "Y" then " " + {PQT1.Currency}
+else
+    {PQT1.Currency} + " "
+--- END ---
+
+Formula: {@Amount Currency Code}
+--- BEGIN ---
+if {OADM.CurOnRight} = "Y" then " " + {@AmountCur}
+else
+    {@AmountCur} + " "
+--- END ---
+
+Formula: {@PrintCompanyName}
+--- BEGIN ---
+{OADM.CompnyName}
+--- END ---
+
+Formula: {@_PercentDec}
+--- BEGIN ---
+{OADM.PercentDec}
+--- END ---
+
+Formula: {@PrintMark}
+--- BEGIN ---
+select {OPQT.Printed}
+case 'Y': {@__Copy_str}
+case 'N': {@__Original_str}
+case 'A': {@__Amended_str}
+default: '';
+
+--- END ---
+
+Formula: {@__Copy_str}
+--- BEGIN ---
+"Copy"
+--- END ---
+
+Formula: {@__Original_str}
+--- BEGIN ---
+"Original"
+--- END ---
+
+Formula: {@__Amended_str}
+--- BEGIN ---
+"Amended"
+--- END ---
+
+Formula: {@FreeText}
+--- BEGIN ---
+{OPQT.Header}
+--- END ---
+
+Formula: {@LineNum}
+--- BEGIN ---
+StringVar temp := ToText(RecordNumber, 0);
+NumberVar strLen := Len(temp);
+
+Select strLen
+Case 1 : '00' + temp
+Case 2 : '0' + temp
+Case 3 : temp
+Default: temp
+--- END ---
+
+Formula: {@CarryTotal}
+--- BEGIN ---
+Shared NumberVar carryTotal;
+Shared booleanVar totalFooterReached;  
+
+if {TmSp_DocLineTypeLayout;1.LineType} = 'R' Then
+  carryTotal := carryTotal + {@LineTotal};
+
+if OnLastRecord Then
+  totalFooterReached := TRUE;
+
+
+
+--- END ---
+
+Formula: {@CarryOver}
+--- BEGIN ---
+Shared NumberVar carryTotal;
+carryTotal
+
+--- END ---
+
+Formula: {@LineTotal}
+--- BEGIN ---
+if {TmSp_DocLineTypeLayout;1.LineType} = 'S' then
+    (if {OPQT.CurSource} = 'L'
+        then {TmSp_DocLineTypeLayout;1.SubTotal}
+   else if {OPQT.CurSource} = 'S'
+        then {TmSp_DocLineTypeLayout;1.TotalSumSy}
+   else if {OPQT.CurSource} = 'C'
+        then {TmSp_DocLineTypeLayout;1.TotalFrgn}    )
+else if {TmSp_DocLineTypeLayout;1.LineType} = 'R' then
+    (if {OPQT.CurSource} = 'L'
+        then {PQT1.LineTotal}
+   else if {OPQT.CurSource} = 'S'
+        then {PQT1.TotalSumSy}
+   else if {OPQT.CurSource} = 'C'
+        then {PQT1.TotalFrgn})
+
+--- END ---
+
+Formula: {@Declare}
+--- BEGIN ---
+Shared NumberVar carryTotal := 0;
+Shared booleanVar totalFooterReached := false;
+Shared StringVar picturePath := {OADP.BitmapPath};
+Shared NumberVar cashDiscountPrcnt := 0;
+Shared booleanVar topPageRecord := false;
+--- END ---
+
+Formula: {@Rounding}
+--- BEGIN ---
+if {OPQT.CurSource} = 'L'
+then {OPQT.RoundDif}
+else if {OPQT.CurSource} = 'S'
+then {OPQT.RoundDifSy}
+else if {OPQT.CurSource} = 'C'
+then {OPQT.RoundDifFC}
+--- END ---
+
+Formula: {@TotalBeforeTax}
+--- BEGIN ---
+{@TotalQuotationAmount} - {@TotalTaxAmount}
+--- END ---
+
+Formula: {@WithHoldingTax}
+--- BEGIN ---
+if {OPQT.CurSource} = 'L'
+then {OPQT.WTSum}
+else if {OPQT.CurSource} = 'S'
+then {OPQT.WTSumSC}
+else if {OPQT.CurSource} = 'C'
+then {OPQT.WTSumFC}
+--- END ---
+
+Formula: {@DocCurrencyCode}
+--- BEGIN ---
+if {OPQT.CurSource} = "L" then 
+    (if {OADM.CurOnRight} = "Y" then " " + {OADM.MainCurncy}
+else
+    {OADM.MainCurncy} + " ")
+else if {OPQT.CurSource} = "S" then 
+    (if {OADM.CurOnRight} = "Y" then " " + {OADM.SysCurrncy}
+else
+    {OADM.SysCurrncy} + " ")
+else if {OPQT.CurSource} = "C" then 
+    (if {OADM.CurOnRight} = "Y" then " " + {OPQT.DocCur}
+else
+    {OPQT.DocCur} + " ")
+--- END ---
+
+Formula: {@Additional Expense}
+--- BEGIN ---
+if {OPQT.CurSource} = 'L'
+then {OPQT.TotalExpns}
+else if {OPQT.CurSource} = 'S'
+then {OPQT.TotalExpSC}
+else if {OPQT.CurSource} = 'C'
+then {OPQT.TotalExpFC}
+--- END ---
+
+Formula: {@TotalQuotationAmount}
+--- BEGIN ---
+if {OPQT.CurSource} = 'L'
+then {OPQT.DocTotal}
+else if {OPQT.CurSource} = 'S'
+then {OPQT.DocTotalSy}
+else if {OPQT.CurSource} = 'C'
+then {OPQT.DocTotalFC}
+--- END ---
+
+Formula: {@TotalTaxAmount}
+--- BEGIN ---
+if {OPQT.CurSource} = 'L'
+then {OPQT.VatSum}
+else if {OPQT.CurSource} = 'S'
+then {OPQT.VatSumSy}
+else if {OPQT.CurSource} = 'C'
+then {OPQT.VatSumFC}
+--- END ---
+
+Formula: {@PictureName}
+--- BEGIN ---
+Shared StringVar picturePath;
+picturePath
+--- END ---
+
+Formula: {@CashDiscountPrcnt}
+--- BEGIN ---
+Shared NumberVar cashDiscountPrcnt;
+If {TmSp_DocLineTypeLayout;1.LineType} = 'R' Then
+    cashDiscountPrcnt := {PQT1.VatDscntPr};
+
+cashDiscountPrcnt;
+
+--- END ---
+
+Formula: {@_ItemCodeHdr}
+--- BEGIN ---
+
+If  {TmSp_DocLineTypeLayout;1.LineType} = 'A' or 
+    {TmSp_DocLineTypeLayout;1.LineType} = 'R' Then
+(
+   If {ADP1.VndrNum} = 'Y' Then 'Mfr No.:'
+   Else 'Item Code:'
+)
+
+
+
+--- END ---
+
+Formula: {@TableContentColor}
+--- BEGIN ---
+Color(30,30,30)
+--- END ---
+
+Formula: {@setFlagTopPageRecord}
+--- BEGIN ---
+Shared booleanVar topPageRecord;
+
+topPageRecord := true;
+--- END ---
+
+Formula: {@clearFlagTopPageRecord}
+--- BEGIN ---
+Shared booleanVar topPageRecord;
+
+topPageRecord := false;
+--- END ---
+
+Formula: {@AlternativeFlag}
+--- BEGIN ---
+if {TmSp_DocLineTypeLayout;1.LineType} = "A"
+then " (Alternative)"
+else
+""
+--- END ---
+
+Formula: {@SmallGroup}
+--- BEGIN ---
+{TmSp_DocLineTypeLayout;1.LineNum2}*1000+{TmSp_DocLineTypeLayout;1.LineSeq2}
+--- END ---
+
+Formula: {@__SameAsBillTo}
+--- BEGIN ---
+"Same as Bill-to"
+--- END ---
+
+Formula: {@__PurchaseQuotation_str}
+--- BEGIN ---
+"PURCHASE QUOTATION"
+--- END ---
+
+Formula: {@TableHdrColor}
+--- BEGIN ---
+Color(240, 244, 247)
+--- END ---
+
+Formula: {@ObjectID}
+--- BEGIN ---
+{?ObjectId@}
+--- END ---
+
+Formula: {@LabelText}
+--- BEGIN ---
+"▌"
+--- END ---
+
+Formula: {@__Quotation_Valid_Date_str}
+--- BEGIN ---
+"Quotation Valid Date:"
+--- END ---
+
+Formula: {@__Currency_str}
+--- BEGIN ---
+"Currency:"
+--- END ---
+
+
+************************************************************
+  CONNECTION INFO
+************************************************************
+Table:    OPQT
+  Server:   DRIVER={B1CRHPROXY};UID=SYSTEM;PWD=manager;SERVERNODE=10.55.178.115:30915;DATABASE=SBODEMOGB;
+  Database: 
+  UserID:   
+
+Table:    PQT1
+  Server:   DRIVER={B1CRHPROXY};UID=SYSTEM;PWD=manager;SERVERNODE=10.55.178.115:30915;DATABASE=SBODEMOGB;
+  Database: 
+  UserID:   
+
+Table:    OSLP
+  Server:   DRIVER={B1CRHPROXY};UID=SYSTEM;PWD=manager;SERVERNODE=10.55.178.115:30915;DATABASE=SBODEMOGB;
+  Database: 
+  UserID:   
+
+Table:    OSHP
+  Server:   DRIVER={B1CRHPROXY};UID=SYSTEM;PWD=manager;SERVERNODE=10.55.178.115:30915;DATABASE=SBODEMOGB;
+  Database: 
+  UserID:   
+
+Table:    OADP
+  Server:   DRIVER={B1CRHPROXY};UID=SYSTEM;PWD=manager;SERVERNODE=10.55.178.115:30915;DATABASE=SBODEMOGB;
+  Database: 
+  UserID:   
+
+Table:    ADM1
+  Server:   DRIVER={B1CRHPROXY};UID=SYSTEM;PWD=manager;SERVERNODE=10.55.178.115:30915;DATABASE=SBODEMOGB;
+  Database: 
+  UserID:   
+
+Table:    OADM
+  Server:   DRIVER={B1CRHPROXY};UID=SYSTEM;PWD=manager;SERVERNODE=10.55.178.115:30915;DATABASE=SBODEMOGB;
+  Database: 
+  UserID:   
+
+Table:    ADP1
+  Server:   DRIVER={B1CRHPROXY};UID=SYSTEM;PWD=manager;SERVERNODE=10.55.178.115:30915;DATABASE=SBODEMOGB;
+  Database: 
+  UserID:   
+
+Table:    TmSp_DocLineTypeLayout;1
+  Server:   DRIVER={B1CRHPROXY};UID=SYSTEM;PWD=manager;SERVERNODE=10.55.178.115:30915;DATABASE=SBODEMOGB;
+  Database: 
+  UserID:   
+
+Table:    GetBankInfo
+  Server:   DRIVER={B1CRHPROXY};UID=SYSTEM;PWD=manager;SERVERNODE=10.55.178.115:30915;DATABASE=SBODEMOGB;
+  Database: 
+  UserID:   
+
+Table:    OITM
+  Server:   DRIVER={B1CRHPROXY};UID=SYSTEM;PWD=manager;SERVERNODE=10.55.178.115:30915;DATABASE=SBODEMOGB;
+  Database: 
+  UserID:   
+
+Table:    OHEM
+  Server:   DRIVER={B1CRHPROXY};UID=SYSTEM;PWD=manager;SERVERNODE=10.55.178.115:30915;DATABASE=SBODEMOGB;
+  Database: 
+  UserID:   
+
+Table:    OCTG
+  Server:   DRIVER={B1CRHPROXY};UID=SYSTEM;PWD=manager;SERVERNODE=10.55.178.115:30915;DATABASE=SBODEMOGB;
+  Database: 
+  UserID:   
+
+Table:    NNM1
+  Server:   DRIVER={B1CRHPROXY};UID=SYSTEM;PWD=manager;SERVERNODE=10.55.178.115:30915;DATABASE=SBODEMOGB;
+  Database: 
+  UserID:   
+
+Table:    GetAccountInfo
+  Server:   DRIVER={B1CRHPROXY};UID=SYSTEM;PWD=manager;SERVERNODE=10.55.178.115:30915;DATABASE=SBODEMOGB;
+  Database: 
+  UserID:   
+
+
+************************************************************
+  TABLE LINKS
+************************************************************
+OPQT.ObjType --[LeftOuter]--> ADP1.ObjType
+OPQT.SlpCode --[LeftOuter]--> OSLP.SlpCode
+OPQT.TrnspCode --[LeftOuter]--> OSHP.TrnspCode
+OPQT.DocEntry --[Equal]--> TmSp_DocLineTypeLayout;1.DocEntry
+OPQT.GroupNum --[LeftOuter]--> OCTG.GroupNum
+OPQT.Series --[LeftOuter]--> NNM1.Series
+TmSp_DocLineTypeLayout;1.DocEntry --[LeftOuter]--> PQT1.DocEntry
+PQT1.ItemCode --[Equal]--> OITM.ItemCode
+PQT1.SlpCode --[LeftOuter]--> OHEM.salesPrson
+
+************************************************************
+  RECORD SELECTION FORMULA
+************************************************************
+ (  {OPQT.DocEntry} = {?DocKey@}  )  
+
+

@@ -1,0 +1,270 @@
+﻿============================================================
+Report: SA130002__Periodic Sales Analysis (by Item) - CR (GB) (System).rpt
+Path:   SA130002__Periodic Sales Analysis (by Item) - CR (GB) (System).rpt
+Extracted: 2026-05-07 18:03:56
+============================================================
+
+************************************************************
+  PARAMETERS
+************************************************************
+Parameter: (error)
+  Type:     You cannot call a method on a null-valued expression.
+  Report:   
+  Default:  
+
+
+************************************************************
+  FORMULA FIELDS
+************************************************************
+Formula: {@F_97}
+--- BEGIN ---
+if {PLD__ITEMS.F_97}='' then ' ' else {PLD__ITEMS.F_97}
+--- END ---
+
+Formula: {@F_98}
+--- BEGIN ---
+if {PLD__ITEMS.F_98}='' then ' ' else {PLD__ITEMS.F_98}
+--- END ---
+
+Formula: {@F_168}
+--- BEGIN ---
+if {PLD__ITEMS.F_168}='' then ' ' else {PLD__ITEMS.F_168}
+--- END ---
+
+Formula: {@F_159}
+--- BEGIN ---
+if {PLD__ITEMS.F_159}='' then ' ' else {PLD__ITEMS.F_159}
+--- END ---
+
+Formula: {@F_150}
+--- BEGIN ---
+if {PLD__ITEMS.F_150}='' then ' ' else {PLD__ITEMS.F_150}
+--- END ---
+
+Formula: {@F_130}
+--- BEGIN ---
+if {PLD__ITEMS.F_130}='' then ' ' else {PLD__ITEMS.F_130}
+--- END ---
+
+Formula: {@F_119}
+--- BEGIN ---
+if {PLD__ITEMS.F_119}='' then ' ' else {PLD__ITEMS.F_119}
+--- END ---
+
+Formula: {@F_120}
+--- BEGIN ---
+if {PLD__ITEMS.F_120}='' then ' ' else {PLD__ITEMS.F_120}
+--- END ---
+
+Formula: {@F_185}
+--- BEGIN ---
+if {PLD__ITEMS.F_185}='' then ' ' else {PLD__ITEMS.F_185}
+--- END ---
+
+Formula: {@F_182}
+--- BEGIN ---
+if {PLD__ITEMS.F_182}='' then ' ' else {PLD__ITEMS.F_182}
+--- END ---
+
+Formula: {@F_179}
+--- BEGIN ---
+if {PLD__ITEMS.F_179}='' then ' ' else {PLD__ITEMS.F_179}
+--- END ---
+
+Formula: {@F_176}
+--- BEGIN ---
+if {PLD__ITEMS.F_176}='' then ' ' else {PLD__ITEMS.F_176}
+--- END ---
+
+Formula: {@F_177}
+--- BEGIN ---
+if {PLD__ITEMS.F_177}='' then ' ' else {PLD__ITEMS.F_177}
+--- END ---
+
+Formula: {@F_180}
+--- BEGIN ---
+if {PLD__ITEMS.F_180}='' then ' ' else {PLD__ITEMS.F_180}
+--- END ---
+
+Formula: {@F_183}
+--- BEGIN ---
+if {PLD__ITEMS.F_183}='' then ' ' else {PLD__ITEMS.F_183}
+--- END ---
+
+Formula: {@F_186}
+--- BEGIN ---
+if {PLD__ITEMS.F_186}='' then ' ' else {PLD__ITEMS.F_186}
+--- END ---
+
+Formula: {@F_125}
+--- BEGIN ---
+if {PLD__ITEMS.F_125}='' then ' ' else {PLD__ITEMS.F_125}
+--- END ---
+
+Formula: {@F_153}
+--- BEGIN ---
+if {PLD__ITEMS.F_153}='' then ' ' else {PLD__ITEMS.F_153}
+--- END ---
+
+Formula: {@F_162}
+--- BEGIN ---
+if {PLD__ITEMS.F_162}='' then ' ' else {PLD__ITEMS.F_162}
+--- END ---
+
+Formula: {@F_171}
+--- BEGIN ---
+if {PLD__ITEMS.F_171}='' then ' ' else {PLD__ITEMS.F_171}
+--- END ---
+
+Formula: {@PrintTimeInfo}
+--- BEGIN ---
+NthLargest (1, {PLD__ITEMS.F_98}) + ' ' + NthLargest (1, {PLD__ITEMS.F_97})
+--- END ---
+
+Formula: {@Indicator}
+--- BEGIN ---
+"▌"
+--- END ---
+
+Formula: {@CurrencySymbol}
+--- BEGIN ---
+shared stringvar currSymbol := maximum ({PLD__ITEMS.F_129_Symbol});
+currSymbol
+
+--- END ---
+
+Formula: {@__InvoiceString}
+--- BEGIN ---
+"AR Invoices"
+--- END ---
+
+Formula: {@__OrderString}
+--- BEGIN ---
+"Orders"
+--- END ---
+
+Formula: {@__DeliveryString}
+--- BEGIN ---
+"Delivery Notes"
+--- END ---
+
+Formula: {@F_104}
+--- BEGIN ---
+shared stringvar postdatefrom:=maximum({PLD__ITEMS.F_104});
+postdatefrom
+--- END ---
+
+Formula: {@F_106}
+--- BEGIN ---
+shared stringvar postdateto := maximum({PLD__ITEMS.F_106});
+postdateto
+--- END ---
+
+Formula: {@F_109}
+--- BEGIN ---
+shared stringvar duedatefrom := maximum({PLD__ITEMS.F_109});
+duedatefrom
+
+--- END ---
+
+Formula: {@F_111}
+--- BEGIN ---
+shared stringvar duedateto := maximum({PLD__ITEMS.F_111});
+duedateto
+--- END ---
+
+Formula: {@F_236}
+--- BEGIN ---
+shared stringvar docdatefrom := maximum({PLD__ITEMS.F_236});
+docdatefrom
+--- END ---
+
+Formula: {@F_235}
+--- BEGIN ---
+shared stringvar docdateto := maximum({PLD__ITEMS.F_235});
+docdateto
+--- END ---
+
+Formula: {@F_234}
+--- BEGIN ---
+shared stringvar doctype := maximum({PLD__ITEMS.F_234});
+doctype
+--- END ---
+
+Formula: {@Part}
+--- BEGIN ---
+shared stringvar partnumber := maximum({@singlepart});
+partnumber
+--- END ---
+
+Formula: {@F_141}
+--- BEGIN ---
+maximum({PLD__ITEMS.F_141})
+--- END ---
+
+Formula: {@F_142}
+--- BEGIN ---
+maximum({PLD__ITEMS.F_142})
+--- END ---
+
+Formula: {@F_143}
+--- BEGIN ---
+maximum({PLD__ITEMS.F_143})
+--- END ---
+
+Formula: {@F_144}
+--- BEGIN ---
+maximum({PLD__ITEMS.F_144})
+--- END ---
+
+Formula: {@F_233}
+--- BEGIN ---
+shared stringvar postdatefrom := maximum({PLD__ITEMS.F_233});
+postdatefrom
+--- END ---
+
+Formula: {@F_232}
+--- BEGIN ---
+shared stringvar postdateto := maximum({PLD__ITEMS.F_232});
+postdateto
+--- END ---
+
+Formula: {@singlepart}
+--- BEGIN ---
+if isnull({PLD__ITEMS.F_174}) then
+'1'
+else
+{PLD__ITEMS.F_174}
+--- END ---
+
+
+************************************************************
+  CONNECTION INFO
+************************************************************
+Table:    PLD__ITEMS
+  Server:   PLDReportSource
+  Database: 
+  UserID:   
+
+Table:    OADM
+  Server:   DRIVER={HDBODBC32};UID=SYSTEM;PWD=manager;SERVERNODE=10.55.178.115:30915;DATABASE=SBODEMODE
+  Database: 
+  UserID:   
+
+Table:    OADP
+  Server:   DRIVER={HDBODBC32};UID=SYSTEM;PWD=manager;SERVERNODE=10.55.178.115:30915;DATABASE=SBODEMODE
+  Database: 
+  UserID:   
+
+
+************************************************************
+  TABLE LINKS
+************************************************************
+(No table links)
+
+************************************************************
+  RECORD SELECTION FORMULA
+************************************************************
+(No record selection formula)
+
+

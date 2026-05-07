@@ -1,0 +1,144 @@
+﻿============================================================
+Report: MDC20001__Master Data Cleanup Summary Report - CR (System).rpt
+Path:   MDC20001__Master Data Cleanup Summary Report - CR (System).rpt
+Extracted: 2026-05-07 18:03:14
+============================================================
+
+************************************************************
+  PARAMETERS
+************************************************************
+(No parameters)
+
+************************************************************
+  FORMULA FIELDS
+************************************************************
+Formula: {@F_9}
+--- BEGIN ---
+if {PLD__ITEMS.F_9}='' then ' ' else {PLD__ITEMS.F_9}
+--- END ---
+
+Formula: {@F_12}
+--- BEGIN ---
+if {PLD__ITEMS.F_12}='' then ' ' else {PLD__ITEMS.F_12}
+--- END ---
+
+Formula: {@F_13}
+--- BEGIN ---
+if {PLD__ITEMS.F_13}='' then ' ' else {PLD__ITEMS.F_13}
+--- END ---
+
+Formula: {@F_16}
+--- BEGIN ---
+if {PLD__ITEMS.F_16}='' then ' ' else {PLD__ITEMS.F_16}
+--- END ---
+
+Formula: {@F_17}
+--- BEGIN ---
+if {PLD__ITEMS.F_17}='' then ' ' else {PLD__ITEMS.F_17}
+--- END ---
+
+Formula: {@F_21}
+--- BEGIN ---
+if {PLD__ITEMS.F_21}='' then ' ' else {PLD__ITEMS.F_21}
+--- END ---
+
+Formula: {@F_22}
+--- BEGIN ---
+if {PLD__ITEMS.F_22}='' then ' ' else {PLD__ITEMS.F_22}
+--- END ---
+
+Formula: {@F_23}
+--- BEGIN ---
+if {PLD__ITEMS.F_23}='' then ' ' else {PLD__ITEMS.F_23}
+--- END ---
+
+Formula: {@Types}
+--- BEGIN ---
+if ToNumber ({@F_17}) = 1 then {@__Account_str}
+else if ToNumber ({@F_17}) = 2 then {@__BP_str}
+else if ToNumber ({@F_17}) = 4 then {@__Item_str}
+else if ToNumber ({@F_17}) = 61 then {@__CostCenter_str}
+else if ToNumber ({@F_17}) = 62 then {@__DistRule_str}
+else if ToNumber ({@F_17}) = 63 then {@__Project_str}
+else if ToNumber ({@F_17}) = 5 then {@__VATLine_str}
+else if ToNumber ({@F_17}) = 128 then {@__VATCard_str}
+else if ToNumber ({@F_17}) = 171 then {@__Employee_str}
+else " "
+--- END ---
+
+Formula: {@__Account_str}
+--- BEGIN ---
+"G/L Accounts"
+--- END ---
+
+Formula: {@__BP_str}
+--- BEGIN ---
+"Business Partners"
+--- END ---
+
+Formula: {@__Item_str}
+--- BEGIN ---
+"Items"
+--- END ---
+
+Formula: {@__CostCenter_str}
+--- BEGIN ---
+"Cost Centres"
+--- END ---
+
+Formula: {@__DistRule_str}
+--- BEGIN ---
+"Distribution Rules"
+--- END ---
+
+Formula: {@__Project_str}
+--- BEGIN ---
+"Projects"
+--- END ---
+
+Formula: {@__VATLine_str}
+--- BEGIN ---
+"Tax Definitions"
+--- END ---
+
+Formula: {@__VATCard_str}
+--- BEGIN ---
+"Sales Tax Codes"
+--- END ---
+
+Formula: {@__Employee_str}
+--- BEGIN ---
+"Employees"
+--- END ---
+
+Formula: {@F_24}
+--- BEGIN ---
+if {PLD__ITEMS.F_24}='' then ' ' else {PLD__ITEMS.F_24}
+--- END ---
+
+
+************************************************************
+  CONNECTION INFO
+************************************************************
+Table:    PLD__ITEMS
+  Server:   PLDReportSource
+  Database: 
+  UserID:   
+
+Table:    OADP
+  Server:   DRIVER={B1CRHPROXY};UID=SYSTEM;PWD=manager;SERVERNODE=skbtsh001.btsl.sap.corp:30915;DATABASE=VK_1303_US;
+  Database: VK_1303_US
+  UserID:   SYSTEM
+
+
+************************************************************
+  TABLE LINKS
+************************************************************
+(No table links)
+
+************************************************************
+  RECORD SELECTION FORMULA
+************************************************************
+(No record selection formula)
+
+

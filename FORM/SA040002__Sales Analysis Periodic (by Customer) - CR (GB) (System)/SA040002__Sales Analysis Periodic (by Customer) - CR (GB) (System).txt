@@ -1,0 +1,349 @@
+﻿============================================================
+Report: SA040002__Sales Analysis Periodic (by Customer) - CR (GB) (System).rpt
+Path:   SA040002__Sales Analysis Periodic (by Customer) - CR (GB) (System).rpt
+Extracted: 2026-05-07 18:03:55
+============================================================
+
+************************************************************
+  PARAMETERS
+************************************************************
+Parameter: (error)
+  Type:     You cannot call a method on a null-valued expression.
+  Report:   
+  Default:  
+
+
+************************************************************
+  FORMULA FIELDS
+************************************************************
+Formula: {@F_95}
+--- BEGIN ---
+//if {PLD__ITEMS.F_95}='' then ' ' else {PLD__ITEMS.F_95}
+Shared StringVar companyName;
+
+If PageNumber = 1 Then
+    companyName := {OADM.CompnyName};
+
+If companyName='' Then ' ' Else companyName
+--- END ---
+
+Formula: {@F_97}
+--- BEGIN ---
+//if {PLD__ITEMS.F_97}='' then ' ' else {PLD__ITEMS.F_97}
+Shared StringVar strDate;
+
+If PageNumber = 1 Then
+  strDate := {PLD__ITEMS.F_97};
+
+If strDate='' Then ' ' Else strDate
+--- END ---
+
+Formula: {@F_98}
+--- BEGIN ---
+//if {PLD__ITEMS.F_98}='' then ' ' else {PLD__ITEMS.F_98}
+
+Shared StringVar strTime;
+
+If PageNumber = 1 Then
+    strTime := {PLD__ITEMS.F_98};
+
+If strTime='' Then ' ' Else strTime
+--- END ---
+
+Formula: {@F_131}
+--- BEGIN ---
+if {PLD__ITEMS.F_131}='' then ' ' else {PLD__ITEMS.F_131}
+--- END ---
+
+Formula: {@F_166}
+--- BEGIN ---
+if {PLD__ITEMS.F_166}='' then ' ' 
+Else TrailCurrency (Trim({PLD__ITEMS.F_166}), {OADM.CurOnRight})
+--- END ---
+
+Formula: {@F_167}
+--- BEGIN ---
+if {PLD__ITEMS.F_167}='' then ' ' 
+Else TrailCurrency (Trim({PLD__ITEMS.F_167}), {OADM.CurOnRight})
+--- END ---
+
+Formula: {@F_168}
+--- BEGIN ---
+if {PLD__ITEMS.F_168}='' then ' ' else {PLD__ITEMS.F_168}
+--- END ---
+
+Formula: {@F_157}
+--- BEGIN ---
+if {PLD__ITEMS.F_157}='' then ' '
+Else TrailCurrency (Trim({PLD__ITEMS.F_157}), {OADM.CurOnRight})
+--- END ---
+
+Formula: {@F_158}
+--- BEGIN ---
+if {PLD__ITEMS.F_158}='' then ' '
+Else TrailCurrency (Trim({PLD__ITEMS.F_158}), {OADM.CurOnRight})
+--- END ---
+
+Formula: {@F_159}
+--- BEGIN ---
+if {PLD__ITEMS.F_159}='' then ' ' else {PLD__ITEMS.F_159}
+--- END ---
+
+Formula: {@F_148}
+--- BEGIN ---
+if {PLD__ITEMS.F_148}='' then ' ' 
+Else TrailCurrency (Trim({PLD__ITEMS.F_148}), {OADM.CurOnRight})
+--- END ---
+
+Formula: {@F_149}
+--- BEGIN ---
+if {PLD__ITEMS.F_149}='' then ' ' 
+Else TrailCurrency (Trim({PLD__ITEMS.F_149}), {OADM.CurOnRight})
+--- END ---
+
+Formula: {@F_150}
+--- BEGIN ---
+if {PLD__ITEMS.F_150}='' then ' ' else {PLD__ITEMS.F_150}
+--- END ---
+
+Formula: {@F_127}
+--- BEGIN ---
+if {PLD__ITEMS.F_127}='' then ' ' 
+Else TrailCurrency (Trim({PLD__ITEMS.F_127}), {OADM.CurOnRight})
+--- END ---
+
+Formula: {@F_128}
+--- BEGIN ---
+if {PLD__ITEMS.F_128}='' then ' '
+Else TrailCurrency (Trim({PLD__ITEMS.F_128}), {OADM.CurOnRight})
+--- END ---
+
+Formula: {@F_129}
+--- BEGIN ---
+if {PLD__ITEMS.F_129}='' then ' ' 
+Else TrailCurrency (Trim({PLD__ITEMS.F_129}), {OADM.CurOnRight})
+--- END ---
+
+Formula: {@F_130}
+--- BEGIN ---
+if {PLD__ITEMS.F_130}='' then ' ' else {PLD__ITEMS.F_130}
+--- END ---
+
+Formula: {@F_119}
+--- BEGIN ---
+if {PLD__ITEMS.F_119}='' then ' ' else {PLD__ITEMS.F_119}
+--- END ---
+
+Formula: {@F_120}
+--- BEGIN ---
+if {PLD__ITEMS.F_120}='' then ' ' else {PLD__ITEMS.F_120}
+--- END ---
+
+Formula: {@F_121}
+--- BEGIN ---
+if {PLD__ITEMS.F_121}='' then ' ' else {PLD__ITEMS.F_121}
+--- END ---
+
+Formula: {@F_122}
+--- BEGIN ---
+if {PLD__ITEMS.F_122}='' then ' ' else {PLD__ITEMS.F_122}
+--- END ---
+
+Formula: {@F_123}
+--- BEGIN ---
+if {PLD__ITEMS.F_123}='' then ' ' else {PLD__ITEMS.F_123}
+--- END ---
+
+Formula: {@F_125}
+--- BEGIN ---
+if {PLD__ITEMS.F_125}='' then ' ' else {PLD__ITEMS.F_125}
+--- END ---
+
+Formula: {@F_151}
+--- BEGIN ---
+if {PLD__ITEMS.F_151}='' then ' ' else {PLD__ITEMS.F_151}
+--- END ---
+
+Formula: {@F_152}
+--- BEGIN ---
+if {PLD__ITEMS.F_152}='' then ' ' else {PLD__ITEMS.F_152}
+--- END ---
+
+Formula: {@F_153}
+--- BEGIN ---
+if {PLD__ITEMS.F_153}='' then ' ' else {PLD__ITEMS.F_153}
+--- END ---
+
+Formula: {@F_160}
+--- BEGIN ---
+if {PLD__ITEMS.F_160}='' then ' ' else {PLD__ITEMS.F_160}
+--- END ---
+
+Formula: {@F_161}
+--- BEGIN ---
+if {PLD__ITEMS.F_161}='' then ' ' else {PLD__ITEMS.F_161}
+--- END ---
+
+Formula: {@F_162}
+--- BEGIN ---
+if {PLD__ITEMS.F_162}='' then ' ' else {PLD__ITEMS.F_162}
+--- END ---
+
+Formula: {@F_169}
+--- BEGIN ---
+if {PLD__ITEMS.F_169}='' then ' ' else {PLD__ITEMS.F_169}
+--- END ---
+
+Formula: {@F_170}
+--- BEGIN ---
+if {PLD__ITEMS.F_170}='' then ' ' else {PLD__ITEMS.F_170}
+--- END ---
+
+Formula: {@F_171}
+--- BEGIN ---
+if {PLD__ITEMS.F_171}='' then ' ' else {PLD__ITEMS.F_171}
+--- END ---
+
+Formula: {@F_132}
+--- BEGIN ---
+if {PLD__ITEMS.F_132}='' then ' ' else {PLD__ITEMS.F_132}
+--- END ---
+
+Formula: {@F_134}
+--- BEGIN ---
+if {PLD__ITEMS.F_134}='' then ' ' else {PLD__ITEMS.F_134}
+--- END ---
+
+Formula: {@F_135}
+--- BEGIN ---
+if {PLD__ITEMS.F_135}='' then ' ' else {PLD__ITEMS.F_135}
+--- END ---
+
+Formula: {@F_174}
+--- BEGIN ---
+if {PLD__ITEMS.F_174}='' then ' ' else {PLD__ITEMS.F_174}
+--- END ---
+
+Formula: {@__ContinueStr}
+--- BEGIN ---
+"Continue"
+--- END ---
+
+Formula: {@Declare}
+--- BEGIN ---
+Shared StringVar companyName;
+Shared StringVar reportName;
+Shared StringVar strDate;
+Shared StringVar strTime;
+--- END ---
+
+Formula: {@F_96}
+--- BEGIN ---
+Shared StringVar reportName;
+
+If PageNumber = 1 Then
+    reportName := {PLD__ITEMS.F_96};
+
+reportName;
+--- END ---
+
+Formula: {@ReportTitle}
+--- BEGIN ---
+EvaluateAfter({@F_96});
+{@F_96}
+--- END ---
+
+Formula: {@ColorTableHeader}
+--- BEGIN ---
+Color(240, 244, 247)
+--- END ---
+
+Formula: {@ColorContentText}
+--- BEGIN ---
+Color(30, 30, 30)
+--- END ---
+
+Formula: {@__Page}
+--- BEGIN ---
+"Page:"
+--- END ---
+
+Formula: {@PrintTimeInfo}
+--- BEGIN ---
+Shared StringVar strDate;
+Shared StringVar strTime;
+
+{@__PrintedOn} + ' ' + strTime  + ' ' + strDate
+--- END ---
+
+Formula: {@PageIndicator}
+--- BEGIN ---
+{@__Page} + ' ' + ToText(PageNumber, 0) + ' / ' + ToText(TotalPageCount, 0)
+--- END ---
+
+Formula: {@__PrintedOn}
+--- BEGIN ---
+"Printed On:"
+--- END ---
+
+Formula: {@__Of}
+--- BEGIN ---
+" /"
+--- END ---
+
+Formula: {@Quarter1}
+--- BEGIN ---
+NthLargest (1, {PLD__ITEMS.F_141})
+--- END ---
+
+Formula: {@Quarter2}
+--- BEGIN ---
+NthLargest (1, {PLD__ITEMS.F_142})
+--- END ---
+
+Formula: {@Quarter3}
+--- BEGIN ---
+NthLargest (1, {PLD__ITEMS.F_143})
+--- END ---
+
+Formula: {@Quarter4}
+--- BEGIN ---
+NthLargest (1, {PLD__ITEMS.F_144})
+--- END ---
+
+Formula: {@CurrencySymbol}
+--- BEGIN ---
+Maximum({PLD__ITEMS.F_121_Symbol})
+--- END ---
+
+
+************************************************************
+  CONNECTION INFO
+************************************************************
+Table:    PLD__ITEMS
+  Server:   PLDReportSource
+  Database: 
+  UserID:   
+
+Table:    OADP
+  Server:   DRIVER={HDBODBC32};UID=SYSTEM;PWD=manager;SERVERNODE=10.55.178.115:30915;DATABASE=SBODEMODE
+  Database: 
+  UserID:   
+
+Table:    OADM
+  Server:   DRIVER={HDBODBC32};UID=SYSTEM;PWD=manager;SERVERNODE=10.55.178.115:30915;DATABASE=SBODEMODE
+  Database: 
+  UserID:   
+
+
+************************************************************
+  TABLE LINKS
+************************************************************
+(No table links)
+
+************************************************************
+  RECORD SELECTION FORMULA
+************************************************************
+(No record selection formula)
+
+

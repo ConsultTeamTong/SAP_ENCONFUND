@@ -1,0 +1,388 @@
+﻿============================================================
+Report: BAL10002__Balance Sheet - CR (GB) (System).rpt
+Path:   BAL10002__Balance Sheet - CR (GB) (System).rpt
+Extracted: 2026-05-07 18:02:45
+============================================================
+
+************************************************************
+  PARAMETERS
+************************************************************
+Parameter: (error)
+  Type:     You cannot call a method on a null-valued expression.
+  Report:   
+  Default:  
+
+
+************************************************************
+  FORMULA FIELDS
+************************************************************
+Formula: {@F_71}
+--- BEGIN ---
+Shared StringVar companyName;
+
+If PageNumber = 1 Then
+(
+    companyName := {OADM.CompnyName};
+);
+
+if companyName = '' then ' '
+else
+companyName
+--- END ---
+
+Formula: {@F_72}
+--- BEGIN ---
+Shared StringVar dateStr;
+//If {PLD__ITEMS._Section} = 'PH' Then dateStr := {PLD__ITEMS.F_72};
+//if {PLD__ITEMS.F_72}='' then ' ' else {PLD__ITEMS.F_72}
+
+If {PLD__ITEMS._Section} = 'PH' Then
+(
+    dateStr := {PLD__ITEMS.F_72};
+    if {PLD__ITEMS.F_72}='' then ' ' else {PLD__ITEMS.F_72}
+)
+Else
+(
+    if dateStr = '' Then ' '
+    Else dateStr
+)
+--- END ---
+
+Formula: {@F_73}
+--- BEGIN ---
+Shared StringVar timeStr;
+
+if {PLD__ITEMS._Section}='PH' Then
+(
+    timeStr := {PLD__ITEMS.F_73};
+    if {PLD__ITEMS.F_73}='' then ' ' else {PLD__ITEMS.F_73}
+)
+Else
+(
+    if timeStr = '' Then ' '
+    Else timeStr
+)
+--- END ---
+
+Formula: {@F_76}
+--- BEGIN ---
+//Shared StringVar continueStr;
+//
+//If PageNumber = 1 Then
+//(
+//    continueStr := {PLD__ITEMS.F_76};
+//    if {PLD__ITEMS.F_76}='' then ' ' else {PLD__ITEMS.F_76}
+//)
+//Else
+//    continueStr
+
+'Continue'
+
+
+--- END ---
+
+Formula: {@F_88}
+--- BEGIN ---
+Shared StringVar toStr;
+
+If PageNumber = 1 Then
+(
+    toStr := {PLD__ITEMS.F_88};
+    if {PLD__ITEMS.F_88}='' then ' ' else {PLD__ITEMS.F_88}
+)
+Else
+(
+    if toStr = '' Then ' '
+    Else toStr
+)
+--- END ---
+
+Formula: {@F_83}
+--- BEGIN ---
+Local NumberVar  firstSpace := 0;
+Local StringVar  trimedStr := Trim({PLD__ITEMS.F_83});
+
+if {PLD__ITEMS.F_83}='' then ' ' 
+else
+( 
+    firstSpace := InStr(trimedStr,' ');
+    if firstSpace > 0 Then
+        Right(trimedStr, Len(trimedStr) - firstSpace) 
+    else
+        {PLD__ITEMS.F_83}
+)
+--- END ---
+
+Formula: {@F_84}
+--- BEGIN ---
+Local NumberVar  firstSpace := 0;
+Local StringVar  trimedStr := Trim({PLD__ITEMS.F_84});
+
+if {PLD__ITEMS.F_84}='' then ' ' 
+else
+( 
+    firstSpace := InStr(trimedStr,' ');
+    if firstSpace > 0 Then
+        Right(trimedStr, Len(trimedStr) - firstSpace) 
+    else
+        {PLD__ITEMS.F_84}
+)
+--- END ---
+
+Formula: {@F_85}
+--- BEGIN ---
+Local NumberVar  firstSpace := 0;
+Local StringVar  trimedStr := Trim({PLD__ITEMS.F_85});
+
+if {PLD__ITEMS.F_85}='' then ' ' 
+else
+( 
+    firstSpace := InStr(trimedStr,' ');
+    if firstSpace > 0 Then
+        Right(trimedStr, Len(trimedStr) - firstSpace) 
+    else
+        {PLD__ITEMS.F_85}
+)
+--- END ---
+
+Formula: {@F_86}
+--- BEGIN ---
+Local NumberVar  firstSpace := 0;
+Local StringVar  trimedStr := Trim({PLD__ITEMS.F_86});
+
+if {PLD__ITEMS.F_86}='' then ' ' 
+else
+( 
+    firstSpace := InStr(trimedStr,' ');
+    if firstSpace > 0 Then
+        Right(trimedStr, Len(trimedStr) - firstSpace) 
+    else
+        {PLD__ITEMS.F_86}
+)
+--- END ---
+
+Formula: {@F_79}
+--- BEGIN ---
+//Local NumberVar rTimes := 0;
+//if Instr({PLD__ITEMS.F_79}, {@__strTotal}) > 0 then
+//rTimes := ToNumber (trim({@F_99}))-2
+//else 
+//rTimes := ToNumber (trim({@F_99}))-1;
+//
+//if rTimes < 0 then rTimes := 0;
+//
+//if {PLD__ITEMS.F_79}='' then ' ' else (ReplicateString ("    ", rTimes) + {PLD__ITEMS.F_79})
+
+if {PLD__ITEMS.F_79}='' then ' ' else {PLD__ITEMS.F_79}
+--- END ---
+
+Formula: {@F_81}
+--- BEGIN ---
+//Local NumberVar Times := 0;
+//if Instr(1,{PLD__ITEMS.F_81}, {@__strTotal}, 1) > 0 then
+//Times := ToNumber (trim({@F_99}))-2
+//else 
+//Times := ToNumber (trim({@F_99}))-1;
+//
+//if Times < 0 Then Times := 0;
+//
+//if {PLD__ITEMS.F_81}='' then ' ' else (ReplicateString ("    ", Times) + {PLD__ITEMS.F_81})
+
+if {PLD__ITEMS.F_81}='' then ' ' else {PLD__ITEMS.F_81}
+
+
+--- END ---
+
+Formula: {@F_66}
+--- BEGIN ---
+if {PLD__ITEMS.F_66}='' then ' ' else {PLD__ITEMS.F_66}
+--- END ---
+
+Formula: {@F_67}
+--- BEGIN ---
+//if {PLD__ITEMS.F_67}='' then ' ' else {PLD__ITEMS.F_67}
+'Printed by SAP Business One'
+--- END ---
+
+Formula: {@F_70}
+--- BEGIN ---
+//if {PLD__ITEMS.F_70}='' then ' ' else {PLD__ITEMS.F_70}
+'Continued on next page'
+--- END ---
+
+Formula: {@F_90}
+--- BEGIN ---
+if {PLD__ITEMS.F_90}='' then ' ' else (NthLargest (1, {PLD__ITEMS.F_90}) + ':')
+--- END ---
+
+Formula: {@Declare}
+--- BEGIN ---
+Shared StringVar  continueStr;
+Shared StringVar  companyName;
+Shared StringVar  dateStr;
+Shared BooleanVar leftUnder := FALSE;
+Shared BooleanVar rightUnder := FALSE;
+Shared StringVar  timeStr;
+Shared StringVar  toStr;
+
+Shared Stringvar Symbol;
+
+--- END ---
+
+Formula: {@ColorTableHdr}
+--- BEGIN ---
+Color(240, 244, 247)
+--- END ---
+
+Formula: {@__strTotal}
+--- BEGIN ---
+"Total"
+--- END ---
+
+Formula: {@ColorLine}
+--- BEGIN ---
+Color(0, 127, 222)
+--- END ---
+
+Formula: {@ColorContextText}
+--- BEGIN ---
+Color(30, 30, 30)
+--- END ---
+
+Formula: {@F_99}
+--- BEGIN ---
+if {PLD__ITEMS.F_99}='' then ' ' else {PLD__ITEMS.F_99}
+--- END ---
+
+Formula: {@F_151}
+--- BEGIN ---
+If {PLD__ITEMS.F_140} = '' Then ' '
+Else  {PLD__ITEMS.F_140}
+--- END ---
+
+Formula: {@TimeStr}
+--- BEGIN ---
+Shared StringVar timeStr;
+--- END ---
+
+Formula: {@DateStr}
+--- BEGIN ---
+Shared StringVar dateStr;
+--- END ---
+
+Formula: {@F_106}
+--- BEGIN ---
+{PLD__ITEMS.F_106i} 
+--- END ---
+
+Formula: {@CurrencySymbol}
+--- BEGIN ---
+Shared Stringvar Symbol;
+Local  StringVar format_F83;
+Local  NumberVar symbolCount; //include '===' or '___'
+Local  NumberVar i;
+Local  StringVar temp;
+Local  NumberVar realSym := 0;
+
+format_F83 := NthMostFrequent (1, {PLD__ITEMS.F_83_Format});
+
+//Foreign column is InVisible
+If Mid(format_F83, 1, 1) = '_' Then
+(
+    symbolCount := DistinctCount({PLD__ITEMS.F_83_Symbol});
+    For i := 1 To symbolCount Step 1 Do
+    (
+        Select i
+        Case 1 : temp := NthMostFrequent(1, {PLD__ITEMS.F_83_Symbol})
+        Case 2 : temp := NthMostFrequent(2, {PLD__ITEMS.F_83_Symbol})
+        Case 3 : temp := NthMostFrequent(3, {PLD__ITEMS.F_83_Symbol})
+        Case 4 : temp := NthMostFrequent(4, {PLD__ITEMS.F_83_Symbol})
+        Case 5 : temp := NthMostFrequent(5, {PLD__ITEMS.F_83_Symbol})
+        Default: temp := '';
+
+        If Trim(temp)<>'' and Mid(temp, 1, 1)<>'-' and Mid(temp,1,1)<>'=' 
+                and Mid(temp, 1,1)<>'_'  and Mid(temp, 1,1)<>'*' Then
+        (
+            Symbol := temp;
+            Exit For;
+        )
+    );
+    
+    Symbol := Symbol;   //To avoid grammar check error only....
+)
+Else
+(
+    symbolCount := DistinctCount({PLD__ITEMS.F_86_Symbol});
+    For i := 1 To symbolCount Step 1 Do
+    (
+        Select i
+        Case 1 : temp := NthMostFrequent(1, {PLD__ITEMS.F_86_Symbol})
+        Case 2 : temp := NthMostFrequent(2, {PLD__ITEMS.F_86_Symbol})
+        Case 3 : temp := NthMostFrequent(3, {PLD__ITEMS.F_86_Symbol})
+        Case 4 : temp := NthMostFrequent(4, {PLD__ITEMS.F_86_Symbol})
+        Case 5 : temp := NthMostFrequent(5, {PLD__ITEMS.F_86_Symbol})
+        Default: temp := '';
+        
+        If Mid(temp, 1, 1) = '*' Then
+        (
+            realSym := 100 ;
+           
+        )
+        Else  
+        (
+            //It is a symbol we want.
+            If Trim(temp)<>'' and Mid(temp, 1, 1)<>'-' and Mid(temp,1,1)<>'=' 
+                and Mid(temp, 1,1)<>'_'  and Mid(temp, 1,1)<>'*' Then
+            (
+                realSym := realSym + 1;
+                Symbol := temp;
+            );
+            
+            realSym := realSym;  //To avoid grammar check error....
+        )
+        
+        
+    );
+
+    If realSym >1  Then Symbol := '****';
+    
+);
+Symbol
+--- END ---
+
+Formula: {@PageIndicator}
+--- BEGIN ---
+ToText(PageNumber, 0) + ' / '+ ToText(TotalPageCount, 0) 
+--- END ---
+
+
+************************************************************
+  CONNECTION INFO
+************************************************************
+Table:    PLD__ITEMS
+  Server:   NewDataSet
+  Database: 
+  UserID:   
+
+Table:    OADP
+  Server:   skbtsh001:30915
+  Database: 
+  UserID:   system
+
+Table:    OADM
+  Server:   skbtsh001:30915
+  Database: 
+  UserID:   system
+
+
+************************************************************
+  TABLE LINKS
+************************************************************
+(No table links)
+
+************************************************************
+  RECORD SELECTION FORMULA
+************************************************************
+(No record selection formula)
+
+

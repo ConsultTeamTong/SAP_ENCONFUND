@@ -1,0 +1,69 @@
+﻿============================================================
+Report: MDC30001__Master Data Cleanup Error Log Report - CR (System).rpt
+Path:   MDC30001__Master Data Cleanup Error Log Report - CR (System).rpt
+Extracted: 2026-05-07 18:03:15
+============================================================
+
+************************************************************
+  PARAMETERS
+************************************************************
+Parameter: (error)
+  Type:     You cannot call a method on a null-valued expression.
+  Report:   
+  Default:  
+
+
+************************************************************
+  FORMULA FIELDS
+************************************************************
+Formula: {@F_9}
+--- BEGIN ---
+if {PLD__ITEMS.F_9}='' then ' ' else {PLD__ITEMS.F_9}
+--- END ---
+
+Formula: {@F_12}
+--- BEGIN ---
+if {PLD__ITEMS.F_12}='' then ' ' else {PLD__ITEMS.F_12}
+--- END ---
+
+Formula: {@F_13}
+--- BEGIN ---
+if {PLD__ITEMS.F_13}='' then ' ' else {PLD__ITEMS.F_13}
+--- END ---
+
+Formula: {@F_16}
+--- BEGIN ---
+if {PLD__ITEMS.F_16}='' then ' ' else {PLD__ITEMS.F_16}
+--- END ---
+
+Formula: {@F_17}
+--- BEGIN ---
+if {PLD__ITEMS.F_17}='' then ' ' else {PLD__ITEMS.F_17}
+--- END ---
+
+
+************************************************************
+  CONNECTION INFO
+************************************************************
+Table:    PLD__ITEMS
+  Server:   PLDReportSource
+  Database: 
+  UserID:   
+
+Table:    OADP
+  Server:   DRIVER={HDBODBC32};UID=SYSTEM;PWD=manager;SERVERNODE=10.55.178.115:30915;DATABASE=SBODEMODE
+  Database: 
+  UserID:   
+
+
+************************************************************
+  TABLE LINKS
+************************************************************
+(No table links)
+
+************************************************************
+  RECORD SELECTION FORMULA
+************************************************************
+(No record selection formula)
+
+

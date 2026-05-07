@@ -1,0 +1,399 @@
+﻿============================================================
+Report: CLN40001__Calendar (Daily) - CR (System).rpt
+Path:   CLN40001__Calendar (Daily) - CR (System).rpt
+Extracted: 2026-05-07 18:02:53
+============================================================
+
+************************************************************
+  PARAMETERS
+************************************************************
+Parameter: (error)
+  Type:     You cannot call a method on a null-valued expression.
+  Report:   
+  Default:  
+
+
+************************************************************
+  FORMULA FIELDS
+************************************************************
+Formula: {@IsDayOn}
+--- BEGIN ---
+True
+--- END ---
+
+Formula: {@ShowPhoneCall}
+--- BEGIN ---
+({?ActivityTypes} / 100 mod 10) = 1
+--- END ---
+
+Formula: {@__globals}
+--- BEGIN ---
+Shared StringVar On := '1';
+Shared StringVar Sep := ',';
+Shared NumberVar MDRecordLimit := 5;
+Shared StringVar ServiceCallInstanceAssignee := 'A';
+Shared StringVar ServiceCallInstanceTechnician := 'T';
+
+Local NumberVar year;
+Local NumberVar month;
+Local NumberVar day;
+year := ToNumber(Mid({?GotoDate}, 1, 4));
+month := ToNumber(Mid({?GotoDate}, 5, 2));
+day := ToNumber(Mid({?GotoDate}, 7, 2));
+
+Shared DateTimeVar TargetDate := DateTime(year, month, day);
+
+Local NumberVar targetDateOffset := DayOfWeek(Targetdate, {?FirstWeekDay}) - 1;
+
+// The days of the week
+Shared DateTimeVar Day1 := DateAdd('d', -targetDateOffset, TargetDate);
+Shared DateTimeVar Day2 := DateAdd('d', 1, Day1);
+Shared DateTimeVar Day3 := DateAdd('d', 2, Day1);
+Shared DateTimeVar Day4 := DateAdd('d', 3, Day1);
+Shared DateTimeVar Day5 := DateAdd('d', 4, Day1);
+Shared DateTimeVar Day6 := DateAdd('d', 5, Day1);
+Shared DateTimeVar Day7 := DateAdd('d', 6, Day1);
+
+Shared DateTimeVar Array DateArray := [Day1, Day2, Day3, Day4, Day5, Day6, Day7];
+
+Shared NumberVar Array BeginTimeArray;
+Shared NumberVar Array EndTimeArray;
+Redim BeginTimeArray[7];
+Redim EndTimeArray[7];
+Local NumberVar dateOffset;
+Local NumberVar i;
+
+For i:=1 to 7 Do
+(
+    dateOffset := DayOfWeek(DateArray[i]);  // BeginTimes and EndTimes order are the same as the default weekday order
+    BeginTimeArray[i] := ToNumber({?BeginTimes}[dateOffset]);
+    EndTimeArray[i] := ToNumber({?EndTimes}[dateOffset]);
+);
+
+// Size and Position
+Shared NumberVar PixelPerInch := 1440;
+Shared NumberVar TotalWidth := 10.5;         // Inch
+Shared NumberVar SubWidth := TotalWidth;
+Shared NumberVar Detail3Width := SubWidth / 3;       // Original detail width when each of the 7 sub-report having 3 details
+
+// The colors
+Shared NumberVar workColor := ToNumber({?WorkTimeColor});
+Shared NumberVar offColor := ToNumber({?OffTimeColor});
+Shared NumberVar actColor := ToNumber({?ActivityColor});
+Shared NumberVar employeeAbsEduColor := ToNumber({?EmployeeAbsEduColor});
+Shared NumberVar serviceCallColor := ToNumber({?ServiceCallColor});
+
+Shared NumberVar Array UserIdArray := {?UserIds};
+Shared StringVar Array UserColorArray := {?UserColors};
+
+Shared StringVar ActTypeCall := 'C';
+Shared StringVar ActTypeMeeting := 'M';
+Shared StringVar ActTypeOther := 'N';
+Shared StringVar ActTypeTask := 'T';
+
+Shared BooleanVar Array DaysHaveMore := [false, false, false, false, false, false, false];
+
+Shared StringVar Array WeekDayNames := [{@__Sunday}, {@__Monday}, {@__Tuesday}, {@__Wednesday}, {@__Thursday}, {@__Friday}, {@__Saturday}];
+
+// The maximum of off-time calendar items
+Shared NumberVar OffTimeLimit := 3;
+--- END ---
+
+Formula: {@ShowMeeting}
+--- BEGIN ---
+({?ActivityTypes} / 10 mod 10) = 1
+--- END ---
+
+Formula: {@ShowOther}
+--- BEGIN ---
+({?ActivityTypes} mod 10) = 1
+--- END ---
+
+Formula: {@ShowPersonal}
+--- BEGIN ---
+Shared StringVar On;
+{?ShowPersonal} = On
+--- END ---
+
+Formula: {@GapPerRow}
+--- BEGIN ---
+ToNumber({?GapPerRow})
+--- END ---
+
+Formula: {@__More}
+--- BEGIN ---
+'More...'
+--- END ---
+
+Formula: {@_dateFormat}
+--- BEGIN ---
+Shared StringVar DateFormat;
+
+select {Settings.DateFormat}
+    case "0":
+        DateFormat := "DD/MM/YY"
+    case "1":
+        DateFormat := "DD/MM/CCYY"
+    case "2":
+        DateFormat := "MM/DD/YY"
+    case "3":
+        DateFormat := "MM/DD/CCYY"
+    case "4":
+        DateFormat := "CCYY/MM/DD"
+    case "5":
+        DateFormat := "DD/Month/YYYY"
+    case "6":
+        "YY/MM/DD"
+    default:
+        DateFormat := "";
+
+DateFormat
+--- END ---
+
+Formula: {@_dateOrder}
+--- BEGIN ---
+Shared NumberVar DateOrder;
+
+If {@_dateFormat} in ["DD/MM/YY","DD/MM/CCYY","DD/Month/YYYY"] then
+    DateOrder := crDayMonthYear
+else if {@_dateFormat} in ["MM/DD/YY","MM/DD/CCYY"] then
+    DateOrder := crMonthDayYear
+else if {@_dateFormat} in ["CCYY/MM/DD","YY/MM/DD"] then
+    DateOrder := crYearMonthDay;
+
+DateOrder
+
+
+--- END ---
+
+Formula: {@_monthFormat}
+--- BEGIN ---
+Shared NumberVar MonthFormat;
+
+if "Month" in {@_dateFormat} then
+(
+ if isnull({Settings.CharMonth})  or {Settings.CharMonth} > 3 then
+    MonthFormat := crLongMonth
+ else if {Settings.CharMonth} <= 3 then
+    MonthFormat := crShortMonth
+)
+else
+    MonthFormat := crLeadingZeroMonth;
+
+MonthFormat;
+--- END ---
+
+Formula: {@_yearFormat}
+--- BEGIN ---
+Shared NumberVar yearFormat := -1;
+
+If "Month" in {@_dateFormat} then
+    yearFormat :=crLongYear
+else if "CC" in {@_dateFormat} then
+    yearFormat :=crLongYear
+else
+    yearFormat :=crShortYear;
+
+yearFormat
+--- END ---
+
+Formula: {@TargetDateString}
+--- BEGIN ---
+Shared DateTimeVar TargetDate ; // Declared in {@__globals}
+
+ToText(TargetDate, 'yyyyMMdd','','')
+--- END ---
+
+Formula: {@_dateSep}
+--- BEGIN ---
+Shared StringVar DateSep := {Settings.DateSep};
+DateSep
+--- END ---
+
+Formula: {@_sep}
+--- BEGIN ---
+" - "
+--- END ---
+
+Formula: {@HasMore}
+--- BEGIN ---
+Local  BooleanVar Day1More := false;
+
+Local NumberVar i;
+if (HasValue({?DaysHaveMore})) Then
+(
+    For i:=1 To UBound({?DaysHaveMore}) Do
+    (
+        if {@TargetDateString} = {?DaysHaveMore}[i] Then
+        (
+            Day1More := true;
+            Exit For
+        )   
+    );
+);
+
+Day1More
+--- END ---
+
+Formula: {@MoreMessage}
+--- BEGIN ---
+Shared StringVar MoreStr := '(' + {@__More} + ')'
+--- END ---
+
+Formula: {@TargetDate}
+--- BEGIN ---
+Shared DateTimeVar TargetDate; // Defined in {@__globals}
+
+
+--- END ---
+
+Formula: {@_ActivityColor}
+--- BEGIN ---
+Shared NumberVar actColor;
+
+Local NumberVar r := actColor mod 256;
+Local NumberVar g := actColor \256 mod 256;
+Local NumberVar b := actColor \256\256 mod 256;
+
+Color(r, g, b);
+--- END ---
+
+Formula: {@_OffTimeColor}
+--- BEGIN ---
+Shared NumberVar offColor;
+
+Local NumberVar r := offColor mod 256;
+Local NumberVar g := offColor \256 mod 256;
+Local NumberVar b := offColor \256\256 mod 256;
+
+Color(r, g, b);
+--- END ---
+
+Formula: {@_CurrentUserColor}
+--- BEGIN ---
+Local NumberVar rgbValue := ToNumber({?CurrentUserColor});
+Local NumberVar r := rgbValue mod 256;
+Local NumberVar g := rgbValue \256 mod 256;
+Local NumberVar b := rgbValue \256\256 mod 256;
+
+Color(r, g, b);
+--- END ---
+
+Formula: {@_HasMoreMsg}
+--- BEGIN ---
+Shared BooleanVar Array DaysHaveMore;
+
+If {@HasMore} Or DaysHaveMore[{@DayOfWeek}] Then
+    '(' + {@__More} + ')'
+
+--- END ---
+
+Formula: {@BeginTime}
+--- BEGIN ---
+Shared NumberVar Array BeginTimeArray;
+BeginTimeArray[{@DayOfWeek}]
+--- END ---
+
+Formula: {@EndTime}
+--- BEGIN ---
+Shared NumberVar Array EndTimeArray;
+EndTimeArray[{@DayOfWeek}]
+--- END ---
+
+Formula: {@MinBegin}
+--- BEGIN ---
+{@BeginTime}
+--- END ---
+
+Formula: {@MaxEnd}
+--- BEGIN ---
+{@EndTime}
+--- END ---
+
+Formula: {@DayOfWeek}
+--- BEGIN ---
+Shared DateTimeVar TargetDate;  // Declared in {@__globals}
+
+DayOfWeek(TargetDate, {?FirstWeekDay})
+--- END ---
+
+Formula: {@ShowEmployeeAbsEdu}
+--- BEGIN ---
+Shared StringVar On;
+{?ShowEmployeeAbsEdu} = On
+
+--- END ---
+
+Formula: {@ShowTask}
+--- BEGIN ---
+({?ActivityTypes} / 1000 mod 10) = 1
+--- END ---
+
+Formula: {@ShowServiceCalls}
+--- BEGIN ---
+Shared StringVar On;
+{?ShowServiceCalls} = On
+
+--- END ---
+
+Formula: {@__Monday}
+--- BEGIN ---
+'Monday'
+--- END ---
+
+Formula: {@__Tuesday}
+--- BEGIN ---
+'Tuesday'
+--- END ---
+
+Formula: {@__Wednesday}
+--- BEGIN ---
+'Wednesday'
+--- END ---
+
+Formula: {@__Thursday}
+--- BEGIN ---
+'Thursday'
+--- END ---
+
+Formula: {@__Friday}
+--- BEGIN ---
+'Friday'
+--- END ---
+
+Formula: {@'Saturday'}
+--- BEGIN ---
+'Saturday'
+--- END ---
+
+Formula: {@__Sunday}
+--- BEGIN ---
+'Sunday'
+--- END ---
+
+Formula: {@__Saturday}
+--- BEGIN ---
+'Saturday'
+--- END ---
+
+
+************************************************************
+  CONNECTION INFO
+************************************************************
+Table:    Settings
+  Server:   DRIVER={B1CRHPROXY};UID=system;PWD=manager;SERVERNODE=10.55.178.115:30215;DATABASE=SBODEMOUS
+  Database: 
+  UserID:   
+
+
+************************************************************
+  TABLE LINKS
+************************************************************
+(No table links)
+
+************************************************************
+  RECORD SELECTION FORMULA
+************************************************************
+(No record selection formula)
+
+

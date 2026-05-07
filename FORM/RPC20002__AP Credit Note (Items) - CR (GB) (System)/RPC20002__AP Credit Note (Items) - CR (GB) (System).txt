@@ -1,0 +1,481 @@
+﻿============================================================
+Report: RPC20002__AP Credit Note (Items) - CR (GB) (System).rpt
+Path:   RPC20002__AP Credit Note (Items) - CR (GB) (System).rpt
+Extracted: 2026-05-07 18:03:52
+============================================================
+
+************************************************************
+  PARAMETERS
+************************************************************
+Parameter: (error)
+  Type:     You cannot call a method on a null-valued expression.
+  Report:   
+  Default:  
+
+
+************************************************************
+  FORMULA FIELDS
+************************************************************
+Formula: {@ItemSubTotal}
+--- BEGIN ---
+if {ORPC.CurSource} = 'L'
+    then {TmSp_DocLineTypeLayout;1.SubTotal}
+else if {ORPC.CurSource} = 'S'
+    then {TmSp_DocLineTypeLayout;1.TotalSumSy}
+else if {ORPC.CurSource} = 'C'
+    then {TmSp_DocLineTypeLayout;1.TotalFrgn}
+
+--- END ---
+
+Formula: {@DownPayment}
+--- BEGIN ---
+if {ORPC.CurSource} = 'L'
+then {ORPC.DpmAmnt}
+else if {ORPC.CurSource} = 'S'
+then {ORPC.DpmAmntSC}
+else if {ORPC.CurSource} = 'C'
+then {ORPC.DpmAmntFC}
+--- END ---
+
+Formula: {@Rounding}
+--- BEGIN ---
+if {ORPC.CurSource} = 'L'
+then {ORPC.RoundDif}
+else if {ORPC.CurSource} = 'S'
+then {ORPC.RoundDifSy}
+else if {ORPC.CurSource} ='C'
+then {ORPC.RoundDifFC}
+
+--- END ---
+
+Formula: {@TotalTaxAmount}
+--- BEGIN ---
+if {ORPC.CurSource}= 'L'
+then {ORPC.VatSum}
+else if {ORPC.CurSource}= 'S'
+then {ORPC.VatSumSy}
+else if {ORPC.CurSource}= 'C'
+then {ORPC.VatSumFC}
+--- END ---
+
+Formula: {@UnitCurrencyCode}
+--- BEGIN ---
+if {OADM.CurOnRight} = "Y" then " " + {RPC1.Currency}
+else
+   {RPC1.Currency} + " "
+--- END ---
+
+Formula: {@TotalInvoiceAmount}
+--- BEGIN ---
+if {ORPC.CurSource} = 'L'
+then {ORPC.DocTotal}
+else if {ORPC.CurSource} = 'S'
+then {ORPC.DocTotalSy}
+else if {ORPC.CurSource} = 'C'
+then {ORPC.DocTotalFC}
+
+--- END ---
+
+Formula: {@LineTotal}
+--- BEGIN ---
+if {TmSp_DocLineTypeLayout;1.LineType} = 'S' then
+    {TmSp_DocLineTypeLayout;1.SubTotal}
+else if {TmSp_DocLineTypeLayout;1.LineType} = 'R' then
+    if {ORPC.CurSource} = 'L'
+        then {RPC1.LineTotal}
+   else if {ORPC.CurSource} = 'S'
+        then {RPC1.TotalSumSy}
+   else if {ORPC.CurSource}= 'C'
+        then {RPC1.TotalFrgn}
+--- END ---
+
+Formula: {@DateFormat}
+--- BEGIN ---
+      select {OADM.DateFormat}
+    case "0":
+        "DD/MM/YY"
+    case "1":
+        "DD/MM/CCYY"
+    case "2":
+        "MM/DD/YY"
+    case "3":
+        "MM/DD/CCYY"
+    case "4":
+        "CCYY/MM/DD"
+    case "5":
+        "DD/Month/YYYY"
+    case "6":
+        "YY/MM/DD"
+    default:
+        "";
+
+--- END ---
+
+Formula: {@_DateOrder}
+--- BEGIN ---
+If {@DateFormat} in ["DD/MM/YY","DD/MM/CCYY","DD/Month/YYYY"]
+ then crDayMonthYear
+else if {@DateFormat} in ["MM/DD/YY","MM/DD/CCYY"] then crMonthDayYear
+else if {@DateFormat} in ["CCYY/MM/DD","YY/MM/DD"] then crYearMonthDay
+
+--- END ---
+
+Formula: {@_Month}
+--- BEGIN ---
+if "Month" in {@DateFormat} then
+(
+ if isnull({OADM.CharMonth})  or {OADM.CharMonth} > 3 then
+   crLongMonth
+ else if {OADM.CharMonth} <= 3 then
+   crShortMonth
+)
+else
+ crLeadingZeroMonth
+
+--- END ---
+
+Formula: {@_Year}
+--- BEGIN ---
+If "Month" in {@DateFormat} then crLongYear
+else if "CC" in {@DateFormat} then crLongYear
+else crShortYear
+
+--- END ---
+
+Formula: {@_AmDec}
+--- BEGIN ---
+{OADM.SumDec}
+--- END ---
+
+Formula: {@_PriceDec}
+--- BEGIN ---
+{OADM.PriceDec}
+--- END ---
+
+Formula: {@_RateDec}
+--- BEGIN ---
+{OADM.RateDec}
+--- END ---
+
+Formula: {@_QtyDec}
+--- BEGIN ---
+{OADM.QtyDec}
+--- END ---
+
+Formula: {@_PercentDec}
+--- BEGIN ---
+{OADM.PercentDec}
+--- END ---
+
+Formula: {@_DecSep}
+--- BEGIN ---
+{OADM.DecSep}
+--- END ---
+
+Formula: {@_ThouSepY}
+--- BEGIN ---
+not isnull({OADM.ThousSep})  
+--- END ---
+
+Formula: {@_ThouSep}
+--- BEGIN ---
+{OADM.ThousSep}
+--- END ---
+
+Formula: {@CurPosition}
+--- BEGIN ---
+if {OADM.CurOnRight} = "Y" then crTrailingCurrencyOutsideNegative
+else crLeadingCurrencyOutsideNegative
+
+--- END ---
+
+Formula: {@PrintCompanyName}
+--- BEGIN ---
+{OADM.PrintHeadr}
+--- END ---
+
+Formula: {@page/total}
+--- BEGIN ---
+CStr(PageNumber,0) + "/" + CStr(TotalPageCount,0)
+--- END ---
+
+Formula: {@printMark}
+--- BEGIN ---
+select {ORPC.Printed}
+case 'Y': {@__Copy2_str}
+case 'N': {@__Original2_str}
+case 'A': {@__Amended2_str}
+default: '';
+--- END ---
+
+Formula: {@B/F}
+--- BEGIN ---
+if({TmSp_DocLineTypeLayout;1.LineType} = 'R') then {#RTotal0} - {@LineTotal}
+else {#RTotal0}
+--- END ---
+
+Formula: {@DocCurrencyCode}
+--- BEGIN ---
+if {ORPC.CurSource} = "L" then 
+    (if {OADM.CurOnRight} = "Y" then " " + {OADM.MainCurncy}
+else
+    {OADM.MainCurncy} + " ")
+else if {ORPC.CurSource} = "S" then 
+    (if {OADM.CurOnRight} = "Y" then " " + {OADM.SysCurrncy}
+else
+    {OADM.SysCurrncy} + " ")
+else if {ORPC.CurSource} = "C" then 
+    (if {OADM.CurOnRight} = "Y" then " " + {ORPC.DocCur}
+else
+    {ORPC.DocCur} + " ")
+--- END ---
+
+Formula: {@discount}
+--- BEGIN ---
+if {ORPC.CurSource} = 'L' then {ORPC.DiscSum}
+else if {ORPC.CurSource} = 'S' then {ORPC.DiscSumSy}
+else if {ORPC.CurSource} = 'C' then {ORPC.DiscSumFC}
+--- END ---
+
+Formula: {@freight}
+--- BEGIN ---
+if {ORPC.CurSource} = 'L' then {ORPC.TotalExpns}
+else if {ORPC.CurSource} = 'S' then {ORPC.TotalExpSC}
+else if {ORPC.CurSource} = 'C' then {ORPC.TotalExpFC}
+--- END ---
+
+Formula: {@totalBeforeTax}
+--- BEGIN ---
+{@TotalInvoiceAmount} - {@TotalTaxAmount} + {@WithholdingTax} - {@Rounding} + {@DPMrounding}
+--- END ---
+
+Formula: {@WithholdingTax}
+--- BEGIN ---
+if {ORPC.CurSource} = 'L'
+then {ORPC.WTSum}
+else if {ORPC.CurSource} = 'S'
+then {ORPC.WTSumSC}
+else if {ORPC.CurSource} = 'C'
+then {ORPC.WTSumFC}
+--- END ---
+
+Formula: {@DPMRounding}
+--- BEGIN ---
+0
+//if {ODLN.CurSource} = 'L'
+//then {INV9.Gross}-{INV9.DrawnSum}-{INV9.Vat}
+//else if {ODLN.CurSource} = 'S'
+//then {INV9.GrossSc}-{INV9.DrawnSumSc}-{INV9.VatSc}
+//else if {ODLN.CurSource} = 'C'
+//then {INV9.GrossFc}-{INV9.DrawnSumSc}-{INV9.VatFc}
+--- END ---
+
+Formula: {@rowTotal}
+--- BEGIN ---
+if {TmSp_DocLineTypeLayout;1.LineType} = 'S' then
+ {TmSp_DocLineTypeLayout;1.SubTotal}
+else if {TmSp_DocLineTypeLayout;1.LineType} = 'R' then
+(
+ if {ORPC.CurSource} = 'L' then
+  {RPC1.LineTotal}
+ else if {ORPC.CurSource} = 'S' then
+  {RPC1.TotalSumSy}
+ else
+  {RPC1.TotalFrgn}
+)
+--- END ---
+
+Formula: {@__CreditMemo_str}
+--- BEGIN ---
+"CREDIT NOTE"
+--- END ---
+
+Formula: {@PictureName}
+--- BEGIN ---
+{OADP.BitmapPath}
+--- END ---
+
+Formula: {@CashDiscountPrcnt}
+--- BEGIN ---
+Shared NumberVar cashDiscountPrcnt;
+cashDiscountPrcnt := {RPC1.VatDscntPr};
+--- END ---
+
+Formula: {@_DateSep}
+--- BEGIN ---
+{OADM.DateSep}
+--- END ---
+
+Formula: {@LineNumber}
+--- BEGIN ---
+StringVar lineNum := ToText(RecordNumber, 0);
+NumberVar lenLineNum := Len(lineNum);
+
+Select lenLineNum
+Case 1 :  '00'+lineNum
+Case 2 :  '0' +lineNum
+Case 3 :       lineNum
+Default:  lineNum
+--- END ---
+
+Formula: {@ItemCodePrefix}
+--- BEGIN ---
+If {TmSp_DocLineTypeLayout;1.LineType} = 'R' Then
+(
+   If {ADP1.VndrNum} = 'Y' Then 'Mfr No.:'
+   Else 'Item Code:'
+)
+--- END ---
+
+Formula: {@Declare}
+--- BEGIN ---
+Shared numberVar SectionTotalMaxHeght := 75;  // 7.5 * 10
+Shared numberVar SectionTaxMinHeght := 28;
+Shared numberVar SectionDPMMinHeght := 28;
+Shared numberVar SectionPaymentTermMinHeght := 28;
+Shared numberVar SectionInstallmentMinHeght := 28;
+Shared numberVar SectionFreightMinHeght := 13;
+
+Shared booleanVar SectionTotalActive := false;
+Shared booleanVar SectionTaxActive := false;
+Shared booleanVar SectionDPMActive := false;
+Shared booleanVar SectionPaymentTermActive := false;
+Shared booleanVar SectionInstallmentActive := false;
+Shared booleanVar SectionFreightMinActive := false;
+--- END ---
+
+Formula: {@remarkOffset}
+--- BEGIN ---
+Shared numberVar SectionTotalMaxHeght;
+Shared numberVar SectionTaxMinHeght;
+Shared numberVar SectionDPMMinHeght;
+Shared numberVar SectionPaymentTermMinHeght;
+Shared numberVar SectionInstallmentMinHeght;
+Shared numberVar SectionFreightMinHeght;
+
+Shared booleanVar SectionTotalActive;
+Shared booleanVar SectionTaxActive;
+Shared booleanVar SectionDPMActive;
+Shared booleanVar SectionPaymentTermActive;
+Shared booleanVar SectionInstallmentActive;
+Shared booleanVar SectionFreightMinActive;
+
+local numberVar CalculatedOffset := 0;
+local stringVar DummyString := '';
+
+if SectionTotalActive then CalculatedOffset := SectionTotalMaxHeght;
+if SectionTaxActive   then CalculatedOffset := CalculatedOffset - SectionTaxMinHeght;
+if SectionDPMActive   then CalculatedOffset := CalculatedOffset - SectionDPMMinHeght;
+if SectionPaymentTermActive then CalculatedOffset := CalculatedOffset - SectionPaymentTermMinHeght;
+if SectionInstallmentActive then CalculatedOffset := CalculatedOffset - SectionInstallmentMinHeght;
+if SectionFreightMinActive  then CalculatedOffset := CalculatedOffset - SectionFreightMinHeght;
+
+if (CalculatedOffset > 0)
+then
+(
+    local numberVar i;
+    local numberVar lineHeight := 3.7;  // approx. height for "Tahoma 9"
+    For i := 1 To RoundUp(CalculatedOffset / lineHeight) do
+    (
+        //DummyString := DummyString + ToText(i) +  chr(13);   // add enter
+        DummyString := DummyString + chr(13);   // add enter
+    )
+
+);
+
+DummyString;
+--- END ---
+
+Formula: {@__Copy2_str}
+--- BEGIN ---
+"Copy"
+--- END ---
+
+Formula: {@__Original2_str}
+--- BEGIN ---
+"Original"
+--- END ---
+
+Formula: {@__Amended2_str}
+--- BEGIN ---
+"Amended"
+--- END ---
+
+
+************************************************************
+  CONNECTION INFO
+************************************************************
+Table:    OADP
+  Server:   DRIVER={B1CRHPROXY};UID=SYSTEM;PWD=manager;SERVERNODE=10.55.178.115:30915;DATABASE=SBODEMOGB;
+  Database: 
+  UserID:   
+
+Table:    OADM
+  Server:   DRIVER={B1CRHPROXY};UID=SYSTEM;PWD=manager;SERVERNODE=10.55.178.115:30915;DATABASE=SBODEMOGB;
+  Database: 
+  UserID:   
+
+Table:    OSLP
+  Server:   DRIVER={B1CRHPROXY};UID=SYSTEM;PWD=manager;SERVERNODE=10.55.178.115:30915;DATABASE=SBODEMOGB;
+  Database: 
+  UserID:   
+
+Table:    OSHP
+  Server:   DRIVER={B1CRHPROXY};UID=SYSTEM;PWD=manager;SERVERNODE=10.55.178.115:30915;DATABASE=SBODEMOGB;
+  Database: 
+  UserID:   
+
+Table:    ADP1
+  Server:   DRIVER={B1CRHPROXY};UID=SYSTEM;PWD=manager;SERVERNODE=10.55.178.115:30915;DATABASE=SBODEMOGB;
+  Database: 
+  UserID:   
+
+Table:    TmSp_DocLineTypeLayout;1
+  Server:   DRIVER={B1CRHPROXY};UID=SYSTEM;PWD=manager;SERVERNODE=10.55.178.115:30915;DATABASE=SBODEMOGB;
+  Database: 
+  UserID:   
+
+Table:    OITM
+  Server:   DRIVER={B1CRHPROXY};UID=SYSTEM;PWD=manager;SERVERNODE=10.55.178.115:30915;DATABASE=SBODEMOGB;
+  Database: 
+  UserID:   
+
+Table:    ORPC
+  Server:   DRIVER={B1CRHPROXY};UID=SYSTEM;PWD=manager;SERVERNODE=10.55.178.115:30915;DATABASE=SBODEMOGB;
+  Database: 
+  UserID:   
+
+Table:    RPC1
+  Server:   DRIVER={B1CRHPROXY};UID=SYSTEM;PWD=manager;SERVERNODE=10.55.178.115:30915;DATABASE=SBODEMOGB;
+  Database: 
+  UserID:   
+
+Table:    OHEM
+  Server:   DRIVER={B1CRHPROXY};UID=SYSTEM;PWD=manager;SERVERNODE=10.55.178.115:30915;DATABASE=SBODEMOGB;
+  Database: 
+  UserID:   
+
+Table:    NNM1
+  Server:   DRIVER={B1CRHPROXY};UID=SYSTEM;PWD=manager;SERVERNODE=10.55.178.115:30915;DATABASE=SBODEMOGB;
+  Database: 
+  UserID:   
+
+
+************************************************************
+  TABLE LINKS
+************************************************************
+ORPC.DocEntry --[LeftOuter]--> TmSp_DocLineTypeLayout;1.DocEntry
+ORPC.ObjType --[LeftOuter]--> ADP1.ObjType
+ORPC.SlpCode --[LeftOuter]--> OSLP.SlpCode
+ORPC.TrnspCode --[LeftOuter]--> OSHP.TrnspCode
+ORPC.SlpCode --[LeftOuter]--> OHEM.salesPrson
+ORPC.Series --[LeftOuter]--> NNM1.Series
+TmSp_DocLineTypeLayout;1.DocEntry --[LeftOuter]--> RPC1.DocEntry
+RPC1.ItemCode --[LeftOuter]--> OITM.ItemCode
+
+************************************************************
+  RECORD SELECTION FORMULA
+************************************************************
+ (  {ORPC.DocEntry} = {?DocKey@}  )  
+
+

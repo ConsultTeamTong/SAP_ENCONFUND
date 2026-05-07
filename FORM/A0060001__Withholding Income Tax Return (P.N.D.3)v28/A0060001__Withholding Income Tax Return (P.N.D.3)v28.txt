@@ -1,0 +1,99 @@
+﻿============================================================
+Report: A0060001__Withholding Income Tax Return (P.N.D.3)v28.rpt
+Path:   A0060001__Withholding Income Tax Return (P.N.D.3)v28.rpt
+Extracted: 2026-05-07 18:02:34
+============================================================
+
+************************************************************
+  PARAMETERS
+************************************************************
+Parameter: (error)
+  Type:     You cannot call a method on a null-valued expression.
+  Report:   
+  Default:  
+
+
+************************************************************
+  FORMULA FIELDS
+************************************************************
+Formula: {@C1}
+--- BEGIN ---
+Left({ContactDetail.U_SLD_VTAXID},1)
+--- END ---
+
+Formula: {@C2}
+--- BEGIN ---
+Right(Left({ContactDetail.U_SLD_VTAXID},5),4)
+--- END ---
+
+Formula: {@C3}
+--- BEGIN ---
+Right(Left({ContactDetail.U_SLD_VTAXID},10),5)
+--- END ---
+
+Formula: {@C4}
+--- BEGIN ---
+Left(Right({ContactDetail.U_SLD_VTAXID},3),2)
+--- END ---
+
+Formula: {@C5}
+--- BEGIN ---
+Right({ContactDetail.U_SLD_VTAXID},1)
+--- END ---
+
+Formula: {@TotalAmnt}
+--- BEGIN ---
+{WtaxAmnt.TaxbleAmnt}
+--- END ---
+
+Formula: {@WTAmnt}
+--- BEGIN ---
+{WtaxAmnt.WTAmnt}
+--- END ---
+
+Formula: {@MaxRow}
+--- BEGIN ---
+MAXIMUM({WtaxAmnt.ROW})
+--- END ---
+
+Formula: {@CountPage}
+--- BEGIN ---
+Maximum({RowCount.Row})
+--- END ---
+
+Formula: {@CountPge}
+--- BEGIN ---
+CEILING({@MaxRow}/5)
+--- END ---
+
+
+************************************************************
+  CONNECTION INFO
+************************************************************
+Table:    ContactDetail
+  Server:   10.1.1.100
+  Database: 
+  UserID:   SYSTEM
+
+Table:    WtaxAmnt
+  Server:   10.1.1.100
+  Database: 
+  UserID:   SYSTEM
+
+Table:    RowCount
+  Server:   10.1.1.100
+  Database: 
+  UserID:   SYSTEM
+
+
+************************************************************
+  TABLE LINKS
+************************************************************
+ContactDetail.Code --[Equal]--> WtaxAmnt.Branch
+
+************************************************************
+  RECORD SELECTION FORMULA
+************************************************************
+(No record selection formula)
+
+

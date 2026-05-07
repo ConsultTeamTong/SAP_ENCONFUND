@@ -1,0 +1,167 @@
+﻿============================================================
+Report: RCRI0009__Monthly Customer Status.rpt
+Path:   RCRI0009__Monthly Customer Status.rpt
+Extracted: 2026-05-07 18:03:33
+============================================================
+
+************************************************************
+  PARAMETERS
+************************************************************
+Parameter: (error)
+  Type:     You cannot call a method on a null-valued expression.
+  Report:   
+  Default:  
+
+
+************************************************************
+  FORMULA FIELDS
+************************************************************
+Formula: {@_indi}
+--- BEGIN ---
+'▌'
+--- END ---
+
+Formula: {@_dateFormat}
+--- BEGIN ---
+select {Settings.DateFormat}
+    case "0":
+        "DD/MM/YY"
+    case "1":
+        "DD/MM/CCYY"
+    case "2":
+        "MM/DD/YY"
+    case "3":
+        "MM/DD/CCYY"
+    case "4":
+        "CCYY/MM/DD"
+    case "5":
+        "DD/Month/YYYY"
+    case "6":
+        "YY/MM/DD"
+    default:
+        "";
+--- END ---
+
+Formula: {@_dateOrder}
+--- BEGIN ---
+If {@_dateFormat} in ["DD/MM/YY","DD/MM/CCYY","DD/Month/YYYY"] then
+ crDayMonthYear
+else if {@_dateFormat} in ["MM/DD/YY","MM/DD/CCYY"] then
+ crMonthDayYear
+else if {@_dateFormat} in ["CCYY/MM/DD","YY/MM/DD"] then
+ crYearMonthDay
+--- END ---
+
+Formula: {@_monthFormat}
+--- BEGIN ---
+if "Month" in {@_dateFormat} then
+(
+ if isnull({Settings.CharMonth})  or {Settings.CharMonth} > 3 then
+   crLongMonth
+ else if {Settings.CharMonth} <= 3 then
+   crShortMonth
+)
+else
+ crLeadingZeroMonth
+--- END ---
+
+Formula: {@_yearFormat}
+--- BEGIN ---
+If "Month" in {@_dateFormat} then
+ crLongYear
+else if "CC" in {@_dateFormat} then
+ crLongYear
+else
+ crShortYear
+--- END ---
+
+Formula: {@OtherTotal}
+--- BEGIN ---
+{BPMonthly.CloseBalance} - {BPMonthly.OpenBalance} 
+- {BPMonthly.INVTotal} + {BPMonthly.RINTotal} 
++ {BPMonthly.RCTTotal}
+--- END ---
+
+Formula: {@AM}
+--- BEGIN ---
+//Morning
+'AM'
+--- END ---
+
+Formula: {@PM}
+--- BEGIN ---
+//Afternoon
+'PM'
+--- END ---
+
+Formula: {@FirstBP}
+--- BEGIN ---
+{BPRange.MINCODE}
+--- END ---
+
+Formula: {@LastBP}
+--- BEGIN ---
+{BPRange.MAXCODE}
+--- END ---
+
+Formula: {@FromDate}
+--- BEGIN ---
+Local DateVar FromDate := Minimum({?DateRange});
+
+If FromDate = Date(0,0,0) Then
+    If {?DateType} = 'P' Then
+        FromDate := Date({Period.MinRefDate})
+    Else
+        FromDate := Date({Period.MinTaxDate});
+
+FromDate
+
+--- END ---
+
+Formula: {@ToDate}
+--- BEGIN ---
+Local DateVar ToDate := Maximum({?DateRange});
+
+If ToDate = Date(0,0,0) Then
+    ToDate := Today;
+
+ToDate
+
+--- END ---
+
+Formula: {@_dateSep}
+--- BEGIN ---
+{Settings.DateSep}
+--- END ---
+
+
+************************************************************
+  CONNECTION INFO
+************************************************************
+Table:    Settings
+  Server:   10.59.38.45:30015
+  Database: 
+  UserID:   system
+
+Table:    Period
+  Server:   10.59.38.45:30015
+  Database: 
+  UserID:   system
+
+Table:    BPRange
+  Server:   10.59.38.45:30015
+  Database: 
+  UserID:   system
+
+
+************************************************************
+  TABLE LINKS
+************************************************************
+(No table links)
+
+************************************************************
+  RECORD SELECTION FORMULA
+************************************************************
+(No record selection formula)
+
+

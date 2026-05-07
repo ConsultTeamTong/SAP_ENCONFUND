@@ -1,0 +1,850 @@
+﻿============================================================
+Report: RLR20002__Pick List Including Batch_SN - CR (System).rpt
+Path:   RLR20002__Pick List Including Batch_SN - CR (System).rpt
+Extracted: 2026-05-07 18:03:51
+============================================================
+
+************************************************************
+  PARAMETERS
+************************************************************
+Parameter: (error)
+  Type:     You cannot call a method on a null-valued expression.
+  Report:   
+  Default:  
+
+
+************************************************************
+  FORMULA FIELDS
+************************************************************
+Formula: {@Declare}
+--- BEGIN ---
+Shared BooleanVar lastMet := FALSE
+--- END ---
+
+Formula: {@printMark}
+--- BEGIN ---
+select {OPKL.Printed}
+case 'Y': {@__Copy_str}
+case 'N': {@__Original_str}
+case 'A': {@__Amended_str}
+default: '';
+--- END ---
+
+Formula: {@__DocType}
+--- BEGIN ---
+"Pick List"
+--- END ---
+
+Formula: {@ColorTextContent}
+--- BEGIN ---
+ Color(30, 30, 30)
+--- END ---
+
+Formula: {@ColorTableHdr}
+--- BEGIN ---
+Color(240, 244, 247)
+--- END ---
+
+Formula: {@TextIndicatorColor}
+--- BEGIN ---
+Color (220, 220, 220)
+--- END ---
+
+Formula: {@TimeStr}
+--- BEGIN ---
+currenttime
+--- END ---
+
+Formula: {@__Amended_str}
+--- BEGIN ---
+"Amended"
+--- END ---
+
+Formula: {@__Copy_str}
+--- BEGIN ---
+"Copy"
+--- END ---
+
+Formula: {@__Original_str}
+--- BEGIN ---
+"Original"
+--- END ---
+
+Formula: {@_dateFormat}
+--- BEGIN ---
+select {OADM.DateFormat}
+    case "0":
+        "DD/MM/YY"
+    case "1":
+        "DD/MM/CCYY"
+    case "2":
+        "MM/DD/YY"
+    case "3":
+        "MM/DD/CCYY"
+    case "4":
+        "CCYY/MM/DD"
+    case "5":
+        "DD/Month/YYYY"
+    case "6":
+        "YY/MM/DD"
+    default:
+        "";
+--- END ---
+
+Formula: {@_dateOrder}
+--- BEGIN ---
+If {@_dateFormat} in ["DD/MM/YY","DD/MM/CCYY","DD/Month/YYYY"] then
+ crDayMonthYear
+else if {@_dateFormat} in ["MM/DD/YY","MM/DD/CCYY"] then
+ crMonthDayYear
+else if {@_dateFormat} in ["CCYY/MM/DD","YY/MM/DD"] then
+ crYearMonthDay
+--- END ---
+
+Formula: {@_dateSep}
+--- BEGIN ---
+{OADM.DateSep}
+--- END ---
+
+Formula: {@_decSep}
+--- BEGIN ---
+{OADM.DecSep}
+--- END ---
+
+Formula: {@_month}
+--- BEGIN ---
+if "Month" in {@_dateFormat} then
+(
+ if isnull({OADM.CharMonth})  or {OADM.CharMonth} > 3 then
+   crLongMonth
+ else if {OADM.CharMonth} <= 3 then
+   crShortMonth
+)
+else
+ crLeadingZeroMonth
+--- END ---
+
+Formula: {@_year}
+--- BEGIN ---
+If "Month" in {@_dateFormat} then
+ crLongYear
+else if "CC" in {@_dateFormat} then
+ crLongYear
+else
+ crShortYear
+--- END ---
+
+Formula: {@DateStr}
+--- BEGIN ---
+//Shared StringVar dateStr;
+today
+--- END ---
+
+Formula: {@PageIndicator}
+--- BEGIN ---
+ToText(PageNumber, 0) + ' / '+ ToText(TotalPageCount, 0) 
+--- END ---
+
+Formula: {@_linkSep}
+--- BEGIN ---
+{OADM.DateSep}
+--- END ---
+
+Formula: {@_qtyDec}
+--- BEGIN ---
+{OADM.QtyDec}
+--- END ---
+
+Formula: {@LineDocNum}
+--- BEGIN ---
+if {PKL1.BaseObject}=17 then {ORDR.DocNum}
+else if {PKL1.BaseObject}=13 then {OINV.DocNum}  //13
+else if {PKL1.BaseObject}=1250000001 then {OWTQ.DocNum}  //1250000001
+else {OWOR.DocNum}  //202
+
+
+--- END ---
+
+Formula: {@LineBPName}
+--- BEGIN ---
+if {PKL1.BaseObject}=17 then {ORDR.CardName}
+else if {PKL1.BaseObject}=13 then {OINV.CardName}  //13
+else if {PKL1.BaseObject}=1250000001 then {OWTQ.CardName}  //1250000001
+else ""  //202
+--- END ---
+
+Formula: {@LineDeliveryDate}
+--- BEGIN ---
+if {PKL1.BaseObject}=17 then {RDR1.ShipDate}
+else if {PKL1.BaseObject}=13 then {INV1.ShipDate}  //13
+else if {PKL1.BaseObject}=1250000001 then {WTQ1.ShipDate}  //1250000001
+else {OWOR.DueDate}  //202
+--- END ---
+
+Formula: {@LineItemCode}
+--- BEGIN ---
+if {PKL1.BaseObject}=17 then {RDR1.ItemCode}
+else if {PKL1.BaseObject}=13 then {INV1.ItemCode}  //13
+else if {PKL1.BaseObject}=1250000001 then {WTQ1.ItemCode}  //1250000001
+else {WOR1.ItemCode}  //202
+--- END ---
+
+Formula: {@LineItemDes}
+--- BEGIN ---
+if {PKL1.BaseObject}=17 then {RDR1.Dscription}
+else if {PKL1.BaseObject}=13 then {INV1.Dscription}  //13
+else if {PKL1.BaseObject}=1250000001 then {WTQ1.Dscription}  //1250000001
+else if {WOR1.ItemType}=4 then {OITM_WOR.ItemName} //202 -- item
+else {ORSC.ResName} //202 -- resource
+--- END ---
+
+Formula: {@LineUoM}
+--- BEGIN ---
+if ({@ColTitleStyle}='0')  //Doc Row UoM display mode
+then
+(
+    {@BaseLineUoM};
+)
+else                       //Inventory UoM display mode
+(
+    if {PKL1.BaseObject}=17 then  //RDR1
+    (
+        if ( {RDR1.UseBaseUn}='Y')
+        then {RDR1.unitMsr}
+        else {RDR1.unitMsr2}
+    )
+    else if {PKL1.BaseObject}=13 then //INV1
+    (
+        if ( {INV1.UseBaseUn}='Y')
+        then {INV1.unitMsr}
+        else {INV1.unitMsr2}
+    )
+    else if {PKL1.BaseObject}=1250000001 then //WTQ1
+    (
+        if ( {WTQ1.UseBaseUn}='Y')
+        then {WTQ1.unitMsr}
+        else {WTQ1.unitMsr2}
+    )
+    else ""                              //WOR1
+)
+--- END ---
+
+Formula: {@BaselineItemPerUnit}
+--- BEGIN ---
+if {PKL1.BaseObject}=17 then {RDR1.NumPerMsr}
+else if {PKL1.BaseObject}=13 then {INV1.NumPerMsr}  //13
+else if {PKL1.BaseObject}=1250000001 then {WTQ1.NumPerMsr}  //1250000001
+else 1  //202
+--- END ---
+
+Formula: {@LineWhs}
+--- BEGIN ---
+if {PKL1.BaseObject}=17 then {RDR1.WhsCode}
+else if {PKL1.BaseObject}=13 then {INV1.WhsCode}  //13
+else if {PKL1.BaseObject}=1250000001 then {WTQ1.FromWhsCod}  //1250000001
+else {WOR1.wareHouse}  //202
+--- END ---
+
+Formula: {@__SalesOrder_str}
+--- BEGIN ---
+"OR"
+--- END ---
+
+Formula: {@__ARReserveInvoice_str}
+--- BEGIN ---
+"IN"
+--- END ---
+
+Formula: {@LineTransType}
+--- BEGIN ---
+if {PKL1.BaseObject}=17 then {@__SalesOrder_str}
+else if {PKL1.BaseObject}=13 then {@__ARReserveInvoice_str}  //13
+else if {PKL1.BaseObject}=1250000001 then {@__InventoryTransferRequest_str}  //1250000001
+else {@__ProductionOrder_str}  //202
+--- END ---
+
+Formula: {@_LineQtyDec}
+--- BEGIN ---
+// To get the length of decimals
+
+// Convert the quantity to string, with "." as the decimal point
+Local StringVar str := ToText({WTQ1.Quantity}, {OADM.QtyDec}, ",","."); 
+Local StringVar Array strArr :=  split( str, ".");
+if(UBound (strArr) = 2)
+then 
+(
+str := strArr[2];              // Get the decimal string
+str := replace(str, "0", " ");  // Replace zero with space
+str := TrimRight(str);          // Trim ending spaces
+len(str);                       // Get the length of decimals
+)
+else 
+(
+  0;
+)
+--- END ---
+
+Formula: {@_thouSep}
+--- BEGIN ---
+{OADM.ThousSep}
+--- END ---
+
+Formula: {@_thousSepY}
+--- BEGIN ---
+Not isNull({OADM.ThousSep})
+--- END ---
+
+Formula: {@__Released_str}
+--- BEGIN ---
+"Released"
+--- END ---
+
+Formula: {@__Picked_str}
+--- BEGIN ---
+"Picked"
+--- END ---
+
+Formula: {@__PartiallyPicked_str}
+--- BEGIN ---
+"Partially Picked"
+--- END ---
+
+Formula: {@__PartiallyDelivered_str}
+--- BEGIN ---
+"Partially Delivered"
+--- END ---
+
+Formula: {@__Closed_str}
+--- BEGIN ---
+"Closed"
+--- END ---
+
+Formula: {@Status}
+--- BEGIN ---
+     if {OPKL.Status}= "R" then {@__Released_str}
+else if {OPKL.Status}= "Y" then {@__Picked_str}
+else if {OPKL.Status}= "P" then {@__PartiallyPicked_str}
+else if {OPKL.Status}= "D" then {@__PartiallyDelivered_str}
+else if {OPKL.Status}= "C" then {@__Closed_str}
+else ""
+--- END ---
+
+Formula: {@LineReleaseQty_PKL1}
+--- BEGIN ---
+NumberVar relQtty := 0;
+
+if ({ITL_Cmd.ManagedBy} >0) then     //If has SnB
+(relQtty := {ITL_Cmd.ReleasQtySum})
+else
+(relQtty := {PKL1.RelQtty});
+
+relQtty;
+
+
+--- END ---
+
+Formula: {@LinePickQty_PKL1}
+--- BEGIN ---
+NumberVar pickQtty := 0;
+
+if ({ITL_Cmd.ManagedBy} >0) then 
+(pickQtty := {ITL_Cmd.PickedQtySum})
+else
+(pickQtty := {PKL1.PickQtty});
+
+pickQtty;
+
+--- END ---
+
+Formula: {@LineOpenToPick}
+--- BEGIN ---
+//This fomula algorithm is the same with "Calculate open to pick col" part of RLR2UpdateOpenAndAvailQtty() in PAPKL.c
+
+StringVar colTitleStyle := {@ColTitleStyle};
+
+//1.
+NumberVar  openQuantity := {@LineOpenQuantity}; 
+NumberVar  openToPickQtty := openQuantity ;
+NumberVar  curRelQtty := {@LineReleaseQty};
+NumberVar  allrelQtty := 0;
+NumberVar  allpickQtty := 0;
+
+
+StringVar isUsingBaseUnits := {@lineIsUsingBaseUnits};
+NumberVar unitsPerSale     := {@BaselineItemPerUnit};
+
+
+
+if(openQuantity <> 0)
+then
+(
+    //2. Get openQuantity, allrelQtty,  allpickQtty from base line.
+    openQuantity :={@BaselineOpenQuantity}; 
+    allrelQtty :=  {@BaselineReleasQtty};
+    allpickQtty := {@BaselinePickOty};
+
+
+    if (colTitleStyle  = '0') //0 means Sales UoM display mode, 1 means Inventory UoM
+    then(
+
+            if(isUsingBaseUnits  = 'Y')
+          then(
+                    openQuantity := openQuantity / unitsPerSale;
+                    allrelQtty	 := allrelQtty /unitsPerSale;
+                    allpickQtty  := allpickQtty / unitsPerSale;
+                );  
+
+        )
+    else if(isUsingBaseUnits  = 'N' and colTitleStyle ='1')
+       then(
+                openQuantity := openQuantity * unitsPerSale;
+		        allrelQtty	 := allrelQtty * unitsPerSale;
+		        allpickQtty	 := allpickQtty * unitsPerSale;
+
+            );
+
+    //3.
+    if (openQuantity >= (allrelQtty + allpickQtty) )
+    then(
+	        openToPickQtty := openToPickQtty - allrelQtty- allpickQtty+ curRelQtty;
+        );
+
+    //4.
+    StringVar lineStatus := {PKL1.PickStatus};
+    if (lineStatus = 'C')
+    then(
+         openToPickQtty := openToPickQtty - curRelQtty;
+        );
+
+);
+
+
+if (openToPickQtty < 0)
+then(
+	  openToPickQtty := 0;
+    );
+
+
+openToPickQtty;
+--- END ---
+
+Formula: {@BaselineOpenQuantity}
+--- BEGIN ---
+if {PKL1.BaseObject}=17 then {RDR1.OpenCreQty}
+else if {PKL1.BaseObject}=13 then {INV1.OpenCreQty}  //13
+else if {PKL1.BaseObject}=1250000001 then {WTQ1.OpenCreQty}  //1250000001
+else {WOR1.PlannedQty} - {WOR1.IssuedQty}  //202
+--- END ---
+
+Formula: {@lineIsUsingBaseUnits}
+--- BEGIN ---
+if {PKL1.BaseObject}=17 then {RDR1.UseBaseUn}
+else if {PKL1.BaseObject}=13 then {INV1.UseBaseUn}  //13
+else if {PKL1.BaseObject}=1250000001 then {WTQ1.UseBaseUn}  //1250000001
+else 'Y'  //202
+--- END ---
+
+Formula: {@BaselineReleasQtty}
+--- BEGIN ---
+if {PKL1.BaseObject}=17 then {RDR1.ReleasQtty}
+else if {PKL1.BaseObject}=13 then {INV1.ReleasQtty}  //13
+else if {PKL1.BaseObject}=1250000001 then {WTQ1.ReleasQtty}  //1250000001
+else {WOR1.ReleaseQty}  //202
+--- END ---
+
+Formula: {@BaselinePickOty}
+--- BEGIN ---
+if {PKL1.BaseObject}=17 then {RDR1.PickOty}
+else if {PKL1.BaseObject}=13 then {INV1.PickOty}  //13
+else if {PKL1.BaseObject}=1250000001 then {WTQ1.PickOty}  //1250000001
+else {WOR1.PickQty} //202
+--- END ---
+
+Formula: {@LineOpenQuantity}
+--- BEGIN ---
+NumberVar openQuantity := {@BaselineOpenQuantity};
+NumberVar unitsPerSale := {@BaselineItemPerUnit};
+
+if ({@ColTitleStyle}='1')
+then 
+(
+openQuantity := openQuantity * unitsPerSale;
+);
+
+openQuantity;
+
+
+
+--- END ---
+
+Formula: {@ColTitleStyle}
+--- BEGIN ---
+{?ExtParam@}
+--- END ---
+
+Formula: {@LineItemPerUnit}
+--- BEGIN ---
+NumberVar unitsPerSale := {@BaselineItemPerUnit};
+
+if ({@ColTitleStyle}='1') //When in Inventory UoM display mode, always display as 1.
+then
+(
+  unitsPerSale:= 1;
+);
+
+unitsPerSale;
+--- END ---
+
+Formula: {@LineBinEnabled}
+--- BEGIN ---
+if {PKL1.BaseObject}=17 then ({OWHS.BinActivat}='Y' and {OITM_RDR.InvntItem}='Y')
+else if {PKL1.BaseObject}=13 then ({OWHS_Cmd.BinActivat}='Y' and {OITM_INV.InvntItem}='Y')  //13
+else if {PKL1.BaseObject}=1250000001 then ({OWHS_WTQ.BinActivat}='Y' and {OITM_WTQ.InvntItem}='Y')  //1250000001
+else ({OWHS_WOR.BinActivat}='Y' and {OITM_WOR.InvntItem}='Y')  //202
+--- END ---
+
+Formula: {@LineBinCode}
+--- BEGIN ---
+if {@LineBinEnabled} then {OBIN.BinCode}
+--- END ---
+
+Formula: {@LineSerialNum_PKL2}
+--- BEGIN ---
+//{OSRN.DistNumber}
+//{OITL.ApplyEntry}
+Select {OADP.SNType}
+Case 1: {OSRN.MnfSerial}
+Case 2: {OSRN.DistNumber}
+Case 3: {OSRN.LotNumber}
+--- END ---
+
+Formula: {@LineBatchNum_PKL2}
+--- BEGIN ---
+{OBTN.DistNumber}
+--- END ---
+
+Formula: {@LinePickQty_PKL2}
+--- BEGIN ---
+NumberVar pickQtty := {PKL2.PickQtty};
+
+pickQtty;
+
+--- END ---
+
+Formula: {@LineReleaseQty_PKL2}
+--- BEGIN ---
+NumberVar relQtty := {PKL2.RelQtty};
+
+relQtty;
+
+--- END ---
+
+Formula: {@LineSerialNum_PKL1}
+--- BEGIN ---
+Select {OADP.SNType}
+Case 1: {OSRN_Cmd.MnfSerial}
+Case 2: {OSRN_Cmd.DistNumber}
+Case 3: {OSRN_Cmd.LotNumber}
+--- END ---
+
+Formula: {@LineBatchNum_PKL1}
+--- BEGIN ---
+{OBTN_Cmd.DistNumber}
+--- END ---
+
+Formula: {@LinePickQty_Inv}
+--- BEGIN ---
+if {@LineBinEnabled} then  {@LinePickQty_PKL2}
+else {@LinePickQty_PKL1}
+--- END ---
+
+Formula: {@LineReleaseQty_Inv}
+--- BEGIN ---
+if {@LineBinEnabled} then {@LineReleaseQty_PKL2}
+else {@LineReleaseQty_PKL1}
+
+
+--- END ---
+
+Formula: {@LineLeftRelQty}
+--- BEGIN ---
+//({PKL1.PrevReleas} - Sum({@LineReleaseQty_Inv}, {PKL1.PickEntry}) - Sum({@LinePickQty_Inv}, {PKL1.PickEntry}));
+NumberVar leftQtty := ({PKL1.RelQtty} - Sum({@LineReleaseQty_Inv}, {PKL1.PickEntry}));
+
+if ({@ColTitleStyle} = '0') //0 means Sales UoM display mode, 1 means Inventory UoM
+then(
+   leftQtty := leftQtty / {@BaselineItemPerUnit};
+);
+
+leftQtty;
+
+
+
+--- END ---
+
+Formula: {@LinePKL2Enabled}
+--- BEGIN ---
+{@LineBinEnabled}=true and ({@LineReleaseQty_PKL2}<>0 or {@LinePickQty_PKL2}<>0)
+--- END ---
+
+Formula: {@LinePKL1Enabled}
+--- BEGIN ---
+{@LineBinEnabled}=false and ({@LineReleaseQty_PKL1}<>0 or {@LinePickQty_PKL1}<>0)
+--- END ---
+
+Formula: {@LineReleaseQty_Display}
+--- BEGIN ---
+NumberVar relQtty := {@LineReleaseQty_Inv};
+
+if ({@ColTitleStyle} = '0') //0 means Sales UoM display mode, 1 means Inventory UoM
+then(
+   relQtty := relQtty / {@BaselineItemPerUnit};
+);
+relQtty;
+--- END ---
+
+Formula: {@LinePickQty_Display}
+--- BEGIN ---
+NumberVar pickQtty := {@LinePickQty_Inv};
+
+if ({@ColTitleStyle} = '0') //0 means Sales UoM display mode, 1 means Inventory UoM
+then(
+   pickQtty := pickQtty / {@BaselineItemPerUnit};
+);
+pickQtty;
+--- END ---
+
+Formula: {@LineReleaseQty}
+--- BEGIN ---
+NumberVar relQtty := {PKL1.RelQtty};
+
+if ({@ColTitleStyle} = '0') //0 means Sales UoM display mode, 1 means Inventory UoM
+then(
+   relQtty := relQtty / {@BaselineItemPerUnit};
+);
+relQtty;
+
+
+--- END ---
+
+Formula: {@LineLeftPickedQty}
+--- BEGIN ---
+NumberVar leftQtty := ({PKL1.PickQtty} - Sum({@LinePickQty_Inv}, {PKL1.PickEntry}));
+
+if ({@ColTitleStyle} = '0') //0 means Sales UoM display mode, 1 means Inventory UoM
+then(
+   leftQtty := leftQtty / {@BaselineItemPerUnit};
+);
+
+leftQtty;
+
+
+
+
+
+--- END ---
+
+Formula: {@BaseLineUoM}
+--- BEGIN ---
+if {PKL1.BaseObject}=17 then {RDR1.unitMsr}
+else if {PKL1.BaseObject}=13 then {INV1.unitMsr}  //13
+else if {PKL1.BaseObject}=1250000001 then {WTQ1.unitMsr}  //1250000001
+else ''  //202
+--- END ---
+
+Formula: {@__InventoryTransferRequest_str}
+--- BEGIN ---
+"TR"
+--- END ---
+
+Formula: {@__ProductionOrder_str}
+--- BEGIN ---
+"PW"
+--- END ---
+
+
+************************************************************
+  CONNECTION INFO
+************************************************************
+Table:    OPKL
+  Server:   10.58.136.150:30015
+  Database: SBO93_36993
+  UserID:   SYSTEM
+
+Table:    PKL1
+  Server:   10.58.136.150:30015
+  Database: SBO93_36993
+  UserID:   SYSTEM
+
+Table:    OADM
+  Server:   10.58.136.150:30015
+  Database: SBO93_36993
+  UserID:   SYSTEM
+
+Table:    OADP
+  Server:   10.58.136.150:30015
+  Database: SBO93_36993
+  UserID:   SYSTEM
+
+Table:    INV1
+  Server:   10.58.136.150:30015
+  Database: SBO93_36993
+  UserID:   SYSTEM
+
+Table:    OINV
+  Server:   10.58.136.150:30015
+  Database: SBO93_36993
+  UserID:   SYSTEM
+
+Table:    ORDR
+  Server:   10.58.136.150:30015
+  Database: SBO93_36993
+  UserID:   SYSTEM
+
+Table:    RDR1
+  Server:   10.58.136.150:30015
+  Database: SBO93_36993
+  UserID:   SYSTEM
+
+Table:    OUSR
+  Server:   10.58.136.150:30015
+  Database: SBO93_36993
+  UserID:   SYSTEM
+
+Table:    OBIN
+  Server:   10.58.136.150:30015
+  Database: SBO93_36993
+  UserID:   SYSTEM
+
+Table:    PKL2
+  Server:   10.58.136.150:30015
+  Database: SBO93_36993
+  UserID:   SYSTEM
+
+Table:    OSRN
+  Server:   10.58.136.150:30015
+  Database: SBO93_36993
+  UserID:   SYSTEM
+
+Table:    OBTN
+  Server:   10.58.136.150:30015
+  Database: SBO93_36993
+  UserID:   SYSTEM
+
+Table:    OSRN_Cmd
+  Server:   10.58.136.150:30015
+  Database: SBO93_36993
+  UserID:   SYSTEM
+
+Table:    OBTN_Cmd
+  Server:   10.58.136.150:30015
+  Database: SBO93_36993
+  UserID:   SYSTEM
+
+Table:    OWHS
+  Server:   10.58.136.150:30015
+  Database: SBO93_36993
+  UserID:   SYSTEM
+
+Table:    OWHS_Cmd
+  Server:   10.58.136.150:30015
+  Database: SBO93_36993
+  UserID:   SYSTEM
+
+Table:    ITL_Cmd
+  Server:   10.58.136.150:30015
+  Database: SBO93_36993
+  UserID:   SYSTEM
+
+Table:    OITM_INV
+  Server:   10.58.136.150:30015
+  Database: SBO93_36993
+  UserID:   SYSTEM
+
+Table:    OITM_RDR
+  Server:   10.58.136.150:30015
+  Database: SBO93_36993
+  UserID:   SYSTEM
+
+Table:    OITM_WOR
+  Server:   10.58.136.150:30015
+  Database: SBO93_36993
+  UserID:   SYSTEM
+
+Table:    OITM_WTQ
+  Server:   10.58.136.150:30015
+  Database: SBO93_36993
+  UserID:   SYSTEM
+
+Table:    ORSC
+  Server:   10.58.136.150:30015
+  Database: SBO93_36993
+  UserID:   SYSTEM
+
+Table:    OWHS_WOR
+  Server:   10.58.136.150:30015
+  Database: SBO93_36993
+  UserID:   SYSTEM
+
+Table:    OWHS_WTQ
+  Server:   10.58.136.150:30015
+  Database: SBO93_36993
+  UserID:   SYSTEM
+
+Table:    OWOR
+  Server:   10.58.136.150:30015
+  Database: SBO93_36993
+  UserID:   SYSTEM
+
+Table:    OWTQ
+  Server:   10.58.136.150:30015
+  Database: SBO93_36993
+  UserID:   SYSTEM
+
+Table:    WOR1
+  Server:   10.58.136.150:30015
+  Database: SBO93_36993
+  UserID:   SYSTEM
+
+Table:    WTQ1
+  Server:   10.58.136.150:30015
+  Database: SBO93_36993
+  UserID:   SYSTEM
+
+
+************************************************************
+  TABLE LINKS
+************************************************************
+OUSR.USERID --[Equal]--> OPKL.OwnerCode
+OPKL.AbsEntry --[LeftOuter]--> PKL1.AbsEntry
+PKL1.AbsEntry --[LeftOuter]--> PKL2.AbsEntry
+PKL1.OrderEntry --[LeftOuter]--> RDR1.DocEntry
+PKL1.OrderEntry --[LeftOuter]--> INV1.DocEntry
+PKL1.AbsEntry --[LeftOuter]--> ITL_Cmd.ApplyEntry
+PKL1.OrderEntry --[LeftOuter]--> WOR1.DocEntry
+PKL1.OrderEntry --[LeftOuter]--> WTQ1.DocEntry
+ITL_Cmd.ItemCode --[LeftOuter]--> OSRN_Cmd.ItemCode
+ITL_Cmd.ItemCode --[LeftOuter]--> OBTN_Cmd.ItemCode
+INV1.DocEntry --[LeftOuter]--> OINV.DocEntry
+INV1.WhsCode --[LeftOuter]--> OWHS_Cmd.WhsCode
+INV1.ItemCode --[LeftOuter]--> OITM_INV.ItemCode
+RDR1.DocEntry --[LeftOuter]--> ORDR.DocEntry
+RDR1.WhsCode --[LeftOuter]--> OWHS.WhsCode
+RDR1.ItemCode --[LeftOuter]--> OITM_RDR.ItemCode
+PKL2.BinAbs --[LeftOuter]--> OBIN.AbsEntry
+PKL2.SnBEntry --[LeftOuter]--> OSRN.AbsEntry
+PKL2.SnBEntry --[LeftOuter]--> OBTN.AbsEntry
+WOR1.DocEntry --[LeftOuter]--> OWOR.DocEntry
+WOR1.ItemCode --[LeftOuter]--> ORSC.ResCode
+WOR1.wareHouse --[LeftOuter]--> OWHS_WOR.WhsCode
+WOR1.ItemCode --[LeftOuter]--> OITM_WOR.ItemCode
+WTQ1.DocEntry --[LeftOuter]--> OWTQ.DocEntry
+WTQ1.ItemCode --[LeftOuter]--> OITM_WTQ.ItemCode
+WTQ1.FromWhsCod --[LeftOuter]--> OWHS_WTQ.WhsCode
+
+************************************************************
+  RECORD SELECTION FORMULA
+************************************************************
+ (  {OPKL.AbsEntry} = {?DocKey@}  )  
+
+

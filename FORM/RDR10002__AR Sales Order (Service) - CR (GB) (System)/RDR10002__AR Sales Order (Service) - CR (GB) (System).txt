@@ -1,0 +1,470 @@
+﻿============================================================
+Report: RDR10002__AR Sales Order (Service) - CR (GB) (System).rpt
+Path:   RDR10002__AR Sales Order (Service) - CR (GB) (System).rpt
+Extracted: 2026-05-07 18:03:48
+============================================================
+
+************************************************************
+  PARAMETERS
+************************************************************
+Parameter: (error)
+  Type:     You cannot call a method on a null-valued expression.
+  Report:   
+  Default:  
+
+
+************************************************************
+  FORMULA FIELDS
+************************************************************
+Formula: {@LabelContentFontColor}
+--- BEGIN ---
+Color(30, 30, 30)
+--- END ---
+
+Formula: {@LineColor}
+--- BEGIN ---
+Color(0, 127, 222)
+--- END ---
+
+Formula: {@TableHdrBKColor}
+--- BEGIN ---
+Color(240, 244, 247)
+--- END ---
+
+Formula: {@PageIndicator}
+--- BEGIN ---
+ToText(PageNumber, 0) +'/'+ToText(TotalPageCount, 0) 
+--- END ---
+
+Formula: {@TextIndicatorColor}
+--- BEGIN ---
+Color (220, 220, 220)
+--- END ---
+
+Formula: {@LineTotal}
+--- BEGIN ---
+select {ORDR.CurSource}
+case 'L' : {RDR1.LineTotal}
+case 'S' : {RDR1.TotalSumSy}
+case 'C' : {RDR1.TotalFrgn}
+--- END ---
+
+Formula: {@DateFormat}
+--- BEGIN ---
+select {OADM.DateFormat}
+    case "0":
+        "DD/MM/YY"
+    case "1":
+        "DD/MM/CCYY"
+    case "2":
+        "MM/DD/YY"
+    case "3":
+        "MM/DD/CCYY"
+    case "4":
+        "CCYY/MM/DD"
+    case "5":
+        "DD/Month/YYYY"
+    case "6":
+        "YY/MM/DD"
+    default:
+        "";
+--- END ---
+
+Formula: {@DateOrder}
+--- BEGIN ---
+ If {@DateFormat} in ["DD/MM/YY","DD/MM/CCYY","DD/Month/YYYY"]
+ then crDayMonthYear
+else if {@DateFormat} in ["MM/DD/YY","MM/DD/CCYY"] then crMonthDayYear
+else if {@DateFormat} in ["CCYY/MM/DD","YY/MM/DD"] then crYearMonthDay
+
+--- END ---
+
+Formula: {@CurPosition}
+--- BEGIN ---
+if {OADM.CurOnRight} = "Y" then crTrailingCurrencyOutsideNegative
+else crLeadingCurrencyOutsideNegative
+
+--- END ---
+
+Formula: {@AmDec}
+--- BEGIN ---
+{OADM.SumDec}
+--- END ---
+
+Formula: {@DecSep}
+--- BEGIN ---
+{OADM.DecSep}
+--- END ---
+
+Formula: {@PrcntDec}
+--- BEGIN ---
+{OADM.PercentDec}
+--- END ---
+
+Formula: {@ThousSep}
+--- BEGIN ---
+{OADM.ThousSep}
+--- END ---
+
+Formula: {@ThousSepY}
+--- BEGIN ---
+not isnull({OADM.ThousSep})  
+--- END ---
+
+Formula: {@Year}
+--- BEGIN ---
+If "Month" in {@DateFormat} then crLongYear
+else if "CC" in {@DateFormat} then crLongYear
+else crShortYear
+
+--- END ---
+
+Formula: {@Month}
+--- BEGIN ---
+if "Month" in {@DateFormat} then
+(
+ if isnull({OADM.CharMonth})  or {OADM.CharMonth} > 3 then
+   crLongMonth
+ else if {OADM.CharMonth} <= 3 then
+   crShortMonth
+)
+else
+ crLeadingZeroMonth
+--- END ---
+
+Formula: {@DiscountSubTotal}
+--- BEGIN ---
+if {ORDR.CurSource} = 'L'
+then {ORDR.DiscSum}
+else if {ORDR.CurSource} = 'S'
+then {ORDR.DiscSumSy}
+else if {ORDR.CurSource} = 'C'
+then {ORDR.DiscSumFC}
+--- END ---
+
+Formula: {@DownPayment}
+--- BEGIN ---
+select {ORDR.CurSource}
+case 'L': {ORDR.DpmAmnt}
+case 'S': {ORDR.DpmAmntSC}
+case 'C': {ORDR.DpmAmntFC}
+default: 0
+--- END ---
+
+Formula: {@AdditionalExpenses}
+--- BEGIN ---
+if {ORDR.CurSource} = 'L'
+then {ORDR.TotalExpns}
+else if {ORDR.CurSource} = 'S'
+then {ORDR.TotalExpSC}
+else if {ORDR.CurSource} = 'C'
+then {ORDR.TotalExpFC}
+--- END ---
+
+Formula: {@Rounding}
+--- BEGIN ---
+if {ORDR.CurSource} = 'L'
+then {ORDR.RoundDif}
+else if {ORDR.CurSource} = 'S'
+then {ORDR.RoundDifSy}
+else if {ORDR.CurSource} = 'C'
+then {ORDR.RoundDifFC}
+--- END ---
+
+Formula: {@DocToal}
+--- BEGIN ---
+if {ORDR.CurSource} = 'L' then
+    {ORDR.DocTotal}
+else if {ORDR.CurSource} = 'S' then
+    {ORDR.DocTotalSy}
+else if {ORDR.CurSource} = 'C' then
+    {ORDR.DocTotalFC}
+--- END ---
+
+Formula: {@WTax}
+--- BEGIN ---
+select {ORDR.DocCur}
+case 'L': {ORDR.WTSum}
+case 'S': {ORDR.WTSumSC}
+case 'C': {ORDR.WTSumFC}
+default: 0
+--- END ---
+
+Formula: {@DocVatSum}
+--- BEGIN ---
+if {ORDR.CurSource} = 'L' then
+    {ORDR.VatSum}
+else if {ORDR.CurSource} = 'S' then
+    {ORDR.VatSumSy}
+else if {ORDR.CurSource} = 'C' then
+    {ORDR.VatSumFC}
+--- END ---
+
+Formula: {@TotalBeforeTax}
+--- BEGIN ---
+{@DocToal} - {@DocVatSum}
+--- END ---
+
+Formula: {@DateSep}
+--- BEGIN ---
+{OADM.DateSep}
+--- END ---
+
+Formula: {@__DocType}
+--- BEGIN ---
+"Order Confirmation"
+--- END ---
+
+Formula: {@PrintMark}
+--- BEGIN ---
+select {ORDR.Printed}
+case 'Y': {@__Copy_str}
+case 'N': {@__Original_str}
+case 'A': {@__Amended_str}
+default: '';
+
+--- END ---
+
+Formula: {@DPMRounding}
+--- BEGIN ---
+0
+--- END ---
+
+Formula: {@ColorContentText}
+--- BEGIN ---
+Color(30, 30, 30)
+--- END ---
+
+Formula: {@ColorTableHdr}
+--- BEGIN ---
+Color(240, 244, 247)
+--- END ---
+
+Formula: {@LineNumber}
+--- BEGIN ---
+Local NumberVar strLen;
+Local StringVar temp := ToText(RecordNumber, 0);
+strLen := Len(temp);
+
+Select strLen
+Case 1 : '00'+ temp
+Case 2 : '0' + temp
+Case 3 : temp
+Default: temp
+
+--- END ---
+
+Formula: {@CashDiscountPrcnt}
+--- BEGIN ---
+Shared NumberVar cashDiscountPrcnt;
+cashDiscountPrcnt := {RDR1.VatDscntPr};
+
+cashDiscountPrcnt
+--- END ---
+
+Formula: {@__AllowParitalDel}
+--- BEGIN ---
+"Allow Partial Delivery"
+--- END ---
+
+Formula: {@AllowParital}
+--- BEGIN ---
+if {ORDR.PartSupply} = 'Y' Then
+  {@__AllowParitalDel}
+Else
+    ''
+--- END ---
+
+Formula: {@CarryOver}
+--- BEGIN ---
+Shared NumberVar carryTotal
+
+--- END ---
+
+Formula: {@Declare}
+--- BEGIN ---
+Shared NumberVar carryTotal := 0;
+Shared BooleanVar lastMet := FALSE;
+
+
+Shared numberVar SectionTotalMaxHeght := 52;  // 7.5 * 7
+Shared numberVar SectionTaxMinHeght := 28;
+Shared numberVar SectionDPMMinHeght := 28;
+Shared numberVar SectionPaymentTermMinHeght := 28;
+Shared numberVar SectionInstallmentMinHeght := 28;
+Shared numberVar SectionFreightMinHeght := 13;
+
+Shared booleanVar SectionTotalActive := false;
+Shared booleanVar SectionTaxActive := false;
+Shared booleanVar SectionDPMActive := false;
+Shared booleanVar SectionPaymentTermActive := false;
+Shared booleanVar SectionInstallmentActive := false;
+Shared booleanVar SectionFreightMinActive := false;
+--- END ---
+
+Formula: {@CarryTotal}
+--- BEGIN ---
+Shared NumberVar carryTotal;
+Shared BooleanVar lastMet;
+
+carryTotal := carryTotal + {@LineTotal};
+
+if OnLastRecord Then
+  lastMet := TRUE;
+
+
+  
+    
+--- END ---
+
+Formula: {@__Copy_str}
+--- BEGIN ---
+"Copy"
+--- END ---
+
+Formula: {@__Original_str}
+--- BEGIN ---
+"Original"
+--- END ---
+
+Formula: {@__Amended_str}
+--- BEGIN ---
+"Amended"
+--- END ---
+
+Formula: {@DocCurrencyCode}
+--- BEGIN ---
+if {ORDR.CurSource} = "L" then 
+    (if {OADM.CurOnRight} = "Y" then " " + {OADM.MainCurncy}
+else
+    {OADM.MainCurncy} + " ")
+else if {ORDR.CurSource} = "S" then 
+    (if {OADM.CurOnRight} = "Y" then " " + {OADM.SysCurrncy}
+else
+    {OADM.SysCurrncy} + " ")
+else if {ORDR.CurSource} = "C" then 
+    (if {OADM.CurOnRight} = "Y" then " " + {ORDR.DocCur}
+else
+    {ORDR.DocCur} + " ")
+--- END ---
+
+Formula: {@remarkOffset}
+--- BEGIN ---
+Shared numberVar SectionTotalMaxHeght;
+Shared numberVar SectionTaxMinHeght;
+Shared numberVar SectionDPMMinHeght;
+Shared numberVar SectionPaymentTermMinHeght;
+Shared numberVar SectionInstallmentMinHeght;
+Shared numberVar SectionFreightMinHeght;
+
+Shared booleanVar SectionTotalActive;
+Shared booleanVar SectionTaxActive;
+Shared booleanVar SectionDPMActive;
+Shared booleanVar SectionPaymentTermActive;
+Shared booleanVar SectionInstallmentActive;
+Shared booleanVar SectionFreightMinActive;
+
+local numberVar CalculatedOffset := 0;
+local stringVar DummyString := '';
+
+if SectionTotalActive then CalculatedOffset := SectionTotalMaxHeght;
+if SectionTaxActive   then CalculatedOffset := CalculatedOffset - SectionTaxMinHeght;
+if SectionDPMActive   then CalculatedOffset := CalculatedOffset - SectionDPMMinHeght;
+if SectionPaymentTermActive then CalculatedOffset := CalculatedOffset - SectionPaymentTermMinHeght;
+if SectionInstallmentActive then CalculatedOffset := CalculatedOffset - SectionInstallmentMinHeght;
+if SectionFreightMinActive  then CalculatedOffset := CalculatedOffset - SectionFreightMinHeght;
+
+if (CalculatedOffset > 0)
+then
+(
+    local numberVar i;
+    local numberVar lineHeight := 3.7;  // approx. height for "Tahoma 9"
+    For i := 1 To RoundUp(CalculatedOffset / lineHeight) do
+    (
+        //DummyString := DummyString + ToText(i) +  chr(13);   // add enter
+        DummyString := DummyString + chr(13);   // add enter
+    )
+
+);
+
+DummyString;
+--- END ---
+
+Formula: {@ObjectID}
+--- BEGIN ---
+{?ObjectId@}
+--- END ---
+
+Formula: {@Unit Currency Code}
+--- BEGIN ---
+if {OADM.CurOnRight} = "Y" then " " + {RDR1.Currency}
+else
+    {RDR1.Currency} + " "
+--- END ---
+
+
+************************************************************
+  CONNECTION INFO
+************************************************************
+Table:    OADM
+  Server:   DRIVER={B1CRHPROXY};UID=SYSTEM;PWD=manager;SERVERNODE=10.55.178.115:30915;DATABASE=SBODEMOGB;
+  Database: 
+  UserID:   
+
+Table:    OADP
+  Server:   DRIVER={B1CRHPROXY};UID=SYSTEM;PWD=manager;SERVERNODE=10.55.178.115:30915;DATABASE=SBODEMOGB;
+  Database: 
+  UserID:   
+
+Table:    OSLP
+  Server:   DRIVER={B1CRHPROXY};UID=SYSTEM;PWD=manager;SERVERNODE=10.55.178.115:30915;DATABASE=SBODEMOGB;
+  Database: 
+  UserID:   
+
+Table:    ORDR
+  Server:   DRIVER={B1CRHPROXY};UID=SYSTEM;PWD=manager;SERVERNODE=10.55.178.115:30915;DATABASE=SBODEMOGB;
+  Database: 
+  UserID:   
+
+Table:    RDR1
+  Server:   DRIVER={B1CRHPROXY};UID=SYSTEM;PWD=manager;SERVERNODE=10.55.178.115:30915;DATABASE=SBODEMOGB;
+  Database: 
+  UserID:   
+
+Table:    OHEM
+  Server:   DRIVER={B1CRHPROXY};UID=SYSTEM;PWD=manager;SERVERNODE=10.55.178.115:30915;DATABASE=SBODEMOGB;
+  Database: 
+  UserID:   
+
+Table:    ADP1
+  Server:   DRIVER={B1CRHPROXY};UID=SYSTEM;PWD=manager;SERVERNODE=10.55.178.115:30915;DATABASE=SBODEMOGB;
+  Database: 
+  UserID:   
+
+Table:    OSHP
+  Server:   DRIVER={B1CRHPROXY};UID=SYSTEM;PWD=manager;SERVERNODE=10.55.178.115:30915;DATABASE=SBODEMOGB;
+  Database: 
+  UserID:   
+
+Table:    NNM1
+  Server:   DRIVER={B1CRHPROXY};UID=SYSTEM;PWD=manager;SERVERNODE=10.55.178.115:30915;DATABASE=SBODEMOGB;
+  Database: 
+  UserID:   
+
+
+************************************************************
+  TABLE LINKS
+************************************************************
+ORDR.DocEntry --[Equal]--> RDR1.DocEntry
+ORDR.SlpCode --[Equal]--> OSLP.SlpCode
+ORDR.ObjType --[LeftOuter]--> ADP1.ObjType
+ORDR.TrnspCode --[LeftOuter]--> OSHP.TrnspCode
+ORDR.Series --[LeftOuter]--> NNM1.Series
+OSLP.SlpCode --[LeftOuter]--> OHEM.salesPrson
+
+************************************************************
+  RECORD SELECTION FORMULA
+************************************************************
+ (  {ORDR.DocEntry} = {?DocKey@}  )  
+
+

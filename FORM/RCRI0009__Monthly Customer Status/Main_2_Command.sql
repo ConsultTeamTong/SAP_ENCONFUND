@@ -1,0 +1,10 @@
+﻿-- ============================================================
+-- Report: RCRI0009__Monthly Customer Status.rpt
+Path:   RCRI0009__Monthly Customer Status.rpt
+Extracted: 2026-05-07 18:03:33
+-- Source: Main Report
+-- Table:  Command
+-- ============================================================
+
+SELECT MIN("F_RefDate") AS "MinRefDate", MIN("F_TaxDate") AS "MinTaxDate"
+FROM "{?Schema@}".OFPR

@@ -1,0 +1,456 @@
+﻿============================================================
+Report: RCRI0005__Annual Sales Analysis (by Quarter).rpt
+Path:   RCRI0005__Annual Sales Analysis (by Quarter).rpt
+Extracted: 2026-05-07 18:03:32
+============================================================
+
+************************************************************
+  PARAMETERS
+************************************************************
+Parameter: (error)
+  Type:     You cannot call a method on a null-valued expression.
+  Report:   
+  Default:  
+
+
+************************************************************
+  FORMULA FIELDS
+************************************************************
+Formula: {@ColorContentText}
+--- BEGIN ---
+Color(30, 30, 30)
+--- END ---
+
+Formula: {@__Page}
+--- BEGIN ---
+"Page:"
+--- END ---
+
+Formula: {@PageIndicator}
+--- BEGIN ---
+{@__Page} + ' ' + ToText(PageNumber, 0) + ' / ' + ToText(TotalPageCount, 0)
+--- END ---
+
+Formula: {@CurrencySymbol}
+--- BEGIN ---
+{OADM.MainCurncy}
+--- END ---
+
+Formula: {@DocumentType}
+--- BEGIN ---
+select {?DocumentType}
+case 'INV': 'Invoice'
+case 'RDR': 'Sales Order'
+default: 'Delivery Note'
+--- END ---
+
+Formula: {@ChangeIndicator}
+--- BEGIN ---
+CStr({Command.Year})+ {Command.CardCode}
+--- END ---
+
+Formula: {@Q1Cond}
+--- BEGIN ---
+{Command.Quarter} = 1
+--- END ---
+
+Formula: {@Q2Cond}
+--- BEGIN ---
+{Command.Quarter} = 2
+--- END ---
+
+Formula: {@Q3Cond}
+--- BEGIN ---
+{Command.Quarter} = 3
+--- END ---
+
+Formula: {@Q4Cond}
+--- BEGIN ---
+{Command.Quarter} = 4
+--- END ---
+
+Formula: {@GPPQ1}
+--- BEGIN ---
+Local numbervar Denominator := 0;
+if {OADM.GrossBySal} = 'Y' then
+  Denominator := {@OrigDQ1}
+else
+  Denominator := {@OrigDQ1} - {@GPQ1};
+if Denominator <> 0 then
+ (if {@OrigDQ1} < 0 then {@GPQ1}*(-100) / Denominator else {@GPQ1}*100 / Denominator)
+
+--- END ---
+
+Formula: {@GPPQ2}
+--- BEGIN ---
+Local numbervar Denominator := 0;
+if {OADM.GrossBySal} = 'Y' then
+  Denominator := {@OrigDQ2}
+else
+  Denominator := {@OrigDQ2} - {@GPQ2};
+if Denominator <> 0 then
+ (if {@OrigDQ2} < 0 then {@GPQ2}*(-100) / Denominator else {@GPQ2}*100 / Denominator)
+
+
+--- END ---
+
+Formula: {@GPPQ3}
+--- BEGIN ---
+Local numbervar Denominator := 0;
+if {OADM.GrossBySal} = 'Y' then
+  Denominator := {@OrigDQ3}
+else
+  Denominator := {@OrigDQ3} - {@GPQ3};
+if Denominator <> 0 then
+ (if {@OrigDQ3} < 0 then {@GPQ3}*(-100) / Denominator else {@GPQ3}*100 / Denominator)
+
+--- END ---
+
+Formula: {@GPPQ4}
+--- BEGIN ---
+Local numbervar Denominator := 0;
+if {OADM.GrossBySal} = 'Y' then
+  Denominator := {@OrigDQ4}
+else
+  Denominator := {@OrigDQ4} - {@GPQ4};
+if Denominator <> 0 then
+ (if {@OrigDQ4} < 0 then {@GPQ4}*(-100) / Denominator else {@GPQ4}*100 / Denominator)
+
+--- END ---
+
+Formula: {@GPTPQ1}
+--- BEGIN ---
+Local numbervar Denominator := 0;
+if {OADM.GrossBySal} = 'Y' then
+  Denominator := {#OrigDTQ1}
+else
+  Denominator := {#OrigDTQ1} - {#GPtTQ1};
+if Denominator <> 0 then
+ (if {#OrigDTQ1} < 0 and {#GPtTQ1} < 0 then {#GPtTQ1}*(-100) / Denominator else {#GPtTQ1}*100 / Denominator)
+--- END ---
+
+Formula: {@GPTPQ2}
+--- BEGIN ---
+Local numbervar Denominator := 0;
+if {OADM.GrossBySal} = 'Y' then
+  Denominator := {#OrigDTQ2}
+else
+  Denominator := {#OrigDTQ2} - {#GPtTQ2};
+if Denominator <> 0 then
+ (if {#OrigDTQ2} < 0 and {#GPtTQ2} < 0 then {#GPtTQ2}*(-100) / Denominator else {#GPtTQ2}*100 / Denominator)
+--- END ---
+
+Formula: {@GPTPQ3}
+--- BEGIN ---
+Local numbervar Denominator := 0;
+if {OADM.GrossBySal} = 'Y' then
+  Denominator := {#OrigDTQ3}
+else
+  Denominator := {#OrigDTQ3} - {#GPtTQ3};
+if Denominator <> 0 then
+ (if {#OrigDTQ3} < 0 and {#GPtTQ3} < 0 then {#GPtTQ3}*(-100) / Denominator else {#GPtTQ3}*100 / Denominator)
+--- END ---
+
+Formula: {@GPTPQ4}
+--- BEGIN ---
+Local numbervar Denominator := 0;
+if {OADM.GrossBySal} = 'Y' then
+  Denominator := {#OrigDTQ4}
+else
+  Denominator := {#OrigDTQ4} - {#GPtTQ4};
+if Denominator <> 0 then
+ (if {#OrigDTQ4} < 0 and {#GPtTQ4} < 0 then {#GPtTQ4}*(-100) / Denominator else {#GPtTQ4}*100 / Denominator)
+--- END ---
+
+Formula: {@AxisXFor1}
+--- BEGIN ---
+select {Command.Quarter}
+case 1: 'Q1'
+case 2: 'Q2'
+case 3: 'Q3'
+case 4: 'Q4'
+
+--- END ---
+
+Formula: {@SalesCost}
+--- BEGIN ---
+{@AnnualTotal} - {@GrossProfit}
+--- END ---
+
+Formula: {@ObjectName}
+--- BEGIN ---
+select {?DocumentType}
+case 'INV':'AR Invoices' 
+case 'DLN':'Deliveries'
+case 'RDR':'Sales Orders'
+
+
+--- END ---
+
+Formula: {@_DateFormat}
+--- BEGIN ---
+      select {OADM.DateFormat}
+    case "0":
+        "DD/MM/YY"
+    case "1":
+        "DD/MM/CCYY"
+    case "2":
+        "MM/DD/YY"
+    case "3":
+        "MM/DD/CCYY"
+    case "4":
+        "CCYY/MM/DD"
+    case "5":
+        "DD/Month/YYYY"
+    case "6":
+        "YY/MM/DD"
+    default:
+        "";
+
+--- END ---
+
+Formula: {@_DateOrder}
+--- BEGIN ---
+ If {@_DateFormat} in ["DD/MM/YY","DD/MM/CCYY","DD/Month/YYYY"]
+ then crDayMonthYear
+else if {@_DateFormat} in ["MM/DD/YY","MM/DD/CCYY"] then crMonthDayYear
+else if {@_DateFormat} in ["CCYY/MM/DD","YY/MM/DD"] then crYearMonthDay
+
+--- END ---
+
+Formula: {@_DecSep}
+--- BEGIN ---
+{OADM.DecSep}
+--- END ---
+
+Formula: {@_LinkSep}
+--- BEGIN ---
+{OADM.DateSep}
+--- END ---
+
+Formula: {@_PercentDec}
+--- BEGIN ---
+{OADM.PercentDec}
+--- END ---
+
+Formula: {@_PriceDec}
+--- BEGIN ---
+{OADM.PriceDec}
+--- END ---
+
+Formula: {@_QtyDec}
+--- BEGIN ---
+{OADM.QtyDec}
+--- END ---
+
+Formula: {@_ThousSepSym}
+--- BEGIN ---
+{OADM.ThousSep}
+--- END ---
+
+Formula: {@_Year}
+--- BEGIN ---
+If "Month" in {@_DateFormat} then crLongYear
+else if "CC" in {@_DateFormat} then crLongYear
+else crShortYear
+--- END ---
+
+Formula: {@_Month}
+--- BEGIN ---
+if "Month" in {@_DateFormat} then
+(
+ if isnull({OADM.CharMonth})  or {OADM.CharMonth} > 3 then
+   crLongMonth
+ else if {OADM.CharMonth} <= 3 then
+   crShortMonth
+)
+else
+ crLeadingZeroMonth
+
+--- END ---
+
+Formula: {@_AmDec}
+--- BEGIN ---
+{OADM.SumDec}
+--- END ---
+
+Formula: {@Declare}
+--- BEGIN ---
+shared numbervar linenum:=0;
+shared stringvar cardlist:='';
+shared booleanvar dupFlag:= true;
+shared booleanvar prevFlag:= true;
+shared numbervar prevPage:=1;
+--- END ---
+
+Formula: {@LineNum}
+--- BEGIN ---
+shared numbervar linenum;
+shared stringvar cardlist;
+shared booleanvar dupFlag;
+
+local stringvar curcard := ',' + cstr({Command.CardCode}) + ',';
+if {Command.Year} = 1 then
+ (if InStr (cardlist, curcard) > 0 then
+  dupFlag:= true
+  else
+  (cardlist := cardlist + curcard;dupFlag:= false;);
+ );
+ 
+if{Command.Year} = 1 and dupFlag = false then
+linenum := linenum + 1;
+
+linenum
+
+--- END ---
+
+Formula: {@DocDateTo}
+--- BEGIN ---
+DateAdd ('d', -1, DateAdd ('yyyy', 1, DateTimeValue ({?DocDateFrom}+'/01/01')))
+--- END ---
+
+Formula: {@TitleQ1}
+--- BEGIN ---
+'1 ('+{?DocDateFrom} + ')'
+--- END ---
+
+Formula: {@TitleQ2}
+--- BEGIN ---
+'2 ('+{?DocDateFrom} + ')'
+
+--- END ---
+
+Formula: {@TitleQ3}
+--- BEGIN ---
+'3 ('+{?DocDateFrom} + ')'
+--- END ---
+
+Formula: {@TitleQ4}
+--- BEGIN ---
+'4 ('+{?DocDateFrom} + ')'
+--- END ---
+
+Formula: {@DocDateFrom}
+--- BEGIN ---
+DateTimeValue ({?DocDateFrom}+'/01/01')
+--- END ---
+
+Formula: {@SalesQ1}
+--- BEGIN ---
+{Command.SUM(CASE"T1"."QUARTER"WHEN1THEN"T1"."SALES"ELSE0END)}
+--- END ---
+
+Formula: {@SalesQ2}
+--- BEGIN ---
+{Command.SUM(CASE"T1"."QUARTER"WHEN2THEN"T1"."SALES"ELSE0END)}
+--- END ---
+
+Formula: {@SalesQ3}
+--- BEGIN ---
+{Command.SUM(CASE"T1"."QUARTER"WHEN3THEN"T1"."SALES"ELSE0END)}
+--- END ---
+
+Formula: {@SalesQ4}
+--- BEGIN ---
+{Command.SUM(CASE"T1"."QUARTER"WHEN4THEN"T1"."SALES"ELSE0END)}
+--- END ---
+
+Formula: {@GPQ1}
+--- BEGIN ---
+{Command.SUM(CASE"T1"."QUARTER"WHEN1THEN"T1"."GROSSPRFT"ELSE0END)}
+--- END ---
+
+Formula: {@GPQ2}
+--- BEGIN ---
+{Command.SUM(CASE"T1"."QUARTER"WHEN2THEN"T1"."GROSSPRFT"ELSE0END)}
+--- END ---
+
+Formula: {@GPQ3}
+--- BEGIN ---
+{Command.SUM(CASE"T1"."QUARTER"WHEN3THEN"T1"."GROSSPRFT"ELSE0END)}
+--- END ---
+
+Formula: {@GPQ4}
+--- BEGIN ---
+{Command.SUM(CASE"T1"."QUARTER"WHEN4THEN"T1"."GROSSPRFT"ELSE0END)}
+--- END ---
+
+Formula: {@OrigDQ1}
+--- BEGIN ---
+{Command.SUM(CASE"T1"."QUARTER"WHEN1THEN"T1"."SALESFORPRCNT"ELSE0END)}
+--- END ---
+
+Formula: {@OrigDQ2}
+--- BEGIN ---
+{Command.SUM(CASE"T1"."QUARTER"WHEN2THEN"T1"."SALESFORPRCNT"ELSE0END)}
+--- END ---
+
+Formula: {@OrigDQ3}
+--- BEGIN ---
+{Command.SUM(CASE"T1"."QUARTER"WHEN3THEN"T1"."SALESFORPRCNT"ELSE0END)}
+--- END ---
+
+Formula: {@OrigDQ4}
+--- BEGIN ---
+{Command.SUM(CASE"T1"."QUARTER"WHEN4THEN"T1"."SALESFORPRCNT"ELSE0END)}
+--- END ---
+
+Formula: {@AnnualTotal}
+--- BEGIN ---
+{Command.SUM(CASE"T1"."QUARTER"WHEN1THEN"T1"."SALES"ELSE0END)} + {Command.SUM(CASE"T1"."QUARTER"WHEN2THEN"T1"."SALES"ELSE0END)} + {Command.SUM(CASE"T1"."QUARTER"WHEN3THEN"T1"."SALES"ELSE0END)} + {Command.SUM(CASE"T1"."QUARTER"WHEN4THEN"T1"."SALES"ELSE0END)}
+--- END ---
+
+Formula: {@SalesCriteria}
+--- BEGIN ---
+{@AnnualTotal}/100
+--- END ---
+
+Formula: {@_CurrencyPosition}
+--- BEGIN ---
+if {OADM.CurOnRight} = "Y" then crTrailingCurrencyOutsideNegative
+else crLeadingCurrencyOutsideNegative
+--- END ---
+
+Formula: {@GrossProfit}
+--- BEGIN ---
+{Command.SUM(CASE"T1"."QUARTER"WHEN1THEN"T1"."GROSSPRFT"ELSE0END)} + {Command.SUM(CASE"T1"."QUARTER"WHEN2THEN"T1"."GROSSPRFT"ELSE0END)} + {Command.SUM(CASE"T1"."QUARTER"WHEN3THEN"T1"."GROSSPRFT"ELSE0END)} + {Command.SUM(CASE"T1"."QUARTER"WHEN4THEN"T1"."GROSSPRFT"ELSE0END)}
+--- END ---
+
+Formula: {@SuppressFlag}
+--- BEGIN ---
+shared booleanvar dupFlag;
+EvaluateAfter ({@LineNum});
+{Command.Year} <> 1 or dupFlag
+--- END ---
+
+
+************************************************************
+  CONNECTION INFO
+************************************************************
+Table:    OADP
+  Server:   skbtsh001:30915
+  Database: 
+  UserID:   SYSTEM
+
+Table:    OADM
+  Server:   skbtsh001:30915
+  Database: 
+  UserID:   SYSTEM
+
+Table:    Command
+  Server:   skbtsh001:30915
+  Database: 
+  UserID:   SYSTEM
+
+
+************************************************************
+  TABLE LINKS
+************************************************************
+(No table links)
+
+************************************************************
+  RECORD SELECTION FORMULA
+************************************************************
+(No record selection formula)
+
+

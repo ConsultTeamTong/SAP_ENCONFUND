@@ -1,0 +1,271 @@
+﻿============================================================
+Report: A0070001__Attachment of P.N.D.3 v28.rpt
+Path:   A0070001__Attachment of P.N.D.3 v28.rpt
+Extracted: 2026-05-07 18:02:36
+============================================================
+
+************************************************************
+  PARAMETERS
+************************************************************
+Parameter: (error)
+  Type:     You cannot call a method on a null-valued expression.
+  Report:   
+  Default:  
+
+
+************************************************************
+  FORMULA FIELDS
+************************************************************
+Formula: {@MaxR}
+--- BEGIN ---
+floor(Count({Detail.Row})/6,1)
+--- END ---
+
+Formula: {@C1}
+--- BEGIN ---
+Left({Detail.TaxId},1)
+--- END ---
+
+Formula: {@C2}
+--- BEGIN ---
+Right(Left({Detail.TaxId},2),1)
+--- END ---
+
+Formula: {@C3}
+--- BEGIN ---
+Right(Left({Detail.TaxId},3),1)
+--- END ---
+
+Formula: {@C4}
+--- BEGIN ---
+Right(Left({Detail.TaxId},4),1)
+--- END ---
+
+Formula: {@C5}
+--- BEGIN ---
+Right(Left({Detail.TaxId},5),1)
+--- END ---
+
+Formula: {@C6}
+--- BEGIN ---
+Right(Left({Detail.TaxId},6),1)
+--- END ---
+
+Formula: {@C7}
+--- BEGIN ---
+Right(Left({Detail.TaxId},7),1)
+--- END ---
+
+Formula: {@C8}
+--- BEGIN ---
+Right(Left({Detail.TaxId},8),1)
+--- END ---
+
+Formula: {@C9}
+--- BEGIN ---
+Right(Left({Detail.TaxId},9),1)
+--- END ---
+
+Formula: {@C10}
+--- BEGIN ---
+Right(Left({Detail.TaxId},10),1)
+--- END ---
+
+Formula: {@C11}
+--- BEGIN ---
+Right(Left({Detail.TaxId},11),1)
+--- END ---
+
+Formula: {@C12}
+--- BEGIN ---
+Right(Left({Detail.TaxId},12),1)
+--- END ---
+
+Formula: {@C13}
+--- BEGIN ---
+Right({Detail.TaxId},1)
+--- END ---
+
+Formula: {@B1}
+--- BEGIN ---
+Left({Detail.U_SLD_VBPBranch},1)
+--- END ---
+
+Formula: {@B2}
+--- BEGIN ---
+Right(Left({Detail.U_SLD_VBPBranch},2),1)
+--- END ---
+
+Formula: {@B3}
+--- BEGIN ---
+Right(Left({Detail.U_SLD_VBPBranch},3),1)
+--- END ---
+
+Formula: {@B4}
+--- BEGIN ---
+Right(Left({Detail.U_SLD_VBPBranch},4),1)
+--- END ---
+
+Formula: {@B5}
+--- BEGIN ---
+Right({Detail.U_SLD_VBPBranch},1)
+--- END ---
+
+Formula: {@CB}
+--- BEGIN ---
+{Detail.U_SLD_VatBranch}
+--- END ---
+
+Formula: {@Addrees}
+--- BEGIN ---
+replace(replace({Detail.Address}, chr(13)," "), chr(10)," ")
+--- END ---
+
+Formula: {@RowCount}
+--- BEGIN ---
+{@MaxR}*6
+--- END ---
+
+Formula: {@T1}
+--- BEGIN ---
+Left({Header.U_SLD_VTAXID},1)
+--- END ---
+
+Formula: {@T2}
+--- BEGIN ---
+Right(Left({Header.U_SLD_VTAXID},2),1)
+--- END ---
+
+Formula: {@T3}
+--- BEGIN ---
+Right(Left({Header.U_SLD_VTAXID},3),1)
+--- END ---
+
+Formula: {@T4}
+--- BEGIN ---
+Right(Left({Header.U_SLD_VTAXID},4),1)
+--- END ---
+
+Formula: {@T5}
+--- BEGIN ---
+Right(Left({Header.U_SLD_VTAXID},5),1)
+--- END ---
+
+Formula: {@T6}
+--- BEGIN ---
+Right(Left({Header.U_SLD_VTAXID},6),1)
+--- END ---
+
+Formula: {@T7}
+--- BEGIN ---
+Right(Left({Header.U_SLD_VTAXID},7),1)
+--- END ---
+
+Formula: {@T8}
+--- BEGIN ---
+Right(Left({Header.U_SLD_VTAXID},8),1)
+--- END ---
+
+Formula: {@T9}
+--- BEGIN ---
+Right(Left({Header.U_SLD_VTAXID},9),1)
+--- END ---
+
+Formula: {@T10}
+--- BEGIN ---
+Right(Left({Header.U_SLD_VTAXID},10),1)
+--- END ---
+
+Formula: {@T11}
+--- BEGIN ---
+Right(Left({Header.U_SLD_VTAXID},11),1)
+--- END ---
+
+Formula: {@T12}
+--- BEGIN ---
+Right(Left({Header.U_SLD_VTAXID},12),1)
+--- END ---
+
+Formula: {@T13}
+--- BEGIN ---
+Right({Header.U_SLD_VTAXID},1)
+--- END ---
+
+Formula: {@Total}
+--- BEGIN ---
+Sum({Detail.WTAmntA})
+--- END ---
+
+Formula: {@ff_Reset_Total}
+--- BEGIN ---
+whileprintingrecords;
+numbervar PageTotl;
+PageTotl:=0;
+--- END ---
+
+Formula: {@ff_Current_Total}
+--- BEGIN ---
+whileprintingrecords;
+numbervar PageTotl;
+PageTotl;
+--- END ---
+
+Formula: {@ff_Add_Record}
+--- BEGIN ---
+whileprintingrecords;
+numbervar PageTotl;
+PageTotl:=PageTotl + {Detail.WTAmntA};
+--- END ---
+
+Formula: {@ff_Add_Record 2}
+--- BEGIN ---
+whileprintingrecords;
+numbervar PageTotl1;
+PageTotl1:=PageTotl1 + {Detail.TaxbleAmntA};
+--- END ---
+
+Formula: {@ff_Current_Total 2}
+--- BEGIN ---
+whileprintingrecords;
+numbervar PageTotl1;
+PageTotl1;
+--- END ---
+
+Formula: {@ff_Reset_Total 2}
+--- BEGIN ---
+whileprintingrecords;
+numbervar PageTotl1;
+PageTotl1:=0;
+--- END ---
+
+
+************************************************************
+  CONNECTION INFO
+************************************************************
+Table:    Detail
+  Server:   10.10.10.45
+  Database: SBO_NCC2
+  UserID:   sa
+
+Table:    WtaxAmnt
+  Server:   10.10.10.45
+  Database: SBO_NCC2
+  UserID:   sa
+
+Table:    Header
+  Server:   10.10.10.45
+  Database: SBO_NCC2
+  UserID:   sa
+
+
+************************************************************
+  TABLE LINKS
+************************************************************
+(No table links)
+
+************************************************************
+  RECORD SELECTION FORMULA
+************************************************************
+(No record selection formula)
+
+

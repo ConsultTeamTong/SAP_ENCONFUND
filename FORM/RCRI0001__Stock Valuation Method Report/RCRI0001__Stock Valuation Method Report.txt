@@ -1,0 +1,188 @@
+﻿============================================================
+Report: RCRI0001__Stock Valuation Method Report.rpt
+Path:   RCRI0001__Stock Valuation Method Report.rpt
+Extracted: 2026-05-07 18:03:30
+============================================================
+
+************************************************************
+  PARAMETERS
+************************************************************
+Parameter: (error)
+  Type:     You cannot call a method on a null-valued expression.
+  Report:   
+  Default:  
+
+
+************************************************************
+  FORMULA FIELDS
+************************************************************
+Formula: {@Eval Method}
+--- BEGIN ---
+select {OITM.EvalSystem}
+CASE "S": {@__Standard_str}
+CASE "A": {@__Moving_Average_str}
+CASE "F": {@__FIFO_str}
+Default: "";
+
+
+
+--- END ---
+
+Formula: {@scItemCode_From}
+--- BEGIN ---
+if hasvalue ({?Item@Select * from OITM})
+    then //B1 integration evaluates optional parameter with no value as TRUE!!!
+        if (isnull({?Item@Select * from OITM}) or strcmp(Minimum({?Item@Select * from OITM}),"")=0)
+            then  
+            (if strcmp(Maximum({?Item@Select * from OITM}),"")=0
+            then "All" 
+            else "")
+            else Minimum({?Item@Select * from OITM})
+else
+"All"
+
+
+
+
+
+--- END ---
+
+Formula: {@scItemCode_To}
+--- BEGIN ---
+if hasvalue ({?Item@Select * from OITM})
+then //B1 integration evaluates optional parameter with no value as TRUE!!!
+    if (isnull({?Item@Select * from OITM}) or strcmp(Maximum({?Item@Select * from OITM}),"")=0) 
+        then 
+        (if strcmp(Minimum({?Item@Select * from OITM}),"")=0
+           then "All" 
+           else "" )
+        else Maximum({?Item@Select * from OITM})
+else
+"All"
+--- END ---
+
+Formula: {@scWarehouse}
+--- BEGIN ---
+local stringvar whsStr := "";
+local numbervar numOfWhs := 0; 
+local numbervar i;
+
+if hasvalue({?warehouse@Select * from OWHS})
+then 
+if (not isnull({?warehouse@Select * from OWHS})or strcmp({?warehouse@Select * from OWHS}[1],"")<>0)
+then
+numOfWhs:=count({?warehouse@Select * from OWHS});
+
+if numOfWhs > 0
+then
+(
+for i:=1 to numOfWhs step 1 do
+if i=1 
+then whsStr := whsStr +  {?warehouse@Select * from OWHS}[i]
+else whsStr := whsStr+ ", " + {?warehouse@Select * from OWHS}[i];   
+);
+
+whsStr;
+--- END ---
+
+Formula: {@scItemGroup}
+--- BEGIN ---
+if hasValue({?Item Group@select "ItmsGrpCod", "ItmsGrpNam" from OITB})
+then //B1 integration evaluates optional parameter with no value as TRUE!!!
+    if (isnull({?Item Group@select "ItmsGrpCod", "ItmsGrpNam" from OITB}) or {?Item Group@select "ItmsGrpCod", "ItmsGrpNam" from OITB}="") 
+        then "All" 
+        else {?Item Group@select "ItmsGrpCod", "ItmsGrpNam" from OITB} 
+else
+"All"
+
+--- END ---
+
+Formula: {@__Page_str}
+--- BEGIN ---
+"Page"
+--- END ---
+
+Formula: {@__of_str}
+--- BEGIN ---
+"of"
+--- END ---
+
+Formula: {@PageXofY}
+--- BEGIN ---
+{@__Page_str} & " " & ToText(PageNumber) & " " & {@__of_str} & " " & ToText(TotalPageCount)
+--- END ---
+
+Formula: {@__Moving_Average_str}
+--- BEGIN ---
+"Moving Average"
+--- END ---
+
+Formula: {@__FIFO_str}
+--- BEGIN ---
+"FIFO"
+--- END ---
+
+Formula: {@__Standard_str}
+--- BEGIN ---
+"Standard"
+--- END ---
+
+Formula: {@hasItemGroupValue}
+--- BEGIN ---
+hasValue({?Item Group@select "ItmsGrpCod", "ItmsGrpNam" from OITB})
+--- END ---
+
+Formula: {@hasWHS}
+--- BEGIN ---
+hasValue({?warehouse@Select * from OWHS})
+--- END ---
+
+Formula: {@hasITM}
+--- BEGIN ---
+hasValue({?Item@Select * from OITM})
+--- END ---
+
+
+************************************************************
+  CONNECTION INFO
+************************************************************
+Table:    OITM
+  Server:   DRIVER={B1CRHPROXY};UID=SYSTEM;PWD=manager;SERVERNODE=10.55.178.115:30915;DATABASE=SBODEMOGB;
+  Database: 
+  UserID:   
+
+Table:    OITB
+  Server:   DRIVER={B1CRHPROXY};UID=SYSTEM;PWD=manager;SERVERNODE=10.55.178.115:30915;DATABASE=SBODEMOGB;
+  Database: 
+  UserID:   
+
+Table:    OITW
+  Server:   DRIVER={B1CRHPROXY};UID=SYSTEM;PWD=manager;SERVERNODE=10.55.178.115:30915;DATABASE=SBODEMOGB;
+  Database: 
+  UserID:   
+
+
+************************************************************
+  TABLE LINKS
+************************************************************
+OITM.ItmsGrpCod --[LeftOuter]--> OITB.ItmsGrpCod
+OITM.ItemCode --[LeftOuter]--> OITW.ItemCode
+
+************************************************************
+  RECORD SELECTION FORMULA
+************************************************************
+(not hasvalue({?Item Group@select "ItmsGrpCod", "ItmsGrpNam" from OITB}) or 
+if isnumeric({?Item Group@select "ItmsGrpCod", "ItmsGrpNam" from OITB})
+    then {OITB.ItmsGrpCod} = tonumber({?Item Group@select "ItmsGrpCod", "ItmsGrpNam" from OITB})
+    else true
+) and
+(not HasValue({?Item@Select * from OITM}) OR 
+if (isnull({?Item@Select * from OITM}) or (strcmp(Minimum({?Item@Select * from OITM}),"")=0 and strcmp(Maximum({?Item@Select * from OITM}),"")=0)) 
+    then true 
+    else {OITM.ItemCode} = {?Item@Select * from OITM} ) and
+(not HasValue({?warehouse@Select * from OWHS}) OR 
+if (isnull({?warehouse@Select * from OWHS}) or strcmp({?warehouse@Select * from OWHS}[1],"")=0 )
+then true
+else {OITW.WhsCode} = {?warehouse@Select * from OWHS})
+
+

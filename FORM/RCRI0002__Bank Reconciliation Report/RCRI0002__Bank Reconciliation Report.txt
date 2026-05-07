@@ -1,0 +1,538 @@
+﻿============================================================
+Report: RCRI0002__Bank Reconciliation Report.rpt
+Path:   RCRI0002__Bank Reconciliation Report.rpt
+Extracted: 2026-05-07 18:03:30
+============================================================
+
+************************************************************
+  PARAMETERS
+************************************************************
+Parameter: (error)
+  Type:     You cannot call a method on a null-valued expression.
+  Report:   
+  Default:  
+
+
+************************************************************
+  FORMULA FIELDS
+************************************************************
+Formula: {@acct_name_segments}
+--- BEGIN ---
+shared stringvar __EnbSgmnAct;
+shared Numbervar __ActSegNum;
+if __EnbSgmnAct = 'Y'
+then 
+select __ActSegNum
+CASE 1: {OACT.Segment_0}
+CASE 2: {OACT.Segment_0}+'-'+{OACT.Segment_1}
+CASE 3: {OACT.Segment_0}+'-'+{OACT.Segment_1}+'-'+{OACT.Segment_2}
+CASE 4: {OACT.Segment_0}+'-'+{OACT.Segment_1}+'-'+{OACT.Segment_2}+'-'+{OACT.Segment_3}
+CASE 5: {OACT.Segment_0}+'-'+{OACT.Segment_1}+'-'+{OACT.Segment_2}+'-'+{OACT.Segment_3}+'-'+{OACT.Segment_4}
+CASE 6: {OACT.Segment_0}+'-'+{OACT.Segment_1}+'-'+{OACT.Segment_2}+'-'+{OACT.Segment_3}+'-'+{OACT.Segment_4}+'-'+{OACT.Segment_5}
+CASE 7: {OACT.Segment_0}+'-'+{OACT.Segment_1}+'-'+{OACT.Segment_2}+'-'+{OACT.Segment_3}+'-'+{OACT.Segment_4}+'-'+{OACT.Segment_5}+'-'+{OACT.Segment_6}
+CASE 8: {OACT.Segment_0}+'-'+{OACT.Segment_1}+'-'+{OACT.Segment_2}+'-'+{OACT.Segment_3}+'-'+{OACT.Segment_4}+'-'+{OACT.Segment_5}+'-'+{OACT.Segment_6}+'-'+{OACT.Segment_7}
+CASE 9: {OACT.Segment_0}+'-'+{OACT.Segment_1}+'-'+{OACT.Segment_2}+'-'+{OACT.Segment_3}+'-'+{OACT.Segment_4}+'-'+{OACT.Segment_5}+'-'+{OACT.Segment_6}+'-'+{OACT.Segment_7}+'-'+{OACT.Segment_8}
+CASE 10: {OACT.Segment_0}+'-'+{OACT.Segment_1}+'-'+{OACT.Segment_2}+'-'+{OACT.Segment_3}+'-'+{OACT.Segment_4}+'-'+{OACT.Segment_5}+'-'+{OACT.Segment_6}+'-'+{OACT.Segment_7}+'-'+{OACT.Segment_8}+'-'+{OACT.Segment_9}
+Default: {OACT.AcctCode}
+else {OACT.AcctCode};
+--- END ---
+
+Formula: {@Full_Account_Name}
+--- BEGIN ---
+ {@acct_name_segments} & " ( " & {OACT.AcctName} & " )"
+--- END ---
+
+Formula: {@TransType}
+--- BEGIN ---
+if {JDT1.Debit} = 0
+then "PS"
+else "DP"
+--- END ---
+
+Formula: {@MRT_reset_balance}
+--- BEGIN ---
+//whileprintingrecords;
+//global numbervar mrt_Balance :=0;
+--- END ---
+
+Formula: {@MRT_display_balance}
+--- BEGIN ---
+whileprintingrecords;
+evaluateafter ({@MRT_eval_balance});
+global numbervar mrt_Balance_ChP;
+global numbervar mrt_Balance_DP;
+
+if {JDT1.Debit}=0 
+then 
+mrt_Balance_ChP
+else
+mrt_Balance_DP;
+--- END ---
+
+Formula: {@MRT_eval_balance}
+--- BEGIN ---
+whileprintingrecords;
+global numbervar mrt_Balance_ChP;
+global numbervar mrt_Balance_DP;
+shared booleanvar isLCA;
+local numbervar tmp_balance;
+
+if isLCA 
+then
+tmp_balance :=  {JDT1.Debit} - {JDT1.Credit}
+else
+tmp_balance :=  {JDT1.FCDebit} - {JDT1.FCCredit};
+
+if {JDT1.Debit}=0 
+then
+mrt_Balance_ChP := mrt_Balance_ChP + tmp_balance
+else
+mrt_Balance_DP := mrt_Balance_DP + tmp_balance;
+--- END ---
+
+Formula: {@TotalGroupBalance}
+--- BEGIN ---
+shared booleanvar isLCA;
+
+if isLCA
+then
+{#rt_Debit_TT}-{#rt_Credit_TT}
+else
+{#rt_Debit_TT_FC}-{#rt_Credit_TT_FC};
+--- END ---
+
+Formula: {@GroupTotalName}
+--- BEGIN ---
+if {JDT1.Debit}=0
+then {@__Total_str} & " " & {@__grpTitle_Cleared_ChP_str}
+else {@__Total_str} & " " & {@__grpTitle_Cleared_DP_str}
+--- END ---
+
+Formula: {@TotalClearedBalance}
+--- BEGIN ---
+shared booleanvar isLCA;
+
+if isLCA
+then
+{#rt_Debit_cleared}-{#rt_Credit_cleared}
+else
+{#rt_Debit_cleared_FC}-{#rt_Credit_cleared_FC};
+--- END ---
+
+Formula: {@__grpTitle_Cleared_ChP_str}
+--- BEGIN ---
+"Cleared Cheques and Payments"
+--- END ---
+
+Formula: {@__grpTitle_Cleared_DP_str}
+--- BEGIN ---
+"Cleared Deposits and Credits"
+--- END ---
+
+Formula: {@__grpTotalTitle_Cleared_ChP_str}
+--- BEGIN ---
+"Total Cleared Cheques and Payments"
+--- END ---
+
+Formula: {@__grpTotalTitle_Cleared_DC_str}
+--- BEGIN ---
+"Total Cleared Deposits and Credits"
+--- END ---
+
+Formula: {@__Total_str}
+--- BEGIN ---
+"Total"
+--- END ---
+
+Formula: {@GroupTitleName}
+--- BEGIN ---
+if {JDT1.Debit}=0
+then {@__grpTitle_Cleared_ChP_str}
+else {@__grpTitle_Cleared_DP_str}
+--- END ---
+
+Formula: {@SummaryCleared_ChP}
+--- BEGIN ---
+shared numbervar sumClearedCredit;
+0- sumClearedCredit;
+--- END ---
+
+Formula: {@SummaryCleared_DC}
+--- BEGIN ---
+shared numbervar sumClearedDebit;
+sumClearedDebit-0;
+--- END ---
+
+Formula: {@BeginningBalance}
+--- BEGIN ---
+shared numbervar LastStatementBalance;
+--- END ---
+
+Formula: {@EndingBalance}
+--- BEGIN ---
+{@BeginningBalance} + {@SummaryCleared_ChP} + {@SummaryCleared_DC}
+--- END ---
+
+Formula: {@AccountBalance}
+--- BEGIN ---
+shared numbervar AccountBalance;
+--- END ---
+
+Formula: {@SummaryUncleared_ChP}
+--- BEGIN ---
+shared numbervar SummaryUncleared_ChP;
+-1*SummaryUncleared_ChP;
+--- END ---
+
+Formula: {@SummaryUncleared_DC}
+--- BEGIN ---
+shared numbervar SummaryUncleared_DC;
+-1*SummaryUncleared_DC;
+--- END ---
+
+Formula: {@AdjustedAccountBalance}
+--- BEGIN ---
+{@AccountBalance} + ({@SummaryUncleared_ChP} + {@SummaryUncleared_DC})
+--- END ---
+
+Formula: {@Variance}
+--- BEGIN ---
+{@EndingBalance}-{@AdjustedAccountBalance}
+--- END ---
+
+Formula: {@PageXofY}
+--- BEGIN ---
+{@__Page_str} & " " & totext(PageNumber,0) & " " & {@__of_str} & " " & totext(TotalPageCount,0)
+--- END ---
+
+Formula: {@__Page_str}
+--- BEGIN ---
+"Page"
+--- END ---
+
+Formula: {@__of_str}
+--- BEGIN ---
+"of"
+--- END ---
+
+Formula: {@_AmDec}
+--- BEGIN ---
+shared Numbervar _SumDec;
+_SumDec
+--- END ---
+
+Formula: {@_CurPosition}
+--- BEGIN ---
+shared stringvar __CurOnRight;
+if __CurOnRight = "Y" then crTrailingCurrencyOutsideNegative
+else crLeadingCurrencyOutsideNegative
+
+--- END ---
+
+Formula: {@_DateFormat}
+--- BEGIN ---
+shared stringvar __DateFormat;      
+select __DateFormat
+    case "0":
+        "DD/MM/YY"
+    case "1":
+        "DD/MM/CCYY"
+    case "2":
+        "MM/DD/YY"
+    case "3":
+        "MM/DD/CCYY"
+    case "4":
+        "CCYY/MM/DD"
+    case "5":
+        "DD/Month/YYYY"
+    case "6":
+        "YY/MM/DD"
+    default:
+        "";
+
+--- END ---
+
+Formula: {@_DateOrder}
+--- BEGIN ---
+ If {@_DateFormat} in ["DD/MM/YY","DD/MM/CCYY","DD/Month/YYYY"]
+ then crDayMonthYear
+else if {@_DateFormat} in ["MM/DD/YY","MM/DD/CCYY"] then crMonthDayYear
+else if {@_DateFormat} in ["CCYY/MM/DD","YY/MM/DD"] then crYearMonthDay
+
+--- END ---
+
+Formula: {@_DecSep}
+--- BEGIN ---
+shared stringvar __DecSep;
+__DecSep
+--- END ---
+
+Formula: {@_LinkSep}
+--- BEGIN ---
+shared stringvar __DateSep;
+__DateSep
+--- END ---
+
+Formula: {@_Month}
+--- BEGIN ---
+shared Numbervar __CharMonth;
+if "Month" in {@_DateFormat} then 
+    (
+if __CharMonth<0 then crLongMonth
+    else if __CharMonth <= 3 then crShortMonth
+    else if __CharMonth > 3 then crLongMonth)
+else crLeadingZeroMonth
+
+--- END ---
+
+Formula: {@_PercentDec}
+--- BEGIN ---
+shared Numbervar __PercentDec;
+__PercentDec
+--- END ---
+
+Formula: {@_PriceDec}
+--- BEGIN ---
+shared Numbervar _PriceDec;
+_PriceDec
+--- END ---
+
+Formula: {@_QtyDec}
+--- BEGIN ---
+shared Numbervar _QtyDec;
+_QtyDec
+--- END ---
+
+Formula: {@_RateDec}
+--- BEGIN ---
+shared Numbervar __RateDec;
+__RateDec;
+--- END ---
+
+Formula: {@_ThousSep}
+--- BEGIN ---
+shared stringvar __ThousSep;
+//not isnull(__ThousSep)   
+true
+--- END ---
+
+Formula: {@_ThousSepSym}
+--- BEGIN ---
+//{OADM.ThousSep}
+shared stringvar __ThousSep;
+__ThousSep;
+--- END ---
+
+Formula: {@_UnitDec}
+--- BEGIN ---
+shared Numbervar __MeasureDec;
+__MeasureDec
+--- END ---
+
+Formula: {@_Year}
+--- BEGIN ---
+If "Month" in {@_DateFormat} then crLongYear
+else if "CC" in {@_DateFormat} then crLongYear
+else crShortYear
+
+--- END ---
+
+Formula: {@ContraAcct}
+--- BEGIN ---
+if isnull({OCRD.CardCode})
+then {@CA_acct_name_segments}
+else {JDT1.ContraAct}
+--- END ---
+
+Formula: {@CA_acct_name_segments}
+--- BEGIN ---
+shared stringvar __EnbSgmnAct;
+shared Numbervar __ActSegNum;
+if __EnbSgmnAct = 'Y'
+then 
+select __ActSegNum
+CASE 1: {OACT_CA.Segment_0}
+CASE 2: {OACT_CA.Segment_0}+'-'+{OACT_CA.Segment_1}
+CASE 3: {OACT_CA.Segment_0}+'-'+{OACT_CA.Segment_1}+'-'+{OACT_CA.Segment_2}
+CASE 4: {OACT_CA.Segment_0}+'-'+{OACT_CA.Segment_1}+'-'+{OACT_CA.Segment_2}+'-'+{OACT_CA.Segment_3}
+CASE 5: {OACT_CA.Segment_0}+'-'+{OACT_CA.Segment_1}+'-'+{OACT_CA.Segment_2}+'-'+{OACT_CA.Segment_3}+'-'+{OACT_CA.Segment_4}
+CASE 6: {OACT_CA.Segment_0}+'-'+{OACT_CA.Segment_1}+'-'+{OACT_CA.Segment_2}+'-'+{OACT_CA.Segment_3}+'-'+{OACT_CA.Segment_4}+'-'+{OACT_CA.Segment_5}
+CASE 7: {OACT_CA.Segment_0}+'-'+{OACT_CA.Segment_1}+'-'+{OACT_CA.Segment_2}+'-'+{OACT_CA.Segment_3}+'-'+{OACT_CA.Segment_4}+'-'+{OACT_CA.Segment_5}+'-'+{OACT_CA.Segment_6}
+CASE 8: {OACT_CA.Segment_0}+'-'+{OACT_CA.Segment_1}+'-'+{OACT_CA.Segment_2}+'-'+{OACT_CA.Segment_3}+'-'+{OACT_CA.Segment_4}+'-'+{OACT_CA.Segment_5}+'-'+{OACT_CA.Segment_6}+'-'+{OACT_CA.Segment_7}
+CASE 9: {OACT_CA.Segment_0}+'-'+{OACT_CA.Segment_1}+'-'+{OACT_CA.Segment_2}+'-'+{OACT_CA.Segment_3}+'-'+{OACT_CA.Segment_4}+'-'+{OACT_CA.Segment_5}+'-'+{OACT_CA.Segment_6}+'-'+{OACT_CA.Segment_7}+'-'+{OACT_CA.Segment_8}
+CASE 10: {OACT_CA.Segment_0}+'-'+{OACT_CA.Segment_1}+'-'+{OACT_CA.Segment_2}+'-'+{OACT_CA.Segment_3}+'-'+{OACT_CA.Segment_4}+'-'+{OACT_CA.Segment_5}+'-'+{OACT_CA.Segment_6}+'-'+{OACT_CA.Segment_7}+'-'+{OACT_CA.Segment_8}+'-'+{OACT_CA.Segment_9}
+Default: {OACT_CA.AcctCode}
+else {OACT_CA.AcctCode};
+--- END ---
+
+Formula: {@card/account_name}
+--- BEGIN ---
+if isnull({OCRD.CardCode})
+then {OACT_CA.AcctName}
+else {OCRD.CardName}
+--- END ---
+
+Formula: {@isCancelled}
+--- BEGIN ---
+isnull({OMTH.MatchNum})
+
+--- END ---
+
+Formula: {@_local_currency}
+--- BEGIN ---
+shared stringvar __CurOnRight;
+shared stringvar reportCurr;
+evaluateafter({@_rptCurr});
+
+if __CurOnRight = "Y" then " " + reportCurr
+else
+    reportCurr + " ";
+--- END ---
+
+Formula: {@MaxDueDate}
+--- BEGIN ---
+Maximum({OBNK.DueDate})
+--- END ---
+
+Formula: {@_rptCurr}
+--- BEGIN ---
+shared stringvar reportCurr;
+shared stringvar _MainCurncy;
+if (({OBNK.DebAmntCur} <> _MainCurncy) and ({OBNK.DebAmntCur} <> "##"))
+then 
+reportCurr :={OBNK.DebAmntCur}
+else
+reportCurr :=_MainCurncy;
+
+reportCurr;
+--- END ---
+
+Formula: {@isLocalCurrAccount}
+--- BEGIN ---
+shared booleanvar isLCA;
+shared stringvar _MainCurncy;
+if ((_MainCurncy = {OBNK.CredAmntCu}) or ({OBNK.CredAmntCu} = "##"))
+then 
+isLCA := true
+else
+isLCA := false;
+
+isLCA;
+--- END ---
+
+Formula: {@Debit_LCA}
+--- BEGIN ---
+shared booleanvar isLCA;
+if isLCA
+then {JDT1.Debit}
+else
+{JDT1.FCDebit};
+--- END ---
+
+Formula: {@Credit_LCA}
+--- BEGIN ---
+shared booleanvar isLCA;
+if isLCA
+then {JDT1.Credit}
+else
+{JDT1.FCCredit};
+--- END ---
+
+Formula: {@rtDebit_TT_LCA}
+--- BEGIN ---
+shared booleanvar isLCA;
+if isLCA
+then {#rt_Debit_TT}
+else
+{#rt_Debit_TT_FC};
+--- END ---
+
+Formula: {@rtCredit_TT_LCA}
+--- BEGIN ---
+shared booleanvar isLCA;
+if isLCA
+then {#rt_Credit_TT}
+else
+{#rt_Credit_TT_FC};
+--- END ---
+
+Formula: {@rtCredit_cleared_LCA}
+--- BEGIN ---
+shared booleanvar isLCA;
+if isLCA
+then {#rt_Credit_cleared}
+else
+{#rt_Credit_cleared_FC};
+--- END ---
+
+Formula: {@rtDebit_cleared_LCA}
+--- BEGIN ---
+shared booleanvar isLCA;
+if isLCA
+then {#rt_Debit_cleared}
+else
+{#rt_Debit_cleared_FC};
+--- END ---
+
+Formula: {@_g_CompanyName}
+--- BEGIN ---
+shared stringvar __CompanyName;
+__CompanyName
+--- END ---
+
+Formula: {@_g_CompnyAddr}
+--- BEGIN ---
+shared stringvar __CompnyAddr;
+__CompnyAddr
+--- END ---
+
+
+************************************************************
+  CONNECTION INFO
+************************************************************
+Table:    OBNK
+  Server:   DRIVER={B1CRHPROXY};UID=SYSTEM;PWD=manager;SERVERNODE=10.55.178.121:30515;DATABASE=LAIKA_GB;
+  Database: 
+  UserID:   
+
+Table:    OACT
+  Server:   DRIVER={B1CRHPROXY};UID=SYSTEM;PWD=manager;SERVERNODE=10.55.178.121:30515;DATABASE=LAIKA_GB;
+  Database: 
+  UserID:   
+
+Table:    OMTH
+  Server:   DRIVER={B1CRHPROXY};UID=SYSTEM;PWD=manager;SERVERNODE=10.55.178.121:30515;DATABASE=LAIKA_GB;
+  Database: 
+  UserID:   
+
+Table:    JDT1
+  Server:   DRIVER={B1CRHPROXY};UID=SYSTEM;PWD=manager;SERVERNODE=10.55.178.121:30515;DATABASE=LAIKA_GB;
+  Database: 
+  UserID:   
+
+Table:    OCRD
+  Server:   DRIVER={B1CRHPROXY};UID=SYSTEM;PWD=manager;SERVERNODE=10.55.178.121:30515;DATABASE=LAIKA_GB;
+  Database: 
+  UserID:   
+
+Table:    OACT_CA
+  Server:   DRIVER={B1CRHPROXY};UID=SYSTEM;PWD=manager;SERVERNODE=10.55.178.121:30515;DATABASE=LAIKA_GB;
+  Database: 
+  UserID:   
+
+
+************************************************************
+  TABLE LINKS
+************************************************************
+JDT1.Account --[LeftOuter]--> OMTH.MthAcctCod
+JDT1.ContraAct --[LeftOuter]--> OACT_CA.AcctCode
+JDT1.ContraAct --[LeftOuter]--> OCRD.CardCode
+JDT1.Account --[LeftOuter]--> OACT.AcctCode
+OMTH.MatchNum --[RightOuter]--> OBNK.BankMatch
+
+************************************************************
+  RECORD SELECTION FORMULA
+************************************************************
+ (  {OBNK.AcctCode} = {?GLAccount@Select Distinct OBNK."AcctCode", OACT."AcctName" From OBNK inner join dsc1 on DSC1."GLAccount"=OBNK."AcctCode" inner join OACT on OACT."AcctCode"=OBNK."AcctCode"}  AND  {OBNK.BankMatch} = {?ReconciliationNumber@Select Distinct "BankMatch", Max("DueDate") FROM OBNK where OBNK."AcctCode"='@GLAccount' group by "BankMatch"}  )  
+
+

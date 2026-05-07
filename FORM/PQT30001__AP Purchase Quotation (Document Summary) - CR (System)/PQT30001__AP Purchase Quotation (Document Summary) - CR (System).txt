@@ -1,0 +1,225 @@
+﻿============================================================
+Report: PQT30001__AP Purchase Quotation (Document Summary) - CR (System).rpt
+Path:   PQT30001__AP Purchase Quotation (Document Summary) - CR (System).rpt
+Extracted: 2026-05-07 18:03:23
+============================================================
+
+************************************************************
+  PARAMETERS
+************************************************************
+(No parameters)
+
+************************************************************
+  FORMULA FIELDS
+************************************************************
+Formula: {@F_87}
+--- BEGIN ---
+if {PLD__ITEMS.F_87}='' then ' ' else {PLD__ITEMS.F_87}
+--- END ---
+
+Formula: {@F_81}
+--- BEGIN ---
+if {PLD__ITEMS.F_81}='' then ' ' else {PLD__ITEMS.F_81}
+--- END ---
+
+Formula: {@F_23}
+--- BEGIN ---
+if {PLD__ITEMS.F_23}='' then ' ' else {PLD__ITEMS.F_23}
+--- END ---
+
+Formula: {@F_24}
+--- BEGIN ---
+if {PLD__ITEMS.F_24}='' then ' ' else {PLD__ITEMS.F_24}
+--- END ---
+
+Formula: {@F_25}
+--- BEGIN ---
+if {PLD__ITEMS.F_25}='' then ' ' else {PLD__ITEMS.F_25}
+--- END ---
+
+Formula: {@F_26}
+--- BEGIN ---
+if {PLD__ITEMS.F_26}='' then ' ' else {PLD__ITEMS.F_26}
+--- END ---
+
+Formula: {@F_64}
+--- BEGIN ---
+if {PLD__ITEMS.F_64}='' then ' ' else {PLD__ITEMS.F_64}
+--- END ---
+
+Formula: {@F_66}
+--- BEGIN ---
+if {PLD__ITEMS.F_66}='' then ' ' else {PLD__ITEMS.F_66}
+--- END ---
+
+Formula: {@F_68}
+--- BEGIN ---
+if {PLD__ITEMS.F_68}='' then ' ' else {PLD__ITEMS.F_68}
+--- END ---
+
+Formula: {@F_71}
+--- BEGIN ---
+if {PLD__ITEMS.F_71}='' then ' ' else {PLD__ITEMS.F_71}
+--- END ---
+
+Formula: {@F_74}
+--- BEGIN ---
+if {PLD__ITEMS.F_74}='' then ' ' else {PLD__ITEMS.F_74}
+--- END ---
+
+Formula: {@F_76}
+--- BEGIN ---
+if {PLD__ITEMS.F_76}='' then ' ' else {PLD__ITEMS.F_76}
+--- END ---
+
+Formula: {@F_77}
+--- BEGIN ---
+if {PLD__ITEMS.F_77}='' then ' ' else {PLD__ITEMS.F_77}
+--- END ---
+
+Formula: {@F_78}
+--- BEGIN ---
+if {PLD__ITEMS.F_78}='' then ' ' else {PLD__ITEMS.F_78}
+--- END ---
+
+Formula: {@F_34}
+--- BEGIN ---
+if {PLD__ITEMS.F_34}='' then ' ' else {PLD__ITEMS.F_34}
+--- END ---
+
+Formula: {@F_47}
+--- BEGIN ---
+if {PLD__ITEMS.F_47}='' then ' ' else {PLD__ITEMS.F_47}
+--- END ---
+
+Formula: {@F_49}
+--- BEGIN ---
+if {PLD__ITEMS.F_49}='' then ' ' else {PLD__ITEMS.F_49}
+--- END ---
+
+Formula: {@F_50}
+--- BEGIN ---
+if {PLD__ITEMS.F_50}='' then ' ' else {PLD__ITEMS.F_50}
+--- END ---
+
+Formula: {@F_51}
+--- BEGIN ---
+if {PLD__ITEMS.F_51}='' then ' ' else {PLD__ITEMS.F_51}
+--- END ---
+
+Formula: {@F_52}
+--- BEGIN ---
+if {PLD__ITEMS.F_52}='' then ' ' else {PLD__ITEMS.F_52}
+--- END ---
+
+Formula: {@F_53}
+--- BEGIN ---
+if {PLD__ITEMS.F_53}='' then ' ' else {PLD__ITEMS.F_53}
+--- END ---
+
+Formula: {@F_54}
+--- BEGIN ---
+if {PLD__ITEMS.F_54}='' then ' ' else {PLD__ITEMS.F_54}
+--- END ---
+
+Formula: {@F_55}
+--- BEGIN ---
+if {PLD__ITEMS.F_55}='' then ' ' else {PLD__ITEMS.F_55}
+--- END ---
+
+Formula: {@F_56}
+--- BEGIN ---
+if {PLD__ITEMS.F_56}='' then ' ' else {PLD__ITEMS.F_56}
+--- END ---
+
+Formula: {@F_57}
+--- BEGIN ---
+if {PLD__ITEMS.F_57}='' then ' ' else {PLD__ITEMS.F_57}
+--- END ---
+
+Formula: {@F_58}
+--- BEGIN ---
+if {PLD__ITEMS.F_58}='' then ' ' else {PLD__ITEMS.F_58}
+--- END ---
+
+Formula: {@F_59}
+--- BEGIN ---
+if {PLD__ITEMS.F_59}='' then ' ' else {PLD__ITEMS.F_59}
+--- END ---
+
+Formula: {@F_60}
+--- BEGIN ---
+if {PLD__ITEMS.F_60}='' then ' ' else {PLD__ITEMS.F_60}
+--- END ---
+
+Formula: {@F_61}
+--- BEGIN ---
+if {PLD__ITEMS.F_61}='' then ' ' else {PLD__ITEMS.F_61}
+--- END ---
+
+Formula: {@F_92}
+--- BEGIN ---
+if {PLD__ITEMS.F_92}='' then ' ' else {PLD__ITEMS.F_92}
+--- END ---
+
+Formula: {@F_79}
+--- BEGIN ---
+if {PLD__ITEMS.F_79}='' then ' ' else {PLD__ITEMS.F_79}
+--- END ---
+
+Formula: {@F_7}
+--- BEGIN ---
+if {PLD__ITEMS.F_7}='' then ' ' else {PLD__ITEMS.F_7}
+--- END ---
+
+Formula: {@F_8}
+--- BEGIN ---
+if {PLD__ITEMS.F_8}='' then ' ' else {PLD__ITEMS.F_8}
+--- END ---
+
+Formula: {@F_9}
+--- BEGIN ---
+if {PLD__ITEMS.F_9}='' then ' ' else {PLD__ITEMS.F_9}
+--- END ---
+
+Formula: {@F_10}
+--- BEGIN ---
+if {PLD__ITEMS.F_10}='' then ' ' else {PLD__ITEMS.F_10}
+--- END ---
+
+Formula: {@F_11}
+--- BEGIN ---
+if {PLD__ITEMS.F_11}='' then ' ' else {PLD__ITEMS.F_11}
+--- END ---
+
+Formula: {@F_12}
+--- BEGIN ---
+if {PLD__ITEMS.F_12}='' then ' ' else {PLD__ITEMS.F_12}
+--- END ---
+
+Formula: {@F_14}
+--- BEGIN ---
+if {PLD__ITEMS.F_14}='' then ' ' else {PLD__ITEMS.F_14}
+--- END ---
+
+
+************************************************************
+  CONNECTION INFO
+************************************************************
+Table:    PLD__ITEMS
+  Server:   PLDReportSource
+  Database: 
+  UserID:   
+
+
+************************************************************
+  TABLE LINKS
+************************************************************
+(No table links)
+
+************************************************************
+  RECORD SELECTION FORMULA
+************************************************************
+(No record selection formula)
+
+

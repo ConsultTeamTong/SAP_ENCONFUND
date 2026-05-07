@@ -1,0 +1,960 @@
+﻿============================================================
+Report: DUN00002__Dunning Letter 01 - CR (GB) (System).rpt
+Path:   DUN00002__Dunning Letter 01 - CR (GB) (System).rpt
+Extracted: 2026-05-07 18:03:00
+============================================================
+
+************************************************************
+  PARAMETERS
+************************************************************
+Parameter: (error)
+  Type:     You cannot call a method on a null-valued expression.
+  Report:   
+  Default:  
+
+
+************************************************************
+  FORMULA FIELDS
+************************************************************
+Formula: {@F_124}
+--- BEGIN ---
+Shared StringVar accountNo;
+If PageNumber = 1 then
+(
+    accountNo := {PLD__ITEMS.F_124};
+    if {PLD__ITEMS.F_124}='' then ' ' else {PLD__ITEMS.F_124}
+)
+Else
+(  
+    if accountNo = '' Then ' '
+    Else accountNo
+)
+--- END ---
+
+Formula: {@F_13}
+--- BEGIN ---
+Shared StringVar companyName;
+
+If PageNumber = 1 Then
+(
+    companyName := {PLD__ITEMS.F_13};
+    if {PLD__ITEMS.F_13}='' then ' ' else {PLD__ITEMS.F_13}
+)
+Else
+    companyName
+--- END ---
+
+Formula: {@F_15}
+--- BEGIN ---
+Shared StringVar companyName1;
+If PageNumber = 1 Then
+(
+    companyName1 := {PLD__ITEMS.F_15};
+    if {PLD__ITEMS.F_15}='' then ' ' else {PLD__ITEMS.F_15}
+)
+Else
+    companyName1;
+--- END ---
+
+Formula: {@F_17}
+--- BEGIN ---
+Shared StringVar vatNumber;
+
+If Pagenumber = 1 Then
+(
+    vatNumber := {PLD__ITEMS.F_17};
+    if {PLD__ITEMS.F_17}='' then ' ' else {PLD__ITEMS.F_17}
+)
+Else
+(
+    if vatNumber = '' Then ' '
+    else vatNumber
+)
+--- END ---
+
+Formula: {@F_18}
+--- BEGIN ---
+Shared StringVar companyAddress1;
+
+If PageNumber = 1 Then
+(
+    companyAddress1 := {PLD__ITEMS.F_18};
+    if {PLD__ITEMS.F_18}='' then ' ' else {PLD__ITEMS.F_18}
+)
+Else
+    companyAddress1
+--- END ---
+
+Formula: {@F_63}
+--- BEGIN ---
+Shared StringVar fax;
+if PageNumber = 1 Then
+(
+    fax := {PLD__ITEMS.F_63};
+    if {PLD__ITEMS.F_63}='' then ' ' else {PLD__ITEMS.F_63}
+)
+Else
+(
+    if fax ='' Then  ' ' else fax;
+)
+--- END ---
+
+Formula: {@F_65}
+--- BEGIN ---
+Shared StringVar telphone;
+if PageNumber = 1 Then
+(
+    telphone := {PLD__ITEMS.F_65};
+
+    if {PLD__ITEMS.F_65}='' then ' ' 
+    else {PLD__ITEMS.F_65}
+            
+    
+)
+Else
+(   
+    if telphone = '' Then ' '
+    else telphone
+);
+--- END ---
+
+Formula: {@F_67}
+--- BEGIN ---
+Shared StringVar companyAddress;
+If PageNumber = 1 Then
+(
+    companyAddress := {PLD__ITEMS.F_67};
+    if {PLD__ITEMS.F_67}='' then ' ' else {PLD__ITEMS.F_67}
+)
+Else
+    companyAddress
+--- END ---
+
+Formula: {@F_75}
+--- BEGIN ---
+Shared StringVar email;
+
+If PageNumber = 1 Then
+(
+    email := {PLD__ITEMS.F_75};
+    if {PLD__ITEMS.F_75}='' then ' ' else {PLD__ITEMS.F_75}
+)
+Else
+(
+    if email = '' Then ' '
+    else email;
+)
+--- END ---
+
+Formula: {@F_79}
+--- BEGIN ---
+if {PLD__ITEMS.F_79}='' then ' ' else {PLD__ITEMS.F_79}
+--- END ---
+
+Formula: {@F_83}
+--- BEGIN ---
+Shared StringVar strDate;
+
+if PageNumber = 1 Then
+(
+    strDate := {PLD__ITEMS.F_83};
+    if {PLD__ITEMS.F_83}='' then ' ' else {PLD__ITEMS.F_83}
+)
+else
+(
+    if strDate = '' then ' '
+    else strDate;
+)
+--- END ---
+
+Formula: {@F_136}
+--- BEGIN ---
+if {PLD__ITEMS.F_136}='' then ' ' else {PLD__ITEMS.F_136}
+--- END ---
+
+Formula: {@F_26}
+--- BEGIN ---
+if {PLD__ITEMS.F_26}='' then ' ' else {PLD__ITEMS.F_26}
+--- END ---
+
+Formula: {@F_28}
+--- BEGIN ---
+//if {PLD__ITEMS.F_28}='' then ' ' else trim(Replace ({PLD__ITEMS.F_28}, {PLD__ITEMS.F_28_Symbol},''))
+Shared StringVar currSymbol;
+
+if {PLD__ITEMS.F_28}='' then ' '
+Else TrailCurrency ({PLD__ITEMS.F_28},  {OADM.CurOnRight}, currSymbol, {PLD__ITEMS.F_28_Symbol})
+--- END ---
+
+Formula: {@F_29}
+--- BEGIN ---
+if {PLD__ITEMS.F_29}='' then ' ' 
+else 
+(
+   if {PLD__ITEMS.F_29i} > 999 then
+    {PLD__ITEMS.F_29}
+   else
+    right('000' & {PLD__ITEMS.F_29}, 3)
+)
+--- END ---
+
+Formula: {@F_86}
+--- BEGIN ---
+if {PLD__ITEMS.F_86}='' then ' ' else {PLD__ITEMS.F_86}
+--- END ---
+
+Formula: {@F_84}
+--- BEGIN ---
+if {PLD__ITEMS.F_84}='' then ' ' else {PLD__ITEMS.F_84}
+--- END ---
+
+Formula: {@F_89}
+--- BEGIN ---
+if {PLD__ITEMS.F_89}='' then ' ' else {PLD__ITEMS.F_89}
+--- END ---
+
+Formula: {@F_128}
+--- BEGIN ---
+if {PLD__ITEMS.F_128}='' then ' ' else {PLD__ITEMS.F_128}
+--- END ---
+
+Formula: {@F_166}
+--- BEGIN ---
+//if {PLD__ITEMS.F_166}='' then ' ' else trim(Replace ({PLD__ITEMS.F_166}, {PLD__ITEMS.F_166_Symbol},''))
+Shared StringVar currSymbol;
+
+if {PLD__ITEMS.F_166}='' then ' '
+Else TrailCurrency ({PLD__ITEMS.F_166},  {OADM.CurOnRight}, currSymbol, {PLD__ITEMS.F_166_Symbol})
+
+--- END ---
+
+Formula: {@F_120}
+--- BEGIN ---
+if {PLD__ITEMS.F_120}='' then ' ' else {PLD__ITEMS.F_120}
+--- END ---
+
+Formula: {@F_125}
+--- BEGIN ---
+if {PLD__ITEMS.F_125}='' then ' ' else {PLD__ITEMS.F_125}
+--- END ---
+
+Formula: {@F_57}
+--- BEGIN ---
+if {PLD__ITEMS.F_57}='' then ' ' else {PLD__ITEMS.F_57}
+--- END ---
+
+Formula: {@F_76}
+--- BEGIN ---
+if {PLD__ITEMS.F_76}='' then ' ' else {PLD__ITEMS.F_76}
+--- END ---
+
+Formula: {@F_131}
+--- BEGIN ---
+if {PLD__ITEMS.F_131}='' then ' ' else {PLD__ITEMS.F_131}
+--- END ---
+
+Formula: {@F_112}
+--- BEGIN ---
+if {PLD__ITEMS.F_112}='' then ' ' else {PLD__ITEMS.F_112}
+--- END ---
+
+Formula: {@F_114}
+--- BEGIN ---
+if {PLD__ITEMS.F_114}='' then ' ' else {PLD__ITEMS.F_114}
+--- END ---
+
+Formula: {@F_115}
+--- BEGIN ---
+if {PLD__ITEMS.F_115}='' then ' ' 
+else 
+(
+   if {PLD__ITEMS.F_115i} > 999 then
+    {PLD__ITEMS.F_115}
+   else
+    right('000' & {PLD__ITEMS.F_115}, 3)
+)
+
+--- END ---
+
+Formula: {@F_116}
+--- BEGIN ---
+//if {PLD__ITEMS.F_116}='' then ' ' else trim(Replace ({PLD__ITEMS.F_116}, {PLD__ITEMS.F_116_Symbol},''))
+Shared StringVar currSymbol;
+
+if {PLD__ITEMS.F_116}='' then ' '
+Else TrailCurrency ({PLD__ITEMS.F_116},  {OADM.CurOnRight}, currSymbol, {PLD__ITEMS.F_116_Symbol})
+--- END ---
+
+Formula: {@F_117}
+--- BEGIN ---
+//if {PLD__ITEMS.F_117}='' then ' ' else trim(Replace ({PLD__ITEMS.F_117}, {PLD__ITEMS.F_117_Symbol},''))
+Shared StringVar currSymbol;
+
+if {PLD__ITEMS.F_117}='' then ' '
+Else TrailCurrency ({PLD__ITEMS.F_117},  {OADM.CurOnRight}, currSymbol, {PLD__ITEMS.F_117_Symbol})
+--- END ---
+
+Formula: {@F_171}
+--- BEGIN ---
+if {PLD__ITEMS.F_171}='' then ' ' else {PLD__ITEMS.F_171}
+--- END ---
+
+Formula: {@F_172}
+--- BEGIN ---
+if {PLD__ITEMS.F_172}='' then ' ' else {PLD__ITEMS.F_172}
+--- END ---
+
+Formula: {@F_158}
+--- BEGIN ---
+if {PLD__ITEMS.F_158}='' then ' ' else {PLD__ITEMS.F_158}
+--- END ---
+
+Formula: {@F_159}
+--- BEGIN ---
+//if {PLD__ITEMS.F_159}='' then ' ' else trim(Replace ({PLD__ITEMS.F_159}, {PLD__ITEMS.F_159_Symbol},''))
+Shared StringVar currSymbol;
+
+if {PLD__ITEMS.F_159}='' then ' '
+Else TrailCurrency ({PLD__ITEMS.F_159},  {OADM.CurOnRight}, currSymbol, {PLD__ITEMS.F_159_Symbol})
+--- END ---
+
+Formula: {@F_160}
+--- BEGIN ---
+//if {PLD__ITEMS.F_160}='' then ' ' else trim(Replace ({PLD__ITEMS.F_160}, {PLD__ITEMS.F_160_Symbol},''))
+Shared StringVar currSymbol;
+
+if {PLD__ITEMS.F_160}='' then ' '
+Else TrailCurrency ({PLD__ITEMS.F_160},  {OADM.CurOnRight}, currSymbol, {PLD__ITEMS.F_160_Symbol})
+--- END ---
+
+Formula: {@F_161}
+--- BEGIN ---
+if {PLD__ITEMS.F_161}='' then ' ' else {PLD__ITEMS.F_161}
+--- END ---
+
+Formula: {@F_162}
+--- BEGIN ---
+if {PLD__ITEMS.F_162}='' then ' ' else {PLD__ITEMS.F_162}
+--- END ---
+
+Formula: {@F_163}
+--- BEGIN ---
+if {PLD__ITEMS.F_163}='' then ' ' else {PLD__ITEMS.F_163}
+--- END ---
+
+Formula: {@F_164}
+--- BEGIN ---
+if {PLD__ITEMS.F_164}='' then ' ' else {PLD__ITEMS.F_164}
+--- END ---
+
+Formula: {@F_165}
+--- BEGIN ---
+if {PLD__ITEMS.F_165}='' then ' ' 
+else 
+(
+   if {PLD__ITEMS.F_165i} > 999 then
+    {PLD__ITEMS.F_165}
+   else
+    right('000' & {PLD__ITEMS.F_165}, 3)
+)
+
+--- END ---
+
+Formula: {@F_147}
+--- BEGIN ---
+if {PLD__ITEMS.F_147}='' then ' ' else {PLD__ITEMS.F_147}
+--- END ---
+
+Formula: {@F_148}
+--- BEGIN ---
+//if {PLD__ITEMS.F_148}='' then ' ' else trim(Replace ({PLD__ITEMS.F_148}, {PLD__ITEMS.F_148_Symbol},''))
+Shared StringVar currSymbol;
+
+if {PLD__ITEMS.F_148}='' then ' '
+Else TrailCurrency ({PLD__ITEMS.F_148},  {OADM.CurOnRight}, currSymbol, {PLD__ITEMS.F_148_Symbol})
+--- END ---
+
+Formula: {@F_149}
+--- BEGIN ---
+//if {PLD__ITEMS.F_149}='' then ' ' else trim(Replace ({PLD__ITEMS.F_149}, {PLD__ITEMS.F_149_Symbol},''))
+Shared StringVar currSymbol;
+
+if {PLD__ITEMS.F_149}='' then ' '
+Else TrailCurrency ({PLD__ITEMS.F_149},  {OADM.CurOnRight}, currSymbol, {PLD__ITEMS.F_149_Symbol})
+--- END ---
+
+Formula: {@F_152}
+--- BEGIN ---
+if {PLD__ITEMS.F_152}='' then ' ' else {PLD__ITEMS.F_152}
+--- END ---
+
+Formula: {@F_153}
+--- BEGIN ---
+if {PLD__ITEMS.F_153}='' then ' ' else {PLD__ITEMS.F_153}
+--- END ---
+
+Formula: {@F_173}
+--- BEGIN ---
+if {PLD__ITEMS.F_173}='' then ' ' else {PLD__ITEMS.F_173}
+--- END ---
+
+Formula: {@F_174}
+--- BEGIN ---
+if {PLD__ITEMS.F_174}='' then ' ' else {PLD__ITEMS.F_174}
+--- END ---
+
+Formula: {@F_175}
+--- BEGIN ---
+if {PLD__ITEMS.F_175}='' then ' ' 
+else 
+(
+   if {PLD__ITEMS.F_175i} > 999 then
+    {PLD__ITEMS.F_175}
+   else
+    right('000' & {PLD__ITEMS.F_175}, 3)
+)
+
+--- END ---
+
+Formula: {@F_179}
+--- BEGIN ---
+if {PLD__ITEMS.F_179}='' then ' ' else {PLD__ITEMS.F_179}
+--- END ---
+
+Formula: {@F_180}
+--- BEGIN ---
+if {PLD__ITEMS.F_180}='' then ' ' else {PLD__ITEMS.F_180}
+--- END ---
+
+Formula: {@F_181}
+--- BEGIN ---
+if {PLD__ITEMS.F_181}='' then ' ' else {PLD__ITEMS.F_181}
+--- END ---
+
+Formula: {@F_182}
+--- BEGIN ---
+//if {PLD__ITEMS.F_182}='' then ' ' else trim(Replace ({PLD__ITEMS.F_182}, {PLD__ITEMS.F_182_Symbol},''))
+Shared StringVar currSymbol;
+
+if {PLD__ITEMS.F_182}='' then ' '
+Else TrailCurrency ({PLD__ITEMS.F_182},  {OADM.CurOnRight}, currSymbol, {PLD__ITEMS.F_182_Symbol})
+--- END ---
+
+Formula: {@F_183}
+--- BEGIN ---
+//if {PLD__ITEMS.F_183}='' then ' ' else trim(Replace ({PLD__ITEMS.F_183}, {PLD__ITEMS.F_183_Symbol},''))
+Shared StringVar currSymbol;
+
+if {PLD__ITEMS.F_183}='' then ' '
+Else TrailCurrency ({PLD__ITEMS.F_183},  {OADM.CurOnRight}, currSymbol, {PLD__ITEMS.F_183_Symbol})
+--- END ---
+
+Formula: {@F_184}
+--- BEGIN ---
+if {PLD__ITEMS.F_184}='' then ' ' 
+else 
+(
+   if {PLD__ITEMS.F_184i} > 999 then
+    {PLD__ITEMS.F_184}
+   else
+    right('000' & {PLD__ITEMS.F_184}, 3)
+)
+
+--- END ---
+
+Formula: {@F_185}
+--- BEGIN ---
+if {PLD__ITEMS.F_185}='' then ' ' else {PLD__ITEMS.F_185}
+--- END ---
+
+Formula: {@F_186}
+--- BEGIN ---
+if {PLD__ITEMS.F_186}='' then ' ' else {PLD__ITEMS.F_186}
+--- END ---
+
+Formula: {@F_190}
+--- BEGIN ---
+if {PLD__ITEMS.F_190}='' then ' ' else {PLD__ITEMS.F_190}
+--- END ---
+
+Formula: {@F_191}
+--- BEGIN ---
+if {PLD__ITEMS.F_191}='' then ' ' else {PLD__ITEMS.F_191}
+--- END ---
+
+Formula: {@F_192}
+--- BEGIN ---
+if {PLD__ITEMS.F_192}='' then ' ' 
+else 
+(
+   if {PLD__ITEMS.F_192i} > 999 then
+    {PLD__ITEMS.F_192}
+   else
+    right('000' & {PLD__ITEMS.F_192}, 3)
+)
+--- END ---
+
+Formula: {@F_193}
+--- BEGIN ---
+//if {PLD__ITEMS.F_193}='' then ' ' else trim(Replace ({PLD__ITEMS.F_193}, {PLD__ITEMS.F_193_Symbol},''))
+Shared StringVar currSymbol;
+
+if {PLD__ITEMS.F_193}='' then ' '
+Else TrailCurrency ({PLD__ITEMS.F_193},  {OADM.CurOnRight}, currSymbol, {PLD__ITEMS.F_193_Symbol})
+--- END ---
+
+Formula: {@F_194}
+--- BEGIN ---
+//if {PLD__ITEMS.F_194}='' then ' ' else trim(Replace ({PLD__ITEMS.F_194}, {PLD__ITEMS.F_194_Symbol},''))
+Shared StringVar currSymbol;
+
+if {PLD__ITEMS.F_194}='' then ' '
+Else TrailCurrency ({PLD__ITEMS.F_194},  {OADM.CurOnRight}, currSymbol, {PLD__ITEMS.F_194_Symbol})
+--- END ---
+
+Formula: {@F_195}
+--- BEGIN ---
+if {PLD__ITEMS.F_195}='' then ' ' else {PLD__ITEMS.F_195}
+--- END ---
+
+Formula: {@F_196}
+--- BEGIN ---
+if {PLD__ITEMS.F_196}='' then ' ' else {PLD__ITEMS.F_196}
+--- END ---
+
+Formula: {@F_197}
+--- BEGIN ---
+if {PLD__ITEMS.F_197}='' then ' ' else {PLD__ITEMS.F_197}
+--- END ---
+
+Formula: {@ColorTableHeader}
+--- BEGIN ---
+Color(240,244,247)
+--- END ---
+
+Formula: {@Declare}
+--- BEGIN ---
+Shared StringVar companyName;
+Shared StringVar companyAddress;
+Shared StringVar companyName1;
+Shared StringVar companyAddress1;
+
+
+Shared StringVar telpnone;
+Shared StringVar email;
+Shared StringVar fax;
+Shared StringVar strDate;
+Shared StringVar vatNumber;
+Shared StringVar accountNo;
+Shared StringVar currSymbol;
+
+
+--- END ---
+
+Formula: {@ContactPerson}
+--- BEGIN ---
+Maximum ({OCRD.CntctPrsn})
+--- END ---
+
+Formula: {@F_200}
+--- BEGIN ---
+if {PLD__ITEMS.F_200}='' then ' ' else {PLD__ITEMS.F_200}
+--- END ---
+
+Formula: {@F_201}
+--- BEGIN ---
+if {PLD__ITEMS.F_201}='' then ' ' else {PLD__ITEMS.F_201}
+--- END ---
+
+Formula: {@F_202}
+--- BEGIN ---
+if {PLD__ITEMS.F_202}='' then ' ' else {PLD__ITEMS.F_202}
+--- END ---
+
+Formula: {@F_203}
+--- BEGIN ---
+if {PLD__ITEMS.F_203}='' then ' ' else {PLD__ITEMS.F_203}
+--- END ---
+
+Formula: {@F_204}
+--- BEGIN ---
+if {PLD__ITEMS.F_204}='' then ' ' else {PLD__ITEMS.F_204}
+--- END ---
+
+Formula: {@F_205}
+--- BEGIN ---
+if {PLD__ITEMS.F_205}='' then ' ' else {PLD__ITEMS.F_205}
+--- END ---
+
+Formula: {@F_206}
+--- BEGIN ---
+//if {PLD__ITEMS.F_206}='' then ' ' else trim(Replace ({PLD__ITEMS.F_206}, {PLD__ITEMS.F_206_Symbol},''))
+Shared StringVar currSymbol;
+
+if {PLD__ITEMS.F_206}='' then ' '
+Else TrailCurrency ({PLD__ITEMS.F_206},  {OADM.CurOnRight}, currSymbol, {PLD__ITEMS.F_206_Symbol})
+--- END ---
+
+Formula: {@F_207}
+--- BEGIN ---
+//if {PLD__ITEMS.F_207}='' then ' ' else trim(Replace ({PLD__ITEMS.F_207}, {PLD__ITEMS.F_207_Symbol},''))
+Shared StringVar currSymbol;
+
+if {PLD__ITEMS.F_207}='' then ' '
+Else TrailCurrency ({PLD__ITEMS.F_207},  {OADM.CurOnRight}, currSymbol, {PLD__ITEMS.F_207_Symbol})
+--- END ---
+
+Formula: {@F_208}
+--- BEGIN ---
+//if {PLD__ITEMS.F_208}='' then ' ' else trim(Replace ({PLD__ITEMS.F_208}, {PLD__ITEMS.F_208_Symbol},''))
+Shared StringVar currSymbol;
+
+if {PLD__ITEMS.F_208}='' then ' '
+Else TrailCurrency ({PLD__ITEMS.F_208},  {OADM.CurOnRight}, currSymbol, {PLD__ITEMS.F_208_Symbol})
+--- END ---
+
+Formula: {@F_209}
+--- BEGIN ---
+//if {PLD__ITEMS.F_209}='' then ' ' else trim(Replace ({PLD__ITEMS.F_209}, {PLD__ITEMS.F_209_Symbol},''))
+Shared StringVar currSymbol;
+
+if {PLD__ITEMS.F_209}='' then ' '
+Else TrailCurrency ({PLD__ITEMS.F_209},  {OADM.CurOnRight}, currSymbol, {PLD__ITEMS.F_209_Symbol})
+--- END ---
+
+Formula: {@F_210}
+--- BEGIN ---
+//if {PLD__ITEMS.F_210}='' then ' ' else trim(Replace ({PLD__ITEMS.F_210}, {PLD__ITEMS.F_210_Symbol},''))
+Shared StringVar currSymbol;
+
+if {PLD__ITEMS.F_210}='' then ' '
+Else TrailCurrency ({PLD__ITEMS.F_210},  {OADM.CurOnRight}, currSymbol, {PLD__ITEMS.F_210_Symbol})
+--- END ---
+
+Formula: {@F_211}
+--- BEGIN ---
+//if {PLD__ITEMS.F_211}='' then ' ' else trim(Replace ({PLD__ITEMS.F_211}, {PLD__ITEMS.F_211_Symbol},''))
+Shared StringVar currSymbol;
+
+if {PLD__ITEMS.F_211}='' then ' '
+Else TrailCurrency ({PLD__ITEMS.F_211},  {OADM.CurOnRight}, currSymbol, {PLD__ITEMS.F_211_Symbol})
+--- END ---
+
+Formula: {@F_212}
+--- BEGIN ---
+if {PLD__ITEMS.F_212}='' then ' ' else {PLD__ITEMS.F_212}
+--- END ---
+
+Formula: {@F_213}
+--- BEGIN ---
+if {PLD__ITEMS.F_213}='' then ' ' else {PLD__ITEMS.F_213}
+--- END ---
+
+Formula: {@F_214}
+--- BEGIN ---
+if {PLD__ITEMS.F_214}='' then ' ' else {PLD__ITEMS.F_214}
+--- END ---
+
+Formula: {@F_215}
+--- BEGIN ---
+if {PLD__ITEMS.F_215}='' then ' ' else {PLD__ITEMS.F_215}
+--- END ---
+
+Formula: {@F_216}
+--- BEGIN ---
+if {PLD__ITEMS.F_216}='' then ' ' else {PLD__ITEMS.F_216}
+--- END ---
+
+Formula: {@F_217}
+--- BEGIN ---
+if {PLD__ITEMS.F_217}='' then ' ' else {PLD__ITEMS.F_217}
+--- END ---
+
+Formula: {@F_218}
+--- BEGIN ---
+NthLargest (1, {PLD__ITEMS.F_218})
+--- END ---
+
+Formula: {@F_219}
+--- BEGIN ---
+if {PLD__ITEMS.F_219}='' then ' ' else {PLD__ITEMS.F_219}
+--- END ---
+
+Formula: {@InterestTotal}
+--- BEGIN ---
+{#Total0} +
+{#Total1} +
+{#Total2} +
+{#Total3} +
+{#Total4} +
+{#Total5} 
+--- END ---
+
+Formula: {@CurrencyCode}
+--- BEGIN ---
+Shared StringVar currSymbol;
+currSymbol:= Maximum({PLD__ITEMS.F_57_Symbol});
+Maximum({PLD__ITEMS.F_57_Symbol})
+--- END ---
+
+Formula: {@__PrefixTel}
+--- BEGIN ---
+"T:"
+--- END ---
+
+Formula: {@Telphone}
+--- BEGIN ---
+EvaluateAfter({@F_65});
+Shared StringVar telphone;
+--- END ---
+
+Formula: {@email}
+--- BEGIN ---
+EvaluateAfter({@F_75});
+Shared StringVar email;
+--- END ---
+
+Formula: {@__PrefixFax}
+--- BEGIN ---
+"F:"
+--- END ---
+
+Formula: {@Fax}
+--- BEGIN ---
+EvaluateAfter({@F_63});
+Shared StringVar fax;
+--- END ---
+
+Formula: {@F_220}
+--- BEGIN ---
+nthlargest(1, {PLD__ITEMS.F_220})
+--- END ---
+
+Formula: {@CurrencyWeight}
+--- BEGIN ---
+if {PLD__ITEMS.F_57f} <> 0 then
+  {PLD__ITEMS.F_57_Symbol}
+else
+  '-1'
+--- END ---
+
+Formula: {@F_221}
+--- BEGIN ---
+if {PLD__ITEMS.F_221}='' then ' ' else {PLD__ITEMS.F_221}
+--- END ---
+
+Formula: {@F_222}
+--- BEGIN ---
+if {PLD__ITEMS.F_222}='' then ' ' else {PLD__ITEMS.F_222}
+--- END ---
+
+Formula: {@F_224}
+--- BEGIN ---
+if {PLD__ITEMS.F_224}='' then ' ' else {PLD__ITEMS.F_224}
+--- END ---
+
+Formula: {@F_226}
+--- BEGIN ---
+if {PLD__ITEMS.F_226}='' then ' ' else {PLD__ITEMS.F_226}
+--- END ---
+
+Formula: {@F_225}
+--- BEGIN ---
+if {PLD__ITEMS.F_225}='' then ' ' else {PLD__ITEMS.F_225}
+--- END ---
+
+Formula: {@F_234}
+--- BEGIN ---
+if {PLD__ITEMS.F_234}='' then ' ' 
+else 
+(
+   if {PLD__ITEMS.F_234i} > 999 then
+    {PLD__ITEMS.F_234}
+   else
+    right('000' & {PLD__ITEMS.F_234}, 3)
+)
+--- END ---
+
+Formula: {@F_227}
+--- BEGIN ---
+if {PLD__ITEMS.F_227}='' then ' ' else {PLD__ITEMS.F_227}
+--- END ---
+
+Formula: {@F_228}
+--- BEGIN ---
+if {PLD__ITEMS.F_228}='' then ' ' else {PLD__ITEMS.F_228}
+--- END ---
+
+Formula: {@F_229}
+--- BEGIN ---
+//if {PLD__ITEMS.F_194}='' then ' ' else trim(Replace ({PLD__ITEMS.F_194}, {PLD__ITEMS.F_194_Symbol},''))
+Shared StringVar currSymbol;
+
+if {PLD__ITEMS.F_229}='' then ' '
+Else TrailCurrency ({PLD__ITEMS.F_229},  {OADM.CurOnRight}, currSymbol, {PLD__ITEMS.F_229_Symbol})
+--- END ---
+
+Formula: {@F_230}
+--- BEGIN ---
+//if {PLD__ITEMS.F_193}='' then ' ' else trim(Replace ({PLD__ITEMS.F_193}, {PLD__ITEMS.F_193_Symbol},''))
+Shared StringVar currSymbol;
+
+if {PLD__ITEMS.F_230}='' then ' '
+Else TrailCurrency ({PLD__ITEMS.F_230},  {OADM.CurOnRight}, currSymbol, {PLD__ITEMS.F_230_Symbol})
+--- END ---
+
+Formula: {@F_231}
+--- BEGIN ---
+if {PLD__ITEMS.F_231}='' then ' ' else {PLD__ITEMS.F_231}
+--- END ---
+
+Formula: {@F_232}
+--- BEGIN ---
+if {PLD__ITEMS.F_232}='' then ' ' else {PLD__ITEMS.F_232}
+--- END ---
+
+Formula: {@F_233}
+--- BEGIN ---
+//if {PLD__ITEMS.F_211}='' then ' ' else trim(Replace ({PLD__ITEMS.F_211}, {PLD__ITEMS.F_211_Symbol},''))
+Shared StringVar currSymbol;
+
+if {PLD__ITEMS.F_233}='' then ' '
+Else TrailCurrency ({PLD__ITEMS.F_233},  {OADM.CurOnRight}, currSymbol, {PLD__ITEMS.F_233_Symbol})
+--- END ---
+
+Formula: {@F_247}
+--- BEGIN ---
+Shared StringVar currSymbol;
+
+if {PLD__ITEMS.F_247}='' then ' '
+Else TrailCurrency ({PLD__ITEMS.F_247},  {OADM.CurOnRight}, currSymbol, {PLD__ITEMS.F_247_Symbol})
+
+--- END ---
+
+Formula: {@F_246}
+--- BEGIN ---
+if {PLD__ITEMS.F_246}='' then ' ' 
+else 
+(
+   if {PLD__ITEMS.F_246i} > 999 then
+    {PLD__ITEMS.F_246}
+   else
+    right('000' & {PLD__ITEMS.F_246}, 3)
+)
+--- END ---
+
+Formula: {@F_236}
+--- BEGIN ---
+{PLD__ITEMS.F_236}
+--- END ---
+
+Formula: {@F_237}
+--- BEGIN ---
+{PLD__ITEMS.F_237}
+--- END ---
+
+Formula: {@F_238}
+--- BEGIN ---
+{PLD__ITEMS.F_238}
+--- END ---
+
+Formula: {@F_239}
+--- BEGIN ---
+{PLD__ITEMS.F_239}
+--- END ---
+
+Formula: {@F_240}
+--- BEGIN ---
+{PLD__ITEMS.F_240}
+--- END ---
+
+Formula: {@F_241}
+--- BEGIN ---
+Shared StringVar currSymbol;
+
+if {PLD__ITEMS.F_241}='' then ' '
+Else TrailCurrency ({PLD__ITEMS.F_241},  {OADM.CurOnRight}, currSymbol, {PLD__ITEMS.F_241_Symbol})
+--- END ---
+
+Formula: {@F_242}
+--- BEGIN ---
+Shared StringVar currSymbol;
+
+if {PLD__ITEMS.F_242}='' then ' '
+Else TrailCurrency ({PLD__ITEMS.F_242},  {OADM.CurOnRight}, currSymbol, {PLD__ITEMS.F_242_Symbol})
+--- END ---
+
+Formula: {@F_243}
+--- BEGIN ---
+{PLD__ITEMS.F_243}
+--- END ---
+
+Formula: {@F_244}
+--- BEGIN ---
+{PLD__ITEMS.F_244}
+--- END ---
+
+Formula: {@F_245}
+--- BEGIN ---
+Shared StringVar currSymbol;
+
+if {PLD__ITEMS.F_245}='' then ' '
+Else TrailCurrency ({PLD__ITEMS.F_245},  {OADM.CurOnRight}, currSymbol, {PLD__ITEMS.F_245_Symbol})
+--- END ---
+
+Formula: {@F_235}
+--- BEGIN ---
+Shared StringVar currSymbol;
+
+if {PLD__ITEMS.F_235}='' then ' '
+Else TrailCurrency ({PLD__ITEMS.F_235},  {OADM.CurOnRight}, currSymbol, {PLD__ITEMS.F_235_Symbol})
+--- END ---
+
+
+************************************************************
+  CONNECTION INFO
+************************************************************
+Table:    PLD__ITEMS
+  Server:   NewDataSet
+  Database: 
+  UserID:   
+
+Table:    OADP
+  Server:   DRIVER={HDBODBC32};UID=SYSTEM;PWD=manager;SERVERNODE=10.55.178.115:30915;DATABASE=SBODEMODE
+  Database: 
+  UserID:   
+
+Table:    OCRD
+  Server:   DRIVER={HDBODBC32};UID=SYSTEM;PWD=manager;SERVERNODE=10.55.178.115:30915;DATABASE=SBODEMODE
+  Database: 
+  UserID:   
+
+Table:    OADM
+  Server:   DRIVER={HDBODBC32};UID=SYSTEM;PWD=manager;SERVERNODE=10.55.178.115:30915;DATABASE=SBODEMODE
+  Database: 
+  UserID:   
+
+Table:    OSLP
+  Server:   DRIVER={HDBODBC32};UID=SYSTEM;PWD=manager;SERVERNODE=10.55.178.115:30915;DATABASE=SBODEMODE
+  Database: 
+  UserID:   
+
+Table:    OHEM
+  Server:   DRIVER={HDBODBC32};UID=SYSTEM;PWD=manager;SERVERNODE=10.55.178.115:30915;DATABASE=SBODEMODE
+  Database: 
+  UserID:   
+
+
+************************************************************
+  TABLE LINKS
+************************************************************
+PLD__ITEMS.F_124 --[LeftOuter]--> OCRD.CardCode
+OCRD.SlpCode --[LeftOuter]--> OSLP.SlpCode
+OSLP.SlpCode --[LeftOuter]--> OHEM.salesPrson
+
+************************************************************
+  RECORD SELECTION FORMULA
+************************************************************
+(No record selection formula)
+
+

@@ -1,0 +1,201 @@
+﻿============================================================
+Report: RCRI0006__Business Assessment Report.rpt
+Path:   RCRI0006__Business Assessment Report.rpt
+Extracted: 2026-05-07 18:03:32
+============================================================
+
+************************************************************
+  PARAMETERS
+************************************************************
+Parameter: (error)
+  Type:     You cannot call a method on a null-valued expression.
+  Report:   
+  Default:  
+
+
+************************************************************
+  FORMULA FIELDS
+************************************************************
+Formula: {@Deviation prev Year}
+--- BEGIN ---
+{TmSp_FinTemplates;1.Value_Year_cur_Year}-{TmSp_FinTemplates;1.Value_Year_prev_Year}
+--- END ---
+
+Formula: {@cur_Month}
+--- BEGIN ---
+MONTHNAME(MONTH({OFPR.F_RefDate}), true)  + '/' + CSTR(YEAR({OFPR.F_RefDate}), 0, '')
+--- END ---
+
+Formula: {@Init}
+--- BEGIN ---
+shared numbervar oPerformance;
+oPerformance := {TmSp_FinTemplates;1.Value_Month_cur_Year}
+--- END ---
+
+Formula: {@Overall performance %}
+--- BEGIN ---
+shared numbervar oPerformance;
+shared numbervar oPerformance_P;
+
+if ({TmSp_FinTemplates;1.Acct_Level} = 1) then
+(
+    oPerformance := {TmSp_FinTemplates;1.Value_Month_cur_Year};
+);
+
+if (oPerformance <> 0) then
+(
+    oPerformance_P := {TmSp_FinTemplates;1.Value_Month_cur_Year} * 100 / oPerformance;
+    oPerformance_P
+)
+--- END ---
+
+Formula: {@cur_Month prev Year}
+--- BEGIN ---
+MONTHNAME(MONTH({OFPR.F_RefDate}), true)  + '/' + CSTR(YEAR({OFPR.F_RefDate})-1, 0, '')
+--- END ---
+
+Formula: {@Deviation Month prev Year}
+--- BEGIN ---
+{TmSp_FinTemplates;1.Value_Month_cur_Year}-{TmSp_FinTemplates;1.Value_Month_prev_Year}
+--- END ---
+
+Formula: {@Month_01}
+--- BEGIN ---
+MONTHNAME(MONTH({TmSp_FinTemplates;1.FY_Start}), true)  + '/' + CSTR(YEAR({TmSp_FinTemplates;1.FY_Start}), 0, '')
+--- END ---
+
+Formula: {@Month_02}
+--- BEGIN ---
+MONTHNAME((MONTH({TmSp_FinTemplates;1.FY_Start}) mod 12) + 1, true) + '/' + CSTR(YEAR({TmSp_FinTemplates;1.FY_Start}) + (MONTH({TmSp_FinTemplates;1.FY_Start}) \ 12), 0, '')
+--- END ---
+
+Formula: {@Month_12}
+--- BEGIN ---
+MONTHNAME(((MONTH({TmSp_FinTemplates;1.FY_Start}) + 10) mod 12) + 1, true) + '/' + CSTR(YEAR({TmSp_FinTemplates;1.FY_Start}) + ((MONTH({TmSp_FinTemplates;1.FY_Start}) + 10) \ 12), 0, '')
+--- END ---
+
+Formula: {@Month_03}
+--- BEGIN ---
+MONTHNAME(((MONTH({TmSp_FinTemplates;1.FY_Start}) + 1) mod 12) + 1, true) + '/' + CSTR(YEAR({TmSp_FinTemplates;1.FY_Start}) + ((MONTH({TmSp_FinTemplates;1.FY_Start}) + 1) \ 12), 0, '')
+--- END ---
+
+Formula: {@Month_04}
+--- BEGIN ---
+MONTHNAME(((MONTH({TmSp_FinTemplates;1.FY_Start}) + 2) mod 12) + 1, true) + '/' + CSTR(YEAR({TmSp_FinTemplates;1.FY_Start}) + ((MONTH({TmSp_FinTemplates;1.FY_Start}) + 2) \ 12), 0, '')
+--- END ---
+
+Formula: {@Month_05}
+--- BEGIN ---
+MONTHNAME(((MONTH({TmSp_FinTemplates;1.FY_Start}) + 3) mod 12) + 1, true) + '/' + CSTR(YEAR({TmSp_FinTemplates;1.FY_Start}) + ((MONTH({TmSp_FinTemplates;1.FY_Start}) + 3) \ 12), 0, '')
+--- END ---
+
+Formula: {@Month_06}
+--- BEGIN ---
+MONTHNAME(((MONTH({TmSp_FinTemplates;1.FY_Start}) + 4) mod 12) + 1, true) + '/' + CSTR(YEAR({TmSp_FinTemplates;1.FY_Start}) + ((MONTH({TmSp_FinTemplates;1.FY_Start}) + 4) \ 12), 0, '')
+--- END ---
+
+Formula: {@Month_07}
+--- BEGIN ---
+MONTHNAME(((MONTH({TmSp_FinTemplates;1.FY_Start}) + 5) mod 12) + 1, true) + '/' + CSTR(YEAR({TmSp_FinTemplates;1.FY_Start}) + ((MONTH({TmSp_FinTemplates;1.FY_Start}) + 5) \ 12), 0, '')
+--- END ---
+
+Formula: {@Month_08}
+--- BEGIN ---
+MONTHNAME(((MONTH({TmSp_FinTemplates;1.FY_Start}) + 6) mod 12) + 1, true) + '/' + CSTR(YEAR({TmSp_FinTemplates;1.FY_Start}) + ((MONTH({TmSp_FinTemplates;1.FY_Start}) + 6) \ 12), 0, '')
+--- END ---
+
+Formula: {@Month_09}
+--- BEGIN ---
+MONTHNAME(((MONTH({TmSp_FinTemplates;1.FY_Start}) + 7) mod 12) + 1, true) + '/' + CSTR(YEAR({TmSp_FinTemplates;1.FY_Start}) + ((MONTH({TmSp_FinTemplates;1.FY_Start}) + 7) \ 12), 0, '')
+--- END ---
+
+Formula: {@Month_10}
+--- BEGIN ---
+MONTHNAME(((MONTH({TmSp_FinTemplates;1.FY_Start}) + 8) mod 12) + 1, true) + '/' + CSTR(YEAR({TmSp_FinTemplates;1.FY_Start}) + ((MONTH({TmSp_FinTemplates;1.FY_Start}) + 8) \ 12), 0, '')
+--- END ---
+
+Formula: {@Month_11}
+--- BEGIN ---
+MONTHNAME(((MONTH({TmSp_FinTemplates;1.FY_Start}) + 9) mod 12) + 1, true) + '/' + CSTR(YEAR({TmSp_FinTemplates;1.FY_Start}) + ((MONTH({TmSp_FinTemplates;1.FY_Start}) + 9) \ 12), 0, '')
+--- END ---
+
+Formula: {@Deviation Budget Month}
+--- BEGIN ---
+{TmSp_FinTemplates;1.Budget_Month_cur_Year}-{TmSp_FinTemplates;1.Value_Month_cur_Year}
+--- END ---
+
+Formula: {@Deviation Budget Year}
+--- BEGIN ---
+{TmSp_FinTemplates;1.Budget_Year_cur_Year}-{TmSp_FinTemplates;1.Value_Year_cur_Year}
+--- END ---
+
+Formula: {@Account}
+--- BEGIN ---
+if ({CINF.EnbSgmnAct} = 'Y') then
+    {TmSp_FinTemplates;1.Segment0} + '-' + {TmSp_FinTemplates;1.Segment1} + '-' + {TmSp_FinTemplates;1.Segment2} + '-' + {TmSp_FinTemplates;1.Segment3}
+else
+    {TmSp_FinTemplates;1.AccountCode}
+--- END ---
+
+Formula: {@Deviation Budget Total}
+--- BEGIN ---
+{#cur_FY_Month Budget} - {#cur_FY_Month}
+--- END ---
+
+Formula: {@Deviation Budget Year Total}
+--- BEGIN ---
+{#cur_FY_YTD Budget}-{#cur_FY_YTD}
+--- END ---
+
+Formula: {@Deviation prev Year Total}
+--- BEGIN ---
+{#cur_FY_YTD}-{#prev_FY_YTD}
+--- END ---
+
+Formula: {@Deviation prev YearMonth Total}
+--- BEGIN ---
+{#cur_FY_Month}-{#prev_FY_Month}
+--- END ---
+
+Formula: {@Budget_Cur_Month}
+--- BEGIN ---
+'Budget' + ChrW(13) + {@cur_Month}
+--- END ---
+
+
+************************************************************
+  CONNECTION INFO
+************************************************************
+Table:    TmSp_FinTemplates;1
+  Server:   DRIVER={B1CRHPROXY};UID=SYSTEM;PWD=manager;SERVERNODE=10.58.1.81:30015;DATABASE=AU_930230;
+  Database: 
+  UserID:   
+
+Table:    OFPR
+  Server:   DRIVER={B1CRHPROXY};UID=SYSTEM;PWD=manager;SERVERNODE=10.58.1.81:30015;DATABASE=AU_930230;
+  Database: 
+  UserID:   
+
+Table:    CINF
+  Server:   DRIVER={B1CRHPROXY};UID=SYSTEM;PWD=manager;SERVERNODE=10.58.1.81:30015;DATABASE=AU_930230;
+  Database: 
+  UserID:   
+
+Table:    OFRT
+  Server:   DRIVER={B1CRHPROXY};UID=SYSTEM;PWD=manager;SERVERNODE=10.58.1.81:30015;DATABASE=AU_930230;
+  Database: 
+  UserID:   
+
+
+************************************************************
+  TABLE LINKS
+************************************************************
+TmSp_FinTemplates;1.PeriodID --[Equal]--> OFPR.AbsEntry
+TmSp_FinTemplates;1.TemplateID --[Equal]--> OFRT.AbsId
+
+************************************************************
+  RECORD SELECTION FORMULA
+************************************************************
+ (  {TmSp_FinTemplates;1.Dummy} = "N"  )  
+
+

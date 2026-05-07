@@ -1,0 +1,362 @@
+﻿============================================================
+Report: A0100001__Value Added Tax Return under the Revenue Code (P.P.36).rpt
+Path:   A0100001__Value Added Tax Return under the Revenue Code (P.P.36).rpt
+Extracted: 2026-05-07 18:02:37
+============================================================
+
+************************************************************
+  PARAMETERS
+************************************************************
+Parameter: (error)
+  Type:     You cannot call a method on a null-valued expression.
+  Report:   
+  Default:  
+
+
+************************************************************
+  FORMULA FIELDS
+************************************************************
+Formula: {@B1}
+--- BEGIN ---
+LEFT({Header.Code},1)
+--- END ---
+
+Formula: {@B2}
+--- BEGIN ---
+RIGHT(LEFT({Header.Code},2),1)
+--- END ---
+
+Formula: {@B3}
+--- BEGIN ---
+RIGHT(LEFT({Header.Code},3),1)
+--- END ---
+
+Formula: {@B4}
+--- BEGIN ---
+RIGHT(LEFT({Header.Code},4),1)
+--- END ---
+
+Formula: {@B5}
+--- BEGIN ---
+RIGHT(LEFT({Header.Code},5),1)
+--- END ---
+
+Formula: {@T1}
+--- BEGIN ---
+LEFT({Header.U_SLD_VTAXID},1)
+--- END ---
+
+Formula: {@T2}
+--- BEGIN ---
+RIGHT(LEFT({Header.U_SLD_VTAXID},2),1)
+--- END ---
+
+Formula: {@T3}
+--- BEGIN ---
+RIGHT(LEFT({Header.U_SLD_VTAXID},3),1)
+--- END ---
+
+Formula: {@T4}
+--- BEGIN ---
+RIGHT(LEFT({Header.U_SLD_VTAXID},4),1)
+--- END ---
+
+Formula: {@T5}
+--- BEGIN ---
+RIGHT(LEFT({Header.U_SLD_VTAXID},5),1)
+--- END ---
+
+Formula: {@T6}
+--- BEGIN ---
+RIGHT(LEFT({Header.U_SLD_VTAXID},6),1)
+--- END ---
+
+Formula: {@T7}
+--- BEGIN ---
+RIGHT(LEFT({Header.U_SLD_VTAXID},7),1)
+--- END ---
+
+Formula: {@T8}
+--- BEGIN ---
+RIGHT(LEFT({Header.U_SLD_VTAXID},8),1)
+--- END ---
+
+Formula: {@T9}
+--- BEGIN ---
+RIGHT(LEFT({Header.U_SLD_VTAXID},9),1)
+--- END ---
+
+Formula: {@T10}
+--- BEGIN ---
+RIGHT(LEFT({Header.U_SLD_VTAXID},10),1)
+--- END ---
+
+Formula: {@T11}
+--- BEGIN ---
+RIGHT(LEFT({Header.U_SLD_VTAXID},11),1)
+--- END ---
+
+Formula: {@T12}
+--- BEGIN ---
+RIGHT(LEFT({Header.U_SLD_VTAXID},12),1)
+--- END ---
+
+Formula: {@T13}
+--- BEGIN ---
+RIGHT(LEFT({Header.U_SLD_VTAXID},13),1)
+--- END ---
+
+Formula: {@Z1}
+--- BEGIN ---
+LEFT({Header.U_SLD_ZipCode},1)
+--- END ---
+
+Formula: {@Z2}
+--- BEGIN ---
+RIGHT(LEFT({Header.U_SLD_ZipCode},2),1)
+--- END ---
+
+Formula: {@Z3}
+--- BEGIN ---
+RIGHT(LEFT({Header.U_SLD_ZipCode},3),1)
+--- END ---
+
+Formula: {@Z4}
+--- BEGIN ---
+RIGHT(LEFT({Header.U_SLD_ZipCode},4),1)
+--- END ---
+
+Formula: {@Z5}
+--- BEGIN ---
+RIGHT({Header.U_SLD_ZipCode},1)
+--- END ---
+
+Formula: {@RefDay}
+--- BEGIN ---
+Day({Detail.RefDate})
+--- END ---
+
+Formula: {@RefMounth}
+--- BEGIN ---
+stringVar MM;
+MM := Right(Left(ToText({Detail.RefDate}, "ddMMyyyy"),4),2);
+if MM = "12" then "ธันวาคม" else
+if MM = "11" then "พฤศจิกายน"else
+if MM = "10" then "ตุลาคม"else
+if MM = "09" then "กันยายน"else
+if MM = "08" then "สิงหาคม"else
+if MM = "07" then "กรกฎาคม"else
+if MM = "06" then "มิถุนายน"else
+if MM = "05" then "พฤษภาคม"else
+if MM = "04" then "เมษายน"else
+if MM = "03" then "มีนาคม"else
+if MM = "02" then "กุมภาพันธ์"else
+if MM = "01" then "มกราคม";
+--- END ---
+
+Formula: {@RefYear}
+--- BEGIN ---
+Year({Detail.RefDate}) + 543
+--- END ---
+
+Formula: {@3Sum}
+--- BEGIN ---
+0
+--- END ---
+
+Formula: {@4Sum}
+--- BEGIN ---
+0
+--- END ---
+
+Formula: {@5Sum}
+--- BEGIN ---
+{@2Sum}+{@3Sum}+{@4Sum}
+--- END ---
+
+Formula: {@1Sum}
+--- BEGIN ---
+{Detail.TaxbleAmnt}
+--- END ---
+
+Formula: {@2Sum}
+--- BEGIN ---
+{Detail.VatSum}
+--- END ---
+
+Formula: {@2SumText}
+--- BEGIN ---
+If {@2Sum} > 0 then 
+(
+stringVar array D:= ["","สิบ","ร้อย","พัน","หมื่น", "แสน"];
+stringVar array e:= ["หนึ่ง", "สอง", "สาม", "สี่", "ห้า", "หก","เจ็ด","แปด","เก้า"];
+stringVar array Mn;
+stringVar array Ar1;
+stringVar Arr;
+numberVar F;
+numberVar R;
+numberVar j;
+numberVar k;
+numberVar u;
+numberVar j2;
+stringVar Bh;
+numberVar F2;
+numberVar j3;
+numberVar u1;
+numberVar m3;
+stringVar Bh3;
+Mn := "";
+Bh3 := "";
+stringVar sm:= replace(CStr({@2Sum},2,""),",","") ;  //{AR_INV.DocTotalsy} field จำนวนเงินนะ ครับ
+Ar1:=Split (sm,".");
+
+F:= Len(Ar1[1]);
+If F<=6 then Arr:=Ar1[1];
+If F>6 and F<=12 then Arr:=Left(Ar1[1],Len(Ar1[1])-6)+":"+Right(Ar1[1],6);
+If F>12 and F<=18 then Arr:=Left(Ar1[1],Len(Ar1[1])-12)+":"+ Mid(Ar1[1], F - 12 + 1, 6)+":"+Right(Ar1[1],6);
+Mn:=Split (Arr,":" );
+For j2:=1 to UBound (Mn) do (
+F2:= Len(Mn[j2]);
+For j:= 1 To F2 do (
+If Mid(Mn[j2], j, 1) = "2" And F2 + 1 - j = 8 Then e[2]:= "ยี่";
+If Mid(Mn[j2], j, 1) = "1" And F2 + 1 - j = 8 Then e[1]:= "";
+If Mid(Mn[j2], j, 1) = "2" And F2 + 1 - j = 2 Then e[2]:= "ยี่";
+If Mid(Mn[j2], j, 1) = "1" And F2 + 1 - j = 2 Then e[1]:= ""; 
+If Mid(Mn[j2], j, 1) = "1" And F2 + 1 - j = 1 and (right(Mn[j2],2) = "11" or right(Mn[j2],2) = "21" or right(Mn[j2],2) = "31" or right(Mn[j2],2) = "41" or right(Mn[j2],2) = "51" or right(Mn[j2],2) = "61" or right(Mn[j2],2) = "71" or right(Mn[j2],2) = "81" or right(Mn[j2],2) = "91") Then e[1]:= "เอ็ด";
+
+For R:= 1 To 9 do (
+u:= Val(Mid (Mn[j2],j,1));
+If u = R Then Bh:= Bh + e[R] + D[F2 + 1 - j];
+);
+e[2]:= "สอง";
+e[1]:= "หนึ่ง";
+);
+If j2 <> Ubound(Mn) Then Bh:= Bh + "ล้าน";
+Mn[j2]:= Bh;
+Bh:= "";
+);
+For j3:= 1 To 2 do (
+If Mid(Ar1[2], j3, 1) = "2" And j3 = 1 Then e[2]:= "ยี่";
+If Mid(Ar1[2], j3, 1) = "1" And j3 = 1 Then e[1]:= "";
+If Mid(Ar1[2], j3, 1) = "1" And j3 = 2 and (Ar1[2] = "11" or Ar1[2] = "21" or Ar1[2] = "31" or Ar1[2] = "41" or Ar1[2] = "51" or Ar1[2] = "61" or Ar1[2] = "71" or Ar1[2] = "81" or Ar1[2] = "91") Then e[1]:= "เอ็ด";
+For m3:= 1 To 9 do (
+u1:=Val(Mid(Ar1[2], j3, 1));
+If u1 = m3 Then Bh3:= Bh3 + e[m3] + D[3 - j3];
+);
+e[2]:= "สอง";
+if Ar1[2] = "11" or Ar1[2] = "21" or Ar1[2] = "31" or Ar1[2] = "41" or Ar1[2] = "51" or Ar1[2] = "61" or Ar1[2] = "71" or Ar1[2] = "81" or Ar1[2] = "91" then
+    e[1]:= "เอ็ด";
+);
+If Mn[1]<>"" and Bh3<>"" then
+Join (Mn,"")+ "บาท"+Bh3 + "สตางค์"
+Else If Mn[1]<>"" and Bh3="" then
+Join (Mn,"")+ "บาทถ้วน"
+Else If Mn[1]="" and Bh3<>"" then
+Bh3 + "สตางค์"
+Else
+""
+)
+else  "" 
+--- END ---
+
+Formula: {@5SumText}
+--- BEGIN ---
+If {@5Sum} > 0 then 
+(
+stringVar array D:= ["","สิบ","ร้อย","พัน","หมื่น", "แสน"];
+stringVar array e:= ["หนึ่ง", "สอง", "สาม", "สี่", "ห้า", "หก","เจ็ด","แปด","เก้า"];
+stringVar array Mn;
+stringVar array Ar1;
+stringVar Arr;
+numberVar F;
+numberVar R;
+numberVar j;
+numberVar k;
+numberVar u;
+numberVar j2;
+stringVar Bh;
+numberVar F2;
+numberVar j3;
+numberVar u1;
+numberVar m3;
+stringVar Bh3;
+Mn := "";
+Bh3 := "";
+stringVar sm:= replace(CStr({@5Sum},2,""),",","") ;  //{AR_INV.DocTotalsy} field จำนวนเงินนะ ครับ
+Ar1:=Split (sm,".");
+
+F:= Len(Ar1[1]);
+If F<=6 then Arr:=Ar1[1];
+If F>6 and F<=12 then Arr:=Left(Ar1[1],Len(Ar1[1])-6)+":"+Right(Ar1[1],6);
+If F>12 and F<=18 then Arr:=Left(Ar1[1],Len(Ar1[1])-12)+":"+ Mid(Ar1[1], F - 12 + 1, 6)+":"+Right(Ar1[1],6);
+Mn:=Split (Arr,":" );
+For j2:=1 to UBound (Mn) do (
+F2:= Len(Mn[j2]);
+For j:= 1 To F2 do (
+If Mid(Mn[j2], j, 1) = "2" And F2 + 1 - j = 8 Then e[2]:= "ยี่";
+If Mid(Mn[j2], j, 1) = "1" And F2 + 1 - j = 8 Then e[1]:= "";
+If Mid(Mn[j2], j, 1) = "2" And F2 + 1 - j = 2 Then e[2]:= "ยี่";
+If Mid(Mn[j2], j, 1) = "1" And F2 + 1 - j = 2 Then e[1]:= ""; 
+If Mid(Mn[j2], j, 1) = "1" And F2 + 1 - j = 1 and (right(Mn[j2],2) = "11" or right(Mn[j2],2) = "21" or right(Mn[j2],2) = "31" or right(Mn[j2],2) = "41" or right(Mn[j2],2) = "51" or right(Mn[j2],2) = "61" or right(Mn[j2],2) = "71" or right(Mn[j2],2) = "81" or right(Mn[j2],2) = "91") Then e[1]:= "เอ็ด";
+
+For R:= 1 To 9 do (
+u:= Val(Mid (Mn[j2],j,1));
+If u = R Then Bh:= Bh + e[R] + D[F2 + 1 - j];
+);
+e[2]:= "สอง";
+e[1]:= "หนึ่ง";
+);
+If j2 <> Ubound(Mn) Then Bh:= Bh + "ล้าน";
+Mn[j2]:= Bh;
+Bh:= "";
+);
+For j3:= 1 To 2 do (
+If Mid(Ar1[2], j3, 1) = "2" And j3 = 1 Then e[2]:= "ยี่";
+If Mid(Ar1[2], j3, 1) = "1" And j3 = 1 Then e[1]:= "";
+If Mid(Ar1[2], j3, 1) = "1" And j3 = 2 and (Ar1[2] = "11" or Ar1[2] = "21" or Ar1[2] = "31" or Ar1[2] = "41" or Ar1[2] = "51" or Ar1[2] = "61" or Ar1[2] = "71" or Ar1[2] = "81" or Ar1[2] = "91") Then e[1]:= "เอ็ด";
+For m3:= 1 To 9 do (
+u1:=Val(Mid(Ar1[2], j3, 1));
+If u1 = m3 Then Bh3:= Bh3 + e[m3] + D[3 - j3];
+);
+e[2]:= "สอง";
+if Ar1[2] = "11" or Ar1[2] = "21" or Ar1[2] = "31" or Ar1[2] = "41" or Ar1[2] = "51" or Ar1[2] = "61" or Ar1[2] = "71" or Ar1[2] = "81" or Ar1[2] = "91" then
+    e[1]:= "เอ็ด";
+);
+If Mn[1]<>"" and Bh3<>"" then
+Join (Mn,"")+ "บาท"+Bh3 + "สตางค์"
+Else If Mn[1]<>"" and Bh3="" then
+Join (Mn,"")+ "บาทถ้วน"
+Else If Mn[1]="" and Bh3<>"" then
+Bh3 + "สตางค์"
+Else
+""
+)
+else  "" 
+--- END ---
+
+
+************************************************************
+  CONNECTION INFO
+************************************************************
+Table:    Detail
+  Server:   10.1.1.119
+  Database: 
+  UserID:   SYSTEM
+
+Table:    Header
+  Server:   10.1.1.119
+  Database: 
+  UserID:   SYSTEM
+
+
+************************************************************
+  TABLE LINKS
+************************************************************
+(No table links)
+
+************************************************************
+  RECORD SELECTION FORMULA
+************************************************************
+(No record selection formula)
+
+

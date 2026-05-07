@@ -1,0 +1,9 @@
+﻿-- ============================================================
+-- Report: AGE50002__Ageing Details (by Employee) - CR (GB) (System).rpt
+Path:   AGE50002__Ageing Details (by Employee) - CR (GB) (System).rpt
+Extracted: 2026-05-07 18:02:44
+-- Source: Main Report
+-- Table:  Command
+-- ============================================================
+
+SELECT  "PrintHdrF",  "CmpnyAddrF",  "CompnyName",  "CompnyAddr",  "PrintHeadr",  "MainCurncy",  "SysCurrncy",  "SumDec",  "QtyDec",  "PriceDec",  "PercentDec",  "MeasureDec",  "DateFormat",  "TimeFormat",  "DateSep",  "DecSep",  "ThousSep",  "CurOnRight",  "CharMonth" FROM "{?Schema@}"."OADM"

@@ -1,0 +1,333 @@
+﻿============================================================
+Report: BIN10001__Bin Location List - CR (System).rpt
+Path:   BIN10001__Bin Location List - CR (System).rpt
+Extracted: 2026-05-07 18:02:47
+============================================================
+
+************************************************************
+  PARAMETERS
+************************************************************
+Parameter: (error)
+  Type:     You cannot call a method on a null-valued expression.
+  Report:   
+  Default:  
+
+
+************************************************************
+  FORMULA FIELDS
+************************************************************
+Formula: {@Declare}
+--- BEGIN ---
+Shared BooleanVar lastMet := FALSE;
+
+--- END ---
+
+Formula: {@__DocType}
+--- BEGIN ---
+"Bin Location List"
+--- END ---
+
+Formula: {@ColorTextContent}
+--- BEGIN ---
+ Color(30, 30, 30)
+--- END ---
+
+Formula: {@ColorTableHdr}
+--- BEGIN ---
+Color(240, 244, 247)
+--- END ---
+
+Formula: {@TextIndicatorColor}
+--- BEGIN ---
+Color (220, 220, 220)
+--- END ---
+
+Formula: {@TimeStr}
+--- BEGIN ---
+currenttime
+--- END ---
+
+Formula: {@_dateFormat}
+--- BEGIN ---
+select {OADM.DateFormat}
+    case "0":
+        "DD/MM/YY"
+    case "1":
+        "DD/MM/CCYY"
+    case "2":
+        "MM/DD/YY"
+    case "3":
+        "MM/DD/CCYY"
+    case "4":
+        "CCYY/MM/DD"
+    case "5":
+        "DD/Month/YYYY"
+    case "6":
+        "YY/MM/DD"
+    default:
+        "";
+--- END ---
+
+Formula: {@_dateOrder}
+--- BEGIN ---
+If {@_dateFormat} in ["DD/MM/YY","DD/MM/CCYY","DD/Month/YYYY"] then
+ crDayMonthYear
+else if {@_dateFormat} in ["MM/DD/YY","MM/DD/CCYY"] then
+ crMonthDayYear
+else if {@_dateFormat} in ["CCYY/MM/DD","YY/MM/DD"] then
+ crYearMonthDay
+--- END ---
+
+Formula: {@_dateSep}
+--- BEGIN ---
+{OADM.DateSep}
+--- END ---
+
+Formula: {@_decSep}
+--- BEGIN ---
+{OADM.DecSep}
+--- END ---
+
+Formula: {@_month}
+--- BEGIN ---
+if "Month" in {@_dateFormat} then
+(
+ if isnull({OADM.CharMonth})  or {OADM.CharMonth} > 3 then
+   crLongMonth
+ else if {OADM.CharMonth} <= 3 then
+   crShortMonth
+)
+else
+ crLeadingZeroMonth
+--- END ---
+
+Formula: {@_year}
+--- BEGIN ---
+If "Month" in {@_dateFormat} then
+ crLongYear
+else if "CC" in {@_dateFormat} then
+ crLongYear
+else
+ crShortYear
+--- END ---
+
+Formula: {@DateStr}
+--- BEGIN ---
+//Shared StringVar dateStr;
+today
+--- END ---
+
+Formula: {@PageIndicator}
+--- BEGIN ---
+ToText(PageNumber, 0) + ' / '+ ToText(TotalPageCount, 0) 
+--- END ---
+
+Formula: {@_linkSep}
+--- BEGIN ---
+{OADM.DateSep}
+--- END ---
+
+Formula: {@_qtyDec}
+--- BEGIN ---
+{OADM.QtyDec}
+--- END ---
+
+Formula: {@_LineQtyDec}
+--- BEGIN ---
+// To get the length of decimals
+
+// Convert the quantity to string, with "." as the decimal point
+Local StringVar str := ToText({WTQ1.Quantity}, {OADM.QtyDec}, ",","."); 
+Local StringVar Array strArr :=  split( str, ".");
+if(UBound (strArr) = 2)
+then 
+(
+str := strArr[2];              // Get the decimal string
+str := replace(str, "0", " ");  // Replace zero with space
+str := TrimRight(str);          // Trim ending spaces
+len(str);                       // Get the length of decimals
+)
+else 
+(
+  0;
+)
+--- END ---
+
+Formula: {@_thouSep}
+--- BEGIN ---
+{OADM.ThousSep}
+--- END ---
+
+Formula: {@_thousSepY}
+--- BEGIN ---
+Not isNull({OADM.ThousSep})
+--- END ---
+
+Formula: {@ColTitleStyle}
+--- BEGIN ---
+{?ExtParam@}
+--- END ---
+
+Formula: {@__Total_str}
+--- BEGIN ---
+'Total:'
+--- END ---
+
+Formula: {@LineItemRestriction}
+--- BEGIN ---
+select {_TmSp_BinLocationListCRPrint;1.ItmRtrictT}
+case 0 :  {@__None}
+case 1 :  {@__SpecificItem}
+case 2 :  {@__SingleItemOnly}
+case 3 :  {@__SpecificItemGroup}
+case 4 :  {@__SingleItemGroupOnly}
+--- END ---
+
+Formula: {@LineTransRestriction}
+--- BEGIN ---
+select {_TmSp_BinLocationListCRPrint;1.RtrictType}
+case 0 :  {@__None}
+case 1 :  {@__AllTransactions}
+case 2 :  {@__InboundTransactions}
+case 3 :  {@__OutboundTransactions}
+case 4 :  {@__AllExceptInventoryTransferAndCounting}
+--- END ---
+
+Formula: {@__None}
+--- BEGIN ---
+'None'
+--- END ---
+
+Formula: {@__SpecificItem}
+--- BEGIN ---
+'Specific Item'
+--- END ---
+
+Formula: {@__SingleItemOnly}
+--- BEGIN ---
+'Single Item Only'
+--- END ---
+
+Formula: {@__SpecificItemGroup}
+--- BEGIN ---
+'Specific Item Group'
+--- END ---
+
+Formula: {@__SingleItemGroupOnly}
+--- BEGIN ---
+'Single Item Group Only'
+--- END ---
+
+Formula: {@__AllTransactions}
+--- BEGIN ---
+'All Transactions'
+--- END ---
+
+Formula: {@__InboundTransactions}
+--- BEGIN ---
+'Inbound Transactions'
+--- END ---
+
+Formula: {@__OutboundTransactions}
+--- BEGIN ---
+'Outbound Transactions'
+--- END ---
+
+Formula: {@__AllExceptInventoryTransferAndCounting}
+--- BEGIN ---
+'All Except Stock Transfer and Counting'
+--- END ---
+
+Formula: {@LineItemQty}
+--- BEGIN ---
+{_TmSp_BinLocationListCRPrint;1.OnHandQty}
+
+//NumberVar itemQty = {_TmSp_BinLocationListCRPrint;1.OnHandQty};
+
+
+
+//Shared NumberVar totalItemQty;
+//totalItemQty := totalItemQty + itemQty;
+
+//itemQty;
+
+
+
+--- END ---
+
+Formula: {@LineBinCode}
+--- BEGIN ---
+{_TmSp_BinLocationListCRPrint;1.BinCode}
+--- END ---
+
+Formula: {@TotalAmt}
+--- BEGIN ---
+CStr(RecordNumber, 0)
+--- END ---
+
+Formula: {@TotalItemQty}
+--- BEGIN ---
+Sum ({@LineItemQty},   {OADM.CompnyName});
+--- END ---
+
+Formula: {@LineItemCount}
+--- BEGIN ---
+{_TmSp_BinLocationListCRPrint;1.ItemCount}
+--- END ---
+
+Formula: {@TotalItemCount}
+--- BEGIN ---
+Sum ({@LineItemCount},   {OADM.CompnyName});
+--- END ---
+
+Formula: {@LineMinQty}
+--- BEGIN ---
+{_TmSp_BinLocationListCRPrint;1.MinLevel}
+--- END ---
+
+Formula: {@LineMaxQty}
+--- BEGIN ---
+{_TmSp_BinLocationListCRPrint;1.MaxLevel}
+--- END ---
+
+Formula: {@LineQtyBelowMin}
+--- BEGIN ---
+{_TmSp_BinLocationListCRPrint;1.QtyBelowMin}
+--- END ---
+
+Formula: {@LineResrictTo}
+--- BEGIN ---
+{_TmSp_BinLocationListCRPrint;1.RestrictedTo}
+--- END ---
+
+
+************************************************************
+  CONNECTION INFO
+************************************************************
+Table:    OADM
+  Server:   DRIVER={B1CRHPROXY};UID=SYSTEM;PWD=manager;SERVERNODE=10.58.114.82:30315;DATABASE=US_0515;
+  Database: 
+  UserID:   
+
+Table:    OADP
+  Server:   DRIVER={B1CRHPROXY};UID=SYSTEM;PWD=manager;SERVERNODE=10.58.114.82:30315;DATABASE=US_0515;
+  Database: 
+  UserID:   
+
+Table:    _TmSp_BinLocationListCRPrint;1
+  Server:   DRIVER={B1CRHPROXY};UID=SYSTEM;PWD=manager;SERVERNODE=10.58.114.82:30315;DATABASE=US_0515;
+  Database: 
+  UserID:   
+
+
+************************************************************
+  TABLE LINKS
+************************************************************
+(No table links)
+
+************************************************************
+  RECORD SELECTION FORMULA
+************************************************************
+//{OPKL.AbsEntry}= {?DocKey@}
+
+

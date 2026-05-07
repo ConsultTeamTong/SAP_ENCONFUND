@@ -1,0 +1,73 @@
+﻿============================================================
+Report: JDT10003__JE EnconFund.rpt
+Path:   JDT10003__JE EnconFund.rpt
+Extracted: 2026-05-07 18:03:11
+============================================================
+
+************************************************************
+  PARAMETERS
+************************************************************
+Parameter: (error)
+  Type:     You cannot call a method on a null-valued expression.
+  Report:   
+  Default:  
+
+
+************************************************************
+  FORMULA FIELDS
+************************************************************
+Formula: {@SORT}
+--- BEGIN ---
+if {main.Debit} > 0 then 1
+else 2 
+--- END ---
+
+Formula: {@ชื่อผู้จัดทำ}
+--- BEGIN ---
+if not isnull({EMP.ชื่อผู้จัดทำ}) then {EMP.ชื่อผู้จัดทำ}
+ELSE '                              '
+--- END ---
+
+Formula: {@ชื่อผู้ตรวจ}
+--- BEGIN ---
+if not isnull({EMP.ชื่อผู้ตรวจ}) then {EMP.ชื่อผู้ตรวจ}
+ELSE '                              '
+--- END ---
+
+Formula: {@ชื่อผู้อนุมัติ}
+--- BEGIN ---
+if not isnull({EMP.ชื่อผู้ยืนยัน}) then {EMP.ชื่อผู้ยืนยัน}
+ELSE '                              '
+--- END ---
+
+Formula: {@หน้าที่}
+--- BEGIN ---
+"หน้า " + ToText(PageNumber, 0) + " / " + ToText(TotalPageCount, 0)
+--- END ---
+
+
+************************************************************
+  CONNECTION INFO
+************************************************************
+Table:    main
+  Server:   10.10.10.109
+  Database: 
+  UserID:   SYSTEM
+
+Table:    EMP
+  Server:   10.10.10.109
+  Database: 
+  UserID:   SYSTEM
+
+
+************************************************************
+  TABLE LINKS
+************************************************************
+(No table links)
+
+************************************************************
+  RECORD SELECTION FORMULA
+************************************************************
+(No record selection formula)
+
+

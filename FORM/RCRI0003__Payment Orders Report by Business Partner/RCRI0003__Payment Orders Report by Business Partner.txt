@@ -1,0 +1,311 @@
+﻿============================================================
+Report: RCRI0003__Payment Orders Report by Business Partner.rpt
+Path:   RCRI0003__Payment Orders Report by Business Partner.rpt
+Extracted: 2026-05-07 18:03:31
+============================================================
+
+************************************************************
+  PARAMETERS
+************************************************************
+Parameter: (error)
+  Type:     You cannot call a method on a null-valued expression.
+  Report:   
+  Default:  
+
+
+************************************************************
+  FORMULA FIELDS
+************************************************************
+Formula: {@_dateFormat}
+--- BEGIN ---
+select {Settings.DateFormat}
+    case "0":
+        "DD/MM/YY"
+    case "1":
+        "DD/MM/CCYY"
+    case "2":
+        "MM/DD/YY"
+    case "3":
+        "MM/DD/CCYY"
+    case "4":
+        "CCYY/MM/DD"
+    case "5":
+        "DD/Month/YYYY"
+    case "6":
+        "YY/MM/DD"
+    default:
+        "";
+--- END ---
+
+Formula: {@_dateOrder}
+--- BEGIN ---
+If {@_dateFormat} in ["DD/MM/YY","DD/MM/CCYY","DD/Month/YYYY"] then
+ crDayMonthYear
+else if {@_dateFormat} in ["MM/DD/YY","MM/DD/CCYY"] then
+ crMonthDayYear
+else if {@_dateFormat} in ["CCYY/MM/DD","YY/MM/DD"] then
+ crYearMonthDay
+--- END ---
+
+Formula: {@_monthFormat}
+--- BEGIN ---
+if "Month" in {@_dateFormat} then
+(
+ if isnull({Settings.CharMonth})  or {Settings.CharMonth} > 3 then
+   crLongMonth
+ else if {Settings.CharMonth} <= 3 then
+   crShortMonth
+)
+else
+ crLeadingZeroMonth
+--- END ---
+
+Formula: {@_yearFormat}
+--- BEGIN ---
+If "Month" in {@_dateFormat} then
+ crLongYear
+else if "CC" in {@_dateFormat} then
+ crLongYear
+else
+ crShortYear
+--- END ---
+
+Formula: {@AM}
+--- BEGIN ---
+//Morning
+'AM'
+--- END ---
+
+Formula: {@PM}
+--- BEGIN ---
+//Afternoon
+'PM'
+--- END ---
+
+Formula: {@_dateSep}
+--- BEGIN ---
+{Settings.DateSep}
+--- END ---
+
+Formula: {@_dateFrom}
+--- BEGIN ---
+If HasValue({?PWZRunDate}) Then Minimum({?PWZRunDate})
+Else Date(1900,1, 1)
+--- END ---
+
+Formula: {@ToDate}
+--- BEGIN ---
+Maximum({?PWZRunDate})
+--- END ---
+
+Formula: {@_showPageHeader}
+--- BEGIN ---
+WhileReadingRecords;
+" "
+--- END ---
+
+Formula: {@_docType}
+--- BEGIN ---
+Local StringVar strNum;
+
+If {PWZ3.DocNum} > 0 Then
+    strNum := totext({PWZ3.DocNum}, 0, "")
+Else
+    strNum := "";
+
+if {PWZ3.ObjType} = "13" then
+"IN " + strNum
+else if {PWZ3.ObjType} = "14" then
+"CN " + strNum
+else if {PWZ3.ObjType} = "18" then
+"PU " + strNum
+else if {PWZ3.ObjType} = "19" then
+"PC " + strNum
+else if {PWZ3.ObjType} = "204" then
+"DT " + strNum
+else if {PWZ3.ObjType} = "30" then
+"JE " + strNum
+else if {PWZ3.ObjType} = "203" then
+"DT " + strNum
+else if {PWZ3.ObjType} = "24" then
+"RC " + strNum
+else if {PWZ3.ObjType} = "46" then
+"PS " + strNum
+else if {PWZ3.ObjType} = "57" then
+"CP " + strNum
+else if {PWZ3.ObjType} = "-2" then
+"OB " + strNum
+else if {PWZ3.ObjType} = "-3" then
+"CB " + strNum
+else if {PWZ3.ObjType} = "69" then
+"IF " + strNum
+;
+
+//INV,RIN,PCH,RPC, DPO, DPI, JDT, RCT, VPM, CHO, OPEN_BLNC_TYPE, CLOSE_BLNC_TYPE, IPF
+--- END ---
+
+Formula: {@_AmntDec}
+--- BEGIN ---
+{Settings.SumDec}
+--- END ---
+
+Formula: {@_DecimalSep}
+--- BEGIN ---
+{Settings.DecSep}
+--- END ---
+
+Formula: {@_ThousSep}
+--- BEGIN ---
+{Settings.ThousSep}
+--- END ---
+
+Formula: {@_ThousSepY}
+--- BEGIN ---
+not isnull({Settings.ThousSep})  
+--- END ---
+
+Formula: {@_InvPayAmnt}
+--- BEGIN ---
+
+If {PWZ3.InvPayAmFC} <> 0 Then
+    If {PWZ3.ObjType} = "14" Or {PWZ3.ObjType} = "19" Or ( ({PWZ3.ObjType} = "203" Or {PWZ3.ObjType} = "204") And {PWZ3.Status} = "C" ) Then // RIN or RPC or paid DP
+        -{PWZ3.InvPayAmFC}
+    Else
+        {PWZ3.InvPayAmFC}
+Else
+    If {PWZ3.ObjType} = "14" Or {PWZ3.ObjType} = "19" Or ( ({PWZ3.ObjType} = "203" Or {PWZ3.ObjType} = "204") And {PWZ3.Status} = "C" ) Then // RIN or RPC or paid DP
+        -{PWZ3.InvPayAmnt}
+    Else
+        {PWZ3.InvPayAmnt}
+--- END ---
+
+Formula: {@_PayAmount}
+--- BEGIN ---
+If Trim({PWZ3.PymCurr}) = Trim({Settings.MainCurncy}) Then
+    {PWZ3.PayAmount} 
+Else If {PWZ3.PayAmntFC} <> 0 Then
+    {PWZ3.PayAmntFC}
+Else
+    {PWZ3.PayAmount}
+
+--- END ---
+
+Formula: {@_isFcBP}
+--- BEGIN ---
+
+{OCRD.Currency} <> {Settings.MainCurncy} 
+And 
+{OCRD.Currency} <> "##" 
+
+
+--- END ---
+
+Formula: {@_dateTo}
+--- BEGIN ---
+If HasValue({?PWZRunDate}) Then Maximum({?PWZRunDate})
+Else Date(9999, 12, 31)
+--- END ---
+
+Formula: {@_bpFrom}
+--- BEGIN ---
+If HasValue({?BP@From OCRD}) Then Minimum({?BP@From OCRD})
+Else ''
+--- END ---
+
+Formula: {@_bpTo}
+--- BEGIN ---
+If Hasvalue({?BP@From OCRD}) Then Maximum({?BP@From OCRD})
+Else ''
+--- END ---
+
+Formula: {@_pmFrom}
+--- BEGIN ---
+If HasValue({?PM2@select "PayMethCod" from OPYM order by "PayMethCod"}) Then Minimum({?PM2@select "PayMethCod" from OPYM order by "PayMethCod"})
+Else ''
+--- END ---
+
+Formula: {@_pmTo}
+--- BEGIN ---
+If HasValue({?PM2@select "PayMethCod" from OPYM order by "PayMethCod"}) Then Maximum({?PM2@select "PayMethCod" from OPYM order by "PayMethCod"})
+Else ''
+--- END ---
+
+
+************************************************************
+  CONNECTION INFO
+************************************************************
+Table:    Settings
+  Server:   DRIVER={B1CRHPROXY};UID=SYSTEM;PWD=manager;SERVERNODE=10.55.178.115:30915;DATABASE=SBODEMOGB;
+  Database: 
+  UserID:   
+
+Table:    PWZ3
+  Server:   DRIVER={B1CRHPROXY};UID=SYSTEM;PWD=manager;SERVERNODE=10.55.178.115:30915;DATABASE=SBODEMOGB;
+  Database: 
+  UserID:   
+
+Table:    OPWZ
+  Server:   DRIVER={B1CRHPROXY};UID=SYSTEM;PWD=manager;SERVERNODE=10.55.178.115:30915;DATABASE=SBODEMOGB;
+  Database: 
+  UserID:   
+
+Table:    OCRD
+  Server:   DRIVER={B1CRHPROXY};UID=SYSTEM;PWD=manager;SERVERNODE=10.55.178.115:30915;DATABASE=SBODEMOGB;
+  Database: 
+  UserID:   
+
+
+************************************************************
+  TABLE LINKS
+************************************************************
+OPWZ.IdNumber --[Equal]--> PWZ3.IdEntry
+PWZ3.CardCode --[Equal]--> OCRD.CardCode
+
+************************************************************
+  RECORD SELECTION FORMULA
+************************************************************
+    {PWZ3.LineType} <> 'T' 
+	And
+	(
+	If HasValue({?PWZRunDate}) And IsDate(CStr(Minimum({?PWZRunDate}))) Then
+		{OPWZ.PmntDate} >= Minimum({?PWZRunDate})
+	Else
+		True
+	)
+	And
+	(
+	If HasValue({?PWZRunDate}) And IsDate(CStr(Maximum({?PWZRunDate}))) Then
+		{OPWZ.PmntDate} <= Maximum({?PWZRunDate})
+	Else
+		True
+	)	
+	And
+	(
+        If HasValue({?BP@from OCRD}) And Trim(Minimum({?BP@from OCRD})) <> "" Then
+		    {PWZ3.CardCode} >= CStr(Minimum({?BP@from OCRD}))
+        Else
+            True
+	)
+	And
+	(
+        If HasValue({?BP@from OCRD}) And Trim(Maximum({?BP@from OCRD})) <> "" Then
+		    {PWZ3.CardCode} <= Maximum({?BP@from OCRD})
+        Else
+            True
+	)
+	And
+	(
+        If HasValue({?PM2@select "PayMethCod" from OPYM order by "PayMethCod"}) And Trim(Minimum({?PM2@select "PayMethCod" from OPYM order by "PayMethCod"})) <> "" Then
+		    {PWZ3.PymMeth} >= Minimum({?PM2@select "PayMethCod" from OPYM order by "PayMethCod"})
+        Else
+            True
+	)
+	And
+	(
+        If HasValue({?PM2@select "PayMethCod" from OPYM order by "PayMethCod"}) And Trim(Maximum({?PM2@select "PayMethCod" from OPYM order by "PayMethCod"})) <> "" Then
+		    {PWZ3.PymMeth} <= Maximum({?PM2@select "PayMethCod" from OPYM order by "PayMethCod"})
+        Else
+            True
+	)
+
+

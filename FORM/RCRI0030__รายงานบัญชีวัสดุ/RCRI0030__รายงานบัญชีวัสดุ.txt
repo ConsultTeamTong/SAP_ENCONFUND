@@ -1,0 +1,130 @@
+﻿============================================================
+Report: RCRI0030__รายงานบัญชีวัสดุ.rpt
+Path:   RCRI0030__รายงานบัญชีวัสดุ.rpt
+Extracted: 2026-05-07 18:03:42
+============================================================
+
+************************************************************
+  PARAMETERS
+************************************************************
+Parameter: (error)
+  Type:     You cannot call a method on a null-valued expression.
+  Report:   
+  Default:  
+
+
+************************************************************
+  FORMULA FIELDS
+************************************************************
+Formula: {@สต}
+--- BEGIN ---
+Local NumberVar FullPrice;
+Local NumberVar Satang;
+
+
+FullPrice ={Command.ราคาต่อหน่วย_ยอดยกมา};
+
+// 2. คำนวณหาเฉพาะเศษสตางค์ (เช่น 100.25 -> 25)
+// ใช้ Round เพื่อป้องกันค่าเพี้ยน และ Truncate เพื่อตัดเลขบาททิ้ง
+Satang := Round((FullPrice - Truncate(FullPrice)) * 100, 0);
+
+// 3. เงื่อนไขการแสดงผล
+If FullPrice = 0 Then 
+    "-"                 // ถ้าราคาเป็น 0 ให้ใส่ "-"
+Else If Satang = 0 Then 
+    "-"                 // ถ้ามีราคาแต่ไม่มีเศษสตางค์ (เช่น 100.00) ให้ใส่ "-"
+Else 
+    ToText(Satang, 0, "") // ถ้ามีเศษสตางค์ ให้แสดงเฉพาะตัวเลขสตางค์นั้น
+--- END ---
+
+Formula: {@ราคาต่อหน่วย}
+--- BEGIN ---
+
+IF {Command.ราคาต่อหน่วย (Transaction)} = 0 THEN 
+    "-" 
+ELSE 
+    ToText(Truncate({Command.ราคาต่อหน่วย (Transaction)}), 0, "")
+
+
+
+
+
+--- END ---
+
+Formula: {@รายรับ}
+--- BEGIN ---
+IF {Command.Quantity} < 0 THEN 0
+ELSE {Command.Quantity}
+
+--- END ---
+
+Formula: {@รายจ่าย}
+--- BEGIN ---
+IF {Command.Quantity} > 0 THEN 0
+ELSE {Command.Quantity}
+
+--- END ---
+
+Formula: {@คงเหลือ}
+--- BEGIN ---
+
+IF{Command.คงเหลือ (รับ-จ่าย)} = 0 THEN 
+    "-" 
+ELSE 
+    ToText(Truncate({Command.คงเหลือ (รับ-จ่าย)}), 0, "")
+
+
+--- END ---
+
+Formula: {@จำนวนอย่างสูง}
+--- BEGIN ---
+
+
+
+--- END ---
+
+Formula: {@จำนวนอย่างต่ำ}
+--- BEGIN ---
+
+
+
+
+--- END ---
+
+Formula: {@หน้า}
+--- BEGIN ---
+"หน้า " + ToText(PageNumber, 0) + " / " + ToText(TotalPageCount, 0)
+--- END ---
+
+Formula: {@ยอดคงเหลือ}
+--- BEGIN ---
+{Command.InQty}-{Command.OutQty}
+--- END ---
+
+Formula: {@MIN}
+--- BEGIN ---
+
+
+--- END ---
+
+
+************************************************************
+  CONNECTION INFO
+************************************************************
+Table:    Command
+  Server:   10.10.10.109
+  Database: 
+  UserID:   SYSTEM
+
+
+************************************************************
+  TABLE LINKS
+************************************************************
+(No table links)
+
+************************************************************
+  RECORD SELECTION FORMULA
+************************************************************
+(No record selection formula)
+
+

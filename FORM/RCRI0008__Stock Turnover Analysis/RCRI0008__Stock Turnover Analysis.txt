@@ -1,0 +1,133 @@
+﻿============================================================
+Report: RCRI0008__Stock Turnover Analysis.rpt
+Path:   RCRI0008__Stock Turnover Analysis.rpt
+Extracted: 2026-05-07 18:03:33
+============================================================
+
+************************************************************
+  PARAMETERS
+************************************************************
+Parameter: (error)
+  Type:     You cannot call a method on a null-valued expression.
+  Report:   
+  Default:  
+
+
+************************************************************
+  FORMULA FIELDS
+************************************************************
+Formula: {@_dateFormat}
+--- BEGIN ---
+select {Settings.DateFormat}
+    case "0":
+        "DD/MM/YY"
+    case "1":
+        "DD/MM/CCYY"
+    case "2":
+        "MM/DD/YY"
+    case "3":
+        "MM/DD/CCYY"
+    case "4":
+        "CCYY/MM/DD"
+    case "5":
+        "DD/Month/YYYY"
+    case "6":
+        "YY/MM/DD"
+    default:
+        "";
+--- END ---
+
+Formula: {@_dateOrder}
+--- BEGIN ---
+If {@_dateFormat} in ["DD/MM/YY","DD/MM/CCYY","DD/Month/YYYY"] then
+ crDayMonthYear
+else if {@_dateFormat} in ["MM/DD/YY","MM/DD/CCYY"] then
+ crMonthDayYear
+else if {@_dateFormat} in ["CCYY/MM/DD","YY/MM/DD"] then
+ crYearMonthDay
+--- END ---
+
+Formula: {@_monthFormat}
+--- BEGIN ---
+if "Month" in {@_dateFormat} then
+(
+ if isnull({Settings.CharMonth}) or {Settings.CharMonth} = 0  or {Settings.CharMonth} > 3 then
+   crLongMonth
+ else if {Settings.CharMonth} <= 3 then
+   crShortMonth
+)
+else
+ crLeadingZeroMonth
+--- END ---
+
+Formula: {@_yearFormat}
+--- BEGIN ---
+If "Month" in {@_dateFormat} then
+ crLongYear
+else if "CC" in {@_dateFormat} then
+ crLongYear
+else
+ crShortYear
+--- END ---
+
+Formula: {@AM}
+--- BEGIN ---
+//Morning
+'AM'
+--- END ---
+
+Formula: {@PM}
+--- BEGIN ---
+//Afternoon
+'PM'
+--- END ---
+
+Formula: {@showWareHouses}
+--- BEGIN ---
+Join({?WHS@Select * From OWHS}, ', ')
+--- END ---
+
+Formula: {@FromDate}
+--- BEGIN ---
+ToText ({@From_Date}, "yyyyMMdd")
+--- END ---
+
+Formula: {@ToDate}
+--- BEGIN ---
+ToText ({@To_Date}, "yyyyMMdd")
+--- END ---
+
+Formula: {@From_Date}
+--- BEGIN ---
+If Not HasValue({?DateRange}) Or Minimum({?DateRange}) = Date(0, 0, 0) Then Date(1900, 1, 1)
+Else Minimum({?DateRange})
+--- END ---
+
+Formula: {@To_Date}
+--- BEGIN ---
+If Not HasValue({?DateRange}) Or Maximum({?DateRange}) = Date(0,0,0) Then Date(2999, 12, 31)
+Else Maximum({?DateRange}) 
+
+--- END ---
+
+
+************************************************************
+  CONNECTION INFO
+************************************************************
+Table:    Settings
+  Server:   10.58.136.162:30015
+  Database: 
+  UserID:   system
+
+
+************************************************************
+  TABLE LINKS
+************************************************************
+(No table links)
+
+************************************************************
+  RECORD SELECTION FORMULA
+************************************************************
+(No record selection formula)
+
+

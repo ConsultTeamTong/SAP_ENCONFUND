@@ -1,0 +1,261 @@
+﻿============================================================
+Report: TDL10002__Open Documents - CR (System).rpt
+Path:   TDL10002__Open Documents - CR (System).rpt
+Extracted: 2026-05-07 18:04:03
+============================================================
+
+************************************************************
+  PARAMETERS
+************************************************************
+(No parameters)
+
+************************************************************
+  FORMULA FIELDS
+************************************************************
+Formula: {@F_154}
+--- BEGIN ---
+Shared StringVar PrintHeaderStr;
+
+If PageNumber = 1 Then
+(
+    PrintHeaderStr := {PLD__ITEMS.F_154}
+);
+
+PrintHeaderStr
+
+
+--- END ---
+
+Formula: {@F_155}
+--- BEGIN ---
+if {PLD__ITEMS.F_155}='' then ' ' else {PLD__ITEMS.F_155}
+--- END ---
+
+Formula: {@F_116}
+--- BEGIN ---
+if {PLD__ITEMS.F_116}='' then ' ' else {PLD__ITEMS.F_116}
+--- END ---
+
+Formula: {@F_118}
+--- BEGIN ---
+if {PLD__ITEMS.F_118}='' then ' ' else {PLD__ITEMS.F_118}
+--- END ---
+
+Formula: {@F_120}
+--- BEGIN ---
+if {PLD__ITEMS.F_120}='' then ' ' else {PLD__ITEMS.F_120}
+--- END ---
+
+Formula: {@F_122}
+--- BEGIN ---
+if {PLD__ITEMS.F_122}='' then ' ' else {PLD__ITEMS.F_122}
+--- END ---
+
+Formula: {@F_124}
+--- BEGIN ---
+if isnull({PLD__ITEMS.F_124}) then ' ' else {PLD__ITEMS.F_124}
+--- END ---
+
+Formula: {@F_126}
+--- BEGIN ---
+if {PLD__ITEMS.F_126}='' then ' '
+Else TrailCurrency (Trim({PLD__ITEMS.F_126}), {OADM.CurOnRight})
+--- END ---
+
+Formula: {@F_149}
+--- BEGIN ---
+if {PLD__ITEMS.F_149}='' then ' '
+Else TrailCurrency (Trim({PLD__ITEMS.F_149}), {OADM.CurOnRight})
+--- END ---
+
+Formula: {@F_150}
+--- BEGIN ---
+if {PLD__ITEMS.F_150}='' then ' ' else {PLD__ITEMS.F_150}
+--- END ---
+
+Formula: {@F_145}
+--- BEGIN ---
+if isnull({PLD__ITEMS.F_145}) then ' ' else {PLD__ITEMS.F_145}
+--- END ---
+
+Formula: {@F_143}
+--- BEGIN ---
+if {PLD__ITEMS.F_143}='' then ' ' else {PLD__ITEMS.F_143}
+--- END ---
+
+Formula: {@F_128}
+--- BEGIN ---
+if {PLD__ITEMS.F_128}='' then ' '
+Else{PLD__ITEMS.F_128}
+--- END ---
+
+Formula: {@F_182}
+--- BEGIN ---
+if {PLD__ITEMS.F_182}='' then ' ' else {PLD__ITEMS.F_182}
+--- END ---
+
+Formula: {@F_185}
+--- BEGIN ---
+if {PLD__ITEMS.F_185}='' then ' ' else {PLD__ITEMS.F_185}
+--- END ---
+
+Formula: {@F_157}
+--- BEGIN ---
+if {PLD__ITEMS.F_157}='' then ' ' else {PLD__ITEMS.F_157}
+--- END ---
+
+Formula: {@F_158}
+--- BEGIN ---
+if {PLD__ITEMS.F_158}='' then ' ' else {PLD__ITEMS.F_158}
+--- END ---
+
+Formula: {@F_163}
+--- BEGIN ---
+if {PLD__ITEMS.F_163}='' then ' ' else {PLD__ITEMS.F_163}
+--- END ---
+
+Formula: {@F_166}
+--- BEGIN ---
+if {PLD__ITEMS.F_166}='' then ' ' else {PLD__ITEMS.F_166}
+--- END ---
+
+Formula: {@F_114}
+--- BEGIN ---
+if {PLD__ITEMS.F_114}='' then ' ' else {PLD__ITEMS.F_114}
+--- END ---
+
+Formula: {@F_144}
+--- BEGIN ---
+'Instalment No.'
+//if {PLD__ITEMS.F_144}='' then ' ' else {PLD__ITEMS.F_144}
+--- END ---
+
+Formula: {@F_24}
+--- BEGIN ---
+'Days Overdue'
+//if {PLD__ITEMS.F_24}='' then ' ' else {PLD__ITEMS.F_24}
+--- END ---
+
+Formula: {@DateTimeInfo}
+--- BEGIN ---
+NthLargest (1, {PLD__ITEMS.F_158}) + ' ' + NthLargest (1, {PLD__ITEMS.F_157})
+--- END ---
+
+Formula: {@PageIndicator}
+--- BEGIN ---
+ToText(PageNumber, 0) +'/'+ToText(TotalPageCount, 0) 
+--- END ---
+
+Formula: {@FooterColor}
+--- BEGIN ---
+Color(150,150,150)
+--- END ---
+
+Formula: {@test}
+--- BEGIN ---
+{PLD__ITEMS._Section} & {PLD__ITEMS._Page}&{PLD__ITEMS._Line}
+--- END ---
+
+Formula: {@CurrencySymbol}
+--- BEGIN ---
+Maximum({PLD__ITEMS.F_128_Symbol})
+--- END ---
+
+Formula: {@Declare}
+--- BEGIN ---
+Shared StringVar PrintHeaderStr;
+shared stringvar ObjectID;
+--- END ---
+
+Formula: {@F_190}
+--- BEGIN ---
+if isnull({PLD__ITEMS.F_190}) then ' ' else {PLD__ITEMS.F_190}
+--- END ---
+
+Formula: {@F_191}
+--- BEGIN ---
+shared stringvar ObjectID;
+if pagenumber = 1 then
+ (if isnull({PLD__ITEMS.F_191}) then ObjectID:=' ' else ObjectID:={PLD__ITEMS.F_191};);
+
+ObjectID;
+--- END ---
+
+Formula: {@LabelText}
+--- BEGIN ---
+"▌"
+--- END ---
+
+Formula: {@__Title_str}
+--- BEGIN ---
+"Open Items List"
+--- END ---
+
+Formula: {@__Currency_str}
+--- BEGIN ---
+"Currency:"
+--- END ---
+
+Formula: {@__Total_Amount_str}
+--- BEGIN ---
+"Total Amount:"
+--- END ---
+
+Formula: {@__BPCode_str}
+--- BEGIN ---
+'Business Partner Code'
+--- END ---
+
+Formula: {@BPName}
+--- BEGIN ---
+shared stringvar ObjectID;
+if ObjectID = '1250000001' then {@__BPName_str}
+else {@__CustomerSupplierName}
+--- END ---
+
+Formula: {@F_195}
+--- BEGIN ---
+(if {PLD__ITEMS.F_195}='' then ' ' else {PLD__ITEMS.F_195})
+--- END ---
+
+Formula: {@__CustomerSupplierName}
+--- BEGIN ---
+'Customer / Supplier Name'
+--- END ---
+
+Formula: {@__BPName_str}
+--- BEGIN ---
+'Business Partner Name'
+--- END ---
+
+
+************************************************************
+  CONNECTION INFO
+************************************************************
+Table:    PLD__ITEMS
+  Server:   NewDataSet
+  Database: 
+  UserID:   
+
+Table:    OADP
+  Server:   DRIVER={B1CRHPROXY};UID=SYSTEM;PWD=manager;SERVERNODE=10.58.114.46:30315;DATABASE=CR03
+  Database: 
+  UserID:   
+
+Table:    OADM
+  Server:   DRIVER={B1CRHPROXY};UID=SYSTEM;PWD=manager;SERVERNODE=10.58.114.46:30315;DATABASE=CR03
+  Database: 
+  UserID:   
+
+
+************************************************************
+  TABLE LINKS
+************************************************************
+(No table links)
+
+************************************************************
+  RECORD SELECTION FORMULA
+************************************************************
+(No record selection formula)
+
+

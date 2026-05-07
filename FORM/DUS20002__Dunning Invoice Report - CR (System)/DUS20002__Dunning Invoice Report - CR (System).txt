@@ -1,0 +1,186 @@
+﻿============================================================
+Report: DUS20002__Dunning Invoice Report - CR (System).rpt
+Path:   DUS20002__Dunning Invoice Report - CR (System).rpt
+Extracted: 2026-05-07 18:03:00
+============================================================
+
+************************************************************
+  PARAMETERS
+************************************************************
+(No parameters)
+
+************************************************************
+  FORMULA FIELDS
+************************************************************
+Formula: {@F_121}
+--- BEGIN ---
+if {PLD__ITEMS.F_121}='' then ' ' else {PLD__ITEMS.F_121}
+--- END ---
+
+Formula: {@F_122}
+--- BEGIN ---
+if {PLD__ITEMS.F_122}='' then ' ' else {PLD__ITEMS.F_122}
+--- END ---
+
+Formula: {@F_123}
+--- BEGIN ---
+if {PLD__ITEMS.F_123}='' then ' ' else {PLD__ITEMS.F_123}
+--- END ---
+
+Formula: {@F_124}
+--- BEGIN ---
+if {PLD__ITEMS.F_124}='' then ' ' else {PLD__ITEMS.F_124}
+--- END ---
+
+Formula: {@F_207}
+--- BEGIN ---
+if {PLD__ITEMS.F_207}='' then ' ' else {PLD__ITEMS.F_207}
+--- END ---
+
+Formula: {@F_218}
+--- BEGIN ---
+if {PLD__ITEMS.F_218}='' then ' ' else {PLD__ITEMS.F_218}
+--- END ---
+
+Formula: {@F_219}
+--- BEGIN ---
+if {PLD__ITEMS.F_219}='' then ' ' else {PLD__ITEMS.F_219}
+--- END ---
+
+Formula: {@F_237}
+--- BEGIN ---
+if {PLD__ITEMS.F_237}='' then ' ' else {PLD__ITEMS.F_237}
+--- END ---
+
+Formula: {@F_238}
+--- BEGIN ---
+if {PLD__ITEMS.F_238}='' then ' ' else {PLD__ITEMS.F_238}
+--- END ---
+
+Formula: {@F_239}
+--- BEGIN ---
+if {PLD__ITEMS.F_239}='' then ' ' else {PLD__ITEMS.F_239}
+--- END ---
+
+Formula: {@F_240}
+--- BEGIN ---
+if {PLD__ITEMS.F_240}='' then ' ' else {PLD__ITEMS.F_240}
+--- END ---
+
+Formula: {@F_241}
+--- BEGIN ---
+if {PLD__ITEMS.F_241}='' then ' ' else {PLD__ITEMS.F_241}
+--- END ---
+
+Formula: {@F_213}
+--- BEGIN ---
+if {PLD__ITEMS.F_213}='' then ' ' else {PLD__ITEMS.F_213}
+--- END ---
+
+Formula: {@F_215}
+--- BEGIN ---
+if {PLD__ITEMS.F_215}='' then ' ' else {PLD__ITEMS.F_215}
+--- END ---
+
+Formula: {@F_216}
+--- BEGIN ---
+if {PLD__ITEMS.F_216}='' then ' ' else {PLD__ITEMS.F_216}
+--- END ---
+
+Formula: {@F_253}
+--- BEGIN ---
+if {PLD__ITEMS.F_253}='' then ' ' else {PLD__ITEMS.F_253}
+--- END ---
+
+Formula: {@Indicator}
+--- BEGIN ---
+"▌"
+--- END ---
+
+Formula: {@F_266}
+--- BEGIN ---
+if {PLD__ITEMS.F_266}='' then ' ' else {PLD__ITEMS.F_266}
+--- END ---
+
+Formula: {@F_249}
+--- BEGIN ---
+if {PLD__ITEMS.F_249}='' then ' ' else {PLD__ITEMS.F_249}
+--- END ---
+
+Formula: {@DataTimeInfo}
+--- BEGIN ---
+NthLargest (1, {PLD__ITEMS.F_98}) + ' ' + NthLargest (1, {PLD__ITEMS.F_97})
+--- END ---
+
+Formula: {@F_310}
+--- BEGIN ---
+if {PLD__ITEMS.F_310}='' then ' ' else {PLD__ITEMS.F_310}
+--- END ---
+
+Formula: {@F_311}
+--- BEGIN ---
+if {PLD__ITEMS.F_311}='' then ' ' else {PLD__ITEMS.F_311}
+--- END ---
+
+Formula: {@Declare}
+--- BEGIN ---
+shared stringvar TaxCodeType := {PLD__ITEMS.F_324};
+--- END ---
+
+Formula: {@F_312}
+--- BEGIN ---
+if {PLD__ITEMS.F_312}='' then ' ' else {PLD__ITEMS.F_312}
+--- END ---
+
+Formula: {@F_313}
+--- BEGIN ---
+if {PLD__ITEMS.F_313}='' then ' ' else {PLD__ITEMS.F_313}
+--- END ---
+
+Formula: {@F_314}
+--- BEGIN ---
+if {PLD__ITEMS.F_314}='' then ' ' else {PLD__ITEMS.F_314}
+--- END ---
+
+Formula: {@TaxCodeType}
+--- BEGIN ---
+shared stringvar TaxCodeType;
+TaxCodeType;
+--- END ---
+
+Formula: {@F_304}
+--- BEGIN ---
+if {PLD__ITEMS.F_304}='' then ' ' else {PLD__ITEMS.F_304}
+--- END ---
+
+Formula: {@F_305}
+--- BEGIN ---
+if {PLD__ITEMS.F_305}='' then ' ' else {PLD__ITEMS.F_305}
+--- END ---
+
+
+************************************************************
+  CONNECTION INFO
+************************************************************
+Table:    PLD__ITEMS
+  Server:   PLDReportSource
+  Database: 
+  UserID:   
+
+Table:    OADP
+  Server:   10.58.1.135:30815
+  Database: 
+  UserID:   SYSTEM
+
+
+************************************************************
+  TABLE LINKS
+************************************************************
+(No table links)
+
+************************************************************
+  RECORD SELECTION FORMULA
+************************************************************
+(No record selection formula)
+
+

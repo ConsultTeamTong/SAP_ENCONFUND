@@ -1,0 +1,912 @@
+﻿============================================================
+Report: RCRI0007__Customer Open Document List.rpt
+Path:   RCRI0007__Customer Open Document List.rpt
+Extracted: 2026-05-07 18:03:32
+============================================================
+
+************************************************************
+  PARAMETERS
+************************************************************
+Parameter: (error)
+  Type:     You cannot call a method on a null-valued expression.
+  Report:   
+  Default:  
+
+
+************************************************************
+  FORMULA FIELDS
+************************************************************
+Formula: {@_DateOrder}
+--- BEGIN ---
+ If {@_DateFormat} in ["DD/MM/YY","DD/MM/CCYY","DD/Month/YYYY"]
+ then crDayMonthYear
+else if {@_DateFormat} in ["MM/DD/YY","MM/DD/CCYY"] then crMonthDayYear
+else if {@_DateFormat} in ["CCYY/MM/DD","YY/MM/DD"] then crYearMonthDay
+
+--- END ---
+
+Formula: {@_DateFormat}
+--- BEGIN ---
+      select {OADM_QUERY.DateFormat}
+    case "0":
+        "DD/MM/YY"
+    case "1":
+        "DD/MM/CCYY"
+    case "2":
+        "MM/DD/YY"
+    case "3":
+        "MM/DD/CCYY"
+    case "4":
+        "CCYY/MM/DD"
+    case "5":
+        "DD/Month/YYYY"
+    case "6":
+        "YY/MM/DD"
+    default:
+        "";
+
+--- END ---
+
+Formula: {@_Month}
+--- BEGIN ---
+if "Month" in {@_DateFormat} then
+(
+ if isnull({OADM_QUERY.CharMonth})  or {OADM_QUERY.CharMonth} > 3 then
+   crLongMonth
+ else if {OADM_QUERY.CharMonth} <= 3 then
+   crShortMonth
+)
+else
+ crLeadingZeroMonth
+
+--- END ---
+
+Formula: {@_Year}
+--- BEGIN ---
+If "Month" in {@_DateFormat} then crLongYear
+else if "CC" in {@_DateFormat} then crLongYear
+else crShortYear
+
+--- END ---
+
+Formula: {@SumDec}
+--- BEGIN ---
+{OADM_QUERY.SumDec}
+--- END ---
+
+Formula: {@DecSep}
+--- BEGIN ---
+{OADM_QUERY.DecSep}
+--- END ---
+
+Formula: {@ThousSep}
+--- BEGIN ---
+{OADM_QUERY.ThousSep}
+--- END ---
+
+Formula: {@indicator}
+--- BEGIN ---
+"▐"
+--- END ---
+
+Formula: {@__ReportTitle}
+--- BEGIN ---
+'Customer Open Item List'
+--- END ---
+
+Formula: {@DateSep}
+--- BEGIN ---
+{OADM_QUERY.DateSep}
+--- END ---
+
+Formula: {@Declare}
+--- BEGIN ---
+Shared StringVar  GroupList;
+Shared StringVar AcctList :=  {?CustomerCode@JOINFROM OCRD where "CardType"=    'C'};
+Shared StringVar AcctListToCommand :=  {?CustomerCode@JOINFROM OCRD where "CardType"=    'C'};
+
+Shared NumberVar GroupNameNumber := 0;
+Shared NumberVar actualGNNumber := 0;
+
+Shared StringVar Array FRCurrency;
+Redim FRCurrency [10];
+Shared StringVar Array AllCurrency;
+Redim AllCurrency [10];
+
+Shared NumberVar Array BPFCTotalDebit;
+Redim BPFCTotalDebit [10];
+Shared NumberVar Array BPFCTotalCredit;
+Redim BPFCTotalCredit [10];
+Shared NumberVar Array BPFCTotalBPBal;
+Redim BPFCTotalBPBal [10];
+
+
+Shared NumberVar Array FCTotalDebit;
+Redim FCTotalDebit [10];
+Shared NumberVar Array FCTotalCredit;
+Redim FCTotalCredit [10];
+Shared NumberVar Array FCTotalBPBal;
+Redim FCTotalBPBal [10];
+
+''
+
+--- END ---
+
+Formula: {@AcctList}
+--- BEGIN ---
+Shared StringVar AcctList ;
+--- END ---
+
+Formula: {@GroupList}
+--- BEGIN ---
+Shared NumberVar GroupNameNumber ;
+Shared NumberVar actualGNNumber;
+Shared StringVar GroupList;
+Local NumberVar  strLen := Len(GroupList);
+
+//Remove last ','
+If  strLen > 0 Then
+(
+    If GroupNameNumber = actualGNNumber Then
+        GroupList := {@__All}
+    Else
+        GroupList := Left(GroupList, strLen -1)
+)
+--- END ---
+
+Formula: {@AcctListToCommand}
+--- BEGIN ---
+Shared StringVar AcctListToCommand
+--- END ---
+
+Formula: {@__PostingDate}
+--- BEGIN ---
+'Posting Date'
+--- END ---
+
+Formula: {@__DocumentDate}
+--- BEGIN ---
+'Document Date'
+--- END ---
+
+Formula: {@OpenItemsBy}
+--- BEGIN ---
+Select {?DateType@}
+Case '1' :{@__PostingDate}
+Case '2' :{@__DocumentDate}
+Default: {@__PostingDate}
+--- END ---
+
+Formula: {@strReconDate}
+--- BEGIN ---
+CStr({?ReconDateValue@})
+--- END ---
+
+Formula: {@strOpenDate}
+--- BEGIN ---
+CStr({?DateValue@})
+--- END ---
+
+Formula: {@DateType}
+--- BEGIN ---
+{?DateType@}
+--- END ---
+
+Formula: {@IsCurOnRight}
+--- BEGIN ---
+{OADM_QUERY.CurOnRight} = 'Y'
+--- END ---
+
+Formula: {@MainCurrency}
+--- BEGIN ---
+{OADM_QUERY.MainCurncy}
+--- END ---
+
+Formula: {@__PrintTime}
+--- BEGIN ---
+'Print Time: '
+--- END ---
+
+Formula: {@PageIndicator}
+--- BEGIN ---
+{@__Page}&ToText(PageNumber, 0)&' / '&ToText(TotalPageCount, 0)
+--- END ---
+
+Formula: {@__Page}
+--- BEGIN ---
+'Page: '
+--- END ---
+
+Formula: {@DocAbrev}
+--- BEGIN ---
+Select {MainQuery.TransType}
+Case '13' :  'IN'
+Case '14' :  'CN'
+Case '30' :  'JE'
+Case '24' :  'RC'
+Case '203':  'DT'
+Default   :  ''
+--- END ---
+
+Formula: {@DocTotal}
+--- BEGIN ---
+If IsNull({MainQuery.InsTotal}) Then
+(
+    If Not IsNull({MainQuery.FCCurrency}) And {MainQuery.FCCurrency}<> {OADM_QUERY.MainCurncy} Then
+    (
+        If {MainQuery.DebCred} = 'D' Then
+            {MainQuery.FCDebit}
+        Else
+            -1 * {MainQuery.FCCredit}
+    )
+    Else
+    (
+        If {MainQuery.DebCred} = 'D' Then
+            {MainQuery.Debit}
+        Else
+            -1 * {MainQuery.Credit}
+    )
+    
+)
+Else
+(
+    If Not IsNull({MainQuery.FCCurrency}) And {MainQuery.FCCurrency}<> {OADM_QUERY.MainCurncy} Then
+    (
+        If {MainQuery.DebCred} = 'D' Then
+            {MainQuery.InsTotalFC}
+        Else
+            -1 * {MainQuery.InsTotalFC}
+    )
+    Else
+    (
+        If {MainQuery.DebCred} = 'D' Then
+            {MainQuery.InsTotal}
+        Else
+            -1 * {MainQuery.InsTotal}
+    )
+)
+--- END ---
+
+Formula: {@__of}
+--- BEGIN ---
+'of'
+--- END ---
+
+Formula: {@GroupHeader}
+--- BEGIN ---
+{@DocAbrev}&','&ToText({MainQuery.DocEntry},0)&','&ToText({MainQuery.Line_ID},0)
+--- END ---
+
+Formula: {@AppliedAmt}
+--- BEGIN ---
+//If {MainQuery.ReconCurr}<>'' And {MainQuery.ReconCurr}<> {@MainCurrency} Then
+//    Sum({MainQuery.realReconSumFC}, {@GroupHeader})
+//Else
+//    Sum({MainQuery.realReconSum}, {@GroupHeader})
+
+-Sum({@ReconAppliedAmt}, {@GroupHeader})
+
+
+--- END ---
+
+Formula: {@OverDue}
+--- BEGIN ---
+ToText(DateDiff('d',{MainQuery.DueDate},{MainQuery.ServerDate}), 0, {@ThousSep})
+--- END ---
+
+Formula: {@Debit}
+--- BEGIN ---
+
+If {MainQuery.DebCred} = 'C' Then 0
+Else
+(
+If Not IsNull({MainQuery.JEFCCurrency}) And {MainQuery.JEFCCurrency}<>{@MainCurrency} Then
+    -{MainQuery.BalFCCred}
+Else
+    -{MainQuery.BalDueCred}
+)
+--- END ---
+
+Formula: {@Credit}
+--- BEGIN ---
+
+If {MainQuery.DebCred} = 'D' Then 0
+Else
+(
+If Not IsNull({MainQuery.JEFCCurrency}) And {MainQuery.JEFCCurrency} <> {@MainCurrency} Then
+    {MainQuery.BalFCCred}
+Else
+    {MainQuery.BalDueCred}
+)
+--- END ---
+
+Formula: {@BPBalance}
+--- BEGIN ---
+{@Debit} - {@Credit}
+
+
+--- END ---
+
+Formula: {@ReconAbrev}
+--- BEGIN ---
+Select {MainQuery.SrcObjTyp}
+Case '13' :  'IN'
+Case '14' :  'CN'
+Case '30' :  'JE'
+Case '24' :  'RC'
+Case '203':  'DT'
+Default   :  ''
+--- END ---
+
+Formula: {@ReconDocTotal}
+--- BEGIN ---
+//Display Negative on Credit Side Posting
+
+If Not IsNull({MainQuery.ReconJEFCCurrency}) And {MainQuery.ReconJEFCCurrency}<> {@MainCurrency} Then
+(
+    Select {MainQuery.ReconDebCred}
+    Case 'C' : - 1 * {MainQuery.ReconCreditFC}
+    Case 'D' : {MainQuery.ReconDebitFC}
+    Default : 0 
+)
+Else
+(
+    Select {MainQuery.ReconDebCred}
+    Case 'C': -1* {MainQuery.ReconCredit}  
+    Case 'D': {MainQuery.ReconDebit}
+    default:  0
+)
+--- END ---
+
+Formula: {@ReconAppliedAmt}
+--- BEGIN ---
+If  {MainQuery.ReconCurr}<>''  And {MainQuery.ReconCurr} <> {@MainCurrency} Then
+(
+    Select {MainQuery.IsCredit}
+    //Display Negative on Credit side posting
+    Case 'C': -1* {MainQuery.realReconSumFC}
+    Case 'D': {MainQuery.realReconSumFC} 
+    Default:0
+)
+Else
+(
+    Select {MainQuery.IsCredit}
+    //Display Negative on Credit side posting
+    Case 'C': -1* {MainQuery.realReconSum}
+    Case 'D': {MainQuery.realReconSum}
+    Default:0
+)
+--- END ---
+
+Formula: {@AllCurrencySym}
+--- BEGIN ---
+'##'
+--- END ---
+
+Formula: {@DisplayCurrency}
+--- BEGIN ---
+{MainQuery.BPCurrency} = {@AllCurrencySym}
+--- END ---
+
+Formula: {@DocCurr}
+--- BEGIN ---
+Local StringVar docCur ;
+If  Not IsNull({MainQuery.FCCurrency}) And {MainQuery.FCCurrency}<> {@MainCurrency} Then
+    docCur := {MainQuery.FCCurrency}
+Else
+    docCur := {@MainCurrency};
+
+If  {OADM_QUERY.CurOnRight} = 'Y' Then
+    ' '&docCur
+Else
+    docCur&' '
+--- END ---
+
+Formula: {@EnableCurrency}
+--- BEGIN ---
+EvaluateAfter({@DisplayCurrency});
+
+If {@DisplayCurrency}  Then
+    crFloatingCurrencySymbol
+Else
+    crNoCurrencySymbol
+--- END ---
+
+Formula: {@CurrencyPostion}
+--- BEGIN ---
+If {OADM_QUERY.CurOnRight} = 'Y' Then
+    crTrailingCurrencyInsideNegative
+Else
+    crLeadingCurrencyOutsideNegative
+--- END ---
+
+Formula: {@IsDownPaymentRequest}
+--- BEGIN ---
+{MainQuery.IsDPMRequest} = 'Y'
+--- END ---
+
+Formula: {@GetAllCurrency}
+--- BEGIN ---
+Shared StringVar Array AllCurrency;
+Shared NumberVar Array FCTotalDebit;
+Shared NumberVar Array FCTotalCredit;
+Shared NumberVar Array FCTotalBPBal;
+
+
+Local StringVar currency := Trim({@DocCurr});
+Local NumberVar i := 0;
+
+For i := 1  To  UBound(AllCurrency) DO
+(
+   If AllCurrency[i] = currency Then
+   (
+        Exit For;   
+   );
+   If AllCurrency[i] = '' Then
+   (
+        AllCurrency[i] := currency;
+        Exit For;
+   );
+);
+
+If Not {@IsDownPaymentRequest} Then
+(
+    FCTotalDebit[i] := FCTotalDebit[i] + {@Debit};
+    FCTotalCredit[i] := FCTotalCredit[i] + {@Credit};
+    FCTotalBPBal[i] := FCTotalBPBal[i] + {@BPBalance};
+    ''
+);
+
+''
+
+
+
+
+--- END ---
+
+Formula: {@GetBPDebCredBal}
+--- BEGIN ---
+Shared StringVar Array FRCurrency;
+Shared NumberVar Array BPFCTotalDebit;
+Shared NumberVar Array BPFCTotalCredit;
+Shared NumberVar Array BPFCTotalBPBal;
+
+Local StringVar currency := Trim({@DocCurr});
+Local NumberVar i := 0;
+
+For i := 1  To  UBound(FRCurrency) DO
+(
+   If FRCurrency[i] = currency Then
+   (
+        Exit For;   
+   );
+   If FRCurrency[i] = '' Then
+   (
+        FRCurrency[i] := currency;
+        Exit For;
+   )
+);
+
+If Not {@IsDownPaymentRequest} Then
+(
+    BPFCTotalDebit[i] := BPFCTotalDebit[i] + {@Debit};
+    BPFCTotalCredit[i] := BPFCTotalCredit[i] + {@Credit};
+    BPFCTotalBPBal[i] := BPFCTotalBPBal[i] + {@BPBalance};
+);
+
+''
+--- END ---
+
+Formula: {@CustomerTotalDebit}
+--- BEGIN ---
+Shared StringVar Array FRCurrency;
+Shared NumberVar Array BPFCTotalDebit;
+
+Local NumberVar i := 0;
+Local StringVar strBPFCTotalDebit;
+Local NumberVar temp := 0;
+Local StringVar strTemp;
+For i := 1 To UBound(FRCurrency) Do
+(
+    temp := BPFCTotalDebit[i];
+    strTemp := ToText(Abs(temp), '###,###,###,###,###.######', {OADM_QUERY.SumDec},{OADM_QUERY.ThousSep}, {OADM_QUERY.DecSep});
+    strTemp := Trim(strTemp);
+    
+    If temp < 0 Then
+      strTemp := '-'&strTemp;
+
+    If i = 1 And FRCurrency[2] ='' And Not {@DisplayCurrency} Then
+    (
+        //If there's only ONE currency, do nothing
+        strTemp := strTemp
+    )
+    Else
+    (                                      
+        If  {OADM_QUERY.CurOnRight} = 'Y' Then
+            strTemp := strTemp&' '&FRCurrency[i]
+        Else
+            strTemp := FRCurrency[i]&''&strTemp;
+    );
+
+    If i = UBound(FRCurrency) Then
+    (
+        Exit For;
+    );
+    If FRCurrency[i+1] <>'' Then
+        strTemp := strTemp + Chr(10);
+    
+    strBPFCTotalDebit := strBPFCTotalDebit + strTemp; 
+
+    If FRCurrency[i+1] = '' Then
+    (
+        Exit For;
+    );      
+);
+
+//Rest Total Value to Zero
+Redim BPFCTotalDebit [10];
+
+strBPFCTotalDebit
+
+
+--- END ---
+
+Formula: {@CustomerTotalCredit}
+--- BEGIN ---
+Shared StringVar Array FRCurrency;
+Shared NumberVar Array BPFCTotalCredit;
+
+Local NumberVar i := 0;
+Local StringVar strBPFCTotalCredit;
+Local NumberVar temp := 0;
+Local StringVar strTemp;
+For i := 1 To UBound(FRCurrency) Do
+(
+    temp := BPFCTotalCredit[i];
+    strTemp := ToText(Abs(temp), '###,###,###,###,###.######', {OADM_QUERY.SumDec},{OADM_QUERY.ThousSep},{OADM_QUERY.DecSep});
+    strTemp := Trim(strTemp);
+    
+    If temp < 0 Then
+        strTemp := '-'&strTemp;
+
+    If i = 1 And FRCurrency[2] ='' And Not {@DisplayCurrency} Then
+    (
+        //If there's only ONE currency, do nothing
+        strTemp := strTemp
+    )
+    Else
+    (                                      
+        If  {OADM_QUERY.CurOnRight} = 'Y' Then
+            strTemp := strTemp&' '&FRCurrency[i]
+        Else
+            strTemp := FRCurrency[i]&''&strTemp;
+    );
+
+    If i = UBound(FRCurrency) Then
+    (
+        Exit For;
+    );
+    If FRCurrency[i+1] <>'' Then
+        strTemp := strTemp + Chr(10);
+    
+    strBPFCTotalCredit := strBPFCTotalCredit + strTemp; 
+
+    If FRCurrency[i+1] = '' Then
+    (
+        Exit For;
+    );      
+);
+
+//Rest Total Value to Zero
+Redim BPFCTotalCredit [10];
+
+strBPFCTotalCredit
+
+
+--- END ---
+
+Formula: {@CustomerTotalBPBalance}
+--- BEGIN ---
+Shared StringVar Array FRCurrency;
+Shared NumberVar Array BPFCTotalBPBal;
+
+Local NumberVar i := 0;
+Local StringVar strBPFCTotalBPBal;
+Local NumberVar temp := 0;
+Local StringVar strTemp;
+For i := 1 To UBound(FRCurrency) Do
+(
+    temp := BPFCTotalBPBal[i];
+    strTemp := ToText(Abs(temp), '###,###,###,###,###.######', {OADM_QUERY.SumDec},{OADM_QUERY.ThousSep},{OADM_QUERY.DecSep});
+    strTemp := Trim(strTemp);
+    
+    If temp < 0 Then
+       strTemp := '-'&strTemp;
+    If i = 1 And FRCurrency[2] ='' And Not {@DisplayCurrency}  Then
+    (
+        //If there's only ONE currency, do nothing
+        strTemp := strTemp
+    )
+    Else
+    (                                      
+        If  {OADM_QUERY.CurOnRight} = 'Y' Then
+            strTemp := strTemp&' '&FRCurrency[i]
+        Else
+            strTemp := FRCurrency[i]&''&strTemp;
+    );
+
+    If i = UBound(FRCurrency) Then
+    (
+        Exit For;
+    );
+    If FRCurrency[i+1] <>'' Then
+        strTemp := strTemp + Chr(10);
+    
+    strBPFCTotalBPBal := strBPFCTotalBPBal + strTemp; 
+
+    If FRCurrency[i+1] = '' Then
+    (
+        Exit For;
+    );      
+);
+
+//Rest Total Value to Zero
+Redim BPFCTotalBPBal [10];
+
+//Notice!!Rest Currecny Here at the Right Most Formula
+Redim FRCurrency [10];
+
+strBPFCTotalBPBal
+
+
+--- END ---
+
+Formula: {@TotalBPBalance}
+--- BEGIN ---
+Shared StringVar Array AllCurrency;
+Shared NumberVar Array FCTotalBPBal;
+
+Local NumberVar i := 0;
+Local StringVar strFCTotalBPBal;
+Local NumberVar temp := 0;
+Local StringVar strTemp;
+For i := 1 To UBound(AllCurrency) Do
+(
+    temp := FCTotalBPBal[i];
+    strTemp := ToText(Abs(temp), '###,###,###,###,###.######', {OADM_QUERY.SumDec},{OADM_QUERY.ThousSep},{OADM_QUERY.DecSep});
+    strTemp := Trim(strTemp);
+    
+    If temp < 0 Then
+      strTemp := '-'&strTemp;
+
+    //If i = 1 And AllCurrency[2] ='' Then
+    //(
+        //If there's only ONE currency, do nothing
+        //strTemp := strTemp
+    //)
+    //Else
+    //(                                      
+        If  {OADM_QUERY.CurOnRight} = 'Y' Then
+            strTemp := strTemp&' '&AllCurrency[i]
+        Else
+            strTemp := AllCurrency[i]&''&strTemp;
+    //);
+
+    If i = UBound(AllCurrency) Then
+    (
+        Exit For;
+    );
+    If AllCurrency[i+1] <>'' Then
+        strTemp := strTemp + Chr(10);
+    
+    strFCTotalBPBal := strFCTotalBPBal + strTemp; 
+
+    If AllCurrency[i+1] = '' Then
+    (
+        Exit For;
+    );      
+);
+
+strFCTotalBPBal
+
+
+--- END ---
+
+Formula: {@TotalCredit}
+--- BEGIN ---
+Shared StringVar Array AllCurrency;
+Shared NumberVar Array FCTotalCredit;
+
+Local NumberVar i := 0;
+Local StringVar strFCTotalCredit;
+Local NumberVar temp := 0;
+Local StringVar strTemp;
+For i := 1 To UBound(AllCurrency) Do
+(
+    temp := FCTotalCredit[i];
+    strTemp := ToText(Abs(temp), '###,###,###,###,###.######', {OADM_QUERY.SumDec},{OADM_QUERY.ThousSep},{OADM_QUERY.DecSep});
+    strTemp := Trim(strTemp);
+    
+    If temp < 0 Then
+      strTemp := '-'&strTemp;
+
+    //If i = 1 And AllCurrency[2] ='' Then
+    //(
+        //If there's only ONE currency, do nothing
+        //strTemp := strTemp
+    //)
+    //Else
+    //(                                      
+        If  {OADM_QUERY.CurOnRight} = 'Y' Then
+            strTemp := strTemp&' '&AllCurrency[i]
+        Else
+            strTemp := AllCurrency[i]&''&strTemp;
+    //);
+
+    If i = UBound(AllCurrency) Then
+    (
+        Exit For;
+    );
+    If AllCurrency[i+1] <>'' Then
+        strTemp := strTemp + Chr(10);
+    
+    strFCTotalCredit := strFCTotalCredit + strTemp; 
+
+    If AllCurrency[i+1] = '' Then
+    (
+        Exit For;
+    );      
+);
+
+strFCTotalCredit
+
+
+--- END ---
+
+Formula: {@TotalDebit}
+--- BEGIN ---
+Shared StringVar Array AllCurrency;
+Shared NumberVar Array FCTotalDebit;
+
+Local NumberVar i := 0;
+Local StringVar strFCTotalDebit;
+Local NumberVar temp := 0;
+Local StringVar strTemp;
+For i := 1 To UBound(AllCurrency) Do
+(
+    temp := FCTotalDebit[i];
+    strTemp := ToText(Abs(temp), '###,###,###,###,###.######',{OADM_QUERY.SumDec},{OADM_QUERY.ThousSep},{OADM_QUERY.DecSep});
+    strTemp := Trim(strTemp);
+    
+    If temp < 0 Then
+      strTemp := '-'&strTemp;
+
+    //If i = 1 And AllCurrency[2] ='' Then
+    //(
+        //If there's only ONE currency, do nothing
+        //strTemp := strTemp
+    //)
+   // Else
+    //(                                      
+        If  {OADM_QUERY.CurOnRight} = 'Y' Then
+            strTemp := strTemp&' '&AllCurrency[i]
+        Else
+            strTemp := AllCurrency[i]&''&strTemp;
+    //);
+
+    If i = UBound(AllCurrency) Then
+    (
+        Exit For;
+    );
+    If AllCurrency[i+1] <>'' Then
+        strTemp := strTemp + Chr(10);
+    
+    strFCTotalDebit := strFCTotalDebit + strTemp; 
+
+    If AllCurrency[i+1] = '' Then
+    (
+        Exit For;
+    );      
+);
+
+strFCTotalDebit
+
+
+--- END ---
+
+Formula: {@DPMInsToal}
+--- BEGIN ---
+Select {MainQuery.ReconCurr}
+Case 'L' :{MainQuery.InsTotal}
+Case 'C' : {MainQuery.InsTotalFC}
+Case 'S' : {MainQuery.InsTotalSy}
+Default : 0
+--- END ---
+
+Formula: {@DPMDocCur}
+--- BEGIN ---
+//The Two fields is reused one, not the real meaning in DB
+Local StringVar docCur; 
+Select {MainQuery.ReconCurr}
+Case 'L' :  docCur := {OADM_QUERY.MainCurncy}
+Case 'S' :  docCur := {OADM_QUERY.SysCurrncy}
+Case 'C' :  docCur := {MainQuery.ReconCurr};
+
+If {OADM_QUERY.CurOnRight} = 'Y' Then ' '&docCur
+Else  docCur&' '
+
+
+--- END ---
+
+Formula: {@PlaceHolder}
+--- BEGIN ---
+' '
+--- END ---
+
+Formula: {@__NAForDpm}
+--- BEGIN ---
+'N/A'
+--- END ---
+
+Formula: {@indicatorsub}
+--- BEGIN ---
+"▐"
+--- END ---
+
+Formula: {@__ALL}
+--- BEGIN ---
+'All'
+--- END ---
+
+Formula: {@r}
+--- BEGIN ---
+{MainQuery.realReconSum}
+--- END ---
+
+Formula: {@CurrencySymbol}
+--- BEGIN ---
+EvaluateAfter({@AllCurrencySym});
+
+If {MainQuery.BPCurrency} <> {@AllCurrencySym} Then
+    {MainQuery.BPCurrency}
+Else
+    '****'
+    
+--- END ---
+
+Formula: {@IsForeignCurrRecon}
+--- BEGIN ---
+Trim({MainQuery.ReconCurr})='' And {MainQuery.ReconCurr} = {@MainCurrency}
+--- END ---
+
+
+************************************************************
+  CONNECTION INFO
+************************************************************
+Table:    OADP_QUERY
+  Server:   10.58.137.74:30015
+  Database: 
+  UserID:   system
+
+Table:    OADM_QUERY
+  Server:   10.58.137.74:30015
+  Database: 
+  UserID:   system
+
+Table:    MainQuery
+  Server:   10.58.137.74:30015
+  Database: 
+  UserID:   system
+
+
+************************************************************
+  TABLE LINKS
+************************************************************
+(No table links)
+
+************************************************************
+  RECORD SELECTION FORMULA
+************************************************************
+(No record selection formula)
+
+

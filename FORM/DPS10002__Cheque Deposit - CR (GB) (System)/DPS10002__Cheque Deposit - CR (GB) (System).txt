@@ -1,0 +1,392 @@
+﻿============================================================
+Report: DPS10002__Cheque Deposit - CR (GB) (System).rpt
+Path:   DPS10002__Cheque Deposit - CR (GB) (System).rpt
+Extracted: 2026-05-07 18:03:00
+============================================================
+
+************************************************************
+  PARAMETERS
+************************************************************
+Parameter: (error)
+  Type:     You cannot call a method on a null-valued expression.
+  Report:   
+  Default:  
+
+
+************************************************************
+  FORMULA FIELDS
+************************************************************
+Formula: {@Currency}
+--- BEGIN ---
+    (if {OADM.CurOnRight} = "Y" then " " + {ODPS.DeposCurr}
+else
+    {ODPS.DeposCurr} + " ")
+
+--- END ---
+
+Formula: {@BF}
+--- BEGIN ---
+{#RunningTotal} - {@LineTotal}
+--- END ---
+
+Formula: {@DateOrder}
+--- BEGIN ---
+ If {@DateFormat} in ["DD/MM/YY","DD/MM/CCYY","DD/Month/YYYY"]
+ then crDayMonthYear
+else if {@DateFormat} in ["MM/DD/YY","MM/DD/CCYY"] then crMonthDayYear
+else if {@DateFormat} in ["CCYY/MM/DD","YY/MM/DD"] then crYearMonthDay
+
+--- END ---
+
+Formula: {@DateFormat}
+--- BEGIN ---
+select {OADM.DateFormat}
+    case "0":
+        "DD/MM/YY"
+    case "1":
+        "DD/MM/CCYY"
+    case "2":
+        "MM/DD/YY"
+    case "3":
+        "MM/DD/CCYY"
+    case "4":
+        "CCYY/MM/DD"
+    case "5":
+        "DD/Month/YYYY"
+    case "6":
+        "YY/MM/DD"
+    default:
+        "";
+
+--- END ---
+
+Formula: {@Month}
+--- BEGIN ---
+if "Month" in {@DateFormat} then
+(
+ if isnull({OADM.CharMonth})  or {OADM.CharMonth} > 3 then
+   crLongMonth
+ else if {OADM.CharMonth} <= 3 then
+   crShortMonth
+)
+else
+ crLeadingZeroMonth
+--- END ---
+
+Formula: {@Year}
+--- BEGIN ---
+If "Month" in {@DateFormat} then crLongYear
+else if "CC" in {@DateFormat} then crLongYear
+else crShortYear
+
+--- END ---
+
+Formula: {@LinkSep}
+--- BEGIN ---
+{OADM.DateSep}
+--- END ---
+
+Formula: {@AmDec}
+--- BEGIN ---
+{OADM.SumDec}
+--- END ---
+
+Formula: {@DecSep}
+--- BEGIN ---
+{OADM.DecSep}
+--- END ---
+
+Formula: {@ThousSepY}
+--- BEGIN ---
+not isnull({OADM.ThousSep})  
+--- END ---
+
+Formula: {@ThouSep}
+--- BEGIN ---
+{OADM.ThousSep}
+--- END ---
+
+Formula: {@CurPosition}
+--- BEGIN ---
+if {OADM.CurOnRight} = "Y" then crTrailingCurrencyOutsideNegative
+else crLeadingCurrencyOutsideNegative
+
+--- END ---
+
+Formula: {@Total Check No.}
+--- BEGIN ---
+count ({OCHH.CheckNum})
+--- END ---
+
+Formula: {@Check Date}
+--- BEGIN ---
+{OCHH.CheckDate}
+--- END ---
+
+Formula: {@Pay Date}
+--- BEGIN ---
+{OCRH.PayDate}
+--- END ---
+
+Formula: {@Total_Voucher}
+--- BEGIN ---
+Count ({OCRH.VoucherNum})
+--- END ---
+
+Formula: {@Deposit Amount}
+--- BEGIN ---
+if {ODPS.DeposCurr} = {OADM.MainCurncy} then
+  {ODPS.LocTotal}
+else if {ODPS.DeposCurr} = {OADM.SysCurrncy} then
+  {ODPS.SysTotal}
+else
+  {ODPS.FcTotal}
+--- END ---
+
+Formula: {@LineTotal}
+--- BEGIN ---
+if {ODPS.DeposType} = 'K'
+        then {OCHH.CheckSum}
+   else if {ODPS.DeposType} = 'V'
+        then {OCRH.CreditSum}
+   else if {ODPS.DeposType} = 'C'
+        then {ODPS.LocTotal}
+--- END ---
+
+Formula: {@Total_Credit Card}
+--- BEGIN ---
+Sum ({OCRH.CreditSum})
+--- END ---
+
+Formula: {@Comission}
+--- BEGIN ---
+{ODPS.Comission}
+--- END ---
+
+Formula: {@Deposit Type_Title}
+--- BEGIN ---
+if {ODPS.DeposType} ="K"
+   then {@__CheckDeposit_str}
+else if {ODPS.DeposType} ="V"
+   then {@__CreditDeposit_str}
+else if {ODPS.DeposType} = "C"
+   then {@__CashDeposit_str}
+--- END ---
+
+Formula: {@CurrencyHeader}
+--- BEGIN ---
+trim({@Currency})
+--- END ---
+
+Formula: {@Depositor Name}
+--- BEGIN ---
+{ODPS.DpostorNam}
+--- END ---
+
+Formula: {@PrintCompanyName}
+--- BEGIN ---
+if isnull({OADM.PrintHeadr}) then {OADM.CompnyName}
+else {OADM.PrintHeadr}
+--- END ---
+
+Formula: {@printMark}
+--- BEGIN ---
+select {ODPS.Printed}
+case 'Y': {@__Copy_str}
+case 'N': {@__Original_str}
+case 'A': {@__Amended_str}
+default: '';
+--- END ---
+
+Formula: {@__Copy_str}
+--- BEGIN ---
+"Copy"
+--- END ---
+
+Formula: {@__Original_str}
+--- BEGIN ---
+"Original"
+--- END ---
+
+Formula: {@__Amended_str}
+--- BEGIN ---
+"Amended"
+--- END ---
+
+Formula: {@_Year}
+--- BEGIN ---
+If "Month" in {@DateFormat} then crLongYear
+else if "CC" in {@DateFormat} then crLongYear
+else crShortYear
+
+--- END ---
+
+Formula: {@_ThouSepY}
+--- BEGIN ---
+not isnull({OADM.ThousSep})  
+--- END ---
+
+Formula: {@_ThouSep}
+--- BEGIN ---
+{OADM.ThousSep}
+--- END ---
+
+Formula: {@_Month}
+--- BEGIN ---
+if "Month" in {@DateFormat} then 
+    (if {OADM.CharMonth} <= 3 then crShortMonth
+    else if {OADM.CharMonth} > 3 then crLongMonth)
+else crLeadingZeroMonth
+
+--- END ---
+
+Formula: {@_DecSep}
+--- BEGIN ---
+{OADM.DecSep}
+--- END ---
+
+Formula: {@_DateSep}
+--- BEGIN ---
+{OADM.DateSep}
+--- END ---
+
+Formula: {@_DateOrder}
+--- BEGIN ---
+If {@DateFormat} in ["DD/MM/YY","DD/MM/CCYY","DD/Month/YYYY"]
+ then crDayMonthYear
+else if {@DateFormat} in ["MM/DD/YY","MM/DD/CCYY"] then crMonthDayYear
+else if {@DateFormat} in ["CCYY/MM/DD","YY/MM/DD"] then crYearMonthDay
+
+--- END ---
+
+Formula: {@_AmDec}
+--- BEGIN ---
+{OADM.SumDec}
+--- END ---
+
+Formula: {@__CashDeposit_str}
+--- BEGIN ---
+"CASH DEPOSIT"
+--- END ---
+
+Formula: {@__CheckDeposit_str}
+--- BEGIN ---
+"CHEQUE DEPOSIT"
+--- END ---
+
+Formula: {@__CreditDeposit_str}
+--- BEGIN ---
+"CREDIT DEPOSIT"
+--- END ---
+
+Formula: {@TimeStr}
+--- BEGIN ---
+//Shared TimeVar timeStr := now;
+//timeStr
+currenttime
+
+
+--- END ---
+
+Formula: {@DateStr}
+--- BEGIN ---
+//Shared StringVar dateStr;
+
+today
+--- END ---
+
+Formula: {@LineNumber}
+--- BEGIN ---
+StringVar lineNum := ToText(RecordNumber, 0);
+NumberVar lenLineNum := Len(lineNum);
+
+Select lenLineNum
+Case 1 :  '00'+lineNum
+Case 2 :  '0' +lineNum
+Case 3 :       lineNum
+Default:  lineNum
+--- END ---
+
+
+************************************************************
+  CONNECTION INFO
+************************************************************
+Table:    OADM
+  Server:   DRIVER={B1CRHPROXY};UID=SYSTEM;PWD=manager;SERVERNODE=10.58.114.44:30115;DATABASE=SBODEMOGB
+  Database: 
+  UserID:   
+
+Table:    OADP
+  Server:   DRIVER={B1CRHPROXY};UID=SYSTEM;PWD=manager;SERVERNODE=10.58.114.44:30115;DATABASE=SBODEMOGB
+  Database: 
+  UserID:   
+
+Table:    ADM1
+  Server:   DRIVER={B1CRHPROXY};UID=SYSTEM;PWD=manager;SERVERNODE=10.58.114.44:30115;DATABASE=SBODEMOGB
+  Database: 
+  UserID:   
+
+Table:    ADP1
+  Server:   DRIVER={B1CRHPROXY};UID=SYSTEM;PWD=manager;SERVERNODE=10.58.114.44:30115;DATABASE=SBODEMOGB
+  Database: 
+  UserID:   
+
+Table:    ODPS
+  Server:   DRIVER={B1CRHPROXY};UID=SYSTEM;PWD=manager;SERVERNODE=10.58.114.44:30115;DATABASE=SBODEMOGB
+  Database: 
+  UserID:   
+
+Table:    DPS1
+  Server:   DRIVER={B1CRHPROXY};UID=SYSTEM;PWD=manager;SERVERNODE=10.58.114.44:30115;DATABASE=SBODEMOGB
+  Database: 
+  UserID:   
+
+Table:    OCHH
+  Server:   DRIVER={B1CRHPROXY};UID=SYSTEM;PWD=manager;SERVERNODE=10.58.114.44:30115;DATABASE=SBODEMOGB
+  Database: 
+  UserID:   
+
+Table:    OCRH
+  Server:   DRIVER={B1CRHPROXY};UID=SYSTEM;PWD=manager;SERVERNODE=10.58.114.44:30115;DATABASE=SBODEMOGB
+  Database: 
+  UserID:   
+
+Table:    OCRP
+  Server:   DRIVER={B1CRHPROXY};UID=SYSTEM;PWD=manager;SERVERNODE=10.58.114.44:30115;DATABASE=SBODEMOGB
+  Database: 
+  UserID:   
+
+Table:    OCRC
+  Server:   DRIVER={B1CRHPROXY};UID=SYSTEM;PWD=manager;SERVERNODE=10.58.114.44:30115;DATABASE=SBODEMOGB
+  Database: 
+  UserID:   
+
+Table:    ODSC
+  Server:   DRIVER={B1CRHPROXY};UID=SYSTEM;PWD=manager;SERVERNODE=10.58.114.44:30115;DATABASE=SBODEMOGB
+  Database: 
+  UserID:   
+
+Table:    NNM1
+  Server:   DRIVER={B1CRHPROXY};UID=SYSTEM;PWD=manager;SERVERNODE=10.58.114.44:30115;DATABASE=SBODEMOGB
+  Database: 
+  UserID:   
+
+
+************************************************************
+  TABLE LINKS
+************************************************************
+ODPS.DeposId --[LeftOuter]--> DPS1.DepositId
+ODPS.ObjType --[Equal]--> ADP1.ObjType
+ODPS.Series --[LeftOuter]--> NNM1.Series
+DPS1.CheckKey --[LeftOuter]--> OCHH.CheckKey
+DPS1.CheckKey --[LeftOuter]--> OCRH.AbsId
+OCRH.CrTypeCode --[LeftOuter]--> OCRP.CrTypeCode
+OCRH.CreditCard --[LeftOuter]--> OCRC.CreditCard
+OCHH.BankCode --[LeftOuter]--> ODSC.BankCode
+
+************************************************************
+  RECORD SELECTION FORMULA
+************************************************************
+ (  {ODPS.DeposId} = {?Dockey@}  )  
+
+

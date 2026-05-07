@@ -1,0 +1,109 @@
+﻿============================================================
+Report: RCT10006__Incoming Enconfund.rpt
+Path:   RCT10006__Incoming Enconfund.rpt
+Extracted: 2026-05-07 18:03:46
+============================================================
+
+************************************************************
+  PARAMETERS
+************************************************************
+Parameter: (error)
+  Type:     You cannot call a method on a null-valued expression.
+  Report:   
+  Default:  
+
+
+************************************************************
+  FORMULA FIELDS
+************************************************************
+Formula: {@รวมเดบิต}
+--- BEGIN ---
+
+--- END ---
+
+Formula: {@SortDebit}
+--- BEGIN ---
+
+--- END ---
+
+Formula: {@Accname}
+--- BEGIN ---
+
+--- END ---
+
+Formula: {@MyBranch}
+--- BEGIN ---
+Maximum({Command.สาขาเรา})
+--- END ---
+
+Formula: {@ACCnum}
+--- BEGIN ---
+Maximum({Command.เลขที่บัญชีเรา})
+--- END ---
+
+Formula: {@DATE TH}
+--- BEGIN ---
+// สูตร Crystal Syntax
+If IsNull({Command.วันที่เอกสาร}) Or CStr({Command.วันที่เอกสาร}) = "" Then
+    "-"  // ถ้าไม่มีวันที่ ให้โชว์ขีด หรือปล่อยว่าง ""
+Else
+    ToText(Day({Command.วันที่เอกสาร}), "00") & "." & 
+    ToText(Month({Command.วันที่เอกสาร}), "00") & "." & 
+    ToText(Year({Command.วันที่เอกสาร}) + 543, 0, "")
+--- END ---
+
+Formula: {@PAGE}
+--- BEGIN ---
+"หน้า " + ToText(Pagenumber, 0) + " / " + ToText(ToTalPageCount, 0)
+--- END ---
+
+Formula: {@จัดทำ}
+--- BEGIN ---
+If IsNull({Command_1.ชื่อผู้จัดทำ}) OR Trim({Command_1.ชื่อผู้จัดทำ}) = "" Then
+    "                              "  // เคาะ space เยอะ ๆ
+Else
+    {Command_1.ชื่อผู้จัดทำ}
+--- END ---
+
+Formula: {@ตรวจสอบ}
+--- BEGIN ---
+If IsNull({Command_1.ชื่อผู้ตรวจ}) OR Trim({Command_1.ชื่อผู้ตรวจ}) = "" Then
+    "                              "  // เคาะ space เยอะ ๆ
+Else
+    {Command_1.ชื่อผู้ตรวจ}
+--- END ---
+
+Formula: {@อนุมัติ}
+--- BEGIN ---
+If IsNull({Command_1.ชื่อผู้ยืนยัน}) OR Trim({Command_1.ชื่อผู้ยืนยัน}) = "" Then
+    "                              "  // เคาะ space เยอะ ๆ
+Else
+    {Command_1.ชื่อผู้ยืนยัน}
+--- END ---
+
+
+************************************************************
+  CONNECTION INFO
+************************************************************
+Table:    Command
+  Server:   NDB@10.21.100.31
+  Database: 
+  UserID:   SYSTEM
+
+Table:    Command_1
+  Server:   NDB@10.21.100.31
+  Database: 
+  UserID:   SYSTEM
+
+
+************************************************************
+  TABLE LINKS
+************************************************************
+(No table links)
+
+************************************************************
+  RECORD SELECTION FORMULA
+************************************************************
+(No record selection formula)
+
+

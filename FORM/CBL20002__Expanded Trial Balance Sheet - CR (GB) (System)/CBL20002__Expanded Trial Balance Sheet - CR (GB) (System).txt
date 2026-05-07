@@ -1,0 +1,367 @@
+﻿============================================================
+Report: CBL20002__Expanded Trial Balance Sheet - CR (GB) (System).rpt
+Path:   CBL20002__Expanded Trial Balance Sheet - CR (GB) (System).rpt
+Extracted: 2026-05-07 18:02:50
+============================================================
+
+************************************************************
+  PARAMETERS
+************************************************************
+Parameter: (error)
+  Type:     You cannot call a method on a null-valued expression.
+  Report:   
+  Default:  
+
+
+************************************************************
+  FORMULA FIELDS
+************************************************************
+Formula: {@F_65}
+--- BEGIN ---
+' '
+--- END ---
+
+Formula: {@F_66}
+--- BEGIN ---
+' '
+--- END ---
+
+Formula: {@F_68}
+--- BEGIN ---
+if {PLD__ITEMS.F_68}='' then ' ' else {PLD__ITEMS.F_68}
+--- END ---
+
+Formula: {@F_71}
+--- BEGIN ---
+if {PLD__ITEMS.F_71}='' then ' ' else {PLD__ITEMS.F_71}
+--- END ---
+
+Formula: {@F_74}
+--- BEGIN ---
+//if {PLD__ITEMS.F_74}='' then ' ' else {PLD__ITEMS.F_74}
+shared stringvar datefrom := maximum({PLD__ITEMS.F_74});
+datefrom
+--- END ---
+
+Formula: {@F_75}
+--- BEGIN ---
+//if {PLD__ITEMS.F_75}='' then ' ' else {PLD__ITEMS.F_75}
+shared stringvar dateto := maximum({PLD__ITEMS.F_75});
+dateto
+--- END ---
+
+Formula: {@F_92}
+--- BEGIN ---
+if {PLD__ITEMS.F_92}='' then ' ' else {PLD__ITEMS.F_92}
+--- END ---
+
+Formula: {@F_89}
+--- BEGIN ---
+if {PLD__ITEMS.F_89}='' then ' ' else {PLD__ITEMS.F_89}
+--- END ---
+
+Formula: {@F_90}
+--- BEGIN ---
+if {PLD__ITEMS.F_90}='' then ' ' else {PLD__ITEMS.F_90}
+--- END ---
+
+Formula: {@F_78}
+--- BEGIN ---
+if {PLD__ITEMS.F_78}='' then ' ' else {PLD__ITEMS.F_78}
+--- END ---
+
+Formula: {@F_76}
+--- BEGIN ---
+if {PLD__ITEMS.F_76}='' then ' ' else {PLD__ITEMS.F_76}
+--- END ---
+
+Formula: {@F_100}
+--- BEGIN ---
+if {PLD__ITEMS.F_100}='' then ' ' else {PLD__ITEMS.F_100}
+--- END ---
+
+Formula: {@F_94}
+--- BEGIN ---
+if {PLD__ITEMS.F_94}='' then ' ' else {PLD__ITEMS.F_94}
+--- END ---
+
+Formula: {@F_104}
+--- BEGIN ---
+if {PLD__ITEMS.F_104}='' then ' ' else {PLD__ITEMS.F_104}
+--- END ---
+
+Formula: {@F_102}
+--- BEGIN ---
+if {PLD__ITEMS.F_102}='' then ' ' else {PLD__ITEMS.F_102}
+--- END ---
+
+Formula: {@F_85}
+--- BEGIN ---
+if {PLD__ITEMS.F_85}='' then ' ' else {PLD__ITEMS.F_85}
+--- END ---
+
+Formula: {@F_87}
+--- BEGIN ---
+if {PLD__ITEMS.F_87}='' then ' ' else {PLD__ITEMS.F_87}
+--- END ---
+
+Formula: {@F_88}
+--- BEGIN ---
+if {PLD__ITEMS.F_88}='' then ' ' else {PLD__ITEMS.F_88}
+--- END ---
+
+Formula: {@F_105}
+--- BEGIN ---
+shared stringvar datetype;
+datetype
+--- END ---
+
+Formula: {@PageIndicator}
+--- BEGIN ---
+ToText(PageNumber, 0) + ' / '+ ToText(TotalPageCount, 0) 
+--- END ---
+
+Formula: {@DateTimeInfo}
+--- BEGIN ---
+NthLargest (1, {PLD__ITEMS.F_66}) + '  ' + NthLargest (1, {PLD__ITEMS.F_65})
+--- END ---
+
+Formula: {@CurrencySymbol}
+--- BEGIN ---
+EvaluateAfter({@F_195});
+EvaluateAfter({@F_194});
+
+Shared StringVar showFrgnCurr;
+Shared StringVar showSysCurr;
+
+Shared StringVar currSymbol;
+
+if showFrgnCurr = 'Y' then
+    currSymbol := ' '
+else if showSysCurr = 'Y' then
+    currSymbol := {OADM.SysCurrncy}
+else
+    currSymbol := {OADM.MainCurncy};
+
+
+ currSymbol
+--- END ---
+
+Formula: {@indicator}
+--- BEGIN ---
+"▌"
+--- END ---
+
+Formula: {@superTitle2}
+--- BEGIN ---
+Local StringVar superTitle2 := Maximum({PLD__ITEMS.F_80});
+If Trim(superTitle2) = '' Then
+    {@__defaultSuperTitle2}
+Else
+    superTitle2
+--- END ---
+
+Formula: {@F_153}
+--- BEGIN ---
+shared stringvar datetype:=maximum({PLD__ITEMS.F_153});
+datetype + ":"
+--- END ---
+
+Formula: {@F_152}
+--- BEGIN ---
+shared stringvar bpfrom := maximum({PLD__ITEMS.F_152});
+bpfrom
+
+--- END ---
+
+Formula: {@F_151}
+--- BEGIN ---
+shared stringvar bpto := maximum({PLD__ITEMS.F_151});
+bpto
+--- END ---
+
+Formula: {@F_150}
+--- BEGIN ---
+shared stringvar template := maximum({PLD__ITEMS.F_150});
+template
+--- END ---
+
+Formula: {@F_149}
+--- BEGIN ---
+shared stringvar reportcycle := maximum({PLD__ITEMS.F_149});
+reportcycle
+--- END ---
+
+Formula: {@F_148}
+--- BEGIN ---
+shared stringvar customergroup := maximum({PLD__ITEMS.F_148});
+customergroup
+--- END ---
+
+Formula: {@F_147}
+--- BEGIN ---
+shared stringvar vendorgroup := maximum({PLD__ITEMS.F_147});
+vendorgroup
+--- END ---
+
+Formula: {@superTitle1}
+--- BEGIN ---
+Local StringVar superTitle1 := Maximum({PLD__ITEMS.F_72});
+If Trim(superTitle1) = '' Then
+    {@__defaultSuperTitle1}
+Else
+    superTitle1
+--- END ---
+
+Formula: {@__defaultSuperTitle1}
+--- BEGIN ---
+'Local Currency'
+--- END ---
+
+Formula: {@__defaultSuperTitle2}
+--- BEGIN ---
+'Foreign Currency'
+--- END ---
+
+Formula: {@DisplayOB}
+--- BEGIN ---
+Maximum({PLD__ITEMS.F_97i}) mod 2 = 1
+--- END ---
+
+Formula: {@Debit1X}
+--- BEGIN ---
+EvaluateAfter({@DisplayOB});
+
+If {@DisplayOB} Then
+    0                //9.72
+Else
+    -1424             //(9.72 - 7.2) * 565
+--- END ---
+
+Formula: {@Debit1W}
+--- BEGIN ---
+EvaluateAfter({@DisplayOB});
+If {@DisplayOB} Then
+    0   //2.4
+Else
+    452 //3.2
+--- END ---
+
+Formula: {@Credit1X}
+--- BEGIN ---
+EvaluateAfter({@DisplayOB});
+If {@DisplayOB} Then
+    0               //12.29
+Else
+    -995            //(12.29 - 10.53) *565
+--- END ---
+
+Formula: {@Balance1X}
+--- BEGIN ---
+EvaluateAfter({@DisplayOB});
+
+If {@DisplayOB} Then
+    0      //14.78
+Else
+    -500   //(14.78 - 13.94) * 565
+--- END ---
+
+Formula: {@Debit2X}
+--- BEGIN ---
+EvaluateAfter({@DisplayOB});
+
+If {@DisplayOB} Then
+    0         //19.824
+Else
+    -1498    //17.174
+--- END ---
+
+Formula: {@Debit2W}
+--- BEGIN ---
+EvaluateAfter({@DisplayOB});
+If {@DisplayOB} Then
+    0   //2.4
+Else
+    500 //3.38
+--- END ---
+
+Formula: {@Credit2X}
+--- BEGIN ---
+EvaluateAfter({@DisplayOB});
+If {@DisplayOB} Then
+    0   //22.34
+Else
+    -900    //20.75
+--- END ---
+
+Formula: {@Balance2X}
+--- BEGIN ---
+EvaluateAfter({@DisplayOB});
+
+If {@DisplayOB} Then
+    0           //24.88
+Else
+    -300        //24.35
+--- END ---
+
+Formula: {@F_194}
+--- BEGIN ---
+shared stringvar showfrgncurr := trim(maximum({PLD__ITEMS.F_139}));
+showfrgncurr
+--- END ---
+
+Formula: {@F_195}
+--- BEGIN ---
+shared stringvar showsyscurr := trim(maximum({PLD__ITEMS.F_98}));
+showsyscurr
+--- END ---
+
+Formula: {@enableSymbol}
+--- BEGIN ---
+Shared StringVar currSymbol;
+If Trim(currSymbol)='' Then
+    crFloatingcurrencySymbol
+Else
+    crNoCurrencySymbol
+--- END ---
+
+Formula: {@DisplayCurrSymbol}
+--- BEGIN ---
+Shared StringVar currSymbol;
+If {OADM.CurOnRight} = 'Y' Then
+    ' '+currSymbol
+Else
+    currSymbol + ' '
+--- END ---
+
+
+************************************************************
+  CONNECTION INFO
+************************************************************
+Table:    PLD__ITEMS
+  Server:   PLDReportSource
+  Database: 
+  UserID:   
+
+Table:    OADM
+  Server:   DRIVER={HDBODBC32};UID=SYSTEM;PWD=manager;SERVERNODE=10.55.178.115:30915;DATABASE=SBODEMODE
+  Database: 
+  UserID:   
+
+Table:    OADP
+  Server:   DRIVER={HDBODBC32};UID=SYSTEM;PWD=manager;SERVERNODE=10.55.178.115:30915;DATABASE=SBODEMODE
+  Database: 
+  UserID:   
+
+
+************************************************************
+  TABLE LINKS
+************************************************************
+(No table links)
+
+************************************************************
+  RECORD SELECTION FORMULA
+************************************************************
+(No record selection formula)
+
+

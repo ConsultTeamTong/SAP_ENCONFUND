@@ -1,0 +1,95 @@
+﻿-- ============================================================
+-- Report: RCRI0013__ทะเบียนคุมการเบิกจ่ายเงินโครงการ (พี่โม).rpt
+Path:   RCRI0013__ทะเบียนคุมการเบิกจ่ายเงินโครงการ (พี่โม).rpt
+Extracted: 2026-05-07 18:03:34
+-- Source: Main Report
+-- Table:  Command
+-- ============================================================
+
+SELECT * FROM (
+    SELECT DISTINCT
+        OPMG."AbsEntry",
+        OPRJ."U_SLD_Period" AS "ปีงบประมาณ",
+        OPMG."U_U_SLD_Plan" AS "แผนงาน",
+        OPMG."U_U_SLD_WorkGroup" AS "กลุ่มงาน",
+        OPRJ."U_SLD_ProjectName" AS "ชื่อโครงการ",
+        OPMG."NAME" AS "หนังสือเลขที่",
+        OPMG."CARDNAME" AS "ผู้ได้รับการสนับสนุน",
+        PMG1."UniqueID" AS "งวดเบิกจ่ายตามหนังสือยืนยัน", 
+        PMG1."EXPCOSTS" AS "จำนวนเงินตามหนังสือยืนยัน",
+
+        CAST(DAYOFMONTH(PMG1."CLOSE") AS NVARCHAR) || ' ' || 
+        MAP(MONTH(PMG1."CLOSE"), 1,'ม.ค.', 2,'ก.พ.', 3,'มี.ค.', 4,'เม.ย.', 5,'พ.ค.', 6,'มิ.ย.', 7,'ก.ค.', 8,'ส.ค.', 9,'ก.ย.', 10,'ต.ค.', 11,'พ.ย.', 12,'ธ.ค.') 
+        || ' ' || TO_VARCHAR(ADD_YEARS(PMG1."CLOSE", 543), 'YY') AS "วันที่เบิกจ่ายตามหนังสือยืนยันกำหนดส่ง",
+
+        PMG2."U_U_SLD_InstAmt"  AS "วงเงินตามสัญญาจ้าง",
+        IFNULL(OPCH."PaidToDate",0) AS "เบิกจ่ายจริง",
+
+        CAST(DAYOFMONTH(OPCH."DocDate") AS NVARCHAR) || ' ' || 
+        MAP(MONTH(OPCH."DocDate"), 1,'ม.ค.', 2,'ก.พ.', 3,'มี.ค.', 4,'เม.ย.', 5,'พ.ค.', 6,'มิ.ย.', 7,'ก.ค.', 8,'ส.ค.', 9,'ก.ย.', 10,'ต.ค.', 11,'พ.ย.', 12,'ธ.ค.') 
+        || ' ' || TO_VARCHAR(ADD_YEARS(OPCH."DocDate", 543), 'YY') AS "วันที่จ่ายจริง",
+		
+		Concat(NNM1."SeriesName",OPCH."DocNum") AS "DocNum",
+        CASE 
+            WHEN IFNULL(PMG2."U_U_SLD_InstAmt",0) <= 0  AND IFNULL(OPCH."PaidToDate",0) > 0 THEN (IFNULL(PMG1."EXPCOSTS",0) - OPCH."PaidToDate")  
+            WHEN IFNULL(PMG2."U_U_SLD_InstAmt",0) > 0  AND IFNULL(OPCH."PaidToDate",0) <= 0 THEN (IFNULL(PMG1."EXPCOSTS",0) - IFNULL(PMG2."U_U_SLD_InstAmt",0))
+            WHEN IFNULL(PMG2."U_U_SLD_InstAmt",0) > 0  AND IFNULL(OPCH."PaidToDate",0) > 0 THEN (IFNULL(PMG1."EXPCOSTS",0) - OPCH."PaidToDate")
+            WHEN IFNULL(PMG2."U_U_SLD_InstAmt",0) > IFNULL(PMG1."EXPCOSTS",0) THEN 0
+            ELSE 0 
+        END AS "ไม่ขอเบิกจ่าย",
+
+        CAST(DAYOFMONTH(OPMG."CLOSING") AS NVARCHAR) || ' ' || 
+        MAP(MONTH(OPMG."CLOSING"), 1,'ม.ค.', 2,'ก.พ.', 3,'มี.ค.', 4,'เม.ย.', 5,'พ.ค.', 6,'มิ.ย.', 7,'ก.ค.', 8,'ส.ค.', 9,'ก.ย.', 10,'ต.ค.', 11,'พ.ย.', 12,'ธ.ค.') 
+        || ' ' || TO_VARCHAR(ADD_YEARS(OPMG."CLOSING", 543), 'YY') AS "วันสิ้นสุดโครงการ", 
+
+        CAST(DAYOFMONTH(OPMG."U_U_SLD_ExtEndDate") AS NVARCHAR) || ' ' || 
+        MAP(MONTH(OPMG."U_U_SLD_ExtEndDate"), 1,'ม.ค.', 2,'ก.พ.', 3,'มี.ค.', 4,'เม.ย.', 5,'พ.ค.', 6,'มิ.ย.', 7,'ก.ค.', 8,'ส.ค.', 9,'ก.ย.', 10,'ต.ค.', 11,'พ.ย.', 12,'ธ.ค.') 
+        || ' ' || TO_VARCHAR(ADD_YEARS(OPMG."U_U_SLD_ExtEndDate", 543), 'YY') AS "ขยายระยะเวลา",
+
+        CASE 
+            WHEN IFNULL(OPCH."PaidToDate",0) <= 0 AND IFNULL(PMG2."U_U_SLD_InstAmt",0) <= 0 THEN IFNULL(PMG1."EXPCOSTS",0)
+            WHEN IFNULL(OPCH."PaidToDate",0) <= 0 AND IFNULL(PMG2."U_U_SLD_InstAmt",0) > 0 THEN IFNULL(PMG2."U_U_SLD_InstAmt",0)
+            WHEN IFNULL(OPCH."PaidToDate",0) > 0 THEN 0
+            ELSE IFNULL(PMG1."EXPCOSTS",0)
+        END AS "คงเหลือเบิกจ่าย",
+
+        CASE 
+            WHEN OPCH."PaidToDate" > 0 THEN 'เบิกจ่ายแล้ว'
+            ELSE 'ยังไม่เบิก'
+        END AS "สถานะการเบิกจ่าย",
+
+        CASE 
+            WHEN SUM(CASE WHEN IFNULL(OPCH."PaidToDate", 0) > 0 THEN 1 ELSE 0 END) OVER (PARTITION BY OPMG."AbsEntry") 
+                 = COUNT(PMG1."StageID") OVER (PARTITION BY OPMG."AbsEntry") 
+            THEN 'เบิกครบ'
+            WHEN SUM(CASE WHEN IFNULL(OPCH."PaidToDate", 0) > 0 THEN 1 ELSE 0 END) OVER (PARTITION BY OPMG."AbsEntry") > 0 
+            THEN 'ดำเนินงาน'
+            ELSE 'ยังไม่เบิก'
+        END AS "สถานะโครงการ(ภาพรวม)",
+
+        OPMG."START",
+        PMG1."StageID"
+
+    FROM {?Schema@}.OPMG  
+    INNER JOIN {?Schema@}.OPRJ ON OPMG."FIPROJECT" = OPRJ."PrjCode" 
+    INNER JOIN {?Schema@}.PMG1 ON OPMG."AbsEntry" = PMG1."AbsEntry"
+    LEFT JOIN {?Schema@}.PMG4 ON PMG1."AbsEntry" = PMG4."AbsEntry" AND PMG4."TYP" = 18 AND PMG4."StageID" = PMG1."StageID" AND PMG4."Status" <> 'C'
+    LEFT JOIN {?Schema@}.OPCH ON PMG4."DocEntry" = OPCH."DocEntry" AND OPCH."CANCELED" = 'N' --AND OPCH."NumAtCard" LIKE '%' || TO_VARCHAR(PMG1."StageID") --AND OPCH."CANCELED" = 'N'
+    LEFT JOIN  {?Schema@}.PMG2 ON PMG1."AbsEntry" = PMG2."AbsEntry" AND PMG1."StageID" = PMG2."PRIORITY" 
+    LEFT JOIN  {?Schema@}.NNM1 ON OPCH."Series" = NNM1."Series"
+    
+    -- Removed the ORDER BY from here
+) AS "DEV"
+WHERE 1=1
+AND (DEV."ปีงบประมาณ" = '{?Period@}' OR '{?Period@}' = ' ')
+AND (DEV."สถานะโครงการ(ภาพรวม)" = '{?Status@}' OR '{?Status@}' = ' ')
+AND (DEV."หนังสือเลขที่" = '{?BookCon@}' OR '{?BookCon@}' = ' ')
+AND DEV."START" BETWEEN {?1DStart@} AND {?2DEnd@} 
+------------------------------------------------------------------------------------------------
+--AND DEV."ปีงบประมาณ" = 
+--AND DEV."สถานะโครงการ(ภาพรวม)" =
+--AND DEV."หนังสือเลขที่"  =  'กทอ.64-01-0008'
+--AND DEV."START" BETWEEN '2025-10-01' AND '2027-09-30'
+
+-- Placed the ORDER BY at the very end of the outer query
+--ORDER BY DEV."AbsEntry", DEV."StageID";

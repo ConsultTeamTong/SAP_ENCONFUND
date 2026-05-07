@@ -1,0 +1,350 @@
+﻿============================================================
+Report: CBL10002__Trial Balance - CR (GB) (System).rpt
+Path:   CBL10002__Trial Balance - CR (GB) (System).rpt
+Extracted: 2026-05-07 18:02:49
+============================================================
+
+************************************************************
+  PARAMETERS
+************************************************************
+Parameter: (error)
+  Type:     You cannot call a method on a null-valued expression.
+  Report:   
+  Default:  
+
+
+************************************************************
+  FORMULA FIELDS
+************************************************************
+Formula: {@F_61}
+--- BEGIN ---
+Shared stringvar DateStr;
+if {PLD__ITEMS._Page} = 1 and {PLD__ITEMS._Section} = 'RH' and {PLD__ITEMS.F_61} <> '' then
+   DateStr := {PLD__ITEMS.F_61};
+DateStr
+//if {PLD__ITEMS.F_61}='' then ' ' else {PLD__ITEMS.F_61}
+--- END ---
+
+Formula: {@F_62}
+--- BEGIN ---
+Shared stringvar TimeStr;
+if {PLD__ITEMS._Page} = 1 and {PLD__ITEMS._Section} = 'RH' and {PLD__ITEMS.F_62} <> '' then
+   TimeStr := {PLD__ITEMS.F_62};
+TimeStr
+//if {PLD__ITEMS.F_62}='' then ' ' else {PLD__ITEMS.F_62}
+--- END ---
+
+Formula: {@F_64}
+--- BEGIN ---
+NthLargest (1, {PLD__ITEMS.F_64})
+//if {PLD__ITEMS.F_64}='' then ' ' else {PLD__ITEMS.F_64}
+--- END ---
+
+Formula: {@F_67}
+--- BEGIN ---
+Shared stringvar TitleStr;
+
+TitleStr := {OADM.CompnyName};
+
+if TitleStr = '' then ' '
+else TitleStr
+
+--- END ---
+
+Formula: {@F_70}
+--- BEGIN ---
+Shared stringvar FromStr;
+if {PLD__ITEMS._Page} = 1 and {PLD__ITEMS._Section} = 'RH' and {PLD__ITEMS.F_70} <> '' then
+   FromStr := {PLD__ITEMS.F_70};
+FromStr
+//if {PLD__ITEMS.F_70}='' then ' ' else {PLD__ITEMS.F_70}
+--- END ---
+
+Formula: {@F_71}
+--- BEGIN ---
+Shared stringvar ToStr;
+if {PLD__ITEMS._Page} = 1 and {PLD__ITEMS._Section} = 'RH' and {PLD__ITEMS.F_71} <> '' then
+   ToStr := {PLD__ITEMS.F_71};
+ToStr
+//if {PLD__ITEMS.F_71}='' then ' ' else {PLD__ITEMS.F_71}
+--- END ---
+
+Formula: {@F_74}
+--- BEGIN ---
+
+//if {PLD__ITEMS.F_74}='' then ' ' else {PLD__ITEMS.F_74}
+Shared stringvar Symbol;
+
+if {PLD__ITEMS.F_74_Symbol} = Symbol then
+ (
+   local stringvar array tmp:= split({PLD__ITEMS.F_74},Symbol);
+   if ubound(tmp) = 2 then
+    (if {OADM.CurOnRight} = 'Y' then tmp[1] else tmp[2])
+   else
+    {PLD__ITEMS.F_74}
+ )
+else
+ {PLD__ITEMS.F_74}
+--- END ---
+
+Formula: {@F_75}
+--- BEGIN ---
+//if {PLD__ITEMS.F_75}='' then ' ' else {PLD__ITEMS.F_75}
+Shared stringvar Symbol;
+
+if {PLD__ITEMS.F_75_Symbol} = Symbol then
+(
+   local stringvar array tmp:= split({PLD__ITEMS.F_75},Symbol);
+   if ubound(tmp) = 2 then
+    (if {OADM.CurOnRight} = 'Y' then tmp[1] else tmp[2])
+   else
+    {PLD__ITEMS.F_75}
+ )
+else
+ {PLD__ITEMS.F_75}
+--- END ---
+
+Formula: {@F_76}
+--- BEGIN ---
+if {PLD__ITEMS.F_76}='' then ' ' else {PLD__ITEMS.F_76}
+--- END ---
+
+Formula: {@F_83}
+--- BEGIN ---
+//if {PLD__ITEMS.F_83}='' then ' ' else {PLD__ITEMS.F_83}
+Shared stringvar Symbol;
+
+if {PLD__ITEMS.F_83_Symbol} = Symbol then
+ (
+   local stringvar array tmp:= split({PLD__ITEMS.F_83},Symbol);
+   if ubound(tmp) = 2 then
+    (if {OADM.CurOnRight} = 'Y' then tmp[1] else tmp[2])
+   else
+    {PLD__ITEMS.F_83}
+ )
+else
+ {PLD__ITEMS.F_83}
+--- END ---
+
+Formula: {@F_89}
+--- BEGIN ---
+//if {PLD__ITEMS.F_89}='' then ' ' else {PLD__ITEMS.F_89}
+Shared stringvar Symbol;
+
+if {PLD__ITEMS.F_89_Symbol} = Symbol then
+ (
+   local stringvar array tmp:= split({PLD__ITEMS.F_89},Symbol);
+   if ubound(tmp) = 2 then
+    (if {OADM.CurOnRight} = 'Y' then tmp[1] else tmp[2])
+   else
+    {PLD__ITEMS.F_89}
+ )
+else
+ {PLD__ITEMS.F_89}
+--- END ---
+
+Formula: {@F_85}
+--- BEGIN ---
+NthLargest (1, {PLD__ITEMS.F_85})
+--- END ---
+
+Formula: {@F_86}
+--- BEGIN ---
+if {PLD__ITEMS.F_86}='' then ' ' else {PLD__ITEMS.F_86}
+--- END ---
+
+Formula: {@F_81}
+--- BEGIN ---
+NthLargest (1, {PLD__ITEMS.F_81})
+//if {PLD__ITEMS.F_81}='' then ' ' else {PLD__ITEMS.F_81}
+--- END ---
+
+Formula: {@F_91}
+--- BEGIN ---
+if {PLD__ITEMS.F_91}='' then ' ' else {PLD__ITEMS.F_91}
+--- END ---
+
+Formula: {@Declare}
+--- BEGIN ---
+Shared stringvar DateStr:= ' ';
+Shared stringvar TimeStr:= ' ';
+Shared stringvar TitleStr:= ' ';
+Shared stringvar FromStr:= ' ';
+Shared stringvar ToStr:= ' ';
+
+Shared StringVar bpColumn;
+Shared StringVar currencyColumn;
+
+Shared NumberVar Times; //Used for Indent
+Shared stringvar Symbol;
+--- END ---
+
+Formula: {@F_72}
+--- BEGIN ---
+Shared StringVar currencyColumn;
+
+currencyColumn := {PLD__ITEMS.F_72};
+
+' '
+--- END ---
+
+Formula: {@F_73}
+--- BEGIN ---
+Shared StringVar bpColumn;
+bpColumn := {PLD__ITEMS.F_73};
+
+If bpColumn='' Then ' ' Else bpColumn
+--- END ---
+
+Formula: {@FromStr}
+--- BEGIN ---
+Shared stringvar FromStr
+--- END ---
+
+Formula: {@ToStr}
+--- BEGIN ---
+Shared stringvar ToStr
+--- END ---
+
+Formula: {@__Page}
+--- BEGIN ---
+"Page:"
+--- END ---
+
+Formula: {@__Slash}
+--- BEGIN ---
+"/"
+--- END ---
+
+Formula: {@PageIndicator}
+--- BEGIN ---
+{@__Page} +'  '+ ToText(PageNumber, 0) + '  ' + {@__Slash} + '  '+ToText(TotalPageCount, 0)
+--- END ---
+
+Formula: {@__PrintedOn}
+--- BEGIN ---
+"Printed On:"
+--- END ---
+
+Formula: {@PrintInfo}
+--- BEGIN ---
+Shared StringVar DateStr;
+Shared StringVar TimeStr;
+
+{@__PrintedOn} + '  ' + TimeStr + '  ' + DateStr
+--- END ---
+
+Formula: {@ColorContextText}
+--- BEGIN ---
+Color(30, 30, 30)
+--- END ---
+
+Formula: {@ColorTableHdr}
+--- BEGIN ---
+Color(240, 244, 247)
+--- END ---
+
+Formula: {@bpColumn}
+--- BEGIN ---
+Maximum({PLD__ITEMS.F_73})
+--- END ---
+
+Formula: {@currencyColumn}
+--- BEGIN ---
+local numbervar position:=instr(Maximum({PLD__ITEMS.F_72}), '-');
+
+if  position<= 0 then 'Currency: '
+else
+Left(Maximum({PLD__ITEMS.F_72}), position-1) & ':'
+--- END ---
+
+Formula: {@F_100}
+--- BEGIN ---
+If {PLD__ITEMS.F_100}='' Then ' ' Else {PLD__ITEMS.F_100}
+--- END ---
+
+Formula: {@F_101}
+--- BEGIN ---
+If {PLD__ITEMS.F_101}='' Then ' ' Else {PLD__ITEMS.F_101}
+--- END ---
+
+Formula: {@CurrencySymbol}
+--- BEGIN ---
+//evaluateafter({PLD__ITEMS.F_74});
+//local stringvar tmp := trim(NthMostFrequent (1, {PLD__ITEMS.F_74_Symbol}));
+//if tmp <> '' and right(tmp, 1) <> '=' and right(tmp,1) <> '*' then tmp
+//else(
+//    tmp := trim(NthMostFrequent (2, {PLD__ITEMS.F_74_Symbol}));
+//
+//    if tmp <> '' and right(tmp, 1) <> '=' and right(tmp,1) <> '*' then tmp
+//    else
+//    (
+//        tmp := trim(NthMostFrequent (3, {PLD__ITEMS.F_74_Symbol}));
+//        if tmp <> '' and right(tmp, 1) <> '=' and right(tmp,1) <> '*' then tmp
+//        else
+//            tmp := trim(NthMostFrequent (4, {PLD__ITEMS.F_74_Symbol}));
+//            tmp
+//    )
+//)
+Shared stringvar Symbol;
+if DistinctCount ({@SymbolPart}) > 1 then
+(if NthMostFrequent (1, {@SymbolPart}) = ' ' then Symbol := NthMostFrequent (2, {@SymbolPart}) else Symbol :=NthMostFrequent (1, {@SymbolPart});)
+else
+Symbol := NthMostFrequent (1, {@SymbolPart});
+
+if length(trim(Symbol)) < 1 then
+''
+else
+Symbol
+
+--- END ---
+
+Formula: {@SymbolPart}
+--- BEGIN ---
+local stringvar array tmp := split({PLD__ITEMS.F_75}, ' ', 2);
+if UBound (tmp) = 2 then
+(if {OADM.CurOnRight} = 'Y' then trim(tmp[2]) else trim(tmp[1]))
+else
+' '
+--- END ---
+
+Formula: {@currencyColumn2}
+--- BEGIN ---
+local numbervar position:=instr(Maximum({PLD__ITEMS.F_72}), '-');
+
+if  position<= 0 then ''
+else
+replace(Maximum({PLD__ITEMS.F_72}),Left(Maximum({PLD__ITEMS.F_72}), position),'')
+--- END ---
+
+
+************************************************************
+  CONNECTION INFO
+************************************************************
+Table:    PLD__ITEMS
+  Server:   PLDReportSource
+  Database: 
+  UserID:   
+
+Table:    OADP
+  Server:   DRIVER={HDBODBC32};UID=SYSTEM;PWD=manager;SERVERNODE=10.55.178.115:30915;DATABASE=SBODEMODE
+  Database: 
+  UserID:   
+
+Table:    OADM
+  Server:   DRIVER={HDBODBC32};UID=SYSTEM;PWD=manager;SERVERNODE=10.55.178.115:30915;DATABASE=SBODEMODE
+  Database: 
+  UserID:   
+
+
+************************************************************
+  TABLE LINKS
+************************************************************
+(No table links)
+
+************************************************************
+  RECORD SELECTION FORMULA
+************************************************************
+(No record selection formula)
+
+

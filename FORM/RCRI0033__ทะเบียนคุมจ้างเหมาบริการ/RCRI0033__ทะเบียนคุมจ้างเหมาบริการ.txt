@@ -1,0 +1,66 @@
+﻿============================================================
+Report: RCRI0033__ทะเบียนคุมจ้างเหมาบริการ.rpt
+Path:   RCRI0033__ทะเบียนคุมจ้างเหมาบริการ.rpt
+Extracted: 2026-05-07 18:03:43
+============================================================
+
+************************************************************
+  PARAMETERS
+************************************************************
+Parameter: (error)
+  Type:     You cannot call a method on a null-valued expression.
+  Report:   
+  Default:  
+
+
+************************************************************
+  FORMULA FIELDS
+************************************************************
+Formula: {@BD}
+--- BEGIN ---
+RIGHT({?Period@},2)
+--- END ---
+
+Formula: {@SUMamount}
+--- BEGIN ---
+{Command.Jan_Amt} + {Command.Feb_Amt} + {Command.Mar_Amt} + 
+{Command.Apr_Amt} + {Command.May_Amt} + {Command.Jun_Amt} + 
+{Command.Jul_Amt} + {Command.Aug_Amt} + {Command.Sep_Amt} + 
+{Command.Oct_Amt} + {Command.Nov_Amt} + {Command.Dec_Amt}
+--- END ---
+
+Formula: {@SUMwages}
+--- BEGIN ---
+{Command.Jan_Wages} + {Command.Feb_Wages} + {Command.Mar_Wages} + 
+{Command.Apr_Wages} + {Command.May_Wages} + {Command.Jun_Wages} + 
+{Command.Jul_Wages} + {Command.Aug_Wages} + {Command.Sep_Wages} + 
+{Command.Oct_Wages} + {Command.Nov_Wages} + {Command.Dec_Wages}
+--- END ---
+
+Formula: {@Replace}
+--- BEGIN ---
+// สูตรนี้ปลอดภัย 100% ถ้าไม่มี Enter ข้อมูลจะเหมือนเดิม
+Replace(Replace({Command.U_SLD_Receiving_Officer}, Chr(13), " / "), Chr(10), "")
+--- END ---
+
+
+************************************************************
+  CONNECTION INFO
+************************************************************
+Table:    Command
+  Server:   NDB@10.21.100.31
+  Database: 
+  UserID:   SYSTEM
+
+
+************************************************************
+  TABLE LINKS
+************************************************************
+(No table links)
+
+************************************************************
+  RECORD SELECTION FORMULA
+************************************************************
+(No record selection formula)
+
+

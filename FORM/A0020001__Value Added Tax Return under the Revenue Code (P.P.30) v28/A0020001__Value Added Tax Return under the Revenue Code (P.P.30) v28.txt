@@ -1,0 +1,90 @@
+﻿============================================================
+Report: A0020001__Value Added Tax Return under the Revenue Code (P.P.30) v28.rpt
+Path:   A0020001__Value Added Tax Return under the Revenue Code (P.P.30) v28.rpt
+Extracted: 2026-05-07 18:02:33
+============================================================
+
+************************************************************
+  PARAMETERS
+************************************************************
+Parameter: (error)
+  Type:     You cannot call a method on a null-valued expression.
+  Report:   
+  Default:  
+
+
+************************************************************
+  FORMULA FIELDS
+************************************************************
+Formula: {@<TemplateField1>}
+--- BEGIN ---
+//Crystal Report Template Field
+WhileReadingRecords;Space(10)
+--- END ---
+
+Formula: {@1}
+--- BEGIN ---
+Left({Command.U_SLD_VTAXID},1)
+--- END ---
+
+Formula: {@2}
+--- BEGIN ---
+RIGHT(LEFT({Command.U_SLD_VTAXID},5),4)
+--- END ---
+
+Formula: {@3}
+--- BEGIN ---
+RIGHT(LEFT({Command.U_SLD_VTAXID},10),5)
+--- END ---
+
+Formula: {@4}
+--- BEGIN ---
+LEFT(RIGHT({Command.U_SLD_VTAXID},3),2)
+--- END ---
+
+Formula: {@5}
+--- BEGIN ---
+RIGHT({Command.U_SLD_VTAXID},1)
+--- END ---
+
+Formula: {@totalSale}
+--- BEGIN ---
+{Command_1.Total D} + {Command_1.Total E} + {Command_1.Total N} 
+--- END ---
+
+Formula: {@Total9}
+--- BEGIN ---
+({Command_1.Total TaxAmount})*-1
+--- END ---
+
+Formula: {@Total12}
+--- BEGIN ---
+({Command_1.Total TaxAmount} )* -1
+--- END ---
+
+
+************************************************************
+  CONNECTION INFO
+************************************************************
+Table:    Command
+  Server:   10.1.1.100
+  Database: 
+  UserID:   SYSTEM
+
+Table:    Command_1
+  Server:   10.1.1.100
+  Database: 
+  UserID:   SYSTEM
+
+
+************************************************************
+  TABLE LINKS
+************************************************************
+(No table links)
+
+************************************************************
+  RECORD SELECTION FORMULA
+************************************************************
+(No record selection formula)
+
+

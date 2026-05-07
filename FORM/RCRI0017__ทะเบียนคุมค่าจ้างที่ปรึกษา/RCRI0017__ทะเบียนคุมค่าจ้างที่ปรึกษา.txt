@@ -1,0 +1,57 @@
+﻿============================================================
+Report: RCRI0017__ทะเบียนคุมค่าจ้างที่ปรึกษา.rpt
+Path:   RCRI0017__ทะเบียนคุมค่าจ้างที่ปรึกษา.rpt
+Extracted: 2026-05-07 18:03:36
+============================================================
+
+************************************************************
+  PARAMETERS
+************************************************************
+Parameter: (error)
+  Type:     You cannot call a method on a null-valued expression.
+  Report:   
+  Default:  
+
+
+************************************************************
+  FORMULA FIELDS
+************************************************************
+Formula: {@BD-1}
+--- BEGIN ---
+ToNumber(RIGHT({?Period@},2)) - 1
+--- END ---
+
+Formula: {@SumWages}
+--- BEGIN ---
+{Command.Jan_Wages} + {Command.Feb_Wages} + {Command.Mar_Wages} +
+{Command.Apr_Wages} + {Command.May_Wages} + {Command.Jun_Wages} +
+{Command.Jul_Wages} + {Command.Aug_Wages} + {Command.Sep_Wages} +
+{Command.Oct_Wages} + {Command.Nov_Wages} + {Command.Dec_Wages}
+--- END ---
+
+Formula: {@BD}
+--- BEGIN ---
+ToNumber(RIGHT({?Period@},2))
+--- END ---
+
+
+************************************************************
+  CONNECTION INFO
+************************************************************
+Table:    Command
+  Server:   10.10.10.109
+  Database: 
+  UserID:   SYSTEM
+
+
+************************************************************
+  TABLE LINKS
+************************************************************
+(No table links)
+
+************************************************************
+  RECORD SELECTION FORMULA
+************************************************************
+(No record selection formula)
+
+

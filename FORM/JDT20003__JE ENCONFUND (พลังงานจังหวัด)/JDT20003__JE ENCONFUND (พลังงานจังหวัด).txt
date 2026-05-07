@@ -1,0 +1,73 @@
+﻿============================================================
+Report: JDT20003__JE ENCONFUND (พลังงานจังหวัด).rpt
+Path:   JDT20003__JE ENCONFUND (พลังงานจังหวัด).rpt
+Extracted: 2026-05-07 18:03:12
+============================================================
+
+************************************************************
+  PARAMETERS
+************************************************************
+Parameter: (error)
+  Type:     You cannot call a method on a null-valued expression.
+  Report:   
+  Default:  
+
+
+************************************************************
+  FORMULA FIELDS
+************************************************************
+Formula: {@SORT}
+--- BEGIN ---
+if {Command.Debit} > 0 then 1
+else 2 
+--- END ---
+
+Formula: {@ชื่อผู้จัดทำ}
+--- BEGIN ---
+if not isnull({Command_1.ชื่อผู้จัดทำ}) then {Command_1.ชื่อผู้จัดทำ}
+ELSE '                              '
+--- END ---
+
+Formula: {@ชื่อผู้ตรวจสอบ}
+--- BEGIN ---
+if not isnull({Command_1.ชื่อผู้ตรวจ}) then {Command_1.ชื่อผู้ตรวจ}
+ELSE '                              '
+--- END ---
+
+Formula: {@ชื่อผู้อนุมัติ}
+--- BEGIN ---
+if not isnull({Command_1.ชื่อผู้ยืนยัน}) then {Command_1.ชื่อผู้ยืนยัน}
+ELSE '                              '
+--- END ---
+
+Formula: {@หน้า}
+--- BEGIN ---
+"หน้า " + ToText(PageNumber, 0) + " / " + ToText(TotalPageCount, 0)
+--- END ---
+
+
+************************************************************
+  CONNECTION INFO
+************************************************************
+Table:    Command
+  Server:   NDB@10.21.100.31
+  Database: 
+  UserID:   SYSTEM
+
+Table:    Command_1
+  Server:   NDB@10.21.100.31
+  Database: 
+  UserID:   SYSTEM
+
+
+************************************************************
+  TABLE LINKS
+************************************************************
+(No table links)
+
+************************************************************
+  RECORD SELECTION FORMULA
+************************************************************
+(No record selection formula)
+
+

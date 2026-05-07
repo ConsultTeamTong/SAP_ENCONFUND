@@ -1,0 +1,89 @@
+﻿============================================================
+Report: RCRI0011__รายงานเงินรับฝากอื่น.rpt
+Path:   RCRI0011__รายงานเงินรับฝากอื่น.rpt
+Extracted: 2026-05-07 18:03:34
+============================================================
+
+************************************************************
+  PARAMETERS
+************************************************************
+Parameter: (error)
+  Type:     You cannot call a method on a null-valued expression.
+  Report:   
+  Default:  
+
+
+************************************************************
+  FORMULA FIELDS
+************************************************************
+Formula: {@-Amount}
+--- BEGIN ---
+-{Command.SumApplied}
+--- END ---
+
+Formula: {@-DocTotal}
+--- BEGIN ---
+SUM({@-Amount} ,{Command.LineId})
+--- END ---
+
+Formula: {@SUM of SUM}
+--- BEGIN ---
+SUM({Command.LocTotal} ,{Command.LineId})
+--- END ---
+
+Formula: {@Commu}
+--- BEGIN ---
+{@-DocTotal}+{@SUM of SUM}
+--- END ---
+
+Formula: {@SumDocToTal}
+--- BEGIN ---
+SUM({@-Amount},{Command.FormatCode})
+--- END ---
+
+Formula: {@-ReconSum}
+--- BEGIN ---
+-{Command.ReconciledSum}
+--- END ---
+
+Formula: {@SumPay}
+--- BEGIN ---
+SUM({Command.LocTotal} ,{Command.FormatCode})
+--- END ---
+
+Formula: {@ALLSUM-SUM}
+--- BEGIN ---
+{@SumDocToTal}+{@SumPay}
+--- END ---
+
+Formula: {@SumNotRecon}
+--- BEGIN ---
+SUM({@-Amount},{Command.ReconNum})
+--- END ---
+
+Formula: {@+SumNotRecon}
+--- BEGIN ---
+SUM({Command.SumApplied},{Command.ReconNum})
+--- END ---
+
+
+************************************************************
+  CONNECTION INFO
+************************************************************
+Table:    Command
+  Server:   NDB@10.21.100.31
+  Database: 
+  UserID:   SYSTEM
+
+
+************************************************************
+  TABLE LINKS
+************************************************************
+(No table links)
+
+************************************************************
+  RECORD SELECTION FORMULA
+************************************************************
+(No record selection formula)
+
+

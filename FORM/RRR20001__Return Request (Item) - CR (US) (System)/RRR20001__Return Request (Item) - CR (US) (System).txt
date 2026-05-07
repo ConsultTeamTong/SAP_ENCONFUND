@@ -1,0 +1,533 @@
+﻿============================================================
+Report: RRR20001__Return Request (Item) - CR (US) (System).rpt
+Path:   RRR20001__Return Request (Item) - CR (US) (System).rpt
+Extracted: 2026-05-07 18:03:54
+============================================================
+
+************************************************************
+  PARAMETERS
+************************************************************
+Parameter: (error)
+  Type:     You cannot call a method on a null-valued expression.
+  Report:   
+  Default:  
+
+
+************************************************************
+  FORMULA FIELDS
+************************************************************
+Formula: {@Price}
+--- BEGIN ---
+{RRR1.Price}
+--- END ---
+
+Formula: {@Row Total}
+--- BEGIN ---
+if {TmSp_DocLineTypeLayout;1.LineType} = 'S' then
+    {TmSp_DocLineTypeLayout;1.SubTotal}
+else if {TmSp_DocLineTypeLayout;1.LineType} = 'R' then
+    if {ORRR.CurSource} = 'L'
+        then {RRR1.LineTotal}
+   else if {ORRR.CurSource} = 'S'
+        then {RRR1.TotalSumSy}
+   else if {ORRR.CurSource} = 'C'
+        then {RRR1.TotalFrgn}
+--- END ---
+
+Formula: {@AmountCur}
+--- BEGIN ---
+if {ORRR.CurSource} = "L" then 
+    (if {OADM.CurOnRight} = "Y" then " " + {OADM.MainCurncy}
+else
+    {OADM.MainCurncy} + " ")
+else if {ORRR.CurSource} = "S" then 
+    (if {OADM.CurOnRight} = "Y" then " " + {OADM.SysCurrncy}
+else
+    {OADM.SysCurrncy} + " ")
+else if {ORRR.CurSource} = "C" then 
+    (if {OADM.CurOnRight} = "Y" then " " + {ORRR.DocCur}
+else
+    {ORRR.DocCur} + " ")
+
+
+--- END ---
+
+Formula: {@Discount Total}
+--- BEGIN ---
+if {ORRR.CurSource} = 'L'
+then {ORRR.DiscSum}
+else if {ORRR.CurSource} = 'S'
+then {ORRR.DiscSumSy}
+else if {ORRR.CurSource} = 'C'
+then {ORRR.DiscSumFC}
+--- END ---
+
+Formula: {@Freight}
+--- BEGIN ---
+if {ORRR.CurSource} = 'L'
+then {ORRR.TotalExpns}
+else if {ORRR.CurSource} = 'S'
+then {ORRR.TotalExpSC}
+else if {ORRR.CurSource} = 'C'
+then  {ORRR.TotalExpFC}
+--- END ---
+
+Formula: {@Total Tax}
+--- BEGIN ---
+if {ORRR.CurSource} = 'L'
+then {ORRR.VatSum}
+else if {ORRR.CurSource} = 'S'
+then {ORRR.VatSumSy}
+else if {ORRR.CurSource} = 'C'
+then {ORRR.VatSumFC}
+--- END ---
+
+Formula: {@Invoice Total}
+--- BEGIN ---
+if {ORRR.CurSource} = 'L'
+then {ORRR.DocTotal}
+else if {ORRR.CurSource} = 'S'
+then {ORRR.DocTotalSy}
+else if {ORRR.CurSource} = 'C'
+then {ORRR.DocTotalFC}
+--- END ---
+
+Formula: {@_DateFormat}
+--- BEGIN ---
+select {OADM.DateFormat}
+    case "0":
+        "DD/MM/YY"
+    case "1":
+        "DD/MM/CCYY"
+    case "2":
+        "MM/DD/YY"
+    case "3":
+        "MM/DD/CCYY"
+    case "4":
+        "CCYY/MM/DD"
+    case "5":
+        "DD/Month/YYYY"
+    case "6":
+        "YY/MM/DD"
+    default:
+        "";
+
+--- END ---
+
+Formula: {@_DateOrder}
+--- BEGIN ---
+ If {@_DateFormat} in ["DD/MM/YY","DD/MM/CCYY","DD/Month/YYYY"]
+ then crDayMonthYear
+else if {@_DateFormat} in ["MM/DD/YY","MM/DD/CCYY"] then crMonthDayYear
+else if {@_DateFormat} in ["CCYY/MM/DD","YY/MM/DD"] then crYearMonthDay
+
+--- END ---
+
+Formula: {@Month}
+--- BEGIN ---
+if "Month" in {@_DateFormat} then
+(
+ if isnull({OADM.CharMonth})  or {OADM.CharMonth} > 3 then
+   crLongMonth
+ else if {OADM.CharMonth} <= 3 then
+   crShortMonth
+)
+else
+ crLeadingZeroMonth
+--- END ---
+
+Formula: {@_Year}
+--- BEGIN ---
+If "Month" in {@_DateFormat} then crLongYear
+else if "CC" in {@_DateFormat} then crLongYear
+else crShortYear
+
+--- END ---
+
+Formula: {@_AmDec}
+--- BEGIN ---
+{OADM.SumDec}
+--- END ---
+
+Formula: {@_PriceDec}
+--- BEGIN ---
+ {OADM.PriceDec}
+--- END ---
+
+Formula: {@_QtyDec}
+--- BEGIN ---
+{OADM.QtyDec}
+--- END ---
+
+Formula: {@_PercentDec}
+--- BEGIN ---
+{OADM.PercentDec}
+--- END ---
+
+Formula: {@_DecSep}
+--- BEGIN ---
+{OADM.DecSep}
+--- END ---
+
+Formula: {@_ThousSep}
+--- BEGIN ---
+{OADM.ThousSep}
+--- END ---
+
+Formula: {@CurPosition}
+--- BEGIN ---
+if {OADM.CurOnRight} = "Y" then crTrailingCurrencyOutsideNegative
+else crLeadingCurrencyOutsideNegative
+
+--- END ---
+
+Formula: {@_ThousSepY}
+--- BEGIN ---
+not isnull({OADM.ThousSep}) 
+--- END ---
+
+Formula: {@Subtotal}
+--- BEGIN ---
+Shared numbervar subtotal;
+If  {TmSp_DocLineTypeLayout;1.LineType} = "S" then 
+   (If {ORRR.CurSource} = "L"
+    then (if isnull({TmSp_DocLineTypeLayout;1.SubTotal}) then subtotal else {TmSp_DocLineTypeLayout;1.SubTotal})
+    else if {ORRR.CurSource} = "S"
+      then (if isnull({TmSp_DocLineTypeLayout;1.TotalSumSy}) then subtotal else {TmSp_DocLineTypeLayout;1.TotalSumSy})
+    else if {ORRR.CurSource} = "C"
+      then (if isnull({TmSp_DocLineTypeLayout;1.TotalFrgn})then subtotal else {TmSp_DocLineTypeLayout;1.TotalFrgn}));
+
+--- END ---
+
+Formula: {@Unit Currency Code}
+--- BEGIN ---
+if {OADM.CurOnRight} = "Y" then " " + {RRR1.Currency}
+else
+    {RRR1.Currency} + " "
+--- END ---
+
+Formula: {@PrintCompanyName}
+--- BEGIN ---
+{OADM.CompnyName}
+--- END ---
+
+Formula: {@PageIndicator}
+--- BEGIN ---
+ToText(PageNumber, 0) +'/'+ToText(TotalPageCount, 0) 
+--- END ---
+
+Formula: {@Declare}
+--- BEGIN ---
+Shared NumberVar carryTotal := 0;
+Shared BooleanVar lastMet := FALSE;
+Shared StringVar picturePath := {OADP.BitmapPath};
+Shared NumberVar vatDiscountPrcnt := 0;
+
+Shared numberVar SectionTotalMaxHeght := 52;  // 7.5 * 7
+Shared numberVar SectionTaxMinHeght := 26;
+Shared numberVar SectionDPMMinHeght := 26;
+Shared numberVar SectionPaymentTermMinHeght := 26;
+Shared numberVar SectionInstallmentMinHeght := 26;
+Shared numberVar SectionFreightMinHeght := 12;
+
+Shared booleanVar SectionTotalActive := false;
+Shared booleanVar SectionTaxActive := false;
+Shared booleanVar SectionDPMActive := false;
+Shared booleanVar SectionPaymentTermActive := false;
+Shared booleanVar SectionInstallmentActive := false;
+Shared booleanVar SectionFreightMinActive := false;
+Shared numbervar SalesBomNumber:=0;
+Shared numbervar ChildrenTotal:=0;
+--- END ---
+
+Formula: {@CarryOver}
+--- BEGIN ---
+Shared NumberVar carryTotal
+
+--- END ---
+
+Formula: {@CarryTotal}
+--- BEGIN ---
+Shared NumberVar carryTotal;
+Shared BooleanVar lastMet;
+Shared NumberVar vatDiscountPrcnt;
+
+if ({TmSp_DocLineTypeLayout;1.LineType} = 'R') Then
+  carryTotal := carryTotal + {@Row Total};
+
+If OnLastRecord Then
+  lastMet := TRUE;
+
+
+If {TmSp_DocLineTypeLayout;1.LineType} = 'R' Then
+    vatDiscountPrcnt := {RRR1.VatDscntPr}
+
+
+--- END ---
+
+Formula: {@__DocType}
+--- BEGIN ---
+'Return Request'
+--- END ---
+
+Formula: {@ColorTableHdr}
+--- BEGIN ---
+Color(240,244, 247)
+--- END ---
+
+Formula: {@Rounding}
+--- BEGIN ---
+Select {ORRR.CurSource}
+Case 'L': {ORRR.RoundDif}
+Case 'S': {ORRR.RoundDifSy}
+Case 'C': {ORRR.RoundDifFC}
+Default: 0
+--- END ---
+
+Formula: {@TotalBeforeTax}
+--- BEGIN ---
+{@Invoice Total} - {@Total Tax}
+--- END ---
+
+Formula: {@PictureName}
+--- BEGIN ---
+Shared StringVar picturePath 
+--- END ---
+
+Formula: {@ColorContentText}
+--- BEGIN ---
+Color (30, 30, 30)
+--- END ---
+
+Formula: {@_DateSep}
+--- BEGIN ---
+{OADM.DateSep}
+--- END ---
+
+Formula: {@DocCurrencyCode}
+--- BEGIN ---
+if {ORRR.CurSource} = "L" then 
+    (if {OADM.CurOnRight} = "Y" then " " + {OADM.MainCurncy}
+else
+    {OADM.MainCurncy} + " ")
+else if {ORRR.CurSource} = "S" then 
+    (if {OADM.CurOnRight} = "Y" then " " + {OADM.SysCurrncy}
+else
+    {OADM.SysCurrncy} + " ")
+else if {ORRR.CurSource} = "C" then 
+    (if {OADM.CurOnRight} = "Y" then " " + {ORRR.DocCur}
+else
+    {ORRR.DocCur} + " ")
+--- END ---
+
+Formula: {@VatDiscount}
+--- BEGIN ---
+Shared NumberVar vatDiscountPrcnt;
+--- END ---
+
+Formula: {@SmallGroup}
+--- BEGIN ---
+{TmSp_DocLineTypeLayout;1.TotalLevel}*10000+{TmSp_DocLineTypeLayout;1.LineNum2}
+--- END ---
+
+Formula: {@ItemCodePrefix}
+--- BEGIN ---
+If {TmSp_DocLineTypeLayout;1.LineType} = 'R' Then
+(
+   If {ADP1.VndrNum} = 'Y' Then 'Mfr No.:'
+   Else 'Item Code:'
+)
+--- END ---
+
+Formula: {@RemarksString}
+--- BEGIN ---
+stringVar Remarks := '';
+
+if IsNull({ORRR.Comments}) = false and trim({ORRR.Comments}) <> ''
+then Remarks := {ORRR.Comments};
+
+
+if IsNull({ORRR.Footer}) = false and trim({ORRR.Footer}) <> '' then
+(
+    if Remarks <> '' then
+        Remarks := Remarks + chr(13) + chr(13) + {ORRR.Footer}
+    else
+        Remarks := {ORRR.Footer};
+);
+
+if IsNull({ADP1.Remark}) = false and trim({ADP1.Remark}) <> '' then
+(
+    if Remarks <> '' then
+        Remarks := Remarks + chr(13) + chr(13) + {ADP1.Remark}
+    else
+        Remarks := {ADP1.Remark};
+);
+
+Remarks
+
+--- END ---
+
+Formula: {@PrintMark}
+--- BEGIN ---
+select {ORRR.Printed}
+case 'Y': {@__Copy_str}
+case 'N': {@__Original_str}
+case 'A': {@__Amended_str}
+default: '';
+
+--- END ---
+
+Formula: {@__Amended_str}
+--- BEGIN ---
+'Amended'
+--- END ---
+
+Formula: {@__Copy_str}
+--- BEGIN ---
+'Copy'
+--- END ---
+
+Formula: {@__Original_str}
+--- BEGIN ---
+'Original'
+--- END ---
+
+Formula: {@LineNumber}
+--- BEGIN ---
+Shared numbervar SalesBomNumber;
+Shared numbervar ChildrenTotal;
+Local numbervar _tmp;
+
+_tmp := RecordNumber+1000-ChildrenTotal;
+if not isnull({RRR1.TreeType}) and {RRR1.TreeType} = 'S' then
+   SalesBomNumber := RecordNumber;
+if SalesBomNumber > 0 and not isnull({RRR1.TreeType}) and {RRR1.TreeType} = 'I' then
+   (ChildrenTotal:=ChildrenTotal+1;Right(ToText(_tmp-1,0),3)&'-'&totext(RecordNumber-SalesBomNumber,0);)
+else
+   Right(ToText(_tmp,0),3)
+--- END ---
+
+Formula: {@remarkOffset}
+--- BEGIN ---
+Shared numberVar SectionTotalMaxHeght;
+Shared numberVar SectionTaxMinHeght;
+Shared numberVar SectionDPMMinHeght;
+Shared numberVar SectionPaymentTermMinHeght;
+Shared numberVar SectionInstallmentMinHeght;
+Shared numberVar SectionFreightMinHeght;
+
+Shared booleanVar SectionTotalActive;
+Shared booleanVar SectionTaxActive;
+Shared booleanVar SectionDPMActive;
+Shared booleanVar SectionPaymentTermActive;
+Shared booleanVar SectionInstallmentActive;
+Shared booleanVar SectionFreightMinActive;
+
+local numberVar CalculatedOffset := 0;
+local stringVar DummyString := '';
+
+if SectionTotalActive then CalculatedOffset := SectionTotalMaxHeght;
+if SectionTaxActive   then CalculatedOffset := CalculatedOffset - SectionTaxMinHeght;
+if SectionDPMActive   then CalculatedOffset := CalculatedOffset - SectionDPMMinHeght;
+if SectionPaymentTermActive then CalculatedOffset := CalculatedOffset - SectionPaymentTermMinHeght;
+if SectionInstallmentActive then CalculatedOffset := CalculatedOffset - SectionInstallmentMinHeght;
+if SectionFreightMinActive  then CalculatedOffset := CalculatedOffset - SectionFreightMinHeght;
+
+if (CalculatedOffset > 0)
+then
+(
+    local numberVar i;
+    local numberVar lineHeight := 3.5;  // approx. height for "Tahoma 9"
+    For i := 1 To RoundUp(CalculatedOffset / lineHeight) do
+    (
+        DummyString := DummyString + chr(13);   // add enter
+    )
+
+);
+
+DummyString;
+--- END ---
+
+Formula: {@ObjectID}
+--- BEGIN ---
+{?ObjectId@}
+--- END ---
+
+
+************************************************************
+  CONNECTION INFO
+************************************************************
+Table:    ORRR
+  Server:   10.55.179.86:30015
+  Database: 
+  UserID:   SYSTEM
+
+Table:    OADM
+  Server:   10.55.179.86:30015
+  Database: 
+  UserID:   SYSTEM
+
+Table:    OSLP
+  Server:   10.55.179.86:30015
+  Database: 
+  UserID:   SYSTEM
+
+Table:    RRR1
+  Server:   10.55.179.86:30015
+  Database: 
+  UserID:   SYSTEM
+
+Table:    OADP
+  Server:   10.55.179.86:30015
+  Database: 
+  UserID:   SYSTEM
+
+Table:    TmSp_DocLineTypeLayout;1
+  Server:   10.55.179.86:30015
+  Database: 
+  UserID:   SYSTEM
+
+Table:    OSHP
+  Server:   10.55.179.86:30015
+  Database: 
+  UserID:   SYSTEM
+
+Table:    ADP1
+  Server:   10.55.179.86:30015
+  Database: 
+  UserID:   SYSTEM
+
+Table:    OITM
+  Server:   10.55.179.86:30015
+  Database: 
+  UserID:   SYSTEM
+
+Table:    OHEM
+  Server:   10.55.179.86:30015
+  Database: 
+  UserID:   SYSTEM
+
+Table:    NNM1
+  Server:   10.55.179.86:30015
+  Database: 
+  UserID:   SYSTEM
+
+
+************************************************************
+  TABLE LINKS
+************************************************************
+ORRR.DocEntry --[Equal]--> TmSp_DocLineTypeLayout;1.DocEntry
+ORRR.TrnspCode --[LeftOuter]--> OSHP.TrnspCode
+ORRR.ObjType --[LeftOuter]--> ADP1.ObjType
+ORRR.SlpCode --[Equal]--> OSLP.SlpCode
+ORRR.Series --[LeftOuter]--> NNM1.Series
+TmSp_DocLineTypeLayout;1.DocEntry --[LeftOuter]--> RRR1.DocEntry
+RRR1.ItemCode --[Equal]--> OITM.ItemCode
+OSLP.SlpCode --[LeftOuter]--> OHEM.salesPrson
+
+************************************************************
+  RECORD SELECTION FORMULA
+************************************************************
+ (  {ORRR.DocEntry} = {?DocKey@}  )  
+
+

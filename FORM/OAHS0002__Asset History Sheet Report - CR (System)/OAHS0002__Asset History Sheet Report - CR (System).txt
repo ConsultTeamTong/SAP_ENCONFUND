@@ -1,0 +1,210 @@
+﻿============================================================
+Report: OAHS0002__Asset History Sheet Report - CR (System).rpt
+Path:   OAHS0002__Asset History Sheet Report - CR (System).rpt
+Extracted: 2026-05-07 18:03:15
+============================================================
+
+************************************************************
+  PARAMETERS
+************************************************************
+(No parameters)
+
+************************************************************
+  FORMULA FIELDS
+************************************************************
+Formula: {@F_12}
+--- BEGIN ---
+if {PLD__ITEMS.F_12}='' then ' ' else {PLD__ITEMS.F_12}
+--- END ---
+
+Formula: {@F_14}
+--- BEGIN ---
+if {PLD__ITEMS.F_14}='' then ' ' else {PLD__ITEMS.F_14}
+--- END ---
+
+Formula: {@F_38}
+--- BEGIN ---
+if {PLD__ITEMS.F_38}='' then ' ' else {PLD__ITEMS.F_38}
+--- END ---
+
+Formula: {@F_52}
+--- BEGIN ---
+if {PLD__ITEMS.F_52}='' then ' ' else {PLD__ITEMS.F_52}
+--- END ---
+
+Formula: {@F_91}
+--- BEGIN ---
+if {PLD__ITEMS.F_91}='' then ' ' else {PLD__ITEMS.F_91}
+--- END ---
+
+Formula: {@F_92}
+--- BEGIN ---
+if {PLD__ITEMS.F_92}='' then ' ' else {PLD__ITEMS.F_92}
+--- END ---
+
+Formula: {@F_95}
+--- BEGIN ---
+if {PLD__ITEMS.F_95}='' then ' ' else {PLD__ITEMS.F_95}
+--- END ---
+
+Formula: {@F_97}
+--- BEGIN ---
+if {PLD__ITEMS.F_97}='' then ' ' else {PLD__ITEMS.F_97}
+--- END ---
+
+Formula: {@F_98}
+--- BEGIN ---
+if {PLD__ITEMS.F_98}='' then ' ' else {PLD__ITEMS.F_98}
+--- END ---
+
+Formula: {@F_101}
+--- BEGIN ---
+if {PLD__ITEMS.F_101}='' then ' ' else {PLD__ITEMS.F_101}
+--- END ---
+
+Formula: {@F_72}
+--- BEGIN ---
+if {PLD__ITEMS.F_72}='' then ' ' else {PLD__ITEMS.F_72}
+--- END ---
+
+Formula: {@F_73}
+--- BEGIN ---
+if {PLD__ITEMS.F_73}='' then ' ' else {PLD__ITEMS.F_73}
+--- END ---
+
+Formula: {@F_74}
+--- BEGIN ---
+if {PLD__ITEMS.F_74}='' then ' ' else {PLD__ITEMS.F_74}
+--- END ---
+
+Formula: {@F_75}
+--- BEGIN ---
+if {PLD__ITEMS.F_75}='' then ' ' else {PLD__ITEMS.F_75}
+--- END ---
+
+Formula: {@F_78}
+--- BEGIN ---
+if {PLD__ITEMS.F_78}='' then ' ' else {PLD__ITEMS.F_78}
+--- END ---
+
+Formula: {@F_79}
+--- BEGIN ---
+if {PLD__ITEMS.F_79}='' then ' ' else {PLD__ITEMS.F_79}
+--- END ---
+
+Formula: {@F_80}
+--- BEGIN ---
+if {PLD__ITEMS.F_80}='' then ' ' else {PLD__ITEMS.F_80}
+--- END ---
+
+Formula: {@F_81}
+--- BEGIN ---
+if {PLD__ITEMS.F_81}='' then ' ' else {PLD__ITEMS.F_81}
+--- END ---
+
+Formula: {@F_82}
+--- BEGIN ---
+if {PLD__ITEMS.F_82}='' then ' ' else {PLD__ITEMS.F_82}
+--- END ---
+
+Formula: {@F_83}
+--- BEGIN ---
+if {PLD__ITEMS.F_83}='' then ' ' else {PLD__ITEMS.F_83}
+--- END ---
+
+Formula: {@F_84}
+--- BEGIN ---
+if {PLD__ITEMS.F_84}='' then ' ' else {PLD__ITEMS.F_84}
+--- END ---
+
+Formula: {@F_85}
+--- BEGIN ---
+if {PLD__ITEMS.F_85}='' then ' ' else {PLD__ITEMS.F_85}
+--- END ---
+
+Formula: {@F_86}
+--- BEGIN ---
+if {PLD__ITEMS.F_86}='' then ' ' else {PLD__ITEMS.F_86}
+--- END ---
+
+Formula: {@F_88}
+--- BEGIN ---
+if {PLD__ITEMS.F_88}='' then ' ' else {PLD__ITEMS.F_88}
+--- END ---
+
+Formula: {@F_89}
+--- BEGIN ---
+if {PLD__ITEMS.F_89}='' then ' ' else {PLD__ITEMS.F_89}
+--- END ---
+
+Formula: {@F_90}
+--- BEGIN ---
+if {PLD__ITEMS.F_90}='' then ' ' else {PLD__ITEMS.F_90}
+--- END ---
+
+Formula: {@F_104}
+--- BEGIN ---
+if {PLD__ITEMS.F_104}='' then ' ' else {PLD__ITEMS.F_104}
+--- END ---
+
+Formula: {@F_106}
+--- BEGIN ---
+if {PLD__ITEMS.F_106}='' then ' ' else {PLD__ITEMS.F_106}
+--- END ---
+
+Formula: {@F_46}
+--- BEGIN ---
+if {PLD__ITEMS.F_46}='' then ' ' else {PLD__ITEMS.F_46}
+--- END ---
+
+Formula: {@F_50}
+--- BEGIN ---
+if {PLD__ITEMS.F_50}='' then ' ' else {PLD__ITEMS.F_50}
+--- END ---
+
+Formula: {@F_51}
+--- BEGIN ---
+if {PLD__ITEMS.F_51}='' then ' ' else {PLD__ITEMS.F_51}
+--- END ---
+
+Formula: {@CompanyName}
+--- BEGIN ---
+OADM.CompnyName
+--- END ---
+
+Formula: {@F_107}
+--- BEGIN ---
+if {PLD__ITEMS.F_107}='' then ' ' else {PLD__ITEMS.F_107}
+--- END ---
+
+
+************************************************************
+  CONNECTION INFO
+************************************************************
+Table:    PLD__ITEMS
+  Server:   NewDataSet
+  Database: 
+  UserID:   
+
+Table:    OADM
+  Server:   10.58.136.140:30015
+  Database: 
+  UserID:   SYSTEM
+
+Table:    OADP
+  Server:   10.58.136.140:30015
+  Database: 
+  UserID:   SYSTEM
+
+
+************************************************************
+  TABLE LINKS
+************************************************************
+OADM.LogInstanc --[Equal]--> OADP.LogInstanc
+
+************************************************************
+  RECORD SELECTION FORMULA
+************************************************************
+(No record selection formula)
+
+

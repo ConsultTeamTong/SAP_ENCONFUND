@@ -1,0 +1,169 @@
+﻿============================================================
+Report: A0110001__Withholding Tax certificate (54).rpt
+Path:   A0110001__Withholding Tax certificate (54).rpt
+Extracted: 2026-05-07 18:02:37
+============================================================
+
+************************************************************
+  PARAMETERS
+************************************************************
+Parameter: (error)
+  Type:     You cannot call a method on a null-valued expression.
+  Report:   
+  Default:  
+
+
+************************************************************
+  FORMULA FIELDS
+************************************************************
+Formula: {@B1}
+--- BEGIN ---
+LEFT({Header.Code},1)
+--- END ---
+
+Formula: {@B2}
+--- BEGIN ---
+RIGHT(LEFT({Header.Code},2),1)
+--- END ---
+
+Formula: {@B3}
+--- BEGIN ---
+RIGHT(LEFT({Header.Code},3),1)
+--- END ---
+
+Formula: {@B4}
+--- BEGIN ---
+RIGHT(LEFT({Header.Code},4),1)
+--- END ---
+
+Formula: {@B5}
+--- BEGIN ---
+RIGHT({Header.Code},1)
+--- END ---
+
+Formula: {@T1}
+--- BEGIN ---
+LEFT({Header.U_SLD_VTAXID},1)
+--- END ---
+
+Formula: {@T2}
+--- BEGIN ---
+RIGHT(LEFT({Header.U_SLD_VTAXID},2),1)
+--- END ---
+
+Formula: {@T3}
+--- BEGIN ---
+RIGHT(LEFT({Header.U_SLD_VTAXID},3),1)
+--- END ---
+
+Formula: {@T4}
+--- BEGIN ---
+RIGHT(LEFT({Header.U_SLD_VTAXID},4),1)
+--- END ---
+
+Formula: {@T5}
+--- BEGIN ---
+RIGHT(LEFT({Header.U_SLD_VTAXID},5),1)
+--- END ---
+
+Formula: {@T6}
+--- BEGIN ---
+RIGHT(LEFT({Header.U_SLD_VTAXID},6),1)
+--- END ---
+
+Formula: {@T7}
+--- BEGIN ---
+RIGHT(LEFT({Header.U_SLD_VTAXID},7),1)
+--- END ---
+
+Formula: {@T8}
+--- BEGIN ---
+RIGHT(LEFT({Header.U_SLD_VTAXID},8),1)
+--- END ---
+
+Formula: {@T9}
+--- BEGIN ---
+RIGHT(LEFT({Header.U_SLD_VTAXID},9),1)
+--- END ---
+
+Formula: {@T10}
+--- BEGIN ---
+RIGHT(LEFT({Header.U_SLD_VTAXID},10),1)
+--- END ---
+
+Formula: {@T11}
+--- BEGIN ---
+RIGHT(LEFT({Header.U_SLD_VTAXID},11),1)
+--- END ---
+
+Formula: {@T12}
+--- BEGIN ---
+RIGHT(LEFT({Header.U_SLD_VTAXID},12),1)
+--- END ---
+
+Formula: {@T13}
+--- BEGIN ---
+RIGHT({Header.U_SLD_VTAXID},1)
+--- END ---
+
+Formula: {@SumTotal_Num}
+--- BEGIN ---
+{Detail.TaxbleAmnt}
+--- END ---
+
+Formula: {@WHTDay}
+--- BEGIN ---
+LEFT(ToText({Detail.WHTDate},"ddMMyyyy"),2)
+--- END ---
+
+Formula: {@WHTMonth}
+--- BEGIN ---
+Mid(ToText({Detail.WHTDate},"ddMMyyyy"),3,2)
+--- END ---
+
+Formula: {@WHTYear}
+--- BEGIN ---
+ToNumber(Mid(ToText({Detail.WHTDate},"ddMMyyyy"),5,4)) + 543
+--- END ---
+
+Formula: {@SumWT_Num}
+--- BEGIN ---
+{Detail.WTAmnt}
+--- END ---
+
+Formula: {@SumExtra_Num}
+--- BEGIN ---
+0
+--- END ---
+
+Formula: {@SumAll_Num}
+--- BEGIN ---
+{Detail.TaxbleAmnt}+{Detail.WTAmnt}
+--- END ---
+
+
+************************************************************
+  CONNECTION INFO
+************************************************************
+Table:    Detail
+  Server:   10.1.1.119
+  Database: 
+  UserID:   SYSTEM
+
+Table:    Header
+  Server:   10.1.1.119
+  Database: 
+  UserID:   SYSTEM
+
+
+************************************************************
+  TABLE LINKS
+************************************************************
+(No table links)
+
+************************************************************
+  RECORD SELECTION FORMULA
+************************************************************
+(No record selection formula)
+
+

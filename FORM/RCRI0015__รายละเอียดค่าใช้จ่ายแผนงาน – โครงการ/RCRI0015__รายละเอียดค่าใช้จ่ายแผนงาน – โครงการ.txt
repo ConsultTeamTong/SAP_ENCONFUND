@@ -1,0 +1,79 @@
+﻿============================================================
+Report: RCRI0015__รายละเอียดค่าใช้จ่ายแผนงาน – โครงการ.rpt
+Path:   RCRI0015__รายละเอียดค่าใช้จ่ายแผนงาน – โครงการ.rpt
+Extracted: 2026-05-07 18:03:35
+============================================================
+
+************************************************************
+  PARAMETERS
+************************************************************
+Parameter: (error)
+  Type:     You cannot call a method on a null-valued expression.
+  Report:   
+  Default:  
+
+
+************************************************************
+  FORMULA FIELDS
+************************************************************
+Formula: {@Page}
+--- BEGIN ---
+"หน้า " + ToText(Pagenumber, 0) + " / " + ToText(ToTalPageCount, 0)
+--- END ---
+
+Formula: {@pl01}
+--- BEGIN ---
+SUM({Command.EX01} ,{Command.U_SLD_PlanWork})
+--- END ---
+
+Formula: {@pl02}
+--- BEGIN ---
+SUM({Command.EX02} ,{Command.U_SLD_PlanWork})
+--- END ---
+
+Formula: {@pl03}
+--- BEGIN ---
+SUM({Command.EX03},{Command.U_SLD_PlanWork})
+--- END ---
+
+Formula: {@pl04}
+--- BEGIN ---
+SUM({Command.EX04},{Command.U_SLD_PlanWork})
+--- END ---
+
+Formula: {@pl05}
+--- BEGIN ---
+SUM({Command.EX05},{Command.U_SLD_PlanWork})
+--- END ---
+
+Formula: {@pl06}
+--- BEGIN ---
+SUM({Command.EX06},{Command.U_SLD_PlanWork})
+--- END ---
+
+Formula: {@pl07}
+--- BEGIN ---
+SUM({Command.EX07},{Command.U_SLD_PlanWork})
+--- END ---
+
+
+************************************************************
+  CONNECTION INFO
+************************************************************
+Table:    Command
+  Server:   NDB@10.21.100.31
+  Database: 
+  UserID:   SYSTEM
+
+
+************************************************************
+  TABLE LINKS
+************************************************************
+(No table links)
+
+************************************************************
+  RECORD SELECTION FORMULA
+************************************************************
+(No record selection formula)
+
+

@@ -1,0 +1,360 @@
+﻿============================================================
+Report: BPL10002__Profit and Loss Statement - CR (GB) (System).rpt
+Path:   BPL10002__Profit and Loss Statement - CR (GB) (System).rpt
+Extracted: 2026-05-07 18:02:48
+============================================================
+
+************************************************************
+  PARAMETERS
+************************************************************
+Parameter: (error)
+  Type:     You cannot call a method on a null-valued expression.
+  Report:   
+  Default:  
+
+
+************************************************************
+  FORMULA FIELDS
+************************************************************
+Formula: {@F_75}
+--- BEGIN ---
+shared stringvar companyName;
+
+companyName := {OADM.CompnyName};
+
+if companyName = '' then ' '
+else companyName
+--- END ---
+
+Formula: {@F_76}
+--- BEGIN ---
+if {PLD__ITEMS.F_76}='' then ' ' else {PLD__ITEMS.F_76}
+--- END ---
+
+Formula: {@F_77}
+--- BEGIN ---
+if {PLD__ITEMS.F_77}='' then ' ' else {PLD__ITEMS.F_77}
+--- END ---
+
+Formula: {@F_78}
+--- BEGIN ---
+if {PLD__ITEMS.F_78}='' then ' ' else {PLD__ITEMS.F_78}
+--- END ---
+
+Formula: {@F_79}
+--- BEGIN ---
+if {PLD__ITEMS.F_79}='' then ' ' else {PLD__ITEMS.F_79}
+--- END ---
+
+Formula: {@F_80}
+--- BEGIN ---
+if {PLD__ITEMS.F_80}='' then ' ' else {PLD__ITEMS.F_80}
+--- END ---
+
+Formula: {@F_81}
+--- BEGIN ---
+if {PLD__ITEMS.F_81}='' then ' ' else {PLD__ITEMS.F_81}
+--- END ---
+
+Formula: {@F_86}
+--- BEGIN ---
+if {PLD__ITEMS.F_86}='' then ' ' else {PLD__ITEMS.F_86}
+--- END ---
+
+Formula: {@F_87}
+--- BEGIN ---
+if {PLD__ITEMS.F_87}='' then ' ' else {PLD__ITEMS.F_87}
+--- END ---
+
+Formula: {@F_88}
+--- BEGIN ---
+if {PLD__ITEMS.F_88}='' then ' ' else {PLD__ITEMS.F_88}
+--- END ---
+
+Formula: {@F_89}
+--- BEGIN ---
+//if {PLD__ITEMS.F_89}='' then ' ' else {PLD__ITEMS.F_89}
+Nthlargest(1, {PLD__ITEMS.F_89})
+--- END ---
+
+Formula: {@F_90}
+--- BEGIN ---
+//if {PLD__ITEMS.F_90}='' then ' ' else {PLD__ITEMS.F_90}
+Nthlargest(1, {PLD__ITEMS.F_90})
+--- END ---
+
+Formula: {@F_91}
+--- BEGIN ---
+//if {PLD__ITEMS.F_91}='' then ' ' else {PLD__ITEMS.F_91}
+Nthlargest(1, {PLD__ITEMS.F_91})
+--- END ---
+
+Formula: {@F_82}
+--- BEGIN ---
+Shared stringvar Symbol;
+Local StringVar trimedStr := Trim({PLD__ITEMS.F_82});
+Local NumberVar firstSpace;
+
+if trimedStr ='' then ' ' 
+else 
+( 
+    if {PLD__ITEMS.F_82_Symbol} = Symbol then
+    (
+        firstSpace := InStr(trimedStr,' ');
+        if InStr(trimedStr, '- - -') > 0 Then
+            firstSpace := -1 ;
+
+        if firstSpace > 0 Then
+        (
+            If {OADM.CurOnRight} = 'N' Then
+               Right(trimedStr, Len(trimedStr) - firstSpace)
+            Else
+               Left(trimedStr, firstSpace - 1)
+        ) 
+        else if firstSpace = -1 Then
+        (
+            ''
+        )
+        else
+            trimedStr
+    )
+    Else
+        trimedStr; 
+)
+
+--- END ---
+
+Formula: {@F_83}
+--- BEGIN ---
+Shared stringvar Symbol;
+Local StringVar trimedStr := Trim({PLD__ITEMS.F_83});
+Local NumberVar firstSpace;
+
+if trimedStr ='' then ' ' 
+else 
+( 
+    if {PLD__ITEMS.F_83_Symbol} = Symbol then
+    (
+        firstSpace := InStr(trimedStr,' ');
+        if InStr(trimedStr, '- - -') > 0 Then
+            firstSpace := -1 ;
+
+        if firstSpace > 0 Then
+        (
+            If {OADM.CurOnRight} = 'N' Then
+               Right(trimedStr, Len(trimedStr) - firstSpace)
+            Else
+               Left(trimedStr, firstSpace - 1)
+        ) 
+        else if firstSpace = -1 Then
+        (
+            ''
+        )
+        else
+            trimedStr
+    )
+    Else
+        trimedStr; 
+)
+
+
+
+--- END ---
+
+Formula: {@F_84}
+--- BEGIN ---
+Shared NumberVar Times := 0;
+if Instr({PLD__ITEMS.F_84}, 'Total') > 0 then
+Times := {@F_96} -2
+else 
+Times := {@F_96} -1;
+
+if (Times < 0) Then Times:= 0;
+
+if {PLD__ITEMS.F_84}='' then ' ' else (ReplicateString ("        ", Times) + {PLD__ITEMS.F_84})
+--- END ---
+
+Formula: {@F_92}
+--- BEGIN ---
+if {PLD__ITEMS.F_92}='' then ' ' else {PLD__ITEMS.F_92}
+--- END ---
+
+Formula: {@F_93}
+--- BEGIN ---
+if {PLD__ITEMS.F_93}='' then ' ' else {PLD__ITEMS.F_93}
+--- END ---
+
+Formula: {@F_71}
+--- BEGIN ---
+if {PLD__ITEMS.F_71}='' then ' ' else {PLD__ITEMS.F_71}
+--- END ---
+
+Formula: {@F_72}
+--- BEGIN ---
+if {PLD__ITEMS.F_72}='' then ' ' else {PLD__ITEMS.F_72}
+--- END ---
+
+Formula: {@F_73}
+--- BEGIN ---
+if {PLD__ITEMS.F_73}='' then ' ' else {PLD__ITEMS.F_73}
+--- END ---
+
+Formula: {@F_74}
+--- BEGIN ---
+if {PLD__ITEMS.F_74}='' then ' ' else {PLD__ITEMS.F_74}
+--- END ---
+
+Formula: {@F_94}
+--- BEGIN ---
+if {PLD__ITEMS.F_94}='' then ' ' else {PLD__ITEMS.F_94}
+--- END ---
+
+Formula: {@F_95}
+--- BEGIN ---
+Shared stringvar Criteria;
+if {PLD__ITEMS.F_95}='' then ' ' else (Criteria := {PLD__ITEMS.F_95}; {PLD__ITEMS.F_95} + ':')
+--- END ---
+
+Formula: {@PageIndicator}
+--- BEGIN ---
+ToText(PageNumber, 0) +' / '+ToText(TotalPageCount, 0) 
+--- END ---
+
+Formula: {@TableHeaderColor}
+--- BEGIN ---
+//Color(220, 230, 242)
+Color(240, 244, 247)
+--- END ---
+
+Formula: {@F_96}
+--- BEGIN ---
+if ({PLD__ITEMS.F_96}='' or not (isNumeric({PLD__ITEMS.F_96}))) then 0 else ToNumber({PLD__ITEMS.F_96})
+--- END ---
+
+Formula: {@LableContentColor}
+--- BEGIN ---
+Color(30, 30, 30)
+--- END ---
+
+Formula: {@ContentTextColor}
+--- BEGIN ---
+Color(30,30,30)
+--- END ---
+
+Formula: {@Title}
+--- BEGIN ---
+Replace (Nthlargest(1,{PLD__ITEMS.F_81}), ' from Date', '')
+--- END ---
+
+Formula: {@FooterColor}
+--- BEGIN ---
+Color(150,150,150)
+--- END ---
+
+Formula: {@Declare}
+--- BEGIN ---
+Shared stringvar DocDate;
+Shared stringvar DocTime;
+Shared stringvar Criteria;
+Shared Stringvar Symbol;
+Shared Booleanvar finishedFlag;
+Shared Stringvar companyName;
+--- END ---
+
+Formula: {@DateTimeInfo}
+--- BEGIN ---
+//Shared stringvar DocDate;
+//Shared stringvar DocTime;
+//DocTime +'  '+ DocDate;
+//
+nthlargest(1,{PLD__ITEMS.F_77}) + ' ' + nthlargest(1,{PLD__ITEMS.F_76})
+
+--- END ---
+
+Formula: {@Criteria}
+--- BEGIN ---
+Shared stringvar Criteria;
+Criteria + " From";
+--- END ---
+
+Formula: {@CurrencySymbol}
+--- BEGIN ---
+Shared stringvar Symbol;
+if DistinctCount ({@SymbolPart}) >= 2 then
+( if NthMostFrequent (1, {@SymbolPart}) = ' ' then Symbol := NthMostFrequent (2, {@SymbolPart})
+  else Symbol :=NthMostFrequent (1, {@SymbolPart});
+)
+else
+  NthMostFrequent (1, {@SymbolPart})
+--- END ---
+
+Formula: {@Criteria2}
+--- BEGIN ---
+Shared stringvar Criteria;
+Criteria;
+--- END ---
+
+Formula: {@Underline}
+--- BEGIN ---
+"==================="
+--- END ---
+
+Formula: {@GetFinishFlag}
+--- BEGIN ---
+Shared Booleanvar finishedFlag;
+//if not isnull({PLD__ITEMS.F_84}) and instr({PLD__ITEMS.F_84}, 'Period') > 0 then finishedFlag:= true;
+if {PLD__ITEMS._Order} = maximum({PLD__ITEMS._Order})-3 then finishedFlag:= true;
+//Be note that this flag don't work when user choose "Hide Titles" in report form since the hard code "-3" maybe wrong under this circumstances.
+--- END ---
+
+Formula: {@SymbolPart}
+--- BEGIN ---
+if instr({PLD__ITEMS.F_83}, '- - -') > 0 then ' '
+else
+(
+    local stringvar array tmp := split({PLD__ITEMS.F_83}, ' ', 2);
+    if UBound (tmp) = 2 then
+       (if {OADM.CurOnRight} = 'Y' then trim(tmp[2]) else trim(tmp[1]))
+    else
+        ' '
+)
+--- END ---
+
+Formula: {@GetHideTitlesFlag}
+--- BEGIN ---
+Shared Booleanvar hideTitlesFlag;
+if Instr({PLD__ITEMS.F_140}, 'Y') <> 0 then hideTitlesFlag:= true
+else hideTitlesFlag:= false;
+--- END ---
+
+
+************************************************************
+  CONNECTION INFO
+************************************************************
+Table:    PLD__ITEMS
+  Server:   NewDataSet
+  Database: 
+  UserID:   
+
+Table:    OADP
+  Server:   DRIVER={HDBODBC32};UID=SYSTEM;PWD=manager;SERVERNODE=10.55.178.115:30915;DATABASE=SBODEMODE
+  Database: 
+  UserID:   
+
+Table:    OADM
+  Server:   DRIVER={HDBODBC32};UID=SYSTEM;PWD=manager;SERVERNODE=10.55.178.115:30915;DATABASE=SBODEMODE
+  Database: 
+  UserID:   
+
+
+************************************************************
+  TABLE LINKS
+************************************************************
+(No table links)
+
+************************************************************
+  RECORD SELECTION FORMULA
+************************************************************
+(No record selection formula)
+
+

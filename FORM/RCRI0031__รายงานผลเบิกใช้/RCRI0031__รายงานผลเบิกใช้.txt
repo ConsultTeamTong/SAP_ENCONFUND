@@ -1,0 +1,80 @@
+﻿============================================================
+Report: RCRI0031__รายงานผลเบิกใช้.rpt
+Path:   RCRI0031__รายงานผลเบิกใช้.rpt
+Extracted: 2026-05-07 18:03:42
+============================================================
+
+************************************************************
+  PARAMETERS
+************************************************************
+(No parameters)
+
+************************************************************
+  FORMULA FIELDS
+************************************************************
+Formula: {@Budget Name}
+--- BEGIN ---
+{Command.BudgetName}
+--- END ---
+
+Formula: {@รวมจ่าย}
+--- BEGIN ---
+{Command.CommittedStd}+{Command.CommittedAdv}+{Command.Actual}
+--- END ---
+
+Formula: {@ปี}
+--- BEGIN ---
+{Command.FiscalYear} -1
+--- END ---
+
+Formula: {@รวมไตรมาส 1}
+--- BEGIN ---
+{Command.M01}+{Command.M02}+{Command.M03}
+--- END ---
+
+Formula: {@รวมไตรมาส 2}
+--- BEGIN ---
+{Command.M04}+{Command.M05}+{Command.M06}
+--- END ---
+
+Formula: {@รวมไตรมาส 3}
+--- BEGIN ---
+{Command.M07}+{Command.M08}+{Command.M09}
+--- END ---
+
+Formula: {@รวมไตรมาส 4}
+--- BEGIN ---
+{Command.M10}+{Command.M11}+{Command.M12}
+--- END ---
+
+Formula: {@ผูกพันเหลือจ่าย}
+--- BEGIN ---
+{Command.PBA_Expen}
+--- END ---
+
+Formula: {@รายการผูกพันยังไม่ได้เบิกจ่าย}
+--- BEGIN ---
+{Command.PBA_Balanc}
+--- END ---
+
+
+************************************************************
+  CONNECTION INFO
+************************************************************
+Table:    Command
+  Server:   NDB@10.21.100.31
+  Database: 
+  UserID:   SYSTEM
+
+
+************************************************************
+  TABLE LINKS
+************************************************************
+(No table links)
+
+************************************************************
+  RECORD SELECTION FORMULA
+************************************************************
+(No record selection formula)
+
+

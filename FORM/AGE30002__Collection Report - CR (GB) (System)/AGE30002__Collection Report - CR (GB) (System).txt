@@ -1,0 +1,864 @@
+﻿============================================================
+Report: AGE30002__Collection Report - CR (GB) (System).rpt
+Path:   AGE30002__Collection Report - CR (GB) (System).rpt
+Extracted: 2026-05-07 18:02:43
+============================================================
+
+************************************************************
+  PARAMETERS
+************************************************************
+Parameter: (error)
+  Type:     You cannot call a method on a null-valued expression.
+  Report:   
+  Default:  
+
+
+************************************************************
+  FORMULA FIELDS
+************************************************************
+Formula: {@F_120}
+--- BEGIN ---
+Shared StringVar companyName;
+
+If PageNumber = 1 Then
+    companyName := {OADM.CompnyName};
+
+companyName
+
+--- END ---
+
+Formula: {@F_121}
+--- BEGIN ---
+//if {PLD__ITEMS.F_121}='' then ' ' else {PLD__ITEMS.F_121}
+Shared StringVar strDate;
+
+If PageNumber = 1 Then
+    strDate := {PLD__ITEMS.F_121};
+
+If strDate='' Then ' ' Else strDate
+--- END ---
+
+Formula: {@F_122}
+--- BEGIN ---
+//if {PLD__ITEMS.F_122}='' then ' ' else {PLD__ITEMS.F_122}
+
+Shared StringVar strTime;
+
+If PageNumber = 1 Then
+    strTime := {PLD__ITEMS.F_122};
+
+If strTime='' Then ' ' Else strTime
+--- END ---
+
+Formula: {@F_100}
+--- BEGIN ---
+
+Shared StringVar reportName;
+
+If PageNumber = 1 Then
+    reportName := {PLD__ITEMS.F_100};
+
+reportName;
+
+--- END ---
+
+Formula: {@F_166}
+--- BEGIN ---
+if {PLD__ITEMS.F_166}='' then ' ' else {PLD__ITEMS.F_166}
+
+//Shared StringVar agedBy;
+//
+//If PageNumber = 1 Then
+//(
+//    agedBy := {PLD__ITEMS.F_166};
+//    If agedBy = 'Due Date' Then
+//        agedBy := 'Value Date'
+//);
+//
+//If agedBy='' Then ' ' Else agedBy
+--- END ---
+
+Formula: {@F_167}
+--- BEGIN ---
+//if {PLD__ITEMS.F_167}='' then ' ' else {PLD__ITEMS.F_167}
+
+Shared StringVar ageingDate;
+
+If PageNumber = 1 Then
+  ageingDate := {PLD__ITEMS.F_167};
+
+If ageingDate='' Then ' ' Else ageingDate
+--- END ---
+
+Formula: {@F_129}
+--- BEGIN ---
+//if {PLD__ITEMS.F_129}='' then ' ' else {PLD__ITEMS.F_129}
+{@__strContinue}
+--- END ---
+
+Formula: {@F_30}
+--- BEGIN ---
+Shared StringVar bpCode;
+Shared BooleanVar isNewHeader;
+
+
+if {PLD__ITEMS.F_30}='' then ' ' 
+else (isNewHeader:= FALSE; bpCode :={PLD__ITEMS.F_30}; bpCode) 
+
+--- END ---
+
+Formula: {@F_31}
+--- BEGIN ---
+Shared StringVar bpName;
+bpName:={PLD__ITEMS.F_31};
+
+if bpName='' then ' ' 
+else bpName
+--- END ---
+
+Formula: {@F_132}
+--- BEGIN ---
+Shared StringVar sales;
+sales:={PLD__ITEMS.F_132}; 
+
+
+if {PLD__ITEMS.F_132}='' then ' ' 
+else (sales)
+--- END ---
+
+Formula: {@F_134}
+--- BEGIN ---
+Shared StringVar contactPerson;
+contactPerson:={PLD__ITEMS.F_134};
+
+if {PLD__ITEMS.F_134}='' then ' ' 
+else ( contactPerson)
+--- END ---
+
+Formula: {@F_136}
+--- BEGIN ---
+Shared StringVar address;
+address:={PLD__ITEMS.F_136};
+
+if {PLD__ITEMS.F_136}='' then ' ' 
+else ( address)
+--- END ---
+
+Formula: {@F_138}
+--- BEGIN ---
+Shared StringVar CommitLimit;
+CommitLimit := {PLD__ITEMS.F_138};
+
+if {PLD__ITEMS.F_138}='' then ' ' 
+else ( CommitLimit)
+--- END ---
+
+Formula: {@F_140}
+--- BEGIN ---
+Shared StringVar CreditLimit;
+ CreditLimit :={PLD__ITEMS.F_140};
+
+if {PLD__ITEMS.F_140}='' then ' ' 
+else ( CreditLimit)
+--- END ---
+
+Formula: {@F_142}
+--- BEGIN ---
+Shared StringVar fax;
+fax:={PLD__ITEMS.F_142};
+
+if {PLD__ITEMS.F_142}='' then ' ' 
+else ( fax)
+--- END ---
+
+Formula: {@F_144}
+--- BEGIN ---
+Shared StringVar phone;
+phone:={PLD__ITEMS.F_144};
+
+if phone='' then ' ' else phone
+--- END ---
+
+Formula: {@F_171}
+--- BEGIN ---
+if {PLD__ITEMS.F_171}='' then ' ' else {PLD__ITEMS.F_171};
+Shared StringVar ratio6:=trim({PLD__ITEMS.F_171});
+--- END ---
+
+Formula: {@F_172}
+--- BEGIN ---
+Shared StringVar currSymbol;
+local stringvar amountstring;
+
+if trim({PLD__ITEMS.F_172}) = '' then ' '
+Else (
+    amountstring := TrailCurrency ({PLD__ITEMS.F_172},  {OADM.CurOnRight}, currSymbol, {PLD__ITEMS.F_172_Symbol});
+    amountstring := replace(amountstring, "(", "-");
+    amountstring := replace(amountstring, ")", "")
+)
+--- END ---
+
+Formula: {@F_173}
+--- BEGIN ---
+if {PLD__ITEMS.F_173}='' then ' ' else {PLD__ITEMS.F_173}
+--- END ---
+
+Formula: {@F_174}
+--- BEGIN ---
+if {PLD__ITEMS.F_174}='' then ' ' else {PLD__ITEMS.F_174};
+Shared StringVar ratio5:=trim({PLD__ITEMS.F_174});
+
+--- END ---
+
+Formula: {@F_175}
+--- BEGIN ---
+Shared StringVar currSymbol;
+local stringvar amountstring;
+
+if trim({PLD__ITEMS.F_175}) = '' then ' '
+Else (
+    amountstring := TrailCurrency ({PLD__ITEMS.F_175},  {OADM.CurOnRight}, currSymbol, {PLD__ITEMS.F_175_Symbol});
+    amountstring := replace(amountstring, "(", "-");
+    amountstring := replace(amountstring, ")", "")
+)
+--- END ---
+
+Formula: {@F_176}
+--- BEGIN ---
+if {PLD__ITEMS.F_176}='' then ' ' else {PLD__ITEMS.F_176}
+--- END ---
+
+Formula: {@F_41}
+--- BEGIN ---
+Shared StringVar currSymbol;
+
+if {PLD__ITEMS.F_41}='' then ' '
+Else TrailCurrency ({PLD__ITEMS.F_41},  {OADM.CurOnRight}, currSymbol, {PLD__ITEMS.F_41_Symbol})
+--- END ---
+
+Formula: {@F_148}
+--- BEGIN ---
+Shared BooleanVar isNewHeader;
+
+if {PLD__ITEMS.F_148}='' then ' ' 
+else ( isNewHeader := TRUE;{PLD__ITEMS.F_148})
+--- END ---
+
+Formula: {@F_149}
+--- BEGIN ---
+if {PLD__ITEMS.F_149}='' then ' ' else {PLD__ITEMS.F_149}
+--- END ---
+
+Formula: {@F_150}
+--- BEGIN ---
+if {PLD__ITEMS.F_150}='' then ' ' else {PLD__ITEMS.F_150}
+--- END ---
+
+Formula: {@F_151}
+--- BEGIN ---
+if {PLD__ITEMS.F_151}='' then ' ' else {PLD__ITEMS.F_151}
+--- END ---
+
+Formula: {@F_154}
+--- BEGIN ---
+Shared StringVar currSymbol;
+local stringvar amountstring;
+
+if trim({PLD__ITEMS.F_154}) = '' then ' '
+Else (
+    amountstring := TrailCurrency ({PLD__ITEMS.F_154},  {OADM.CurOnRight}, currSymbol, {PLD__ITEMS.F_154_Symbol});
+    amountstring := replace(amountstring, "(", "-");
+    amountstring := replace(amountstring, ")", "")
+)
+--- END ---
+
+Formula: {@F_155}
+--- BEGIN ---
+Shared StringVar currSymbol;
+local stringvar amountstring;
+
+if trim({PLD__ITEMS.F_155}) = '' then ' '
+Else (
+    amountstring := TrailCurrency ({PLD__ITEMS.F_155},  {OADM.CurOnRight}, currSymbol, {PLD__ITEMS.F_155_Symbol});
+    amountstring := replace(amountstring, "(", "-");
+    amountstring := replace(amountstring, ")", "")
+)
+--- END ---
+
+Formula: {@F_156}
+--- BEGIN ---
+Shared StringVar currSymbol;
+local stringvar amountstring;
+
+if trim({PLD__ITEMS.F_156}) = '' then ' '
+Else (
+    amountstring := TrailCurrency ({PLD__ITEMS.F_156},  {OADM.CurOnRight}, currSymbol, {PLD__ITEMS.F_156_Symbol});
+    amountstring := replace(amountstring, "(", "-");
+    amountstring := replace(amountstring, ")", "")
+)
+--- END ---
+
+Formula: {@F_157}
+--- BEGIN ---
+Shared StringVar currSymbol;
+local stringvar amountstring;
+
+if trim({PLD__ITEMS.F_157}) = '' then ' '
+Else (
+    amountstring := TrailCurrency ({PLD__ITEMS.F_157},  {OADM.CurOnRight}, currSymbol, {PLD__ITEMS.F_157_Symbol});
+    amountstring := replace(amountstring, "(", "-");
+    amountstring := replace(amountstring, ")", "")
+)
+--- END ---
+
+Formula: {@F_158}
+--- BEGIN ---
+Shared StringVar currSymbol;
+local stringvar amountstring;
+
+if trim({PLD__ITEMS.F_158}) = '' then ' '
+Else (
+    amountstring := TrailCurrency ({PLD__ITEMS.F_158},  {OADM.CurOnRight}, currSymbol, {PLD__ITEMS.F_158_Symbol});
+    amountstring := replace(amountstring, "(", "-");
+    amountstring := replace(amountstring, ")", "")
+)
+--- END ---
+
+Formula: {@F_159}
+--- BEGIN ---
+Shared StringVar currSymbol;
+
+if {PLD__ITEMS.F_159}='' then ' '
+Else TrailCurrency ({PLD__ITEMS.F_159},  {OADM.CurOnRight}, currSymbol, {PLD__ITEMS.F_159_Symbol})
+--- END ---
+
+Formula: {@F_160}
+--- BEGIN ---
+if {PLD__ITEMS.F_160}='' then ' ' 
+else {PLD__ITEMS.F_160};
+Shared StringVar ratio:=trim({PLD__ITEMS.F_160});
+
+--- END ---
+
+Formula: {@F_161}
+--- BEGIN ---
+if {PLD__ITEMS.F_161}='' then ' ' else {PLD__ITEMS.F_161};
+Shared StringVar ratio1:=trim({PLD__ITEMS.F_161});
+
+
+--- END ---
+
+Formula: {@F_162}
+--- BEGIN ---
+if {PLD__ITEMS.F_162}='' then ' ' else {PLD__ITEMS.F_162};
+Shared StringVar ratio2:=trim({PLD__ITEMS.F_162});
+--- END ---
+
+Formula: {@F_163}
+--- BEGIN ---
+if {PLD__ITEMS.F_163}='' then ' ' else {PLD__ITEMS.F_163};
+Shared StringVar ratio3:=trim({PLD__ITEMS.F_163});
+--- END ---
+
+Formula: {@F_164}
+--- BEGIN ---
+if {PLD__ITEMS.F_164}='' then ' ' else {PLD__ITEMS.F_164};
+Shared StringVar ratio4:=trim({PLD__ITEMS.F_164});
+--- END ---
+
+Formula: {@F_165}
+--- BEGIN ---
+if {PLD__ITEMS.F_165}='' then ' ' else {PLD__ITEMS.F_165};
+
+
+--- END ---
+
+Formula: {@F_124}
+--- BEGIN ---
+if {PLD__ITEMS.F_124}='' then ' ' else {PLD__ITEMS.F_124}
+--- END ---
+
+Formula: {@F_126}
+--- BEGIN ---
+//if {PLD__ITEMS.F_126}='' then ' ' else {PLD__ITEMS.F_126}
+{@__B1Notice}
+
+--- END ---
+
+Formula: {@F_127}
+--- BEGIN ---
+if {PLD__ITEMS.F_127}='' then ' ' else {PLD__ITEMS.F_127}
+--- END ---
+
+Formula: {@Declare}
+--- BEGIN ---
+Shared StringVar companyName;
+Shared StringVar reportName;
+Shared StringVar strDate;
+Shared StringVar strTime;
+
+Shared StringVar agedBy;
+Shared StringVar ageingDate;
+
+Shared BooleanVar isRepeated;
+Shared BooleanVar isNewHeader;
+
+
+Shared StringVar bpCode;
+Shared StringVar bpName;
+Shared StringVar phone;
+Shared StringVar fax;
+Shared StringVar address;
+Shared StringVar contactPerson;
+Shared StringVar sales;
+Shared StringVar CreditLimit;
+Shared StringVar CommitLimit;
+
+Shared StringVar ConnBPCode;
+Shared StringVar ConnBPName;
+
+
+--- END ---
+
+Formula: {@__strContinue}
+--- BEGIN ---
+"Continue"
+--- END ---
+
+Formula: {@__B1Notice}
+--- BEGIN ---
+"Printed by SAP Business One"
+--- END ---
+
+Formula: {@Flag}
+--- BEGIN ---
+Shared BooleanVar isRepeated;
+isRepeated := FALSE;
+--- END ---
+
+Formula: {@F_30 2}
+--- BEGIN ---
+Shared StringVar bpCode;
+Shared BooleanVar isRepeated;
+Shared BooleanVar isNewHeader;
+
+If Len(Trim(bpCode)) > 0  and not isNewHeader Then
+    isRepeated := TRUE;
+
+bpCode
+--- END ---
+
+Formula: {@Show}
+--- BEGIN ---
+Shared BooleanVar isRepeated
+--- END ---
+
+Formula: {@Head}
+--- BEGIN ---
+Shared BooleanVar isNewHeader
+--- END ---
+
+Formula: {@SetNewHeaderFalse}
+--- BEGIN ---
+Shared BooleanVar isNewHeader;
+isNewHeader := FALSE
+--- END ---
+
+Formula: {@PlaceHolder}
+--- BEGIN ---
+Shared BooleanVar isNewHeader;
+isNewHeader := FALSE
+--- END ---
+
+Formula: {@F_31 2}
+--- BEGIN ---
+Shared StringVar bpName;
+--- END ---
+
+Formula: {@F_144 2}
+--- BEGIN ---
+Shared StringVar phone;
+--- END ---
+
+Formula: {@F_136 2}
+--- BEGIN ---
+Shared StringVar address;
+--- END ---
+
+Formula: {@F_134 2}
+--- BEGIN ---
+Shared StringVar contactPerson;
+--- END ---
+
+Formula: {@F_132 2}
+--- BEGIN ---
+Shared StringVar sales;
+--- END ---
+
+Formula: {@F_140 2}
+--- BEGIN ---
+Shared StringVar CreditLimit;
+--- END ---
+
+Formula: {@F_138 2}
+--- BEGIN ---
+Shared StringVar CommitLimit;
+--- END ---
+
+Formula: {@F_142 2}
+--- BEGIN ---
+Shared StringVar fax;
+--- END ---
+
+Formula: {@ColorTableHdr}
+--- BEGIN ---
+Color(240, 244, 247)
+--- END ---
+
+Formula: {@__ReportTitle}
+--- BEGIN ---
+"Customer Statement"
+--- END ---
+
+Formula: {@strDate}
+--- BEGIN ---
+Shared StringVar strDate;
+--- END ---
+
+Formula: {@strTime}
+--- BEGIN ---
+Shared StringVar strTime;
+--- END ---
+
+Formula: {@Document}
+--- BEGIN ---
+{@__strDocument}
+--- END ---
+
+Formula: {@__strDocument}
+--- BEGIN ---
+"Document"
+--- END ---
+
+Formula: {@PageIndicator}
+--- BEGIN ---
+ToText(PageNumber, 0) +' / '+ToText(TotalPageCount, 0) 
+--- END ---
+
+Formula: {@CurrencySymbol}
+--- BEGIN ---
+//Shared Stringvar Symbol;
+//if {PLD__ITEMS._Page} = 1 then
+// Symbol:= NthLargest (1, {PLD__ITEMS.F_38_Symbol});
+//Symbol
+Shared StringVar isMultiCurr;
+shared stringvar currSymbol := NthLargest (1,{PLD__ITEMS.F_38_Symbol});
+if (currSymbol='' or currSymbol=' ') and DistinctCount ({PLD__ITEMS.F_38_Symbol}) =2 then
+ currSymbol := NthLargest (2,{PLD__ITEMS.F_38_Symbol});
+if isMultiCurr = 'Y' then
+currSymbol := {@__AllCurrency};
+
+currSymbol
+--- END ---
+
+Formula: {@F_38}
+--- BEGIN ---
+//Shared Stringvar Symbol;
+//Local StringVar str:=trim({PLD__ITEMS.F_38});
+//if str ='' then ' ' 
+//else 
+//( if {PLD__ITEMS.F_38_Symbol} = Symbol then
+//         (if NumericText (split( str, Symbol)[2]) then str := split( str, Symbol)[2] else str := split( str, Symbol)[1]);
+//  str; 
+//)
+
+Shared StringVar currSymbol;
+local stringvar amountstring;
+
+if trim({PLD__ITEMS.F_38})='' then ' '
+Else (
+    amountstring:=TrailCurrency ({PLD__ITEMS.F_38},  {OADM.CurOnRight}, currSymbol, {PLD__ITEMS.F_38_Symbol});
+    amountstring := replace(amountstring, "(", "-");
+    amountstring := replace(amountstring, ")", "")
+)
+--- END ---
+
+Formula: {@F_39}
+--- BEGIN ---
+//Shared Stringvar Symbol;
+//Local StringVar str:=trim({PLD__ITEMS.F_39});
+//if str ='' then ' ' 
+//else 
+//( if {PLD__ITEMS.F_39_Symbol} = Symbol then
+//		 (if NumericText (split( str, Symbol)[2]) then str := split( str, Symbol)[2] else str:=split( str, Symbol)[1]);
+//  str; 
+//)
+
+Shared StringVar currSymbol;
+
+if {PLD__ITEMS.F_39}='' then ' '
+Else TrailCurrency ({PLD__ITEMS.F_39},  {OADM.CurOnRight}, currSymbol, {PLD__ITEMS.F_39_Symbol})
+--- END ---
+
+Formula: {@CurrencyCount}
+--- BEGIN ---
+Shared booleanvar multiCurr;
+Shared numbervar currCount;
+local numbervar currNum;
+Shared Stringvar currSymbol;
+local numbervar i;
+local stringvar tmp;
+local stringvar curr1;
+local stringvar curr2;
+local stringvar curr3;
+local stringvar array x;
+local numbervar tempcount := 0;
+local numbervar tempcount2 :=0;
+
+multiCurr := false;
+currNum := 1;
+
+currCount := distinctcount ({PLD__ITEMS.F_38_Symbol});
+
+if currCount > 3 then (multiCurr := true; currSymbol := '******';)
+else
+    if currCount = 1 then (multiCurr := false; currSymbol := NthMostFrequent (1, {PLD__ITEMS.F_38_Symbol}) )
+    else
+        if currCount = 2 then
+        (
+            curr1 := trim(NthMostFrequent (1, {PLD__ITEMS.F_38_Symbol}));
+            curr2 := trim(NthMostFrequent (2, {PLD__ITEMS.F_38_Symbol}));
+            if curr1 <> '' and right(curr1, 1) <> '*' and curr2 <> '' and right(curr2,1) <> '*' then
+            (
+                multiCurr := true; 
+                currSymbol := '******';
+            )else 
+                if curr1 <> '' and right(curr1, 1) <> '*' then currSymbol := curr1
+                    else if curr2 <> '' and right(curr2,1) <> '*' then currSymbol := curr2
+            
+        )else (
+            if currCount = 3 then
+            (
+                curr1 := trim(NthMostFrequent (1, {PLD__ITEMS.F_38_Symbol}));
+                curr2 := trim(NthMostFrequent (2, {PLD__ITEMS.F_38_Symbol}));
+                curr3 := trim(NthMostFrequent (3, {PLD__ITEMS.F_38_Symbol}));
+                x := makearray(curr1, curr2, curr3);
+                for i := 1 to 3 do
+                    if x[i] <> '' and right(x[i],1) <> '*' then (tempcount := tempcount + 1; tempcount2 := i);
+                if tempcount > 1 then (multiCurr := true; currSymbol := '******';)
+                else (multiCurr := false; currSymbol := x[tempcount2];)
+            )
+        );
+''
+
+--- END ---
+
+Formula: {@F_200}
+--- BEGIN ---
+if {PLD__ITEMS.F_200}='' then ' ' else {PLD__ITEMS.F_200}
+--- END ---
+
+Formula: {@F_201}
+--- BEGIN ---
+Shared StringVar currSymbol;
+local stringvar amountstring;
+local numbervar i;
+
+if trim({PLD__ITEMS.F_201})='' then
+(
+    amountstring := "0";
+    if {OADM.SumDec} > 0 then amountstring := amountstring + {OADM.DecSep};
+    for i:= 1 to {OADM.SumDec} do
+    (
+        amountstring := amountstring + "0";
+    )
+);
+if trim({PLD__ITEMS.F_201})<>'' then
+(
+    amountstring:=TrailCurrency ({PLD__ITEMS.F_201},  {OADM.CurOnRight}, currSymbol, {PLD__ITEMS.F_201_Symbol});
+    amountstring := replace(amountstring, "(", "-");
+    amountstring := replace(amountstring, ")", "") 
+);
+
+amountstring
+
+
+
+--- END ---
+
+Formula: {@F_202}
+--- BEGIN ---
+Shared StringVar str:=trim({PLD__ITEMS.F_202});
+--- END ---
+
+Formula: {@F_203}
+--- BEGIN ---
+EvaluateAfter ({@F_202});
+Shared StringVar str;
+
+local stringvar amountstring:=str;
+
+amountstring := replace(amountstring, "(", "-");
+amountstring := replace(amountstring, ")", "")
+--- END ---
+
+Formula: {@__AllCurrency}
+--- BEGIN ---
+'All'
+--- END ---
+
+Formula: {@F_204}
+--- BEGIN ---
+Shared StringVar isMultiCurr :=  Maximum({PLD__ITEMS.F_204});
+
+--- END ---
+
+Formula: {@F_210}
+--- BEGIN ---
+Shared StringVar ratio;
+
+local stringvar amountstring;
+
+amountstring:=ratio;
+if trim(amountstring) <> '' then(
+amountstring:=replace(amountstring, "%", "");
+amountstring:=trim(amountstring) + " %";
+);
+
+amountstring
+--- END ---
+
+Formula: {@F_211}
+--- BEGIN ---
+Shared StringVar ratio1;
+
+local stringvar amountstring;
+
+amountstring:=ratio1;
+if trim(amountstring) <> '' then (
+amountstring:=replace(amountstring, "%", "");
+amountstring:=trim(amountstring) + " %";
+);
+
+amountstring
+--- END ---
+
+Formula: {@F_212}
+--- BEGIN ---
+Shared StringVar ratio2;
+
+local stringvar amountstring;
+
+amountstring:=ratio2;
+if trim(amountstring)<> '' then(
+amountstring:=replace(amountstring, "%", "");
+amountstring:=trim(amountstring) + " %";
+);
+amountstring
+--- END ---
+
+Formula: {@F_213}
+--- BEGIN ---
+Shared StringVar ratio3;
+
+local stringvar amountstring;
+
+amountstring:=ratio3;
+if trim(amountstring)<> '' then(
+amountstring:=replace(amountstring, "%", "");
+amountstring:=trim(amountstring) + " %";
+);
+amountstring
+--- END ---
+
+Formula: {@F_214}
+--- BEGIN ---
+Shared StringVar ratio4;
+
+local stringvar amountstring;
+
+amountstring:=ratio4;
+if trim(amountstring)<> '' then ( 
+amountstring:=replace(amountstring, "%", "");
+amountstring:=trim(amountstring) + " %";
+);
+amountstring
+--- END ---
+
+Formula: {@F_215}
+--- BEGIN ---
+Shared StringVar ratio5;
+
+local stringvar amountstring;
+
+amountstring:=ratio5;
+if trim(amountstring)<>'' then(
+amountstring:=replace(amountstring, "%", "");
+amountstring:=trim(amountstring) + " %";
+);
+amountstring
+--- END ---
+
+Formula: {@F_216}
+--- BEGIN ---
+Shared StringVar ratio6;
+
+local stringvar amountstring;
+
+amountstring:=ratio6;
+if trim(amountstring)<>'' then (
+amountstring:=replace(amountstring, "%", "");
+amountstring:=trim(amountstring) + " %";
+);
+amountstring
+--- END ---
+
+Formula: {@F_178}
+--- BEGIN ---
+Shared StringVar ConnBPCode;
+ConnBPCode:={PLD__ITEMS.F_178};
+
+if {PLD__ITEMS.F_178}='' then ' ' 
+else ( ConnBPCode)
+--- END ---
+
+Formula: {@F_179}
+--- BEGIN ---
+Shared StringVar ConnBPName;
+ConnBPName:={PLD__ITEMS.F_179};
+
+if {PLD__ITEMS.F_179}='' then ' ' 
+else ( ConnBPName)
+--- END ---
+
+
+************************************************************
+  CONNECTION INFO
+************************************************************
+Table:    PLD__ITEMS
+  Server:   NewDataSet
+  Database: 
+  UserID:   
+
+Table:    OADP
+  Server:   DRIVER={HDBODBC32};UID=SYSTEM;PWD=manager;SERVERNODE=10.55.178.115:30915;DATABASE=SBODEMODE
+  Database: 
+  UserID:   
+
+Table:    OADM
+  Server:   DRIVER={HDBODBC32};UID=SYSTEM;PWD=manager;SERVERNODE=10.55.178.115:30915;DATABASE=SBODEMODE
+  Database: 
+  UserID:   
+
+
+************************************************************
+  TABLE LINKS
+************************************************************
+(No table links)
+
+************************************************************
+  RECORD SELECTION FORMULA
+************************************************************
+(No record selection formula)
+
+
