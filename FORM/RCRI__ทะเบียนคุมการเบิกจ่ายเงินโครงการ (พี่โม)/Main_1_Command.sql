@@ -1,12 +1,4 @@
-﻿-- ============================================================
--- Report: RCRI0013__ทะเบียนคุมการเบิกจ่ายเงินโครงการ (พี่โม).rpt
-Path:   RCRI0013__ทะเบียนคุมการเบิกจ่ายเงินโครงการ (พี่โม).rpt
-Extracted: 2026-05-07 18:03:34
--- Source: Main Report
--- Table:  Command
--- ============================================================
-
-SELECT * FROM (
+﻿SELECT * FROM (
     SELECT DISTINCT
         OPMG."AbsEntry",
         OPRJ."U_SLD_Period" AS "ปีงบประมาณ",
@@ -30,6 +22,8 @@ SELECT * FROM (
         || ' ' || TO_VARCHAR(ADD_YEARS(OPCH."DocDate", 543), 'YY') AS "วันที่จ่ายจริง",
 		
 		Concat(NNM1."SeriesName",OPCH."DocNum") AS "DocNum",
+				Concat(NNM2."SeriesName",OVPM."DocNum") AS "เอกสารจ่าย",
+
         CASE 
             WHEN IFNULL(PMG2."U_U_SLD_InstAmt",0) <= 0  AND IFNULL(OPCH."PaidToDate",0) > 0 THEN (IFNULL(PMG1."EXPCOSTS",0) - OPCH."PaidToDate")  
             WHEN IFNULL(PMG2."U_U_SLD_InstAmt",0) > 0  AND IFNULL(OPCH."PaidToDate",0) <= 0 THEN (IFNULL(PMG1."EXPCOSTS",0) - IFNULL(PMG2."U_U_SLD_InstAmt",0))
@@ -77,9 +71,10 @@ SELECT * FROM (
     LEFT JOIN {?Schema@}.OPCH ON PMG4."DocEntry" = OPCH."DocEntry" AND OPCH."CANCELED" = 'N' --AND OPCH."NumAtCard" LIKE '%' || TO_VARCHAR(PMG1."StageID") --AND OPCH."CANCELED" = 'N'
     LEFT JOIN  {?Schema@}.PMG2 ON PMG1."AbsEntry" = PMG2."AbsEntry" AND PMG1."StageID" = PMG2."PRIORITY" 
     LEFT JOIN  {?Schema@}.NNM1 ON OPCH."Series" = NNM1."Series"
-    
-    -- Removed the ORDER BY from here
-) AS "DEV"
+    LEFT JOIN {?Schema@}.VPM2 ON OPCH."DocEntry" = VPM2."DocEntry"  AND VPM2."InvType" = 18               
+LEFT JOIN {?Schema@}.OVPM ON VPM2."DocNum" = OVPM."DocEntry"     
+LEFT JOIN {?Schema@}.NNM1 NNM2 ON OVPM."Series" = NNM2."Series"        
+    ) AS "DEV"
 WHERE 1=1
 AND (DEV."ปีงบประมาณ" = '{?Period@}' OR '{?Period@}' = ' ')
 AND (DEV."สถานะโครงการ(ภาพรวม)" = '{?Status@}' OR '{?Status@}' = ' ')
