@@ -22,9 +22,9 @@ Extracted: 2026-05-07 18:03:38
     SELECT                                                             
       A1."ItemCode",                                                   
       A1."ItemName",                                                   
-      A1."AcqDate"                                                     
+      A1."AcqDate"
             AS acq_date,
-      IFNULL(A1."LastPurPrc", 0)
+      COALESCE(NULLIF(A6.apc, 0), NULLIF(A5."Total", 0), A1."LastPurPrc", 0)
             AS cost,
       A1."AssetClass"
             AS asset_class_code,
@@ -52,8 +52,16 @@ Extracted: 2026-05-07 18:03:38
   = A3."Code"
     LEFT JOIN {?Schema@}."@SLD_FIXED_ASSETS_Y" A4 ON A1."U_SLD_Y"
   = A4."Code"
+    LEFT JOIN {?Schema@}."ACQ3"                A5 ON A1."ItemCode"
+  = A5."ItemCode" AND A5."DprArea" = 'Posting'
+    LEFT JOIN (
+      SELECT i."ItemCode", MAX(i."APC") AS apc
+      FROM {?Schema@}."ITM8" i
+      WHERE i."DprArea" = 'Posting'
+      GROUP BY i."ItemCode"
+    )                                          A6 ON A1."ItemCode"
+  = A6."ItemCode"
     WHERE A1."ItemType" = 'F'
-    AND A1."AcqDate" IS NOT NULL
   ),
   odpv_agg AS (
     SELECT
@@ -193,7 +201,7 @@ Extracted: 2026-05-07 18:03:38
     WHERE ('{?ItemGroup@}' = '' OR s.itm_grp_cod = '{?ItemGroup@}')
   )
   SELECT
-    ROW_NUMBER() OVER (ORDER BY c.acq_date, c."ItemCode")
+    ROW_NUMBER() OVER (ORDER BY c.acq_date ASC NULLS LAST, c."ItemCode")
            AS "ลำดับที่",
     c.acq_date
            AS "วัน/เดือน/ปี",
@@ -293,6 +301,7 @@ Extracted: 2026-05-07 18:03:38
       CASE WHEN c.y0+2 > IFNULL(o.max_fy,0) THEN (c.d_y7 -
   c.d_y6)*c.cost/c.life_days
            ELSE IFNULL(o.dep_y7,0) END
+          
     ELSE 0 END,2)
             AS "ค่าเสื่อม Y7",
     ROUND(CASE WHEN c.depr=1 THEN
@@ -343,4 +352,4 @@ Extracted: 2026-05-07 18:03:38
             AS "กลุ่มงาน"
   FROM calc c
   LEFT JOIN odpv_agg o ON c."ItemCode" = o."ItemCode"
-  ORDER BY c.acq_date, c."ItemCode";
+  ORDER BY c.acq_date ASC NULLS LAST, c."ItemCode";
