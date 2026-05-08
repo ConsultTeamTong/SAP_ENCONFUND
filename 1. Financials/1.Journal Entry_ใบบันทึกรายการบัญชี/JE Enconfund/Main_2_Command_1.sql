@@ -1,0 +1,51 @@
+﻿-- ============================================================
+-- Report: JE Enconfund.rpt
+Path:   JE Enconfund.rpt
+Extracted: 2026-05-08 11:27:43
+-- Source: Main Report
+-- Table:  Command_1
+-- ============================================================
+
+WITH "ChangePoints" AS (
+    SELECT 
+        C."TransId",
+        MAX(CASE WHEN IFNULL(C."U_SLD_CreateBy",'')   <> IFNULL(P."U_SLD_CreateBy",'')   
+                 THEN C."LogInstanc" END) AS "CreateInst",
+        MAX(CASE WHEN IFNULL(C."U_SLD_VerifiedBy",'') <> IFNULL(P."U_SLD_VerifiedBy",'') 
+                 THEN C."LogInstanc" END) AS "VerifyInst",
+        MAX(CASE WHEN IFNULL(C."U_SLD_ApprovedBy",'') <> IFNULL(P."U_SLD_ApprovedBy",'') 
+                 THEN C."LogInstanc" END) AS "ApproveInst"
+    FROM "{?Schema@}"."AJDT" C
+    LEFT JOIN "{?Schema@}"."AJDT" P 
+           ON P."TransId" = C."TransId" 
+          AND P."LogInstanc" = C."LogInstanc" - 1
+    GROUP BY C."TransId"
+)
+SELECT
+    TC."lastName" || ' ' || TC."firstName" AS "ชื่อผู้จัดทำ",
+    TV."lastName" || ' ' || TV."firstName" AS "ชื่อผู้ตรวจ",
+    TA."lastName" || ' ' || TA."firstName" AS "ชื่อผู้ยืนยัน",
+    HC."descriptio" AS "ตำแหน่งจัดทำ",
+    HV."descriptio" AS "ตำแหน่งตรวจ",
+    HA."descriptio" AS "ตำแหน่งยืนยัน",
+    DC."UpdateDate" AS "วันที่จัดทำ",
+    DV."UpdateDate" AS "วันที่ตรวจ",
+    DA."UpdateDate" AS "วันที่ยืนยัน"
+FROM "{?Schema@}"."OJDT" HEAD
+LEFT JOIN "{?Schema@}"."OHEM" TC 
+       ON TO_NVARCHAR(TC."empID") = IFNULL(HEAD."U_SLD_CreateBy",'')
+LEFT JOIN "{?Schema@}"."OHEM" TV 
+       ON TO_NVARCHAR(TV."empID") = IFNULL(HEAD."U_SLD_VerifiedBy",'')
+LEFT JOIN "{?Schema@}"."OHEM" TA 
+       ON TO_NVARCHAR(TA."empID") = IFNULL(HEAD."U_SLD_ApprovedBy",'') 
+LEFT JOIN "{?Schema@}"."OHPS" HC ON HC."posID" = TC."position"            
+LEFT JOIN "{?Schema@}"."OHPS" HV ON HV."posID" = TV."position"
+LEFT JOIN "{?Schema@}"."OHPS" HA ON HA."posID" = TA."position"
+LEFT JOIN "ChangePoints" CP ON CP."TransId" = HEAD."TransId"
+LEFT JOIN "{?Schema@}"."AJDT" DC 
+       ON DC."TransId" = HEAD."TransId" AND DC."LogInstanc" = CP."CreateInst"
+LEFT JOIN "{?Schema@}"."AJDT" DV 
+       ON DV."TransId" = HEAD."TransId" AND DV."LogInstanc" = CP."VerifyInst"
+LEFT JOIN "{?Schema@}"."AJDT" DA 
+       ON DA."TransId" = HEAD."TransId" AND DA."LogInstanc" = CP."ApproveInst"
+WHERE HEAD."TransId" = {?DocKey@}
