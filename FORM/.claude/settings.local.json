@@ -1,0 +1,41 @@
+{
+  "permissions": {
+    "allow": [
+      "PowerShell(& 'C:\\\\Program Files\\\\sap\\\\hdbclient\\\\hdbuserstore.exe' LIST)",
+      "PowerShell(& 'C:\\\\Program Files\\\\sap\\\\hdbclient\\\\hdbuserstore.exe' LIST -v)",
+      "PowerShell(& 'C:\\\\Program Files\\\\sap\\\\hdbclient\\\\hdbsql.exe' -n 10.21.100.31:30015 -u SYSTEM -p 'Enc0nfund' -A -j -I 'C:\\\\Github\\\\Enconfund\\\\FORM\\\\_diag\\\\diag_oitm_cost.sql')",
+      "PowerShell(& 'C:\\\\Program Files\\\\sap\\\\hdbclient\\\\hdbsql.exe' -n 10.21.100.31:30015 -u SYSTEM -p 'Enc0nfund' -A -j -I 'C:\\\\Github\\\\Enconfund\\\\FORM\\\\_diag\\\\diag_odpv_cols.sql')",
+      "PowerShell(& 'C:\\\\Program Files\\\\sap\\\\hdbclient\\\\hdbsql.exe' -n 10.21.100.31:30015 -u SYSTEM -p 'Enc0nfund' -A -j -I 'C:\\\\Github\\\\Enconfund\\\\FORM\\\\_diag\\\\diag_compare.sql')",
+      "PowerShell(& 'C:\\\\Program Files\\\\sap\\\\hdbclient\\\\hdbsql.exe' -n 10.21.100.31:30015 -u SYSTEM -p 'Enc0nfund' -A -j -I 'C:\\\\Github\\\\Enconfund\\\\FORM\\\\_diag\\\\diag_compare2.sql')",
+      "PowerShell(& 'C:\\\\Program Files\\\\sap\\\\hdbclient\\\\hdbsql.exe' -n 10.21.100.31:30015 -u SYSTEM -p 'Enc0nfund' -A -j -I 'C:\\\\Github\\\\Enconfund\\\\FORM\\\\_diag\\\\diag_imports.sql')",
+      "PowerShell(& 'C:\\\\Program Files\\\\sap\\\\hdbclient\\\\hdbsql.exe' -n 10.21.100.31:30015 -u SYSTEM -p 'Enc0nfund' -A -j -I 'C:\\\\Github\\\\Enconfund\\\\FORM\\\\_diag\\\\diag_other_tables.sql')",
+      "PowerShell(& 'C:\\\\Program Files\\\\sap\\\\hdbclient\\\\hdbsql.exe' -n 10.21.100.31:30015 -u SYSTEM -p 'Enc0nfund' -A -j -I 'C:\\\\Github\\\\Enconfund\\\\FORM\\\\_diag\\\\diag_acq1.sql')",
+      "PowerShell(& 'C:\\\\Program Files\\\\sap\\\\hdbclient\\\\hdbsql.exe' -n 10.21.100.31:30015 -u SYSTEM -p 'Enc0nfund' -A -j -I 'C:\\\\Github\\\\Enconfund\\\\FORM\\\\_diag\\\\diag_acq1_data.sql')",
+      "PowerShell(& 'C:\\\\Program Files\\\\sap\\\\hdbclient\\\\hdbsql.exe' -n 10.21.100.31:30015 -u SYSTEM -p 'Enc0nfund' -A -j -I 'C:\\\\Github\\\\Enconfund\\\\FORM\\\\_diag\\\\diag_acq1_all.sql')",
+      "PowerShell(& 'C:\\\\Program Files\\\\sap\\\\hdbclient\\\\hdbsql.exe' -n 10.21.100.31:30015 -u SYSTEM -p 'Enc0nfund' -A -j -I 'C:\\\\Github\\\\Enconfund\\\\FORM\\\\_diag\\\\diag_search8.sql')",
+      "PowerShell(& 'C:\\\\Program Files\\\\sap\\\\hdbclient\\\\hdbsql.exe' -n 10.21.100.31:30015 -u SYSTEM -p 'Enc0nfund' -A -j -I 'C:\\\\Github\\\\Enconfund\\\\FORM\\\\_diag\\\\diag_udf.sql')",
+      "PowerShell(& 'C:\\\\Program Files\\\\sap\\\\hdbclient\\\\hdbsql.exe' -n 10.21.100.31:30015 -u SYSTEM -p 'Enc0nfund' -A -j -I 'C:\\\\Github\\\\Enconfund\\\\FORM\\\\_diag\\\\diag_acq3.sql')",
+      "PowerShell(& 'C:\\\\Program Files\\\\sap\\\\hdbclient\\\\hdbsql.exe' -n 10.21.100.31:30015 -u SYSTEM -p 'Enc0nfund' -A -j -I 'C:\\\\Github\\\\Enconfund\\\\FORM\\\\_diag\\\\diag_acq3_data.sql')",
+      "PowerShell(& 'C:\\\\Program Files\\\\sap\\\\hdbclient\\\\hdbsql.exe' -n 10.21.100.31:30015 -u SYSTEM -p 'Enc0nfund' -A -j -I 'C:\\\\Github\\\\Enconfund\\\\FORM\\\\_diag\\\\test_main.sql' -o 'C:\\\\Github\\\\Enconfund\\\\FORM\\\\_diag\\\\test_main_out.txt' 2>&1 | Select-Object -First 5; \\(Get-Item 'C:\\\\Github\\\\Enconfund\\\\FORM\\\\_diag\\\\test_main_out.txt'\\).Length)",
+      "Bash(awk 'NR<=3 || /7105-0603-0001|7440-0118-0001|7440-0602|7440-0901-0018/ {print}' /c/Github/Enconfund/FORM/_diag/test_main_out.txt)",
+      "Bash(awk 'NR>=12 && NR<=14' /c/Github/Enconfund/FORM/_diag/test_main_out.txt)",
+      "PowerShell(& 'C:\\\\Program Files\\\\sap\\\\hdbclient\\\\hdbsql.exe' -n 10.21.100.31:30015 -u SYSTEM -p 'Enc0nfund' -A -j -I 'C:\\\\Github\\\\Enconfund\\\\FORM\\\\_diag\\\\test_main.sql' -o 'C:\\\\Github\\\\Enconfund\\\\FORM\\\\_diag\\\\test_main_out.txt' 2>&1; \\(Get-Item 'C:\\\\Github\\\\Enconfund\\\\FORM\\\\_diag\\\\test_main_out.txt'\\).Length)",
+      "Bash(awk *)",
+      "Read(//c/Users/User/.claude/projects/C--Github-Enconfund/**)",
+      "Read(//c/Users/User/.claude/projects/C--Github-Enconfund/memory/**)",
+      "PowerShell(& 'C:\\\\Program Files\\\\sap\\\\hdbclient\\\\hdbsql.exe' -n 10.21.100.31:30015 -u SYSTEM -p 'Enc0nfund' -A -j -I 'C:\\\\Github\\\\Enconfund\\\\FORM\\\\_diag\\\\diag_intangible.sql')",
+      "PowerShell(& 'C:\\\\Program Files\\\\sap\\\\hdbclient\\\\hdbsql.exe' -n 10.21.100.31:30015 -u SYSTEM -p 'Enc0nfund' -A -j -I 'C:\\\\Github\\\\Enconfund\\\\FORM\\\\_diag\\\\diag_odpv_check.sql' | Select-Object -First 30)",
+      "PowerShell(& 'C:\\\\Program Files\\\\sap\\\\hdbclient\\\\hdbsql.exe' -n 10.21.100.31:30015 -u SYSTEM -p 'Enc0nfund' -A -j -I 'C:\\\\Github\\\\Enconfund\\\\FORM\\\\_diag\\\\diag_intangible_all.sql')",
+      "PowerShell(& 'C:\\\\Program Files\\\\sap\\\\hdbclient\\\\hdbsql.exe' -n 10.21.100.31:30015 -u SYSTEM -p 'Enc0nfund' -A -j -I 'C:\\\\Github\\\\Enconfund\\\\FORM\\\\_diag\\\\diag_schema_list.sql')",
+      "PowerShell(& 'C:\\\\Program Files\\\\sap\\\\hdbclient\\\\hdbsql.exe' -n 10.21.100.31:30015 -u SYSTEM -p 'Enc0nfund' -A -j -I 'C:\\\\Github\\\\Enconfund\\\\FORM\\\\_diag\\\\diag_schema_compare.sql')",
+      "PowerShell(& 'C:\\\\Program Files\\\\sap\\\\hdbclient\\\\hdbsql.exe' -n 10.21.100.31:30015 -u SYSTEM -p 'Enc0nfund' -A -j -I 'C:\\\\Github\\\\Enconfund\\\\FORM\\\\_diag\\\\diag_fa1_check.sql')",
+      "PowerShell(& 'C:\\\\Program Files\\\\sap\\\\hdbclient\\\\hdbsql.exe' -n 10.21.100.31:30015 -u SYSTEM -p 'Enc0nfund' -A -j -I 'C:\\\\Github\\\\Enconfund\\\\FORM\\\\_diag\\\\diag_fa1_tables.sql')",
+      "PowerShell(& 'C:\\\\Program Files\\\\sap\\\\hdbclient\\\\hdbsql.exe' -n 10.21.100.31:30015 -u SYSTEM -p 'Enc0nfund' -A -j -I 'C:\\\\Github\\\\Enconfund\\\\FORM\\\\_diag\\\\diag_fa1_sample.sql')",
+      "PowerShell(& 'C:\\\\Program Files\\\\sap\\\\hdbclient\\\\hdbsql.exe' -n 10.21.100.31:30015 -u SYSTEM -p 'Enc0nfund' -A -j -I 'C:\\\\Github\\\\Enconfund\\\\FORM\\\\_diag\\\\diag_fa1_oitm_sample.sql')",
+      "PowerShell(& 'C:\\\\Program Files\\\\sap\\\\hdbclient\\\\hdbsql.exe' -n 10.21.100.31:30015 -u SYSTEM -p 'Enc0nfund' -A -j -I 'C:\\\\Github\\\\Enconfund\\\\FORM\\\\_diag\\\\diag_fa1_more.sql')",
+      "PowerShell(& 'C:\\\\Program Files\\\\sap\\\\hdbclient\\\\hdbsql.exe' -n 10.21.100.31:30015 -u SYSTEM -p 'Enc0nfund' -A -j -I 'C:\\\\Github\\\\Enconfund\\\\FORM\\\\_diag\\\\diag_itm8.sql')",
+      "PowerShell(& 'C:\\\\Program Files\\\\sap\\\\hdbclient\\\\hdbsql.exe' -n 10.21.100.31:30015 -u SYSTEM -p 'Enc0nfund' -A -j -I 'C:\\\\Github\\\\Enconfund\\\\FORM\\\\_diag\\\\diag_itm8_verify.sql' -o 'C:\\\\Github\\\\Enconfund\\\\FORM\\\\_diag\\\\out_itm8_verify.txt'; Get-Content 'C:\\\\Github\\\\Enconfund\\\\FORM\\\\_diag\\\\out_itm8_verify.txt' | Select-Object -First 60)",
+      "PowerShell(& 'C:\\\\Program Files\\\\sap\\\\hdbclient\\\\hdbsql.exe' -n 10.21.100.31:30015 -u SYSTEM -p 'Enc0nfund' -A -j -I 'C:\\\\Github\\\\Enconfund\\\\FORM\\\\_diag\\\\test_fa1.sql' -o 'C:\\\\Github\\\\Enconfund\\\\FORM\\\\_diag\\\\out_fa1.txt' 2>&1; & 'C:\\\\Program Files\\\\sap\\\\hdbclient\\\\hdbsql.exe' -n 10.21.100.31:30015 -u SYSTEM -p 'Enc0nfund' -A -j -I 'C:\\\\Github\\\\Enconfund\\\\FORM\\\\_diag\\\\test_test.sql' -o 'C:\\\\Github\\\\Enconfund\\\\FORM\\\\_diag\\\\out_test.txt' 2>&1; \"FA1 size: $\\(\\(Get-Item 'C:\\\\Github\\\\Enconfund\\\\FORM\\\\_diag\\\\out_fa1.txt'\\).Length\\); TEST size: $\\(\\(Get-Item 'C:\\\\Github\\\\Enconfund\\\\FORM\\\\_diag\\\\out_test.txt'\\).Length\\)\")"
+    ]
+  }
+}
