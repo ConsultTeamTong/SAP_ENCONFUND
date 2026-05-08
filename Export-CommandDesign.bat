@@ -14,7 +14,7 @@ if not exist "%SCRIPT%" (
     exit /b 1
 )
 
-powershell.exe -NoProfile -ExecutionPolicy Bypass -File "%SCRIPT%" -RptFolder "%RPT_FOLDER%" -OutputRoot "%OUTPUT_ROOT%" -FlatOutput
+powershell.exe -NoProfile -ExecutionPolicy Bypass -File "%SCRIPT%" -RptFolder "%RPT_FOLDER%" -OutputRoot "%OUTPUT_ROOT%"
 
 echo.
 pause
