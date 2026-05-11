@@ -1,7 +1,7 @@
 ﻿-- ============================================================
 -- Report: RCRI0011__รายงานเงินรับฝากอื่น.rpt
 Path:   RCRI0011__รายงานเงินรับฝากอื่น.rpt
-Extracted: 2026-05-07 18:03:34
+Extracted: 2026-05-11 14:35:47
 -- Source: Main Report
 -- Table:  Command
 -- ============================================================
@@ -13,7 +13,7 @@ SELECT
     CONCAT(IC."BeginStr", ORCT."DocNum") AS "DocNumIC",
     ORCT."TransId",
     RCT4."LineId",
-    RCT4."AcctCode", 
+    COALESCE(RCT4."AcctCode", RCT4."U_SLD_BankNo"),
     
     CAST(DAYOFMONTH(ORCT."DocDate") AS NVARCHAR) || ' ' || 
 MAP(MONTH(ORCT."DocDate"), 1,'ม.ค.', 2,'ก.พ.', 3,'มี.ค.', 4,'เม.ย.', 5,'พ.ค.', 6,'มิ.ย.', 7,'ก.ค.', 8,'ส.ค.', 9,'ก.ย.', 10,'ต.ค.', 11,'พ.ย.', 12,'ธ.ค.') 
