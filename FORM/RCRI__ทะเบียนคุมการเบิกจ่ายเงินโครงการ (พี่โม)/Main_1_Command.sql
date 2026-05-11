@@ -7,7 +7,7 @@
         OPRJ."U_SLD_ProjectName" AS "ชื่อโครงการ",
         OPMG."NAME" AS "หนังสือเลขที่",
         OPMG."CARDNAME" AS "ผู้ได้รับการสนับสนุน",
-        PMG1."UniqueID" AS "งวดเบิกจ่ายตามหนังสือยืนยัน",
+        'งวดที่' || ' ' || PMG1."StageID" AS "งวดเบิกจ่ายตามหนังสือยืนยัน",
         PMG1."EXPCOSTS" AS "จำนวนเงินตามหนังสือยืนยัน",
 
         CASE WHEN PMG1."CLOSE" IS NOT NULL THEN
