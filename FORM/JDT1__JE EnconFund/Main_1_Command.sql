@@ -35,31 +35,32 @@ SELECT
     IFNULL(MAX(T14."U_SLD_ConfDocNo") OVER (PARTITION BY HEAD."TransId"), '') AS "เลขที่หนังสือยืนยัน",
     IFNULL(MAX(T13."U_U_SLD_Plan") OVER (PARTITION BY HEAD."TransId"), '') AS "แผนงาน",
     T14."U_SLD_ProjectName" AS "ชื่อโครงการ"
-FROM "{?Schema@}"."OJDT" HEAD
-INNER JOIN "{?Schema@}"."JDT1" LINE ON HEAD."TransId" = LINE."TransId"
-LEFT JOIN "{?Schema@}"."ITR1" RC 
+FROM {?Schema@}."OJDT" HEAD
+INNER JOIN {?Schema@}."JDT1" LINE ON HEAD."TransId" = LINE."TransId"
+LEFT JOIN {?Schema@}."ITR1" RC 
        ON HEAD."TransId"  = RC."TransId" 
       AND LINE."Line_ID"  = RC."TransRowId"
-LEFT JOIN "{?Schema@}"."OITR" RH
+LEFT JOIN {?Schema@}."OITR" RH
        ON RC."ReconNum"   = RH."ReconNum"
       AND RH."Canceled"   = 'N'
-LEFT JOIN "{?Schema@}"."OACT" ACCT ON LINE."Account" = ACCT."AcctCode"
-LEFT JOIN "{?Schema@}"."OUSR" T1 ON HEAD."UserSign" = T1."USERID"
-LEFT JOIN "{?Schema@}"."NNM1" T6 ON HEAD."Series" = T6."Series" 
-LEFT JOIN "{?Schema@}"."OPMG" T13 ON HEAD."Project" = T13."FIPROJECT" 
-LEFT JOIN "{?Schema@}"."OPRJ" T14 ON HEAD."Project" = T14."PrjCode"
-LEFT JOIN "{?Schema@}"."OPCH" AP1 ON HEAD."BaseRef" = AP1."DocNum" AND HEAD."TransType" = 18
-LEFT JOIN "{?Schema@}"."OCRD" AP2 ON AP1."CardCode" = AP2."CardCode"
-LEFT JOIN "{?Schema@}"."NNM1" AP3 ON AP1."Series" = AP3."Series"
-LEFT JOIN "{?Schema@}"."OINV" AR1 ON HEAD."BaseRef" = AR1."DocNum" AND HEAD."TransType" = 13
-LEFT JOIN "{?Schema@}"."OCRD" AR2 ON AR1."CardCode" = AR2."CardCode"
-LEFT JOIN "{?Schema@}"."NNM1" AR3 ON AR1."Series" = AR3."Series"
-LEFT JOIN "{?Schema@}"."ORCT" NC1 ON HEAD."BaseRef" = NC1."DocNum" AND HEAD."TransType" = 24
-LEFT JOIN "{?Schema@}"."OCRD" NC2 ON NC1."CardCode" = NC2."CardCode"
-LEFT JOIN "{?Schema@}"."NNM1" NC3 ON NC1."Series" = NC3."Series"
-LEFT JOIN "{?Schema@}"."OVPM" OT1 ON HEAD."BaseRef" = OT1."DocNum" AND HEAD."TransType" = 46
-LEFT JOIN "{?Schema@}"."OCRD" OT2 ON OT1."CardCode" = OT2."CardCode"
-LEFT JOIN "{?Schema@}"."NNM1" OT3 ON OT1."Series" = OT3."Series"
+LEFT JOIN {?Schema@}."OACT" ACCT ON LINE."Account" = ACCT."AcctCode"
+LEFT JOIN {?Schema@}."OUSR" T1 ON HEAD."UserSign" = T1."USERID"
+LEFT JOIN {?Schema@}."NNM1" T6 ON HEAD."Series" = T6."Series" 
+LEFT JOIN {?Schema@}."OPMG" T13 ON HEAD."Project" = T13."FIPROJECT" 
+LEFT JOIN {?Schema@}."OPRJ" T14 ON HEAD."Project" = T14."PrjCode"
+LEFT JOIN {?Schema@}."OPCH" AP1 ON HEAD."BaseRef" = AP1."DocNum" AND HEAD."TransType" = 18
+LEFT JOIN {?Schema@}."OCRD" AP2 ON AP1."CardCode" = AP2."CardCode"
+LEFT JOIN {?Schema@}."NNM1" AP3 ON AP1."Series" = AP3."Series"
+LEFT JOIN {?Schema@}."OINV" AR1 ON HEAD."BaseRef" = AR1."DocNum" AND HEAD."TransType" = 13
+LEFT JOIN {?Schema@}."OCRD" AR2 ON AR1."CardCode" = AR2."CardCode"
+LEFT JOIN {?Schema@}."NNM1" AR3 ON AR1."Series" = AR3."Series"
+LEFT JOIN {?Schema@}."ORCT" NC1 ON HEAD."BaseRef" = NC1."DocNum" AND HEAD."TransType" = 24
+LEFT JOIN {?Schema@}."OCRD" NC2 ON NC1."CardCode" = NC2."CardCode"
+LEFT JOIN {?Schema@}."NNM1" NC3 ON NC1."Series" = NC3."Series"
+LEFT JOIN {?Schema@}."OVPM" OT1 ON HEAD."BaseRef" = OT1."DocNum" AND HEAD."TransType" = 46
+LEFT JOIN {?Schema@}."OCRD" OT2 ON OT1."CardCode" = OT2."CardCode"
+LEFT JOIN {?Schema@}."NNM1" OT3 ON OT1."Series" = OT3."Series"
+LEFT JOIN {?Schema@}.OBTF ON HEAD."BatchNum" = OBTF."BatchNum"
 WHERE (LINE."Debit" != 0 OR LINE."Credit" != 0)
-  AND HEAD."TransId" = {?DocKey@}
+  AND HEAD."BatchNum" = {?DocKey@}
   AND (RC."ReconNum" IS NULL OR RH."ReconNum" IS NOT NULL)
