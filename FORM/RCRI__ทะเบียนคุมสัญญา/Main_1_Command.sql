@@ -1,12 +1,4 @@
-﻿-- ============================================================
--- Report: RCRI0022__ทะเบียนคุมสัญญา.rpt
-Path:   RCRI0022__ทะเบียนคุมสัญญา.rpt
-Extracted: 2026-05-07 18:03:39
--- Source: Main Report
--- Table:  Command
--- ============================================================
-
-SELECT 
+﻿SELECT 
     /* --- ตัวเชื่อม --- */
      T0."AbsID" AS "DocEntry_Agreement"  /* <<< ตัวแปรหลักสำหรับโยงไป Subreport */
 
@@ -21,21 +13,13 @@ SELECT
     ,T0."U_SLD_Order_Number" AS "เลขคำสั่ง"
     ,T0."U_SLD_Procurement_Method" AS "วิธีการจัดหา"
     ,T0."U_SLD_Project_Manager" AS "ผู้รับผิดชอบโครงการ"
-
-
-    ,CASE
-        WHEN T0."EndDate" < CURRENT_DATE THEN 'สิ้นสุดสัญญา' 
-        ELSE 'บริหารสัญญา' 
-     END AS "สถานะสัญญา"
+	,T0."TermDate" 
+	,T0."U_SLD_Contract_Type" AS "ประเภทสัญญา"
 
     /* --- ข้อมูลวันที่ (แปลง พ.ศ. แล้ว) --- */
-     ,TO_VARCHAR(T0."StartDate", 'D') || ' ' || 
-MAP(MONTH(T0."StartDate"), 1,'ม.ค.', 2,'ก.พ.', 3,'มี.ค.', 4,'เม.ย.', 5,'พ.ค.', 6,'มิ.ย.', 7,'ก.ค.', 8,'ส.ค.', 9,'ก.ย.', 10,'ต.ค.', 11,'พ.ย.', 12,'ธ.ค.') 
-|| ' ' || TO_VARCHAR(ADD_YEARS(T0."StartDate", 543), 'YY') AS "วันที่เริ่มต้นสัญญา"
+     ,T0."StartDate" AS "วันที่เริ่มต้นสัญญา"
 
-,TO_VARCHAR(T0."EndDate", 'D') || ' ' || 
-MAP(MONTH(T0."EndDate"), 1,'ม.ค.', 2,'ก.พ.', 3,'มี.ค.', 4,'เม.ย.', 5,'พ.ค.', 6,'มิ.ย.', 7,'ก.ค.', 8,'ส.ค.', 9,'ก.ย.', 10,'ต.ค.', 11,'พ.ย.', 12,'ธ.ค.') 
-|| ' ' || TO_VARCHAR(ADD_YEARS(T0."EndDate", 543), 'YY') AS "วันที่สิ้นสุดสัญญา"
+	,T0."EndDate" AS "วันที่สิ้นสุดสัญญา"
 
     ,LTRIM(
             CASE
@@ -60,9 +44,7 @@ LEFT JOIN (SELECT DISTINCT
 		     T0."AbsID" AS "DocEntry_Agreement" /* <<< รับค่าจาก Main Report */
 		    
 		    /* --- 1. ฝั่งรับหลักประกัน (Incoming Payment: ORCT) --- */
-		     ,TO_VARCHAR(T1."TrsfrDate", 'D') || ' ' || 
-		MAP(MONTH(T1."TrsfrDate"), 1,'ม.ค.', 2,'ก.พ.', 3,'มี.ค.', 4,'เม.ย.', 5,'พ.ค.', 6,'มิ.ย.', 7,'ก.ค.', 8,'ส.ค.', 9,'ก.ย.', 10,'ต.ค.', 11,'พ.ย.', 12,'ธ.ค.') 
-		|| ' ' || TO_VARCHAR(ADD_YEARS(T1."TrsfrDate", 543), 'YY') AS "วันที่ (สด/โอน)"
+		     ,T1."TrsfrDate" AS "วันที่ (สด/โอน)"
 		
 		 
 		    ,CASE 
@@ -80,28 +62,21 @@ LEFT JOIN (SELECT DISTINCT
 		    END AS "ใบเสร็จ (เช็ค)"    
 		    ,T1."CheckSum" AS "จำนวนเงินเช็ค"
 		    
-		     , TO_VARCHAR(T4."DueDate", 'D') || ' ' || 
-		MAP(MONTH(T4."DueDate"), 1,'ม.ค.', 2,'ก.พ.', 3,'มี.ค.', 4,'เม.ย.', 5,'พ.ค.', 6,'มิ.ย.', 7,'ก.ค.', 8,'ส.ค.', 9,'ก.ย.', 10,'ต.ค.', 11,'พ.ย.', 12,'ธ.ค.') 
-		|| ' ' || TO_VARCHAR(ADD_YEARS(T4."DueDate", 543), 'YY') AS "วันที่(เช็ค)"
+		     ,T4."DueDate" AS "วันที่(เช็ค)"
 		    
 		    ,CASE 
-		        WHEN T5."U_SLD_Type" = '02' THEN T5."U_SLD_Amount"
+		        WHEN T5."U_SLD_Amount_Edit" > 0 THEN T5."U_SLD_Amount_Edit"
+			ELSE T5."U_SLD_Amount"
 		    END AS "จำนวนเงิน (ค้ำประกัน)"
-		    ,CASE 
-		        WHEN T5."U_SLD_Type" = '02' THEN 
-		        TO_VARCHAR(T5."U_SLD_End_Date", 'D') || ' ' || 
-		MAP(MONTH(T5."U_SLD_End_Date"), 1,'ม.ค.', 2,'ก.พ.', 3,'มี.ค.', 4,'เม.ย.', 5,'พ.ค.', 6,'มิ.ย.', 7,'ก.ค.', 8,'ส.ค.', 9,'ก.ย.', 10,'ต.ค.', 11,'พ.ย.', 12,'ธ.ค.') 
-		|| ' ' || TO_VARCHAR(ADD_YEARS(T5."U_SLD_End_Date", 543), 'YY') 
-		    END AS "วันที่สิ้นสุด (ค้ำประกัน)"
+
+		    ,T0."U_SLD_Warranty" AS "วันที่สิ้นสุด (ค้ำประกัน)"
 		
 		    /* --- จุดที่แก้ไข: เช็คค่าทีละฟิลด์, ย้ายสูตรมาหลัง THEN, และตั้งชื่อ Alias เป็นข้อความ --- */
 		    ,CASE 
 		        WHEN (IFNULL(T1."CashSum", 0) + IFNULL(T1."TrsfrSum", 0) > 0) 
 		             OR (T4."DueDate" IS NOT NULL) 
 		             OR (T1."CheckSum" IS NOT NULL) 
-		        THEN TO_VARCHAR(T0."EndDate", 'D') || ' ' || 
-		MAP(MONTH(T0."EndDate"), 1,'ม.ค.', 2,'ก.พ.', 3,'มี.ค.', 4,'เม.ย.', 5,'พ.ค.', 6,'มิ.ย.', 7,'ก.ค.', 8,'ส.ค.', 9,'ก.ย.', 10,'ต.ค.', 11,'พ.ย.', 12,'ธ.ค.') 
-		|| ' ' || TO_VARCHAR(ADD_YEARS(T0."EndDate", 543), 'YY') 
+		        THEN T0."EndDate" 
 		    END AS "วันที่สิ้นสุด (แปลงปี 543)"
 		  ,CASE 
 		        WHEN (IFNULL(T1."CashSum", 0) + IFNULL(T1."TrsfrSum", 0) > 0) 
@@ -118,7 +93,10 @@ LEFT JOIN (SELECT DISTINCT
 		    END AS "จำนวนเงิน (ประกันผลงาน)"
 		FROM {?Schema@}."OOAT" T0
 		LEFT JOIN {?Schema@}."OAT1" T3 ON T0."AbsID" = T3."AgrNo"
-		LEFT JOIN {?Schema@}."OAT2" T5 ON T0."AbsID" = T5."AgrNo"
+		LEFT JOIN (	SELECT TOP 1 OAT2."AgrNo",OAT2."U_SLD_Amount_Edit",OAT2."U_SLD_Amount"
+					FROM {?Schema@}.OAT2 
+					WHERE OAT2."U_SLD_Type" = '02' 
+					ORDER BY OAT2."AgrEfctNum" DESC ) AS T5 ON T0."AbsID" = T5."AgrNo"
 		LEFT JOIN {?Schema@}."ORCT" T1 ON T0."U_SLD_Document" = T1."DocEntry"
 		LEFT JOIN {?Schema@}."NNM1" T6 ON T1."Series" = T6."Series" 
 		LEFT JOIN {?Schema@}."RCT1" T4 ON T4."DocNum" = T1."DocNum"
@@ -133,7 +111,8 @@ LEFT JOIN (SELECT 	POR1."AgrNo",
 					POR1."ShipDate" ,
 					SUM(POR1."LineTotal") AS "SumPO",
 					GRPO."DocDate" AS "วันที่_GRPO",
-					OVPM."DocDate" AS "วันที่_Outgoing"
+					OVPM."DocDate" AS "วันที่_Outgoing",
+					GRPO."U_SLD_Expand" 
 			FROM {?Schema@}.OPOR
 			INNER JOIN {?Schema@}.POR1 ON OPOR."DocEntry" = POR1."DocEntry"
 			LEFT JOIN {?Schema@}.OOAT ON POR1."AgrNo" = OOAT."AbsID"
@@ -145,6 +124,7 @@ LEFT JOIN (SELECT 	POR1."AgrNo",
 						        ,MAX(L."LineNum")  AS "GRPO_LineNum"
 						        ,STRING_AGG(CAST(H."DocNum" AS NVARCHAR(20)), ', ') AS "DocNum"
 						        ,MAX(H."DocDate")  AS "DocDate"
+								,MAX(H."U_SLD_Expand") AS "U_SLD_Expand"
 						    FROM "{?Schema@}"."PDN1" L
 						    INNER JOIN "{?Schema@}"."OPDN" H ON L."DocEntry" = H."DocEntry"
 						    WHERE L."BaseType" = 22
@@ -153,7 +133,7 @@ LEFT JOIN (SELECT 	POR1."AgrNo",
 						) GRPO ON POR1."DocEntry" = GRPO."BaseEntry" AND POR1."LineNum" = GRPO."BaseLine"
 			------------------------------------------------------------------------------------------------------------------
 			LEFT JOIN "{?Schema@}"."PCH1" ON 
-			    (PCH1."BaseType" = 20 AND PCH1."BaseEntry" = GRPO."GRPO_DocEntry" AND PCH1."BaseLine" = GRPO."GRPO_LineNum") 
+			    (PCH1."BaseType" = 20 AND PCH1."BaseEntry" = GRPO."GRPO_DocEntry" AND PCH1."BaseLine" = GRPO."GRPO_LineNum" ) 
 			    OR (PCH1."BaseType" = 22 AND PCH1."BaseEntry" = POR1."DocEntry" AND PCH1."BaseLine" = POR1."LineNum")
 			LEFT JOIN "{?Schema@}"."OPCH"  ON PCH1."DocEntry" = OPCH."DocEntry"			
 			------------------------------------------------------------------------------------------------------------------
@@ -169,7 +149,8 @@ LEFT JOIN (SELECT 	POR1."AgrNo",
 					CAST(SUBSTRING_REGEXPR('[0-9]+' IN IFNULL(POR1."FreeTxt", '1')) AS INT),
 					POR1."ShipDate" ,
 					GRPO."DocDate",
-					OVPM."DocDate"
+					OVPM."DocDate",
+					GRPO."U_SLD_Expand" 
 			ORDER BY POR1."AgrNo",CAST(SUBSTRING_REGEXPR('[0-9]+' IN IFNULL(POR1."FreeTxt", '1')) AS INT)
 		) AS PO ON T0."AbsID" = PO."AgrNo"
 --INNER JOIN {?Schema@}."OAT1" T1 ON T1."AgrNo" = T0."AbsID"
