@@ -1,7 +1,7 @@
 ﻿-- ============================================================
--- Report: INV20010__AR INVOICE Enconfund (1).rpt
-Path:   INV20010__AR INVOICE Enconfund (1).rpt
-Extracted: 2026-05-07 18:03:07
+-- Report: INV10004__AR INVOICE Enconfund (1).rpt
+Path:   INV10004__AR INVOICE Enconfund (1).rpt
+Extracted: 2026-05-07 18:03:04
 -- Source: Main Report
 -- Table:  Command
 -- ============================================================
@@ -61,6 +61,7 @@ LEFT JOIN {?Schema@}."ITR1" RC ON HEAD."TransId" = RC."TransId" AND LINE."Line_I
 LEFT JOIN {?Schema@}."OACT" ACCT ON LINE."Account" = ACCT."AcctCode"
 LEFT JOIN {?Schema@}."OHEM" T2   ON T0."OwnerCode" = T2."empID"
 LEFT JOIN {?Schema@}."OHPS" ps1  ON T2."position" = ps1."posID"
+INNER JOIN {?Schema@}.ODRF odrf ON odrf."DocEntry" = T0."draftKey"
 LEFT JOIN (
     SELECT "DocEntry", MAX("OcrCode3") AS "OcrCode3", MAX("OcrCode4") AS "OcrCode4"
     FROM {?Schema@}."INV1"
