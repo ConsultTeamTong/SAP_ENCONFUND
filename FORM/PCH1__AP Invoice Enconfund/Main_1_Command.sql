@@ -1,6 +1,6 @@
 ﻿-- ============================================================
--- Report: PCH10004__AP Invoice Enconfund.rpt
-Path:   PCH10004__AP Invoice Enconfund.rpt
+-- Report: PCH20002__AP Invoice Enconfund.rpt
+Path:   PCH20002__AP Invoice Enconfund.rpt
 Extracted: 2026-05-07 18:03:17
 -- Source: Main Report
 -- Table:  Command
@@ -10,7 +10,7 @@ SELECT
     T0."CardCode" AS "Vender",
     T0."CardName" AS "Vender Name",
     T0."DocDate" AS "DateThai",
-    T0."CreateDate" AS "วันที่ทำรายการ",
+    odrf."CreateDate" AS "วันที่ทำรายการ",---------------------------แก้
     IFNULL(T7."BeginStr", '') || CAST(HEAD."Number" AS NVARCHAR(20)) AS "เลขที่เอกสาร JE",
     T0."U_SLD_RefDocNo" AS "เลขที่เอกสารอ้างอิง",
     T0."U_SLD_RefDoc" AS "เอกสารอ้างอิง",
@@ -23,8 +23,9 @@ SELECT
     CASE 
         WHEN T0."ObjType" = '18' THEN 'A/P INVOICE'
     END AS "ประเภทเอกสาร", 
-    T2."lastName" || ' ' || T2."firstName" AS "ชื่อผู้จัดทำ",
-    p1."descriptio" AS "ตำแหน่งผู้จัดทำ",   
+    '('||T2."lastName" || ' ' || T2."firstName"|| ')' AS "ชื่อผู้จัดทำ",
+        'ตำแหน่ง' || ' ' || p1."descriptio" AS "ตำแหน่งผู้จัดทำ" 
+,   
     T0."Project" AS "ชื่อโครงการ",
     T0."NumAtCard" AS "งวด",
     T0."DocEntry",
@@ -49,6 +50,7 @@ INNER JOIN {?Schema@}."NNM1" T6 ON T0."Series" = T6."Series"
 LEFT JOIN {?Schema@}."NNM1" T7 ON HEAD."Series" = T7."Series"
 LEFT JOIN {?Schema@}."INV12" T12 ON T0."DocEntry" = T12."DocEntry"
 LEFT JOIN {?Schema@}."OPRJ" T13 ON T0."Project" = T13."PrjCode"
+INNER JOIN {?Schema@}.ODRF odrf ON T0."draftKey" = odrf."DocEntry"
 LEFT JOIN (
     SELECT 
         T_Line."DocEntry",
@@ -69,11 +71,11 @@ LEFT JOIN (
     SELECT 
         o."DocEntry", 
         o."ObjType",
-        MAX(CASE WHEN w."SortId" = '1' AND w."Status" = 'Y' THEN oh."lastName" || ' ' || oh."firstName" END) AS "ชื่อผู้ตรวจ",
-        MAX(CASE WHEN w."SortId" = '1' AND w."Status" = 'Y' THEN ps."name" END) AS "ตำแหน่งผู้ตรวจ",
+        MAX(CASE WHEN w."SortId" = '1' AND w."Status" = 'Y' THEN '('|| oh."lastName" || ' ' || oh."firstName"||')' END) AS "ชื่อผู้ตรวจ",
+        MAX(CASE WHEN w."SortId" = '1' AND w."Status" = 'Y' THEN 'ตำแหน่ง' || ' ' || ps."descriptio" END) AS "ตำแหน่งผู้ตรวจ",
         MAX(CASE WHEN w."SortId" = '1' AND w."Status" = 'Y' THEN w."CreateDate" END) AS "เวลาผู้ตรวจ",
-        MAX(CASE WHEN w."SortId" = '2' AND w."Status" = 'Y' THEN oh."lastName" || ' ' || oh."firstName" END) AS "ชื่อผู้อนุมัติ",
-        MAX(CASE WHEN w."SortId" = '2' AND w."Status" = 'Y' THEN ps."name" END) AS "ตำแหน่งผู้อนุมัติ",
+        MAX(CASE WHEN w."SortId" = '2' AND w."Status" = 'Y' THEN '('|| oh."lastName" || ' ' || oh."firstName" || ')' END) AS "ชื่อผู้อนุมัติ",
+        MAX(CASE WHEN w."SortId" = '2' AND w."Status" = 'Y' THEN 'ตำแหน่ง'|| ' ' ||  ps."descriptio" END) AS "ตำแหน่งผู้อนุมัติ",
         MAX(CASE WHEN w."SortId" = '2' AND w."Status" = 'Y' THEN w."CreateDate" END) AS "เวลาผู้อนุมัติ"
     FROM {?Schema@}."OWDD" o 
     INNER JOIN {?Schema@}."WDD1" w ON o."WddCode" = w."WddCode"
@@ -84,3 +86,7 @@ LEFT JOIN (
 ) APPR ON T0."DocEntry" = APPR."DocEntry" AND T0."ObjType" = APPR."ObjType"
 WHERE (LINE."Debit" != 0 OR LINE."Credit" != 0)
 AND T0."DocEntry" = {?DocKey@}
+
+
+
+
