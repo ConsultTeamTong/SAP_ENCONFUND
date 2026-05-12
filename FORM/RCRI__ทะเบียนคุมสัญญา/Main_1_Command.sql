@@ -21,9 +21,6 @@ SELECT
     ,T0."U_SLD_Order_Number" AS "เลขคำสั่ง"
     ,T0."U_SLD_Procurement_Method" AS "วิธีการจัดหา"
     ,T0."U_SLD_Project_Manager" AS "ผู้รับผิดชอบโครงการ"
-    ,TO_VARCHAR(T0."U_SLD_Order_Date", 'D') || ' ' || 
-MAP(MONTH(T0."U_SLD_Order_Date"), 1,'ม.ค.', 2,'ก.พ.', 3,'มี.ค.', 4,'เม.ย.', 5,'พ.ค.', 6,'มิ.ย.', 7,'ก.ค.', 8,'ส.ค.', 9,'ก.ย.', 10,'ต.ค.', 11,'พ.ย.', 12,'ธ.ค.') 
-|| ' ' || TO_VARCHAR(ADD_YEARS(T0."U_SLD_Order_Date", 543), 'YY') AS "วันที่คำสั่ง"
 
 
     ,CASE
