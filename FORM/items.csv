@@ -1,0 +1,20 @@
+code,name,unit,standard price,minimum price,foc price,count for foc,barcode,minimum stock,minus stock,product type,product group,status
+IV-AES0109,Fat Venus - Supply,CC,0.00,0.00,0.00,No,,0,Yes,SUPPLY,Supply,Active
+IV-AES1000,Botox Hugel,ยูนิต,0.00,0.00,0.00,No,,0,Yes,SUPPLY,Supply,Inactive
+IV-AES1001,Botox Nabota supply,ยูนิต,0.00,0.00,0.00,No,,0,Yes,SUPPLY,Supply,Active
+IV-AES1004,Restylane lidocaine 1mL,กล่อง,0.00,0.00,0.00,No,,0,Yes,SUPPLY,Supply,Active
+IV-AES1005,Restylane Lyft lidocaine 1ml,กล่อง,0.00,0.00,0.00,No,,0,Yes,SUPPLY,Supply,Active
+MED-GEN0001,Paracetamol 500mg (Asian Union),เม็ด,0.00,0.00,0.00,No,,0,Yes,MEDICINE,(B)MEDICINE,Active
+MED-GEN0002,Prednisolone 5mg (General Drug House),เม็ด,0.00,0.00,0.00,No,,0,Yes,MEDICINE,(B)MEDICINE,Active
+MED-GEN0007,Clindacap 300mg (New Life),เม็ด,0.00,0.00,0.00,No,,0,Yes,MEDICINE,(B)MEDICINE,Active
+MED-GEN0008,Reparil (Cap) 100 เม็ด,เม็ด,0.00,0.00,0.00,No,,0,Yes,MEDICINE,(B)MEDICINE,Active
+MED-GEN0010,Dicloxacillin,เม็ด,0.00,0.00,0.00,No,,0,Yes,MEDICINE,(B)MEDICINE,Active
+MED-GEN0012,Transamic 500 mg,เม็ด,0.00,0.00,0.00,No,,0,Yes,MEDICINE,(B)MEDICINE,Inactive
+SSS0021,Set ยา Picoway,แพ็คเกจ,450.00,450.00,450.00,No,,0,Yes,PRODUCT,(B)MEDICINE,Active
+SSS0022,TA ตลับ 5 กรัม,กระปุก,100.00,100.00,0.00,No,,0,Yes,PRODUCT,(B)MEDICINE,Active
+SSS0035,สำลีแผ่นเช็ดหน้ารีดขอบ(แบบกล่อง),กล่อง,200.00,200.00,0.00,No,,0,No,PRODUCT,(B)Cosmetics,Inactive
+SSS0036,Moisturizer Lotion 100 ml.,หลอด,850.00,700.00,0.00,No,8858842080894,0,Yes,PRODUCT,PRODUCT,Active
+SSS0055,Gangnam Clinic glow and comfort Underarm Cream 10 กรัม,ตลับ,0.00,0.00,0.00,Yes,,5000,Yes,PRODUCT,(B)Cosmetics,Active
+SSS0038,Dr.gangnam Silicone Scare gel 15g,หลอด,0.00,0.00,0.00,Yes,,0,Yes,PRODUCT,(B)Cosmetics,Active
+SSS0040,Dr.gangnam Gluta nex 15 กรัม,ห่อ,0.00,0.00,0.00,Yes,,0,Yes,PRODUCT,(B)Cosmetics,Active
+SSS0041,Tri Luma cream 15gm,หลอด,2300.00,2300.00,0.00,Yes,,0,Yes,PRODUCT,(B)MEDICINE,Active
