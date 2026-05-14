@@ -1,12 +1,12 @@
 ﻿-- ============================================================
--- Report: RCRI0021__ทะเบียนคุมสินทรัพย์ (ตามกลุ่ม).rpt
-Path:   RCRI0021__ทะเบียนคุมสินทรัพย์ (ตามกลุ่ม).rpt
-Extracted: 2026-05-07 18:03:38
+-- Report: RCRI0021__ทะเบียนคุมสินทรัพย์(ตามกลุ่ม).rpt
+Path:   RCRI0021__ทะเบียนคุมสินทรัพย์(ตามกลุ่ม).rpt
+Extracted: 2026-05-13 15:26:40
 -- Source: Main Report
 -- Table:  Command
 -- ============================================================
 
-  WITH params AS (                                                     
+ WITH params AS (                                                     
     SELECT                                                             
       {?1DStart@}                                                      
             AS asof_date,                                              
@@ -353,3 +353,4 @@ Extracted: 2026-05-07 18:03:38
   FROM calc c
   LEFT JOIN odpv_agg o ON c."ItemCode" = o."ItemCode"
   ORDER BY c.acq_date ASC NULLS LAST, c."ItemCode";
+

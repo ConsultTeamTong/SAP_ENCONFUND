@@ -102,5 +102,7 @@ AND (DEV."ปีงบประมาณ" = '{?Period@}' OR '{?Period@}' = ' ')
 AND (DEV."สถานะโครงการ(ภาพรวม)" = '{?Status@}' OR '{?Status@}' = ' ')
 AND (DEV."หนังสือเลขที่" = '{?BookCon@}' OR '{?BookCon@}' = ' ')
 AND DEV."START" BETWEEN {?1DStart@} AND {?2DEnd@} 
+AND DEV."งวดเบิกจ่ายตามหนังสือยืนยัน" IS NOT NULL 
+AND DEV."จำนวนเงินตามหนังสือยืนยัน" IS NOT NULL
 ORDER BY DEV."AbsEntry", DEV."StageID";
 -----------------------กรณีขึ้นทุกงวด

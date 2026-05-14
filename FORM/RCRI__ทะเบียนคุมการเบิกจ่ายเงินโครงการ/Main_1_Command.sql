@@ -11,7 +11,8 @@ SELECT * FROM (
         CAST(DAYOFMONTH(OPCH."DocDate") AS NVARCHAR) || ' ' || 
 		MAP(MONTH(OPCH."DocDate"), 1,'ม.ค.', 2,'ก.พ.', 3,'มี.ค.', 4,'เม.ย.', 5,'พ.ค.', 6,'มิ.ย.', 7,'ก.ค.', 8,'ส.ค.', 9,'ก.ย.', 10,'ต.ค.', 11,'พ.ย.', 12,'ธ.ค.') 
 		|| ' ' || TO_VARCHAR(ADD_YEARS(OPCH."DocDate", 543), 'YYYY') AS "วัน เดือน ปี (เบิก)"
-        , OPCH."DocDate"        
+        , OPCH."DocDate" 
+        ,OPCH."Comments" AS "Remark AP"
         , IFNULL(n1."BeginStr", '') || CAST(OPCH."DocNum" AS NVARCHAR(20)) AS "เลขที่เอกสาร AP"
         , OPRJ."U_SLD_Period" AS "ปีงบประมาณ"
         , OPRJ."U_SLD_PlanWork" AS "แผนงาน"
@@ -23,12 +24,11 @@ SELECT * FROM (
         , OPRJ."U_SLD_REC" As "ผุ้ได้รับจัดสรร"
         , OPCH."NumAtCard"
         , OPCH."DocTotal" AS "จำนวนเงิน AP"
-        
           ,CAST(DAYOFMONTH(OVPM."DocDate") AS NVARCHAR) || ' ' || 
 		MAP(MONTH(OVPM."DocDate"), 1,'ม.ค.', 2,'ก.พ.', 3,'มี.ค.', 4,'เม.ย.', 5,'พ.ค.', 6,'มิ.ย.', 7,'ก.ค.', 8,'ส.ค.', 9,'ก.ย.', 10,'ต.ค.', 11,'พ.ย.', 12,'ธ.ค.') 
 		|| ' ' || TO_VARCHAR(ADD_YEARS(OVPM."DocDate", 543), 'YYYY') AS "วันที่ OUTGO"
-        
         ,IFNULL(n2."BeginStr", '') || CAST(OVPM."DocNum" AS NVARCHAR(20)) AS "เลขที่เอกสาร OUTGO"
+        ,OVPM."Comments" AS "Remark Outgoing"
         , IFNULL(OPCH."PaidToDate", 0) AS "จำนวนเงิน PTD"
         , OPCH."DocTotal" - IFNULL(OPCH."PaidToDate", 0) AS "จำนวนเงินค้างจ่าย"
         , CASE 
