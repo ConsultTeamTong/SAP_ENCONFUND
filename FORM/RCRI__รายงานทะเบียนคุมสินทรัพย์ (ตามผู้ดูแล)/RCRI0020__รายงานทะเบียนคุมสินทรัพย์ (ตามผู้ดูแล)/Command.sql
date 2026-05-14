@@ -1,13 +1,16 @@
 ﻿-- ============================================================
 -- Report: RCRI0020__รายงานทะเบียนคุมสินทรัพย์ (ตามผู้ดูแล).rpt
 Path:   RCRI0020__รายงานทะเบียนคุมสินทรัพย์ (ตามผู้ดูแล).rpt
-Extracted: 2026-05-07 18:03:37
+Extracted: 2026-05-14 10:31:01
 -- Source: Main Report
 -- Table:  Command
 -- ============================================================
 
 SELECT 
-    CONCAT(CONCAT(CONCAT(CONCAT(A1."ItemCode",'-'),A6."Name"),'-'),A5."Name") AS "ItemCode",
+    IFNULL(A1."ItemCode", '') 
+|| CASE WHEN A6."Name" IS NOT NULL THEN '-' || A6."Name" ELSE '' END 
+|| CASE WHEN A5."Name" IS NOT NULL THEN '-' || A5."Name" ELSE '' END 
+AS "ItemCode",
     A1."ItemName", 
     A2."firstName", 
     A2."lastName", 
