@@ -1,19 +1,11 @@
-﻿-- ============================================================
--- Report: RCRI0031__รายงานผลเบิกใช้.rpt
-Path:   RCRI0031__รายงานผลเบิกใช้.rpt
-Extracted: 2026-05-07 18:03:42
--- Source: Main Report
--- Table:  Command
--- ============================================================
-
-WITH                                                                 
+﻿WITH                                                                 
   LatestDoc AS (                                                       
       SELECT                                                           
           H."U_FiscalYear",                                            
           L."U_BudgetCode",                                            
           MAX(H."DocEntry") AS "MaxDocEntry"
-      FROM SBO_ENCONFUND."@SLD_BUDGET_HD" H                            
-      INNER JOIN SBO_ENCONFUND."@SLD_BUDGET_LN" L ON L."DocEntry" =
+      FROM SBO_ENCONFUND_BUDGET."@SLD_BUDGET_HD" H                            
+      INNER JOIN SBO_ENCONFUND_BUDGET."@SLD_BUDGET_LN" L ON L."DocEntry" =
   H."DocEntry"
       WHERE L."U_selected" = 'Y' AND L."U_BudgetCode" <> ''
       GROUP BY H."U_FiscalYear", L."U_BudgetCode"
@@ -24,8 +16,8 @@ WITH
           H."U_FiscalYear",
           L."U_BudgetCode",
           (MAX(H."DocEntry")-1) AS "BaseDocEntry"
-      FROM SBO_ENCONFUND."@SLD_BUDGET_HD" H
-      INNER JOIN SBO_ENCONFUND."@SLD_BUDGET_LN" L ON L."DocEntry" =
+      FROM SBO_ENCONFUND_BUDGET."@SLD_BUDGET_HD" H
+      INNER JOIN SBO_ENCONFUND_BUDGET."@SLD_BUDGET_LN" L ON L."DocEntry" =
   H."DocEntry"
       WHERE L."U_selected" = 'Y' AND H."U_BudgetStatus" <> 'Transfer
   Budget'
@@ -40,7 +32,7 @@ WITH
           SUM("CommittedAdv") AS "CommittedAdv",
           SUM("Actual")       AS "Actual",
           SUM("Remaining")    AS "Remaining"
-      FROM SBO_ENCONFUND.SLD_VW_BUDGET_SUMMARY
+      FROM SBO_ENCONFUND_BUDGET.SLD_VW_BUDGET_SUMMARY
       GROUP BY "BudgetCode"
   ),
 
@@ -54,7 +46,7 @@ WITH
           SUM("M07") AS "M07", SUM("M08") AS "M08", SUM("M09") AS
   "M09",
           SUM("M10") AS "M10", SUM("M11") AS "M11", SUM("M12") AS "M12"
-      FROM SBO_ENCONFUND.SLD_VW_BUDGET_SUMMARY_MONTHLY
+      FROM SBO_ENCONFUND_BUDGET.SLD_VW_BUDGET_SUMMARY_MONTHLY
       GROUP BY "BudgetCode"
   ),
 
@@ -68,14 +60,14 @@ WITH
   "PBA_Blanket",
           MAX(CAST("U_SLD_PBA_Remark" AS NVARCHAR(5000))) AS
   "PBA_Remark"
-      FROM SBO_ENCONFUND."@SLD_PBA_BUDGET"
+      FROM SBO_ENCONFUND_BUDGET."@SLD_PBA_BUDGET"
       GROUP BY "Name"
   ),
 
   PBAOwn AS (
       SELECT "Name" AS "BudgetCode", SUM("U_SLD_PBA_Amount") AS
   "PBA_Amount"
-      FROM SBO_ENCONFUND."@SLD_PBA_BUDGET"
+      FROM SBO_ENCONFUND_BUDGET."@SLD_PBA_BUDGET"
       GROUP BY "Name"
   ),
 
@@ -86,7 +78,7 @@ WITH
           IFNULL(SD."Actual", 0)     AS "Actual",
           IFNULL(PO."PBA_Amount", 0) AS "PBA_Amount"
       FROM LatestDoc LD
-      INNER JOIN SBO_ENCONFUND."@SLD_BUDGET_LN" L
+      INNER JOIN SBO_ENCONFUND_BUDGET."@SLD_BUDGET_LN" L
               ON L."DocEntry"     = LD."MaxDocEntry"
              AND L."U_BudgetCode" = LD."U_BudgetCode"
       LEFT JOIN SummaryData SD ON SD."BudgetCode" = L."U_BudgetCode"
@@ -95,10 +87,10 @@ WITH
 
   Tree AS (
       SELECT "U_BudgetCode", "U_FatherCode"
-      FROM SBO_ENCONFUND."@SLD_BUDGET_LN"
+      FROM SBO_ENCONFUND_BUDGET."@SLD_BUDGET_LN"
       WHERE "DocEntry" = (
           SELECT MAX(H."DocEntry")
-          FROM SBO_ENCONFUND."@SLD_BUDGET_HD" H
+          FROM SBO_ENCONFUND_BUDGET."@SLD_BUDGET_HD" H
           WHERE H."U_FiscalYear" = '2026'
       )
         AND "U_selected" = 'Y' AND "U_BudgetCode" <> ''
@@ -167,7 +159,7 @@ WITH
           FT."AncestorCode",
           SUM(P."U_SLD_PBA_Amount") AS "PBA_Amount"
       FROM FlatTree FT
-      INNER JOIN SBO_ENCONFUND."@SLD_PBA_BUDGET" P ON P."Name" =
+      INNER JOIN SBO_ENCONFUND_BUDGET."@SLD_PBA_BUDGET" P ON P."Name" =
   FT."LeafCode"
       GROUP BY FT."AncestorCode"
   ),
@@ -224,16 +216,16 @@ WITH
       IFNULL(RPE."PBA_Balanc", 0)  AS "PBA_Balanc"
 
   FROM LatestDoc LD
-  INNER JOIN SBO_ENCONFUND."@SLD_BUDGET_HD" H
+  INNER JOIN SBO_ENCONFUND_BUDGET."@SLD_BUDGET_HD" H
           ON H."DocEntry" = LD."MaxDocEntry"
-  INNER JOIN SBO_ENCONFUND."@SLD_BUDGET_LN" L
+  INNER JOIN SBO_ENCONFUND_BUDGET."@SLD_BUDGET_LN" L
           ON L."DocEntry" = LD."MaxDocEntry"
          AND L."U_BudgetCode" = LD."U_BudgetCode"
 
   LEFT JOIN BaseDoc BD
          ON BD."U_FiscalYear" = LD."U_FiscalYear"
         AND BD."U_BudgetCode" = LD."U_BudgetCode"
-  LEFT JOIN SBO_ENCONFUND."@SLD_BUDGET_LN" BASE_L
+  LEFT JOIN SBO_ENCONFUND_BUDGET."@SLD_BUDGET_LN" BASE_L
          ON BASE_L."DocEntry"     = BD."BaseDocEntry"
         AND BASE_L."U_BudgetCode" = BD."U_BudgetCode"
 
