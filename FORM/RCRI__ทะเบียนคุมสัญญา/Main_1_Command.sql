@@ -157,6 +157,8 @@ LEFT JOIN (SELECT 	POR1."AgrNo",
 WHERE T0."BpName" IS NOT NULL 
 AND T0."BpName" <> ''
 AND T0."Status" <> 'C'
+AND (TO_VARCHAR(a."PeriodCat" + 543) = '{?Period@}' OR '{?Period@}' = '')
+AND (TO_VARCHAR(T0."U_SLD_Contract_Type") = '{?Type@}' OR '{?Type@}' = '')
  --AND (T0."AbsID" = '{?AbsID@}' OR '{?AbsID@}' = '')
 
 
