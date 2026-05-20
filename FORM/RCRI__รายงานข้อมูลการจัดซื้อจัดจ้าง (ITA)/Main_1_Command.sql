@@ -28,11 +28,11 @@ AND (TO_VARCHAR(a."PeriodCat" + 543) = '{?Year@}' OR '{?Year@}' = ' ')
 AND p."Cancelled" <> 'Y'
 ORDER BY 
     CASE 
-        WHEN p."U_SLD_Budget_Source" = 'งบลงทุน' THEN 1 
-        WHEN p."U_SLD_Budget_Source" = 'งบดำเนินงาน' THEN 2 
+        WHEN TO_VARCHAR(p."U_SLD_Budget_Source") = 'งบลงทุน' THEN 1 
+        WHEN TO_VARCHAR(p."U_SLD_Budget_Source") = 'งบดำเนินงาน' THEN 2 
         ELSE 3 
     END ASC,
-        p."U_SLD_Budget_Source" ASC,
+        TO_VARCHAR(p."U_SLD_Budget_Source") ASC,
         p."U_SLD_Approve_Budget" DESC, 
         p."U_SLD_Project_Number" ASC
         
