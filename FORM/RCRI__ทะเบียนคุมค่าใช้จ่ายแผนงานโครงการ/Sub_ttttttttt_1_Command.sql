@@ -22,6 +22,7 @@ LEFT JOIN (								SELECT  T1."Project",
 					 			LEFT JOIN {?Schema@}.OFPR T3 ON T1."FinncPriod" = T3."AbsEntry"
 					 			WHERE T2."FormatCode" IN ('5107010101','5107010103','5107010105','5107010106','5107020104','5107020105','5107020199')
 					 			AND T0."RefDate" <= {?StartDate@}
+					 			AND ({?FiscalYear@} = 0 OR T3."Category" = {?FiscalYear@} - 543)
 AND T0."TransId" NOT IN (SELECT "StornoToTr"
                                                             FROM {?Schema@}.OJDT
                                                             WHERE "StornoToTr" IS NOT NULL)
