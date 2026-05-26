@@ -1,0 +1,340 @@
+﻿============================================================
+LAYOUT DUMP: C:\Github\SAP_ENCONFUND\FORM\RCRI__ทะเบียนคุมสัญญา\RCRI0022__ทะเบียนคุมสัญญา.rpt
+Extracted: 2026-05-19 23:44:51
+Unit: twips (1 inch = 1440 twips, 1 cm ~= 567 twips)
+============================================================
+
+############################################################
+# MAIN REPORT
+############################################################
+PageSize: PaperA4  Orientation: Portrait
+Margins (twips): L=360 R=360 T=360 B=360
+
+==================== AREA: ReportHeaderArea1 [Kind=ReportHeader] ====================
+  SECTION: ReportHeaderSection1 [Kind=ReportHeader] Height=220 <Suppress, KeepTogether>
+    (no objects)
+
+==================== AREA: PageHeaderArea1 [Kind=PageHeader] ====================
+  SECTION: PageHeaderSection1 [Kind=PageHeader] Height=1457 <KeepTogether>
+    [   0] L=   29 T=  29 W=23004 H= 432 R=23033 | TextObject   Text34 -- Text="ทะเบียนคุมสัญญา"
+    [   1] L=   29 T= 521 W=23004 H= 432 R=23033 | TextObject   Text35 -- Text="ประจำปีงบประมาณ 2568"
+    [   2] L=   29 T=1025 W=23004 H= 432 R=23033 | TextObject   Text36 -- Text="แผนการบริหารจัดการ ส.กทอ."
+    [   3] L=79076 T=1445 W=    0 H=6685 R=79076 | LineObject   Line1 -- L=79076 T=1445 R=79076 B=75
+    [   4] L=  614 T=1456 W=    0 H=6647 R=  614 | LineObject   Line2 -- L=614 T=1456 R=614 B=48
+    [   5] L=56686 T=1456 W=    0 H=6629 R=56686 | LineObject   Line45 -- L=56686 T=1456 R=56686 B=30
+    [   6] L=59064 T=1456 W=    0 H=6615 R=59064 | LineObject   Line49 -- L=59064 T=1456 R=59064 B=16
+
+  SECTION: PageHeaderSection3 [Kind=PageHeader] Height=1352 <KeepTogether>
+    [   0] L=    0 T=   9 W=79076 H=   0 R=79076 | LineObject   Line4 -- L=0 T=9 R=79076 B=9
+    [   1] L= 8142 T=  13 W=    0 H=6545 R= 8142 | LineObject   Line8 -- L=8142 T=13 R=8142 B=18
+    [   2] L= 9858 T=  13 W=    0 H=6545 R= 9858 | LineObject   Line9 -- L=9858 T=13 R=9858 B=18
+    [   3] L=11797 T=  19 W=    0 H=6539 R=11797 | LineObject   Line10 -- L=11797 T=19 R=11797 B=18
+    [   4] L=16998 T=  20 W=    0 H=6568 R=16998 | LineObject   Line12 -- L=16998 T=20 R=16998 B=48
+    [   5] L=56726 T=  20 W= 2341 H=1277 R=59067 | TextObject   Text67 -- Text="สถานะสัญญา"
+    [   6] L=59107 T=  20 W= 2016 H=1277 R=61123 | TextObject   Text69 -- Text="ผู้รับผิดชอบโครงการ "
+    [   7] L=61163 T=  20 W= 3228 H=1277 R=64391 | TextObject   Text66 -- Text="คกก.ตรวจรับพัสดุ"
+    [   8] L=64431 T=  20 W= 2016 H=1277 R=66447 | TextObject   Text72 -- Text="เลขที่คำสั่ง"
+    [   9] L=25923 T=  21 W=    0 H=6537 R=25923 | LineObject   Line17 -- L=25923 T=21 R=25923 B=18
+    [  10] L=21000 T=  22 W=    0 H=6536 R=21000 | LineObject   Line14 -- L=21000 T=22 R=21000 B=18
+    [  11] L=61121 T=  23 W=    0 H=6547 R=61121 | LineObject   Line51 -- L=61121 T=23 R=61121 B=30
+    [  12] L=64392 T=  23 W=    0 H=6547 R=64392 | LineObject   Line52 -- L=64392 T=23 R=64392 B=30
+    [  13] L=66448 T=  23 W=    0 H=6547 R=66448 | LineObject   Line53 -- L=66448 T=23 R=66448 B=30
+    [  14] L=42285 T=  25 W=    0 H=6565 R=42285 | LineObject   Line28 -- L=42285 T=25 R=42285 B=50
+    [  15] L=23461 T=  26 W=    0 H=6532 R=23461 | LineObject   Line16 -- L=23461 T=26 R=23461 B=18
+    [  16] L=19346 T=  29 W=    0 H=6590 R=19346 | LineObject   Line13 -- L=19346 T=29 R=19346 B=79
+    [  17] L=    0 T=  31 W=    0 H=6527 R=    0 | LineObject   Line48 -- L=0 T=31 R=0 B=18
+    [  18] L=44394 T=  31 W=    0 H=6516 R=44394 | LineObject   Line3 -- L=44394 T=31 R=44394 B=7
+    [  19] L=   43 T=  32 W=  572 H=1277 R=  615 | TextObject   Text1 -- Text="ลำดับ"
+    [  20] L=  635 T=  32 W= 5160 H=1277 R= 5795 | TextObject   Text6 -- Text="รายการ"
+    [  21] L= 5795 T=  32 W=    0 H=6526 R= 5795 | LineObject   Line6 -- L=5795 T=32 R=5795 B=18
+    [  22] L=49140 T=  34 W=    0 H=2396 R=49140 | LineObject   Line32 -- L=49140 T=34 R=49140 B=0
+    [  23] L= 5835 T=  36 W= 2310 H=1277 R= 8145 | TextObject   Text15 -- Text="งบประมาณที่ได้รับ
+อนุมัติ (บาท)  "
+    [  24] L= 8185 T=  36 W= 1673 H=1277 R= 9858 | TextObject   Text24 -- Text="สัญญาจ้างเลขที่ "
+    [  25] L= 9898 T=  36 W= 1899 H=1277 R=11797 | TextObject   Text26 -- Text="วิธีการจัดหา "
+    [  26] L=11837 T=  44 W= 5160 H=1277 R=16997 | TextObject   Text28 -- Text="ชื่อคู่สัญญา "
+    [  27] L=17037 T=  44 W= 2310 H=1277 R=19347 | TextObject   Text30 -- Text="วงเงินตามสัญญา 
+(บาท) "
+    [  28] L=19387 T=  44 W= 1613 H=1277 R=21000 | TextObject   Text32 -- Text="ระยะเวลา (วัน) "
+    [  29] L=21040 T=  44 W= 2420 H=1277 R=23460 | TextObject   Text37 -- Text="เลขที่โครงการ "
+    [  30] L=23500 T=  44 W= 2420 H=1277 R=25920 | TextObject   Text40 -- Text="เลขที่คุมสัญญา "
+    [  31] L=25960 T=  44 W=16308 H= 523 R=42268 | TextObject   Text2 -- Text="การวางหลักประกันสัญญา"
+    [  32] L=66505 T=  51 W=12571 H= 905 R=79076 | TextObject   Text104 -- Text="แก้ไขสัญญา"
+    [  33] L=42329 T=  97 W= 2064 H= 818 R=44393 | TextObject   Text4 -- Text="ประกันผลงาน"
+    [  34] L=44393 T=  97 W= 4746 H= 818 R=49139 | TextObject   Text5 -- Text="คืนหลักประกัน"
+    [  35] L=49183 T=  97 W= 7503 H= 818 R=56686 | TextObject   Text56 -- Text="งวดที่จ่าย"
+    [  36] L=31901 T= 567 W= 5712 H= 345 R=37613 | TextObject   Text12 -- Text="เช็ค"
+    [  37] L=37612 T= 567 W= 2293 H= 778 R=39905 | TextObject   Text17 -- Text="หนังสือค้ำประกัน"
+    [  38] L=39943 T= 567 W= 2341 H= 778 R=42284 | TextObject   Text18 -- Text="วันครบกำหนด"
+    [  39] L=25917 T= 569 W=16372 H=   0 R=42289 | LineObject   Line18 -- L=25917 T=569 R=42289 B=569
+    [  40] L=31877 T= 570 W=    0 H=5988 R=31877 | LineObject   Line23 -- L=31877 T=570 R=31877 B=18
+    [  41] L=37550 T= 570 W=    0 H=6000 R=37550 | LineObject   Line26 -- L=37550 T=570 R=37550 B=30
+    [  42] L=39913 T= 570 W=    0 H=6020 R=39913 | LineObject   Line27 -- L=39913 T=570 R=39913 B=50
+    [  43] L=25960 T= 582 W= 5917 H= 345 R=31877 | TextObject   Text8 -- Text="เงินสด/เงินโอน"
+    [  44] L=42317 T= 928 W=14369 H=   0 R=56686 | LineObject   Line15 -- L=42317 T=928 R=56686 B=928
+    [  45] L=25917 T= 954 W=11631 H=   0 R=37548 | LineObject   Line20 -- L=25917 T=954 R=37548 B=954
+    [  46] L=27737 T= 955 W=    0 H=5633 R=27737 | LineObject   Line21 -- L=27737 T=955 R=27737 B=48
+    [  47] L=30008 T= 955 W=    0 H=5633 R=30008 | LineObject   Line22 -- L=30008 T=955 R=30008 B=48
+    [  48] L=33494 T= 955 W=    0 H=5615 R=33494 | LineObject   Line24 -- L=33494 T=955 R=33494 B=30
+    [  49] L=35648 T= 955 W=    0 H=5615 R=35648 | LineObject   Line25 -- L=35648 T=955 R=35648 B=30
+    [  50] L=47623 T= 955 W=    0 H=5615 R=47623 | LineObject   Line31 -- L=47623 T=955 R=47623 B=30
+    [  51] L=67945 T= 956 W=    0 H=5610 R=67945 | LineObject   Line70 -- L=67945 T=956 R=67945 B=26
+    [  52] L=68872 T= 956 W=    0 H=5600 R=68872 | LineObject   Line5 -- L=68872 T=956 R=68872 B=16
+    [  53] L=69846 T= 956 W=    0 H=5590 R=69846 | LineObject   Line71 -- L=69846 T=956 R=69846 B=6
+    [  54] L=71476 T= 956 W=    0 H=5610 R=71476 | LineObject   Line7 -- L=71476 T=956 R=71476 B=26
+    [  55] L=73480 T= 956 W=    0 H=5600 R=73480 | LineObject   Line72 -- L=73480 T=956 R=73480 B=16
+    [  56] L=75483 T= 956 W=    0 H=5590 R=75483 | LineObject   Line73 -- L=75483 T=956 R=75483 B=6
+    [  57] L=77132 T= 956 W=    0 H=5606 R=77132 | LineObject   Line11 -- L=77132 T=956 R=77132 B=22
+    [  58] L=50281 T= 957 W=    0 H=1473 R=50281 | LineObject   Line39 -- L=50281 T=957 R=50281 B=0
+    [  59] L=51903 T= 957 W=    0 H=5673 R=51903 | LineObject   Line40 -- L=51903 T=957 R=51903 B=90
+    [  60] L=53510 T= 957 W=    0 H=5653 R=53510 | LineObject   Line43 -- L=53510 T=957 R=53510 B=70
+    [  61] L=55102 T= 957 W=    0 H=5633 R=55102 | LineObject   Line44 -- L=55102 T=957 R=55102 B=50
+    [  62] L=66447 T= 958 W=12629 H=   0 R=79076 | LineObject   Line75 -- L=66447 T=958 R=79076 B=958
+    [  63] L=25960 T= 975 W= 1778 H= 355 R=27738 | TextObject   Text9 -- Text="จำนวน(บาท)"
+    [  64] L=27770 T= 995 W= 2234 H= 355 R=30004 | TextObject   Text10 -- Text="ใบเสร็จ"
+    [  65] L=30046 T= 995 W= 1831 H= 355 R=31877 | TextObject   Text16 -- Text="วันที่"
+    [  66] L=31912 T= 995 W= 1580 H= 355 R=33492 | TextObject   Text13 -- Text="จำนวน(บาท)"
+    [  67] L=33508 T= 995 W= 2142 H= 355 R=35650 | TextObject   Text14 -- Text="ใบเสร็จ"
+    [  68] L=35706 T= 995 W= 1837 H= 355 R=37543 | TextObject   Text11 -- Text="วันที่"
+    [  69] L=42329 T= 995 W= 2064 H= 355 R=44393 | TextObject   Text20 -- Text="ร้อยละ"
+    [  70] L=44393 T= 995 W= 3233 H= 355 R=47626 | TextObject   Text21 -- Text="จำนวน(บาท)"
+    [  71] L=47711 T= 997 W= 1402 H= 355 R=49113 | TextObject   Text22 -- Text="วันที่"
+    [  72] L=49211 T= 997 W= 1073 H= 300 R=50284 | TextObject   Text57 -- Text="งวดที่"
+    [  73] L=50322 T= 997 W= 1580 H= 300 R=51902 | TextObject   Text58 -- Text="จำนวน(บาท)"
+    [  74] L=51938 T= 997 W= 1572 H= 300 R=53510 | TextObject   Text59 -- Text="วันที่"
+    [  75] L=53531 T= 997 W= 1572 H= 300 R=55103 | TextObject   Text60 -- Text="ขยาย"
+    [  76] L=55121 T= 997 W= 1572 H= 300 R=56693 | TextObject   Text61 -- Text="วันที่จ่าย"
+    [  77] L=66505 T=1016 W= 1420 H= 300 R=67925 | TextObject   Text83 -- Text="วันที่แก้ไขสัญญา"
+    [  78] L=67964 T=1016 W=  905 H= 300 R=68869 | TextObject   Text84 -- Text="ครั้งที่"
+    [  79] L=68899 T=1016 W=  948 H= 300 R=69847 | TextObject   Text85 -- Text="งวดที่"
+    [  80] L=69880 T=1016 W= 1607 H= 300 R=71487 | TextObject   Text86 -- Text="วันที่แก้ไขสัญญา"
+    [  81] L=71511 T=1016 W= 1968 H= 300 R=73479 | TextObject   Text87 -- Text="วงเงินเดิม"
+    [  82] L=73497 T=1016 W= 1968 H= 300 R=75465 | TextObject   Text88 -- Text="วงเงิน (แก้ไข)"
+    [  83] L=75525 T=1016 W= 1607 H= 300 R=77132 | TextObject   Text89 -- Text="วันที่สิ้นสุดเดิม "
+    [  84] L=77168 T=1016 W= 1908 H= 300 R=79076 | TextObject   Text90 -- Text="วันที่สิ้นสุด (แก้ไข) "
+    [  85] L=49140 T=1351 W= 7546 H=   0 R=56686 | LineObject   Line47 -- L=49140 T=1351 R=56686 B=1351
+    [!OVERLAP] Top~20: 'Text69' (R=61123) overlaps 'Line51' (L=61121) by 2 twips
+    [!OVERLAP] Top~560: 'Line18' (R=42289) overlaps 'Line23' (L=31877) by 10412 twips
+    [!OVERLAP] Top~560: 'Text12' (R=37613) overlaps 'Line26' (L=37550) by 63 twips
+    [!OVERLAP] Top~960: 'Line20' (R=37548) overlaps 'Line21' (L=27737) by 9811 twips
+    [!OVERLAP] Top~960: 'Line75' (R=79076) overlaps 'Line70' (L=67945) by 11131 twips
+
+==================== AREA: GroupHeaderArea1 [Kind=GroupHeader] ====================
+  SECTION: GroupHeaderSection1 [Kind=GroupHeader] Height=456 <KeepTogether, Underlay>
+    [   0] L=56683 T=   8 W=22393 H=   0 R=79076 | LineObject   Line50 -- L=56683 T=8 R=79076 B=8
+    [   1] L=    4 T=  12 W=56682 H=   0 R=56686 | LineObject   Line34 -- L=4 T=12 R=56686 B=12
+    [   2] L=25960 T=  16 W= 1778 H= 423 R=27738 | TextObject   Text42 -- Text="{Command.จำนวนเงิน สด/โอน}"
+    [   3] L=   43 T=  23 W=  572 H= 423 R=  615 | TextObject   Text3 -- Text="{#RTotal0}"
+    [   4] L=  635 T=  23 W= 5160 H= 423 R= 5795 | TextObject   Text7 -- Text="{Command.รายการ}"
+    [   5] L= 5835 T=  23 W= 2310 H= 423 R= 8145 | TextObject   Text23 -- Text="{Command.งบประมาณที่ได้รับอนุมัติ}"
+    [   6] L= 8185 T=  23 W= 1673 H= 423 R= 9858 | TextObject   Text25 -- Text="{Command.สัญญาจ้างเลขที่}"
+    [   7] L= 9898 T=  23 W= 1899 H= 423 R=11797 | TextObject   Text27 -- Text="{Command.วิธีการจัดหา}"
+    [   8] L=11837 T=  23 W= 5160 H= 423 R=16997 | TextObject   Text29 -- Text="{Command.ชื่อคู่สัญญา}"
+    [   9] L=17037 T=  23 W= 2310 H= 423 R=19347 | TextObject   Text31 -- Text="{Command.วงเงินตามสัญญา}"
+    [  10] L=19387 T=  23 W= 1613 H= 423 R=21000 | TextObject   Text33 -- Text="{Command.ระยะเวลา (เดือน วัน)}
+{Command.วันที่เริ่มต้นสัญญา} - {Command.วันที่สิ้นสุดสัญญา}"
+    [  11] L=21040 T=  23 W= 2420 H= 423 R=23460 | TextObject   Text39 -- Text="{Command.เลขที่โครงการ}"
+    [  12] L=23500 T=  23 W= 2420 H= 423 R=25920 | TextObject   Text41 -- Text="{Command.เลขที่คุมสัญญา}"
+    [  13] L=61163 T=  24 W= 3228 H= 423 R=64391 | TextObject   Text71 -- Text="{Command.U_SLD_Receiving_Officer}"
+    [  14] L=64431 T=  24 W= 2016 H= 423 R=66447 | TextObject   Text76 -- Text="{Command.เลขคำสั่ง}"
+    [  15] L=66505 T=  24 W=12571 H= 308 R=79076 | SubreportObject Subreport2 -- 
+    [  16] L=27770 T=  25 W= 2234 H= 423 R=30004 | TextObject   Text43 -- Text="{Command.ใบเสร็จ (โอน/สด)}"
+    [  17] L=30046 T=  25 W= 1831 H= 423 R=31877 | TextObject   Text44 -- Text="{Command.วันที่ (สด/โอน)}"
+    [  18] L=31912 T=  25 W= 1580 H= 338 R=33492 | TextObject   Text45 -- Text="{Command.จำนวนเงินเช็ค}"
+    [  19] L=33508 T=  25 W= 2142 H= 423 R=35650 | TextObject   Text46 -- Text="{Command.ใบเสร็จ (เช็ค)}"
+    [  20] L=35717 T=  25 W= 1831 H= 423 R=37548 | TextObject   Text47 -- Text="{Command.วันที่(เช็ค)}"
+    [  21] L=37612 T=  25 W= 2293 H= 295 R=39905 | TextObject   Text48 -- Text="{Command.จำนวนเงิน (ค้ำประกัน)}"
+    [  22] L=39943 T=  25 W= 2341 H= 423 R=42284 | TextObject   Text49 -- Text="{Command.วันที่สิ้นสุด (ค้ำประกัน)}"
+    [  23] L=56726 T=  25 W= 2341 H= 423 R=59067 | TextObject   Text68 -- Text="{@สถานะสัญญา}
+{Command.TermDate}"
+    [  24] L=59107 T=  25 W= 2016 H= 423 R=61123 | TextObject   Text70 -- Text="{Command.ผู้รับผิดชอบโครงการ}"
+    [  25] L=42329 T=  33 W= 2064 H= 423 R=44393 | TextObject   Text52 -- Text="{Command.ร้อยละ}"
+    [  26] L=44393 T=  33 W= 3233 H= 295 R=47626 | TextObject   Text51 -- Text=""
+    [  27] L=47711 T=  33 W= 1402 H= 423 R=49113 | TextObject   Text54 -- Text=""
+    [!OVERLAP] Top~20: 'Line34' (R=56686) overlaps 'Text3' (L=43) by 56643 twips
+
+==================== AREA: DetailArea1 [Kind=Detail] ====================
+  SECTION: DetailSection1 [Kind=Detail] Height=446 <KeepTogether>
+    [   0] L=55121 T=   0 W= 1572 H= 423 R=56693 | TextObject   Text65 -- Text="{Command.วันที่_Outgoing}"
+    [   1] L=53531 T=   8 W= 1572 H= 423 R=55103 | TextObject   Text64 -- Text="{Command.วันที่_GRPO}"
+    [   2] L=49211 T=  23 W= 1073 H= 423 R=50284 | TextObject   Text62 -- Text="{Command.งวด_PO}"
+    [   3] L=50322 T=  23 W= 1580 H= 338 R=51902 | TextObject   Text55 -- Text="{Command.SumPO}"
+    [   4] L=51938 T=  23 W= 1572 H= 423 R=53510 | TextObject   Text63 -- Text="{Command.ShipDate}"
+    [   5] L=49140 T= 444 W= 7546 H=   0 R=56686 | LineObject   Line41 -- L=49140 T=444 R=56686 B=444
+
+==================== AREA: GroupFooterArea1 [Kind=GroupFooter] ====================
+  SECTION: GroupFooterSection1 [Kind=GroupFooter] Height=1642 <Suppress, KeepTogether>
+    (no objects)
+
+==================== AREA: ReportFooterArea1 [Kind=ReportFooter] ====================
+  SECTION: ReportFooterSection1 [Kind=ReportFooter] Height=1822 <Suppress, KeepTogether>
+    (no objects)
+
+  SECTION: ReportFooterSection3 [Kind=ReportFooter] Height=474
+    [   0] L=    9 T=  18 W=79066 H=   0 R=79075 | LineObject   Line30 -- L=9 T=18 R=79075 B=18
+    [   1] L=17037 T=  27 W= 2310 H= 423 R=19347 | TextObject   Text91 -- Text="{#ยอดรวมเงินตามสัญญา}"
+    [!OVERLAP] Top~20: 'Line30' (R=79075) overlaps 'Text91' (L=17037) by 62038 twips
+
+==================== AREA: PageFooterArea1 [Kind=PageFooter] ====================
+  SECTION: PageFooterSection1 [Kind=PageFooter] Height=600 <KeepTogether>
+    [   0] L=    0 T=   0 W=79076 H=   0 R=79076 | LineObject   Line57 -- L=0 T=0 R=79076 B=0
+
+==================== COLUMN-EDGE FINGERPRINT ====================
+Left-edge (twips) : count of objects
+       0 : 3
+       4 : 1
+       9 : 1
+      29 : 3
+      43 : 2
+     614 : 1
+     635 : 2
+    5795 : 1
+    5835 : 2
+    8142 : 1
+    8185 : 2
+    9858 : 1
+    9898 : 2
+   11797 : 1
+   11837 : 2
+   16998 : 1
+   17037 : 3
+   19346 : 1
+   19387 : 2
+   21000 : 1
+   21040 : 2
+   23461 : 1
+   23500 : 2
+   25917 : 2
+   25923 : 1
+   25960 : 4
+   27737 : 1
+   27770 : 2
+   30008 : 1
+   30046 : 2
+   31877 : 1
+   31901 : 1
+   31912 : 2
+   33494 : 1
+   33508 : 2
+   35648 : 1
+   35706 : 1
+   35717 : 1
+   37550 : 1
+   37612 : 2
+   39913 : 1
+   39943 : 2
+   42285 : 1
+   42317 : 1
+   42329 : 3
+   44393 : 3
+   44394 : 1
+   47623 : 1
+   47711 : 2
+   49140 : 3
+   49183 : 1
+   49211 : 2
+   50281 : 1
+   50322 : 2
+   51903 : 1
+   51938 : 2
+   53510 : 1
+   53531 : 2
+   55102 : 1
+   55121 : 2
+   56683 : 1
+   56686 : 1
+   56726 : 2
+   59064 : 1
+   59107 : 2
+   61121 : 1
+   61163 : 2
+   64392 : 1
+   64431 : 2
+   66447 : 1
+   66448 : 1
+   66505 : 3
+   67945 : 1
+   67964 : 1
+   68872 : 1
+   68899 : 1
+   69846 : 1
+   69880 : 1
+   71476 : 1
+   71511 : 1
+   73480 : 1
+   73497 : 1
+   75483 : 1
+   75525 : 1
+   77132 : 1
+   77168 : 1
+   79076 : 1
+
+INTERPRETATION: edges that appear only 1-2 times but are within ~50 twips of a popular edge are likely MISALIGNED -- they will create extra columns in Excel.
+
+############################################################
+# SUBREPORT: 3.แก้ไขสัญญา.rpt
+############################################################
+PageSize:   Orientation: 
+Margins (twips): L= R= T= B=
+
+==================== AREA: ReportHeaderArea1 [Kind=ReportHeader] ====================
+  SECTION: ReportHeaderSection1 [Kind=ReportHeader] Height=804 <Suppress, KeepTogether>
+    [   0] L=    0 T=   0 W=12488 H= 366 R=12488 | TextObject   Text9 -- Text="แก้ไขสัญญา"
+    [   1] L=    0 T= 364 W=12482 H=   0 R=12482 | LineObject   Line1 -- L=0 T=364 R=12482 B=364
+    [   2] L=   20 T= 436 W= 1655 H= 300 R= 1675 | TextObject   Text6 -- Text="วันที่แก้ไขสัญญา"
+    [   3] L= 1479 T= 436 W= 1140 H= 300 R= 2619 | TextObject   Text10 -- Text="ครั้งที่"
+    [   4] L= 2414 T= 436 W= 1183 H= 300 R= 3597 | TextObject   Text11 -- Text="งวดที่"
+    [   5] L= 3395 T= 436 W= 1842 H= 300 R= 5237 | TextObject   Text12 -- Text="วันที่แก้ไขสัญญา"
+    [   6] L= 5026 T= 436 W= 2203 H= 300 R= 7229 | TextObject   Text15 -- Text="วงเงินเดิม"
+    [   7] L= 7012 T= 436 W= 2203 H= 300 R= 9215 | TextObject   Text16 -- Text="วงเงิน (แก้ไข)"
+    [   8] L= 9040 T= 436 W= 1880 H= 300 R=10920 | TextObject   Text17 -- Text="วันที่สิ้นสุดเดิม "
+    [   9] L=10703 T= 436 W= 1842 H= 300 R=12545 | TextObject   Text8 -- Text="วันที่สิ้นสุด (แก้ไข) "
+    [  10] L=    0 T= 804 W=12489 H=   0 R=12489 | LineObject   Line2 -- L=0 T=804 R=12489 B=804
+    [!OVERLAP] Top~440: 'Text6' (R=1675) overlaps 'Text10' (L=1479) by 196 twips
+    [!OVERLAP] Top~440: 'Text10' (R=2619) overlaps 'Text11' (L=2414) by 205 twips
+    [!OVERLAP] Top~440: 'Text11' (R=3597) overlaps 'Text12' (L=3395) by 202 twips
+    [!OVERLAP] Top~440: 'Text12' (R=5237) overlaps 'Text15' (L=5026) by 211 twips
+    [!OVERLAP] Top~440: 'Text15' (R=7229) overlaps 'Text16' (L=7012) by 217 twips
+    [!OVERLAP] Top~440: 'Text16' (R=9215) overlaps 'Text17' (L=9040) by 175 twips
+    [!OVERLAP] Top~440: 'Text17' (R=10920) overlaps 'Text8' (L=10703) by 217 twips
+
+  SECTION: ReportHeaderSection2 [Kind=ReportHeader] Height=600 <Suppress, KeepTogether>
+    (no objects)
+
+==================== AREA: DetailArea1 [Kind=Detail] ====================
+  SECTION: DetailSection1 [Kind=Detail] Height=364 <KeepTogether>
+    [   0] L=   20 T=  26 W= 1420 H= 300 R= 1440 | FieldObject  Type1 -- DataSource={Command.Type}
+    [   1] L= 1479 T=  26 W=  905 H= 300 R= 2384 | FieldObject  ครั้งที่1 -- DataSource={Command.ครั้งที่}
+    [   2] L= 2414 T=  26 W=  948 H= 300 R= 3362 | FieldObject  งวดท__สัญา_1 -- DataSource={Command.งวดที่ (สัญญา)}
+    [   3] L= 3395 T=  26 W= 1607 H= 300 R= 5002 | FieldObject  วันที่แก้ไขสัญญา1 -- DataSource={Command.วันที่แก้ไขสัญญา}
+    [   4] L= 5026 T=  26 W= 1968 H= 300 R= 6994 | FieldObject  วงเงินเดิม1 -- DataSource={Command.วงเงินเดิม}
+    [   5] L= 7012 T=  26 W= 1968 H= 300 R= 8980 | FieldObject  วงเงิ_แก้ข_1 -- DataSource={Command.วงเงิน(แก้ไข)}
+    [   6] L= 9040 T=  26 W= 1607 H= 300 R=10647 | FieldObject  วันสิ้นสุดสัญญาเดิม1 -- DataSource={Command.วันสิ้นสุดสัญญาเดิม}
+    [   7] L=10703 T=  26 W= 1855 H= 300 R=12558 | FieldObject  วันสิ้นสุดัญญาแก้ไข_1 -- DataSource={Command.วันสิ้นสุดสัญญา(แก้ไข)}
+    [   8] L=    0 T= 344 W=12564 H=   0 R=12564 | LineObject   Line3 -- L=0 T=344 R=12564 B=344
+
+==================== AREA: ReportFooterArea1 [Kind=ReportFooter] ====================
+  SECTION: ReportFooterSection1 [Kind=ReportFooter] Height=220 <KeepTogether>
+    (no objects)
+
+  SECTION: ReportFooterSection2 [Kind=ReportFooter] Height=600 <KeepTogether>
+    (no objects)
+
+  SECTION: ReportFooterSection3 [Kind=ReportFooter] Height=600 <KeepTogether>
+    (no objects)
+
+==================== COLUMN-EDGE FINGERPRINT ====================
+Left-edge (twips) : count of objects
+       0 : 4
+      20 : 2
+    1479 : 2
+    2414 : 2
+    3395 : 2
+    5026 : 2
+    7012 : 2
+    9040 : 2
+   10703 : 2
+
+INTERPRETATION: edges that appear only 1-2 times but are within ~50 twips of a popular edge are likely MISALIGNED -- they will create extra columns in Excel.
+
+

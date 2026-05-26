@@ -23,23 +23,30 @@
 
     ,LTRIM(
             CASE
-                WHEN FLOOR(DAYS_BETWEEN(T0."StartDate", T0."EndDate") / 30) = 0 THEN ''
-                ELSE TO_VARCHAR(FLOOR(DAYS_BETWEEN(T0."StartDate", T0."EndDate") / 30)) || ' เดือน'
+                WHEN FLOOR(MONTHS_BETWEEN(T0."StartDate", ADD_DAYS(T0."EndDate", 1))) = 0 THEN ''
+                ELSE TO_VARCHAR(FLOOR(MONTHS_BETWEEN(T0."StartDate", ADD_DAYS(T0."EndDate", 1)))) || ' เดือน'
             END
             ||
             CASE
-                WHEN MOD(DAYS_BETWEEN(T0."StartDate", T0."EndDate"), 30) = 0 THEN ''
-                ELSE ' ' || TO_VARCHAR(MOD(DAYS_BETWEEN(T0."StartDate", T0."EndDate"), 30)) || ' วัน'
+                WHEN DAYS_BETWEEN(
+                        ADD_MONTHS(T0."StartDate", FLOOR(MONTHS_BETWEEN(T0."StartDate", ADD_DAYS(T0."EndDate", 1)))),
+                        ADD_DAYS(T0."EndDate", 1)
+                     ) = 0 THEN ''
+                ELSE ' ' || TO_VARCHAR(
+                        DAYS_BETWEEN(
+                            ADD_MONTHS(T0."StartDate", FLOOR(MONTHS_BETWEEN(T0."StartDate", ADD_DAYS(T0."EndDate", 1)))),
+                            ADD_DAYS(T0."EndDate", 1)
+                        )
+                     ) || ' วัน'
             END
         ) AS "ระยะเวลา (เดือน วัน)"
        -- ,T1."PlanQty" AS "จำนวนงวด"
-        , TO_VARCHAR(a."PeriodCat" + 543) AS "ปีงบประมาณ"
+        , TO_VARCHAR(o."Category" + 543) AS "ปีงบประมาณ"
         ,T0."U_SLD_Receiving_Officer"
 		,INC.*
 		,PO.*
 FROM {?Schema@}."OOAT" T0
-INNER JOIN {?Schema@}.OFPR o ON T0."PIndicator" = o."Indicator"
-INNER JOIN {?Schema@}.OACP a ON o."Category" = a."PeriodCat"
+INNER JOIN {?Schema@}.OFPR o ON T0."StartDate" BETWEEN o."F_RefDate" AND o."T_RefDate"   /* จับงวดจาก StartDate ที่ตกในช่วง F_RefDate..T_RefDate -> o."Category" เหลือค่าเดียว */
 LEFT JOIN (SELECT DISTINCT
 		     T0."AbsID" AS "DocEntry_Agreement" /* <<< รับค่าจาก Main Report */
 		    
@@ -65,8 +72,9 @@ LEFT JOIN (SELECT DISTINCT
 		     ,T4."DueDate" AS "วันที่(เช็ค)"
 		    
 		    ,CASE 
-		        WHEN T5."U_SLD_Amount_Edit" > 0 THEN T5."U_SLD_Amount_Edit"
-			ELSE T5."U_SLD_Amount"
+		        WHEN IFNULL(T5."U_SLD_Amount_Edit",0) > 0 THEN IFNULL(T5."U_SLD_Amount_Edit",0)
+				WHEN IFNULL(T5."U_SLD_Amount",0) > 0 THEN IFNULL(T5."U_SLD_Amount",0)
+			ELSE IFNULL(T5."U_SLD_Amount",0)
 		    END AS "จำนวนเงิน (ค้ำประกัน)"
 
 		    ,T0."U_SLD_Warranty" AS "วันที่สิ้นสุด (ค้ำประกัน)"
@@ -93,10 +101,12 @@ LEFT JOIN (SELECT DISTINCT
 		    END AS "จำนวนเงิน (ประกันผลงาน)"
 		FROM {?Schema@}."OOAT" T0
 		LEFT JOIN {?Schema@}."OAT1" T3 ON T0."AbsID" = T3."AgrNo"
-		LEFT JOIN (	SELECT TOP 1 OAT2."AgrNo",OAT2."U_SLD_Amount_Edit",OAT2."U_SLD_Amount"
-					FROM {?Schema@}.OAT2 
-					WHERE OAT2."U_SLD_Type" = '02' 
-					ORDER BY OAT2."AgrEfctNum" DESC ) AS T5 ON T0."AbsID" = T5."AgrNo"
+		LEFT JOIN (	SELECT "AgrNo","U_SLD_Amount_Edit","U_SLD_Amount"
+					FROM (	SELECT OAT2."AgrNo",OAT2."U_SLD_Amount_Edit",OAT2."U_SLD_Amount"
+								,ROW_NUMBER() OVER (PARTITION BY OAT2."AgrNo" ORDER BY OAT2."AgrEfctNum" DESC) AS "RN"
+							FROM {?Schema@}.OAT2
+							WHERE OAT2."U_SLD_Type" = '02' ) T5X
+					WHERE T5X."RN" = 1 ) AS T5 ON T0."AbsID" = T5."AgrNo"
 		LEFT JOIN {?Schema@}."ORCT" T1 ON T0."U_SLD_Document" = T1."DocEntry"
 		LEFT JOIN {?Schema@}."NNM1" T6 ON T1."Series" = T6."Series" 
 		LEFT JOIN {?Schema@}."RCT1" T4 ON T4."DocNum" = T1."DocNum"
@@ -157,9 +167,6 @@ LEFT JOIN (SELECT 	POR1."AgrNo",
 WHERE T0."BpName" IS NOT NULL 
 AND T0."BpName" <> ''
 AND T0."Status" <> 'C'
-AND (TO_VARCHAR(a."PeriodCat" + 543) = '{?Period@}' OR '{?Period@}' = '')
+AND (TO_VARCHAR(o."Category" + 543) = '{?Period@}' OR '{?Period@}' = '')
 AND (TO_VARCHAR(T0."U_SLD_Contract_Type") = '{?Type@}' OR '{?Type@}' = '')
  --AND (T0."AbsID" = '{?AbsID@}' OR '{?AbsID@}' = '')
-
-
-

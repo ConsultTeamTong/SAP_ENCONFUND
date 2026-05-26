@@ -1,12 +1,4 @@
-﻿-- ============================================================
--- Report: RCRI0025__ทะเบียนคุมการใช้จ่ายเงิน (สพจ.).rpt
-Path:   RCRI0025__ทะเบียนคุมการใช้จ่ายเงิน (สพจ.).rpt
-Extracted: 2026-05-07 18:03:40
--- Source: Main Report
--- Table:  Command
--- ============================================================
-
-SELECT 
+﻿SELECT 
 '{?month@}' AS "month",
 OPRC."PrcName" AS "จังหวัด",
 CASE WHEN IFNULL(OB."เงินคงเหลือยกมา",0) > 0 THEN (IFNULL(OB."เงินคงเหลือยกมา",0) - IFNULL(OBAP."รวมรายจ่ายยกมา",0))
@@ -67,7 +59,7 @@ LEFT JOIN (	SELECT SUM(AA."รับเงินจากกองทุน") AS
 					INNER JOIN {?Schema@}.JDT1 T1 ON T0."TransId" = T1."TransId"
 					LEFT JOIN {?Schema@}.OPRC T2 ON T1."OcrCode2" = T2."PrcCode"
 					LEFT JOIN {?Schema@}.OACT T3 ON T1."Account" = T3."AcctCode"
-					WHERE T3."FormatCode" IN ('5104010112','5103010102','5103010103',
+					WHERE T3."FormatCode" IN ('5104010113','5103010102','5103010103',
 					'5103010199','5104030207','5104020107','5104010104','5104010110','5104030299')
 					AND (T1."OcrCode2" <> '' OR T1."OcrCode2" IS NOT NULL)
 					AND T0."RefDate" BETWEEN {?1DStart@} AND {?2DEnd@}
@@ -120,7 +112,7 @@ LEFT JOIN (	SELECT SUM(BB."เงินคงเหลือยกมา") AS "�
 					INNER JOIN {?Schema@}.JDT1 T1 ON T0."TransId" = T1."TransId"
 					LEFT JOIN {?Schema@}.OPRC T2 ON T1."OcrCode2" = T2."PrcCode"
 					LEFT JOIN {?Schema@}.OACT T3 ON T1."Account" = T3."AcctCode"
-					WHERE T3."FormatCode" IN ('5104010112','5103010102','5103010103',
+					WHERE T3."FormatCode" IN ('5104010113','5103010102','5103010103',
 					'5103010199','5104030207','5104020107','5104010104','5104010110','5104030299')
 					AND (T1."OcrCode2" <> '' OR T1."OcrCode2" IS NOT NULL)
 					AND T0."RefDate" < {?1DStart@}
@@ -162,7 +154,7 @@ LEFT JOIN (SELECT
 		INNER JOIN {?Schema@}.JDT1 T1 ON T0."TransId" = T1."TransId"
 		LEFT JOIN {?Schema@}.OPRC T2 ON T1."OcrCode2" = T2."PrcCode"
 		LEFT JOIN {?Schema@}.OACT T3 ON T1."Account" = T3."AcctCode"
-		WHERE T3."FormatCode" = '5104010112'
+		WHERE T3."FormatCode" = '5104010113'
 		AND (T1."OcrCode2" <> '' OR T1."OcrCode2" IS NOT NULL)
 		AND T0."RefDate" BETWEEN {?1DStart@} AND {?2DEnd@}
 		AND T1."Debit" <> 0
@@ -378,7 +370,7 @@ LEFT JOIN (			SELECT
 							INNER JOIN {?Schema@}.JDT1 T1 ON T0."TransId" = T1."TransId"
 							LEFT JOIN {?Schema@}.OPRC T2 ON T1."OcrCode2" = T2."PrcCode"
 							LEFT JOIN {?Schema@}.OACT T3 ON T1."Account" = T3."AcctCode"
-							WHERE T3."FormatCode" = '5104010112'
+							WHERE T3."FormatCode" = '5104010113'
 							AND (T1."OcrCode2" <> '' OR T1."OcrCode2" IS NOT NULL)
 							AND T0."RefDate" < {?1DStart@} 
 							AND T1."Debit" <> 0
