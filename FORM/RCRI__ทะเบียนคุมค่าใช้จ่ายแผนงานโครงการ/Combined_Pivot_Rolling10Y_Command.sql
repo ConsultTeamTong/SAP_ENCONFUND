@@ -67,8 +67,8 @@ SELECT
     SUM(CASE WHEN DET."Category" = {?StartYearBE@} - 543 + 8 THEN DET."Debit" ELSE 0 END) AS "Y09",
     SUM(CASE WHEN DET."Category" = {?StartYearBE@} - 543 + 9 THEN DET."Debit" ELSE 0 END) AS "Y10"
 
-FROM SBO_ENCONFUND.OPRJ T0
-INNER JOIN SBO_ENCONFUND.OPMG T1
+FROM {?Schema@}.OPRJ T0
+INNER JOIN {?Schema@}.OPMG T1
     ON T0."PrjCode" = T1."FIPROJECT"
 
 -- ============================================================
@@ -80,10 +80,10 @@ LEFT JOIN (
         T1."Project",
         T3."Category",
         SUM(IFNULL(T1."Debit", 0)) AS "Debit"
-    FROM SBO_ENCONFUND.OJDT T0
-    INNER JOIN SBO_ENCONFUND.JDT1 T1 ON T0."TransId"    = T1."TransId"
-    LEFT JOIN  SBO_ENCONFUND.OACT T2 ON T1."Account"    = T2."AcctCode"
-    LEFT JOIN  SBO_ENCONFUND.OFPR T3 ON T1."FinncPriod" = T3."AbsEntry"
+    FROM {?Schema@}.OJDT T0
+    INNER JOIN {?Schema@}.JDT1 T1 ON T0."TransId"    = T1."TransId"
+    LEFT JOIN  {?Schema@}.OACT T2 ON T1."Account"    = T2."AcctCode"
+    LEFT JOIN  {?Schema@}.OFPR T3 ON T1."FinncPriod" = T3."AbsEntry"
     WHERE T2."FormatCode" IN (
             '5107010101','5107010103','5107010105','5107010106',
             '5107020104','5107020105','5107020199'
@@ -92,7 +92,7 @@ LEFT JOIN (
       AND T3."Category" BETWEEN {?StartYearBE@} - 543
                             AND {?StartYearBE@} - 543 + 9
       AND T0."TransId" NOT IN (
-            SELECT "StornoToTr" FROM SBO_ENCONFUND.OJDT
+            SELECT "StornoToTr" FROM {?Schema@}.OJDT
             WHERE "StornoToTr" IS NOT NULL
           )
     GROUP BY T1."Project", T3."Category"
@@ -101,10 +101,10 @@ LEFT JOIN (
 -- ============================================================
 -- WHERE : เปิดใช้ได้ถ้าต้องการ filter Period/Plan/WorkGroup
 -- ============================================================
---WHERE
---        (T0."U_SLD_Period"    = '{?Period@}'    OR '{?Period@}'    = '')
---    AND (T0."U_SLD_PlanWork"  = '{?Plan@}'      OR '{?Plan@}'      = '')
---    AND (T0."U_SLD_GroupWork" = '{?WorkGroup@}' OR '{?WorkGroup@}' = '')
+WHERE
+        (T0."U_SLD_Period"    = '{?Period@}'    OR '{?Period@}'    = '')
+    AND (T0."U_SLD_PlanWork"  = '{?Plan@}'      OR '{?Plan@}'      = '')
+    AND (T0."U_SLD_GroupWork" = '{?WorkGroup@}' OR '{?WorkGroup@}' = '')
 
 GROUP BY
     T0."PrjCode",
