@@ -1,7 +1,7 @@
 ﻿============================================================
-Report: JE Enconfund.rpt
-Path:   1. Financials\1.Journal Entry_ใบบันทึกรายการบัญชี\JE Enconfund.rpt
-Extracted: 2026-07-01 09:27:59
+Report: INV20006__ใบแนบ AR.rpt
+Path:   FORM\INV2__ใบแนบ AR\INV20006__ใบแนบ AR.rpt
+Extracted: 2026-07-01 09:28:07
 ============================================================
 
 ************************************************************
@@ -16,22 +16,16 @@ Parameter: (error)
 ************************************************************
   FORMULA FIELDS
 ************************************************************
-Formula: {@SORT}
+Formula: {@PAGE}
 --- BEGIN ---
-if {main.Debit} > 0 then 1
-else 2 
+"หน้า " + ToText(Pagenumber, 0) + " / " + ToText(ToTalPageCount, 0)
 --- END ---
 
 
 ************************************************************
   CONNECTION INFO
 ************************************************************
-Table:    main
-  Server:   NDB@10.21.100.31
-  Database: 
-  UserID:   SYSTEM
-
-Table:    EMP
+Table:    Command
   Server:   NDB@10.21.100.31
   Database: 
   UserID:   SYSTEM

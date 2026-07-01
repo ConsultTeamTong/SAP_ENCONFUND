@@ -1,7 +1,7 @@
 ﻿============================================================
-Report: JE Enconfund.rpt
-Path:   1. Financials\1.Journal Entry_ใบบันทึกรายการบัญชี\JE Enconfund.rpt
-Extracted: 2026-07-01 09:27:59
+Report: ITR20002__Reconsin.rpt
+Path:   FORM\ITR2__Reconsin\ITR20002__Reconsin.rpt
+Extracted: 2026-07-01 09:28:07
 ============================================================
 
 ************************************************************
@@ -16,23 +16,13 @@ Parameter: (error)
 ************************************************************
   FORMULA FIELDS
 ************************************************************
-Formula: {@SORT}
---- BEGIN ---
-if {main.Debit} > 0 then 1
-else 2 
---- END ---
-
+(No formula fields)
 
 ************************************************************
   CONNECTION INFO
 ************************************************************
-Table:    main
-  Server:   NDB@10.21.100.31
-  Database: 
-  UserID:   SYSTEM
-
-Table:    EMP
-  Server:   NDB@10.21.100.31
+Table:    Command
+  Server:   10.10.10.109
   Database: 
   UserID:   SYSTEM
 

@@ -1,7 +1,7 @@
 ﻿============================================================
-Report: JE Enconfund.rpt
-Path:   1. Financials\1.Journal Entry_ใบบันทึกรายการบัญชี\JE Enconfund.rpt
-Extracted: 2026-07-01 09:27:59
+Report: JDT10002__JE ENCONFUND (พลังงานจังหวัด).rpt
+Path:   FORM\JDT1__JE ENCONFUND (พลังงานจังหวัด)\JDT10002__JE ENCONFUND (พลังงานจังหวัด).rpt
+Extracted: 2026-07-01 09:28:08
 ============================================================
 
 ************************************************************
@@ -18,20 +18,43 @@ Parameter: (error)
 ************************************************************
 Formula: {@SORT}
 --- BEGIN ---
-if {main.Debit} > 0 then 1
+if {Command.Debit} > 0 then 1
 else 2 
+--- END ---
+
+Formula: {@ชื่อผู้จัดทำ}
+--- BEGIN ---
+if not isnull({Command_1.ชื่อผู้จัดทำ}) then {Command_1.ชื่อผู้จัดทำ}
+ELSE '                              '
+--- END ---
+
+Formula: {@ชื่อผู้ตรวจสอบ}
+--- BEGIN ---
+if not isnull({Command_1.ชื่อผู้ตรวจ}) then {Command_1.ชื่อผู้ตรวจ}
+ELSE '                              '
+--- END ---
+
+Formula: {@ชื่อผู้อนุมัติ}
+--- BEGIN ---
+if not isnull({Command_1.ชื่อผู้ยืนยัน}) then {Command_1.ชื่อผู้ยืนยัน}
+ELSE '                              '
+--- END ---
+
+Formula: {@หน้า}
+--- BEGIN ---
+"หน้า " + ToText(PageNumber, 0) + " / " + ToText(TotalPageCount, 0)
 --- END ---
 
 
 ************************************************************
   CONNECTION INFO
 ************************************************************
-Table:    main
+Table:    Command
   Server:   NDB@10.21.100.31
   Database: 
   UserID:   SYSTEM
 
-Table:    EMP
+Table:    Command_1
   Server:   NDB@10.21.100.31
   Database: 
   UserID:   SYSTEM

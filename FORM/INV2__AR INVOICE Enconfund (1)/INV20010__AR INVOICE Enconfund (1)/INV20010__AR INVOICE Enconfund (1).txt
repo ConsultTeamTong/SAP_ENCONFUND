@@ -1,7 +1,7 @@
 ﻿============================================================
-Report: JE Enconfund.rpt
-Path:   1. Financials\1.Journal Entry_ใบบันทึกรายการบัญชี\JE Enconfund.rpt
-Extracted: 2026-07-01 09:27:59
+Report: INV20010__AR INVOICE Enconfund (1).rpt
+Path:   FORM\INV2__AR INVOICE Enconfund (1)\INV20010__AR INVOICE Enconfund (1).rpt
+Extracted: 2026-07-01 09:28:07
 ============================================================
 
 ************************************************************
@@ -16,22 +16,22 @@ Parameter: (error)
 ************************************************************
   FORMULA FIELDS
 ************************************************************
-Formula: {@SORT}
+Formula: {@sort}
 --- BEGIN ---
-if {main.Debit} > 0 then 1
-else 2 
+if {Command.Debit} > 0 then 1
+else 2
+--- END ---
+
+Formula: {@page}
+--- BEGIN ---
+"หน้า " + ToText(PageNumber, 0) + " / " + ToText(TotalPageCount, 0)
 --- END ---
 
 
 ************************************************************
   CONNECTION INFO
 ************************************************************
-Table:    main
-  Server:   NDB@10.21.100.31
-  Database: 
-  UserID:   SYSTEM
-
-Table:    EMP
+Table:    Command
   Server:   NDB@10.21.100.31
   Database: 
   UserID:   SYSTEM

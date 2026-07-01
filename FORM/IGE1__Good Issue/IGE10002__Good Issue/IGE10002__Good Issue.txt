@@ -1,7 +1,7 @@
 ﻿============================================================
-Report: JE Enconfund.rpt
-Path:   1. Financials\1.Journal Entry_ใบบันทึกรายการบัญชี\JE Enconfund.rpt
-Extracted: 2026-07-01 09:27:59
+Report: IGE10002__Good Issue.rpt
+Path:   FORM\IGE1__Good Issue\IGE10002__Good Issue.rpt
+Extracted: 2026-07-01 09:28:05
 ============================================================
 
 ************************************************************
@@ -16,23 +16,17 @@ Parameter: (error)
 ************************************************************
   FORMULA FIELDS
 ************************************************************
-Formula: {@SORT}
+Formula: {@เลขที่หน้า}
 --- BEGIN ---
-if {main.Debit} > 0 then 1
-else 2 
+"หน้า " + ToText(PageNumber, 0) + " / " + ToText(TotalPageCount, 0)
 --- END ---
 
 
 ************************************************************
   CONNECTION INFO
 ************************************************************
-Table:    main
-  Server:   NDB@10.21.100.31
-  Database: 
-  UserID:   SYSTEM
-
-Table:    EMP
-  Server:   NDB@10.21.100.31
+Table:    Command
+  Server:   NDB@10.10.10.109
   Database: 
   UserID:   SYSTEM
 

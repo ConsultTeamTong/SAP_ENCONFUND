@@ -1,7 +1,7 @@
 ﻿============================================================
-Report: JE Enconfund.rpt
-Path:   1. Financials\1.Journal Entry_ใบบันทึกรายการบัญชี\JE Enconfund.rpt
-Extracted: 2026-07-01 09:27:59
+Report: JDT10003__JE EnconFund.rpt
+Path:   FORM\JDT1__JE EnconFund\JDT10003__JE EnconFund.rpt
+Extracted: 2026-07-01 09:28:08
 ============================================================
 
 ************************************************************
@@ -20,6 +20,29 @@ Formula: {@SORT}
 --- BEGIN ---
 if {main.Debit} > 0 then 1
 else 2 
+--- END ---
+
+Formula: {@ชื่อผู้จัดทำ}
+--- BEGIN ---
+if not isnull({EMP.ชื่อผู้จัดทำ}) then {EMP.ชื่อผู้จัดทำ}
+ELSE '                              '
+--- END ---
+
+Formula: {@ชื่อผู้ตรวจ}
+--- BEGIN ---
+if not isnull({EMP.ชื่อผู้ตรวจ}) then {EMP.ชื่อผู้ตรวจ}
+ELSE '                              '
+--- END ---
+
+Formula: {@ชื่อผู้อนุมัติ}
+--- BEGIN ---
+if not isnull({EMP.ชื่อผู้ยืนยัน}) then {EMP.ชื่อผู้ยืนยัน}
+ELSE '                              '
+--- END ---
+
+Formula: {@หน้าที่}
+--- BEGIN ---
+"หน้า " + ToText(PageNumber, 0) + " / " + ToText(TotalPageCount, 0)
 --- END ---
 
 

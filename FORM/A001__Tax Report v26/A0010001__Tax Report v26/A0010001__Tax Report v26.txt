@@ -1,6 +1,6 @@
 ﻿============================================================
-Report: JE Enconfund.rpt
-Path:   1. Financials\1.Journal Entry_ใบบันทึกรายการบัญชี\JE Enconfund.rpt
+Report: A0010001__Tax Report v26.rpt
+Path:   FORM\A001__Tax Report v26\A0010001__Tax Report v26.rpt
 Extracted: 2026-07-01 09:27:59
 ============================================================
 
@@ -16,23 +16,17 @@ Parameter: (error)
 ************************************************************
   FORMULA FIELDS
 ************************************************************
-Formula: {@SORT}
+Formula: {@BasisTotal}
 --- BEGIN ---
-if {main.Debit} > 0 then 1
-else 2 
+{Command.U_Total}-{Command.U_TaxAmount}
 --- END ---
 
 
 ************************************************************
   CONNECTION INFO
 ************************************************************
-Table:    main
-  Server:   NDB@10.21.100.31
-  Database: 
-  UserID:   SYSTEM
-
-Table:    EMP
-  Server:   NDB@10.21.100.31
+Table:    Command
+  Server:   10.1.1.100
   Database: 
   UserID:   SYSTEM
 
