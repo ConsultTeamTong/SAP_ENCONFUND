@@ -1,0 +1,631 @@
+﻿============================================================
+Report: SLD_Billing Note_ใบวางบิลตามใบกำกับ.rpt
+Path:   SLD_Billing Note_ใบวางบิลตามใบกำกับ.rpt
+Extracted: 2026-07-13 10:45:18
+============================================================
+
+************************************************************
+  PARAMETERS
+************************************************************
+Parameter: (error)
+  Type:     You cannot call a method on a null-valued expression.
+  Report:   
+  Default:  
+
+
+************************************************************
+  FORMULA FIELDS
+************************************************************
+Formula: {@sum}
+--- BEGIN ---
+sum ({Command.U_Net})
+--- END ---
+
+Formula: {@disc}
+--- BEGIN ---
+
+--- END ---
+
+Formula: {@after disc}
+--- BEGIN ---
+{@sum} - {@disc}
+--- END ---
+
+Formula: {@dpm}
+--- BEGIN ---
+
+--- END ---
+
+Formula: {@word}
+--- BEGIN ---
+StringVar sMoney;
+NumberVar nLenMoney;
+StringVar sDecMoney;
+NumberVar nLenDec;
+StringVar sTemp;
+NumberVar nLenTemp;
+NumberVar nDotPos;
+StringVar sReturn;
+StringVar sTemp1;
+StringVar sTemp2;
+StringVar sTemp3;
+StringVar s1;
+StringVar s2;
+StringVar s3;
+StringVar s4;
+numbervar Total1;
+Total1 := {@sum};
+
+      sTemp := ToText(Total1);
+      nLenTemp := Length(sTemp);
+      nDotPos := InStr(sTemp, ".");
+      sReturn := "";
+
+      If nDotPos > 0 Then
+      (
+         sMoney := Left(sTemp, nDotPos - 1);
+         sDecMoney := Mid(sTemp, nDotPos + 1);
+         nLenMoney := Length(sMoney);
+         nLenDec := Length(sDecMoney);
+      )
+      Else
+      (
+         sMoney := sTemp;
+         nLenMoney := Length(sMoney);
+      );
+
+      If nLenMoney >= 1 Then
+      (
+         s1 := Right(sMoney, 1);
+         If s1 = "0" And nLenMoney = 1 Then
+            sTemp1 := "ศูนย์"
+         Else If s1 = "1" and nLenMoney=1 Then
+            sTemp1 := "หนึ่ง"
+         Else If s1 = "1" then
+            sTemp1 := "เอ็ด"
+         Else If s1 = "2" Then
+            sTemp1 := "สอง"
+         Else If s1 = "3" Then
+            sTemp1 := "สาม"
+         Else If s1 = "4" Then
+            sTemp1 := "สี่"
+         Else If s1 = "5" Then
+            sTemp1 := "ห้า"
+         Else If s1 = "6" Then
+            sTemp1 := "หก"
+         Else If s1 = "7" Then
+            sTemp1 := "เจ็ด"
+         Else If s1 = "8" Then
+            sTemp1 := "แปด"
+         Else If s1 = "9" Then
+            sTemp1 := "เก้า";         
+   );
+
+   If nLenMoney >= 2 Then
+   (
+         s1 := Right(sMoney, 1);
+         s2 := Mid(sMoney, nLenMoney - 1, 1);
+         If s2 = "1" And s1 = "0" Then
+         (
+            sTemp2 := "สิบ";
+            sTemp1 := "";
+         )
+         Else If s2 = "1" Then
+            sTemp2 := "สิบ"
+         Else If s2 = "2" Then
+            sTemp2 := "ยี่สิบ"
+         Else If s2 = "3" Then
+            sTemp2 := "สามสิบ"
+         Else If s2 = "4" Then
+            sTemp2 := "สี่สิบ"
+         Else If s2 = "5" Then
+            sTemp2 := "ห้าสิบ"
+         Else If s2 = "6" Then
+            sTemp2 := "หกสิบ"
+         Else If s2 = "7" Then
+            sTemp2 := "เจ็ดสิบ"
+         Else If s2 = "8" Then
+            sTemp2 := "แปดสิบ"
+         Else If s2 = "9" Then
+            sTemp2 := "เก้าสิบ"
+   );
+   
+   If nLenMoney >= 3 Then
+   (
+         s3 := Mid(sMoney, nLenMoney - 2, 1);
+         If s3 = "1" Then
+            sTemp3 := "หนึ่งร้อย"
+         Else If s3 = "2" Then
+            sTemp3 := "สองร้อย"
+         Else If s3 = "3" Then
+            sTemp3 := "สามร้อย"
+         Else If s3 = "4" Then
+            sTemp3 := "สี่ร้อย"
+         Else If s3 = "5" Then
+            sTemp3 := "ห้าร้อย"
+         Else If s3 = "6" Then
+            sTemp3 := "หกร้อย"
+         Else If s3 = "7" Then
+            sTemp3 := "เจ็ดร้อย"
+         Else If s3 = "8" Then
+            sTemp3 := "แปดร้อย"
+         Else If s3 = "9" Then
+            sTemp3 := "เก้าร้อย"
+   );
+   
+   If nLenMoney >= 1 Then
+   (
+        If Length(sTemp3) > 0 Or Length(sTemp2) > 0 Or Length(sTemp1) > 0 Then
+            sReturn := sTemp3 + sTemp2 + sTemp1;
+        
+        sTemp1 := "";
+        sTemp2 := "";
+        sTemp3 := "";
+   );
+      
+
+   If nLenMoney >= 5 Then
+   (
+         s1 := Mid(sMoney, nLenMoney - 4, 1);
+         If s1 = "1" Then
+            sTemp1:="หนึ่งพัน"  
+         Else If s1 = "2" Then
+            sTemp1 := "สองพัน"
+         Else If s1 = "3" Then
+            sTemp1 := "สามพัน"
+         Else If s1 = "4" Then
+            sTemp1 := "สี่พัน"
+         Else If s1 = "5" Then
+            sTemp1 := "ห้าพัน"
+         Else If s1 = "6" Then
+            sTemp1 := "หกพัน"
+         Else If s1 = "7" Then
+            sTemp1 := "เจ็ดพัน"
+         Else If s1 = "8" Then
+            sTemp1 := "แปดพัน"
+         Else If s1 = "9" Then
+            sTemp1 := "เก้าพัน";
+   );
+
+   If nLenMoney >= 6 Then
+   (
+         s1 := Mid(sMoney, nLenMoney - 4, 1);
+         s2 := Mid(sMoney, nLenMoney - 5, 1);
+         If s2 = "1" Then         
+           sTemp2 := "หนึ่งหมื่น"
+         Else If s2 = "2" Then
+            sTemp2 := "สองหมื่น"
+         Else If s2 = "3" Then
+            sTemp2 := "สามหมื่น"
+         Else If s2 = "4" Then
+            sTemp2 := "สี่หมื่น"
+         Else If s2 = "5" Then
+            sTemp2 := "ห้าหมื่น"
+         Else If s2 = "6" Then
+            sTemp2 := "หกหมื่น"
+         Else If s2 = "7" Then
+            sTemp2 := "เจ็ดหมื่น"
+         Else If s2 = "8" Then
+            sTemp2 := "แปดหมื่น"
+         Else If s2 = "9" Then
+            sTemp2 := "เก้าหมื่น";
+   );
+   
+   If nLenMoney >= 7 Then
+   (
+         s3 := Mid(sMoney, nLenMoney - 6, 1);
+         If s3 = "1" Then
+            sTemp3 := "หนี่งแสน"
+         Else If s3 = "2" Then
+            sTemp3 := "สองแสน"
+         Else If s3 = "3" Then
+            sTemp3 := "สามแสน"
+         Else If s3 = "4" Then
+            sTemp3 := "สี่แสน"
+         Else If s3 = "5" Then
+            sTemp3 := "ห้าแสน"
+         Else If s3 = "6" Then
+            sTemp3 := "หกแสน"
+         Else If s3 = "7" Then
+            sTemp3 := "เจ็ดแสน"
+         Else If s3 = "8" Then
+            sTemp3 := "แปดแสน"
+         Else If s3 = "9" Then
+            sTemp3 := "เก้าแสน" ;
+   );
+   If nLenMoney >= 5 Then
+   (
+        If Length(sTemp3) > 0 Or Length(sTemp2) > 0 Or Length(sTemp1) > 0 Or Length(sReturn) > 0 Then
+            sReturn := sTemp3 + sTemp2 + sTemp1 + sReturn;
+        
+        sTemp1 := "";
+        sTemp2 := "";
+        sTemp3 := "";
+   );
+   
+   If nLenMoney >= 9 Then
+   (
+         s1 := Mid(sMoney, nLenMoney - 8, 1);
+         If s1 = "1" Then
+            sTemp1 := "หนึ่ง"
+         Else If s1 = "2" Then
+            sTemp1 := "สอง"
+         Else If s1 = "3" Then
+            sTemp1 := "สาม"
+         Else If s1 = "4" Then
+            sTemp1 := "สี่"
+         Else If s1 = "5" Then
+            sTemp1 := "ห้า"
+         Else If s1 = "6" Then
+            sTemp1 := "หก"
+         Else If s1 = "7" Then
+            sTemp1 := "เจ็ด"
+         Else If s1 = "8" Then
+            sTemp1 := "แปด"
+         Else If s1 = "9" Then
+            sTemp1 := "เก้า";
+   );
+
+   If nLenMoney >= 10 Then
+   (
+         s1 := Mid(sMoney, nLenMoney - 8, 1);
+         s2 := Mid(sMoney, nLenMoney - 9, 1);
+         If s2 = "1" And s1 = "0" Then
+         (
+            sTemp2 := "สิบ";
+            sTemp1 := "";
+         )
+         Else If s2 = "1" And s1 = "1" Then
+         (
+            sTemp2 := "สิบเอ็ด";
+            sTemp1 := ""; 
+         )
+         Else If s2 = "1" Then
+         (
+           sTemp2 := "สิบ";
+           sTemp1 := "";
+         )
+         Else If s2 = "2" Then
+            sTemp2 := "ยี่สิบ"
+         Else If s2 = "3" Then
+            sTemp2 := "สามสิบ"
+         Else If s2 = "4" Then
+            sTemp2 := "สี่สิบ"
+         Else If s2 = "5" Then
+            sTemp2 := "ห้าสิบ"
+         Else If s2 = "6" Then
+            sTemp2 := "หกสิบ"
+         Else If s2 = "7" Then
+            sTemp2 := "เจ็ดสิบ"
+         Else If s2 = "8" Then
+            sTemp2 := "แปดสิบ"
+         Else If s2 = "9" Then
+            sTemp2 := "เก้าสิบ";
+   );
+   
+   If nLenMoney >= 11 Then
+   (
+         s3 := Mid(sMoney, nLenMoney - 10, 1);
+         If s3 = "1" Then
+            sTemp3 := "หนึ่งร้อย"
+         Else If s3 = "2" Then
+            sTemp3 := "สองร้อย"
+         Else If s3 = "3" Then
+            sTemp3 := "สามร้อย"
+         Else If s3 = "4" Then
+            sTemp3 := "สี่ร้อย"
+         Else If s3 = "5" Then
+            sTemp3 := "ห้าร้อย"
+         Else If s3 = "6" Then
+            sTemp3 := "หกร้อย"
+         Else If s3 = "7" Then
+            sTemp3 := "เจ็ดร้อย"
+         Else If s3 = "8" Then
+            sTemp3 := "แปดร้อย"
+         Else If s3 = "9" Then
+            sTemp3 := "เก้าร้อย";
+   );
+
+   If nLenMoney >= 9 Then
+   (
+        If Length(sTemp3) > 0 Or Length(sTemp2) > 0 Or Length(sTemp1) > 0 Or Length(sReturn) > 0 Then
+            sReturn := sTemp3 + sTemp2 + sTemp1 + "ล้าน" + sReturn;
+        
+        sTemp1 := "";
+        sTemp2 := "";
+        sTemp3 := "";
+   );
+
+
+   If nLenMoney >= 13 Then
+   (
+         s1 := Mid(sMoney, nLenMoney - 12, 1);
+         If s1 = "1" Then
+            sTemp1:="หนึ่งพัน"  
+         Else If s1 = "2" Then
+            sTemp1 := "สองพัน"
+         Else If s1 = "3" Then
+            sTemp1 := "สามพัน"
+         Else If s1 = "4" Then
+            sTemp1 := "สี่พัน"
+         Else If s1 = "5" Then
+            sTemp1 := "ห้าพัน"
+         Else If s1 = "6" Then
+            sTemp1 := "หกพัน"
+         Else If s1 = "7" Then
+            sTemp1 := "เจ็ดพัน"
+         Else If s1 = "8" Then
+            sTemp1 := "แปดพัน"
+         Else If s1 = "9" Then
+            sTemp1 := "เก้าพัน";
+   );
+
+   If nLenMoney >= 14 Then
+   (
+         s1 := Mid(sMoney, nLenMoney - 12, 1);
+         s2 := Mid(sMoney, nLenMoney - 13, 1);
+         If s2 = "1" Then         
+           sTemp2 := "หนึ่งหมื่น"
+         Else If s2 = "2" Then
+            sTemp2 := "สองหมื่น"
+         Else If s2 = "3" Then
+            sTemp2 := "สามหมื่น"
+         Else If s2 = "4" Then
+            sTemp2 := "สี่หมื่น"
+         Else If s2 = "5" Then
+            sTemp2 := "ห้าหมื่น"
+         Else If s2 = "6" Then
+            sTemp2 := "หกหมื่น"
+         Else If s2 = "7" Then
+            sTemp2 := "เจ็ดหมื่น"
+         Else If s2 = "8" Then
+            sTemp2 := "แปดหมื่น"
+         Else If s2 = "9" Then
+            sTemp2 := "เก้าหมื่น";
+   );
+   
+   If nLenMoney >= 15 Then
+   (
+         s3 := Mid(sMoney, nLenMoney - 14, 1);
+         If s3 = "1" Then
+            sTemp3 := "หนี่งแสน"
+         Else If s3 = "2" Then
+            sTemp3 := "สองแสน"
+         Else If s3 = "3" Then
+            sTemp3 := "สามแสน"
+         Else If s3 = "4" Then
+            sTemp3 := "สี่แสน"
+         Else If s3 = "5" Then
+            sTemp3 := "ห้าแสน"
+         Else If s3 = "6" Then
+            sTemp3 := "หกแสน"
+         Else If s3 = "7" Then
+            sTemp3 := "เจ็ดแสน"
+         Else If s3 = "8" Then
+            sTemp3 := "แปดแสน"
+         Else If s3 = "9" Then
+            sTemp3 := "เก้าแสน" ;
+   );
+
+   If nLenMoney >= 13 Then
+   (
+        If Length(sTemp3) > 0 Or Length(sTemp2) > 0 Or Length(sTemp1) > 0 Or Length(sReturn) > 0 Then
+            sReturn := sTemp3 + sTemp2 + sTemp1 + "ล้าน" + sReturn;
+        
+        sTemp1 := "";
+        sTemp2 := "";
+        sTemp3 := "";
+   );
+                            
+   If nLenMoney >= 17 Then
+   (
+         s1 := Mid(sMoney, nLenMoney - 16, 1);
+         If s1 = "1" Then
+            sTemp1 := "หนึ่ง"
+         Else If s1 = "2" Then
+            sTemp1 := "สอง"
+         Else If s1 = "3" Then
+            sTemp1 := "สาม"
+         Else If s1 = "4" Then
+            sTemp1 := "สี่"
+         Else If s1 = "5" Then
+            sTemp1 := "ห้า"
+         Else If s1 = "6" Then
+            sTemp1 := "หก"
+         Else If s1 = "7" Then
+            sTemp1 := "เจ็ด"
+         Else If s1 = "8" Then
+            sTemp1 := "แปด"
+         Else If s1 = "9" Then
+            sTemp1 := "เก้า";
+   );
+
+   If nLenMoney >= 18 Then
+   (
+         s1 := Mid(sMoney, nLenMoney - 16, 1);
+         s2 := Mid(sMoney, nLenMoney - 17, 1);
+         If s2 = "1" And s1 = "0" Then
+         (
+            sTemp2 := "สิบ";
+            sTemp1 := "";
+         )
+         Else If s2 = "1" And s1 = "1" Then
+         (
+            sTemp2 := "สิบเอ็ด";
+            sTemp1 := ""; 
+         )
+         Else If s2 = "1" Then
+         (
+           sTemp2 := "สิบ";
+           sTemp1 := "";
+         )
+         Else If s2 = "2" Then
+            sTemp2 := "ยี่สิบ"
+         Else If s2 = "3" Then
+            sTemp2 := "สามสิบ"
+         Else If s2 = "4" Then
+            sTemp2 := "สี่สิบ"
+         Else If s2 = "5" Then
+            sTemp2 := "ห้าสิบ"
+         Else If s2 = "6" Then
+            sTemp2 := "หกสิบ"
+         Else If s2 = "7" Then
+            sTemp2 := "เจ็ดสิบ"
+         Else If s2 = "8" Then
+            sTemp2 := "แปดสิบ"
+         Else If s2 = "9" Then
+            sTemp2 := "เก้าสิบ";
+   );
+   
+   If nLenMoney >= 19 Then
+   (
+         s3 := Mid(sMoney, nLenMoney - 18, 1);
+         If s3 = "1" Then
+            sTemp3 := "หนึ่งร้อย"
+         Else If s3 = "2" Then
+            sTemp3 := "สองร้อย"
+         Else If s3 = "3" Then
+            sTemp3 := "สามร้อย"
+         Else If s3 = "4" Then
+            sTemp3 := "สี่ร้อย"
+         Else If s3 = "5" Then
+            sTemp3 := "ห้าร้อย"
+         Else If s3 = "6" Then
+            sTemp3 := "หกร้อย"
+         Else If s3 = "7" Then
+            sTemp3 := "เจ็ดร้อย"
+         Else If s3 = "8" Then
+            sTemp3 := "แปดร้อย"
+         Else If s3 = "9" Then
+            sTemp3 := "เก้าร้อย";
+   );
+   If nLenMoney >= 17 Then
+   (
+        If Length(sTemp3) > 0 Or Length(sTemp2) > 0 Or Length(sTemp1) > 0 Or Length(sReturn) > 0 Then
+            sReturn := sTemp3 + sTemp2 + sTemp1 + "ล้าน" + sReturn;
+        
+        sTemp1 := "";
+        sTemp2 := "";
+        sTemp3 := "";
+   );
+          
+          
+   s1:="";
+   s2:="";
+   s3:="";
+   s4:="";
+
+   If nDotPos > 0 Then
+   (
+
+       s1 := Mid(sDecMoney, 2, 1);
+       s2 := Mid(sDecMoney, 1, 1);
+        
+       If s1 = "1" and s2="0" Then
+          s3 := "หนึ่ง" 
+       Else If s1 = "1" Then
+          s3 := "เอ็ด"
+       Else If s1 = "2" Then
+          s3 := "สอง"
+       Else If s1 = "3" Then
+          s3 := "สาม"
+       Else If s1 = "4" Then
+          s3 := "สี่"
+       Else If s1 = "5" Then
+          s3 := "ห้า"
+       Else If s1 = "6" Then
+          s3 := "หก"
+       Else If s1 = "7" Then
+          s3 := "เจ็ด"
+       Else If s1 = "8" Then
+          s3 := "แปด"
+       Else If s1 = "9" Then
+          s3 := "เก้า";
+       
+       
+       If s2 = "1" Then
+          s4 := "สิบ"
+       Else If s2 = "2" Then
+          s4 := "ยี่สิบ"
+       Else If s2 = "3" Then
+          s4 := "สามสิบ"
+       Else If s2 = "4" Then
+          s4 := "สี่สิบ"
+       Else If s2 = "5" Then
+          s4 := "ห้าสิบ"
+       Else If s2 = "6" Then
+          s4 := "หกสิบ"
+       Else If s2 = "7" Then
+          s4 := "เจ็ดสิบ"
+       Else If s2 = "8" Then
+          s4 := "แปดสิบ"
+       Else If s2 = "9" Then
+          s4 := "เก้าสิบ";
+
+       If s4 = "0" and s3 = "0" then 
+          s1 := ""
+       Else 
+          s1 := s4 + s3;
+   );
+
+   If s1<>"" and sReturn <> "" Then
+        sReturn := sReturn + "บาท"+ s1+"สตางค์"
+        
+        
+        else if s1<>"" and sReturn = "" then sReturn :=  s1+"สตางค์"
+
+   Else
+        sReturn := sReturn + "บาทถ้วน";
+
+   if nLenMoney>19 then sReturn:="Over flow";    
+   sReturn;
+
+--- END ---
+
+Formula: {@paymentterm}
+--- BEGIN ---
+
+--- END ---
+
+Formula: {@<TemplateField1>}
+--- BEGIN ---
+//Crystal Report Template Field
+WhileReadingRecords;Space(10)
+--- END ---
+
+Formula: {@111}
+--- BEGIN ---
+
+--- END ---
+
+Formula: {@count}
+--- BEGIN ---
+
+--- END ---
+
+
+************************************************************
+  CONNECTION INFO
+************************************************************
+Table:    Command
+  Server:   spansystems
+  Database: SBO_SPANTEST.1
+  UserID:   SAPB1_DB_USER_SBO_SPANTEST1
+
+Table:    คำสั่ง
+  Server:   spansystems
+  Database: SBO_SPANTEST.1
+  UserID:   SAPB1_DB_USER_SBO_SPANTEST1
+
+
+************************************************************
+  TABLE LINKS
+************************************************************
+(No table links)
+
+************************************************************
+  RECORD SELECTION FORMULA
+************************************************************
+ (   (   NOT  HasValue({?เลขที่เอกสารใบวางบิล})  )   OR  {Command.DocNum} = {?เลขที่เอกสารใบวางบิล}  )  
+
+

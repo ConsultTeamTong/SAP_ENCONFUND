@@ -1,0 +1,1422 @@
+﻿[2026-06-09 11:21:44][INFO] === Set-DatasourceLocation start ===
+[2026-06-09 11:21:44][INFO] Path=C:\Tool  NewServer=10.10.10.115  OldServer=  NewDatabase=  NewUser=  WhatIf=False
+[2026-06-09 11:21:44][INFO] Found 84 report file(s).
+[2026-06-09 11:21:44][INFO] --> C:\Tool\ExportedFromSAP\SBO_SDA_key\1.AP Credit Memo_ใบลดหนี้.rpt
+[2026-06-09 11:21:45][OK]   [main] 'AP_CN' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:21:45][OK]   [main] 'HAddress' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:21:45][OK]   [main] 'Create' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:21:45][OK]   [main] 'Approve' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:21:45][OK]   [sub:HeadRemark] 'Command' server '10.10.10.115' -> '10.10.10.115'
+[2026-06-09 11:21:45][OK]   [sub:Remark] 'Command' server '10.10.10.115' -> '10.10.10.115'
+[2026-06-09 11:21:45][OK]   saved 6 table(s)
+[2026-06-09 11:21:45][INFO] --> C:\Tool\ExportedFromSAP\SBO_SDA_key\1.AP Down Payment_ENG ใบจ่ายเงินมัดจำ.rpt
+[2026-06-09 11:21:45][OK]   [main] 'AP_DownPayment' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:21:45][OK]   [main] 'Address' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:21:45][OK]   [main] 'Create' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:21:46][OK]   [main] 'Approve' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:21:46][OK]   [sub:H remark] 'Command' server '10.10.10.115' -> '10.10.10.115'
+[2026-06-09 11:21:46][OK]   [sub:Remark] 'Command' server '10.10.10.115' -> '10.10.10.115'
+[2026-06-09 11:21:46][OK]   saved 6 table(s)
+[2026-06-09 11:21:46][INFO] --> C:\Tool\ExportedFromSAP\SBO_SDA_key\1.AP Down Payment_ใบจ่ายเงินมัดจำ.rpt
+[2026-06-09 11:21:46][OK]   [main] 'AP_DownPayment' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:21:46][OK]   [main] 'Address' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:21:46][OK]   [main] 'Create' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:21:46][OK]   [main] 'Approve' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:21:46][OK]   [sub:H remark] 'Command' server '10.10.10.115' -> '10.10.10.115'
+[2026-06-09 11:21:46][OK]   [sub:Remark] 'Command' server '10.10.10.115' -> '10.10.10.115'
+[2026-06-09 11:21:46][OK]   saved 6 table(s)
+[2026-06-09 11:21:46][INFO] --> C:\Tool\ExportedFromSAP\SBO_SDA_key\1.AP Invoice_ใบแจ้งหนี้.rpt
+[2026-06-09 11:21:47][OK]   [main] 'AP_INV_BN' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:21:47][OK]   [main] 'Address' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:21:47][OK]   [main] 'Create' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:21:47][OK]   [main] 'Approve' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:21:47][OK]   [sub:HaedRemark] 'Command' server '10.10.10.115' -> '10.10.10.115'
+[2026-06-09 11:21:47][OK]   [sub:Remark] 'Command' server '10.10.10.115' -> '10.10.10.115'
+[2026-06-09 11:21:47][OK]   saved 6 table(s)
+[2026-06-09 11:21:47][INFO] --> C:\Tool\ExportedFromSAP\SBO_SDA_key\1.AR Down Payment_BOM ใบเสร็จรับเงินมัดจำ.rpt
+[2026-06-09 11:21:47][OK]   [main] 'AR_DownPayment' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:21:47][OK]   [main] 'Address' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:21:47][OK]   [main] 'Create' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:21:47][OK]   [main] 'Command' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:21:47][OK]   [sub:Remark] 'Command' server '10.10.10.115' -> '10.10.10.115'
+[2026-06-09 11:21:47][OK]   [sub:head remark] 'Command' server '10.10.10.115' -> '10.10.10.115'
+[2026-06-09 11:21:47][OK]   saved 6 table(s)
+[2026-06-09 11:21:47][INFO] --> C:\Tool\ExportedFromSAP\SBO_SDA_key\1.AR Down Payment_BOM_ENG ใบเสร็จรับเงินมัดจำ.rpt
+[2026-06-09 11:21:48][OK]   [main] 'AR_DownPayment' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:21:48][OK]   [main] 'Address' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:21:48][OK]   [main] 'Create' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:21:48][OK]   [main] 'Command' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:21:48][OK]   [sub:Hremark] 'Command' server '10.10.10.115' -> '10.10.10.115'
+[2026-06-09 11:21:48][OK]   [sub:Remark] 'Command' server '10.10.10.115' -> '10.10.10.115'
+[2026-06-09 11:21:48][OK]   saved 6 table(s)
+[2026-06-09 11:21:48][INFO] --> C:\Tool\ExportedFromSAP\SBO_SDA_key\1.AR Down Payment_ENG ใบเสร็จรับเงินมัดจำ.rpt
+[2026-06-09 11:21:48][OK]   [main] 'AR_DownPayment' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:21:48][OK]   [main] 'Address' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:21:48][OK]   [main] 'Create' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:21:48][OK]   [sub:Hreport] 'Command' server '10.10.10.115' -> '10.10.10.115'
+[2026-06-09 11:21:48][OK]   [sub:Remark] 'Command' server '10.10.10.115' -> '10.10.10.115'
+[2026-06-09 11:21:48][OK]   saved 5 table(s)
+[2026-06-09 11:21:48][INFO] --> C:\Tool\ExportedFromSAP\SBO_SDA_key\1.AR Down Payment_ใบเสร็จรับเงินมัดจำ.rpt
+[2026-06-09 11:21:49][OK]   [main] 'AR_DownPayment' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:21:49][OK]   [main] 'Address' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:21:49][OK]   [main] 'Create' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:21:49][OK]   [sub:Remark] 'Command' server '10.10.10.115' -> '10.10.10.115'
+[2026-06-09 11:21:49][OK]   [sub:head remark] 'Command' server '10.10.10.115' -> '10.10.10.115'
+[2026-06-09 11:21:49][OK]   saved 5 table(s)
+[2026-06-09 11:21:49][INFO] --> C:\Tool\ExportedFromSAP\SBO_SDA_key\1.AR Invoice_BOM ใบแจ้งหนี้.rpt
+[2026-06-09 11:21:49][OK]   [main] 'AR_INV' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:21:49][OK]   [main] 'Address' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:21:49][OK]   [main] 'Create' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:21:49][OK]   [main] 'Command' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:21:49][OK]   [sub:HRemark] 'Command' server '10.10.10.115' -> '10.10.10.115'
+[2026-06-09 11:21:49][OK]   [sub:Remark] 'Command' server '10.10.10.115' -> '10.10.10.115'
+[2026-06-09 11:21:49][OK]   saved 6 table(s)
+[2026-06-09 11:21:49][INFO] --> C:\Tool\ExportedFromSAP\SBO_SDA_key\1.AR Invoice_BOM_ENG ใบแจ้งหนี้.rpt
+[2026-06-09 11:21:49][OK]   [main] 'AR_INV' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:21:49][OK]   [main] 'Address' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:21:50][OK]   [main] 'Create' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:21:50][OK]   [main] 'Command' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:21:50][OK]   [sub:HRemark] 'Command' server '10.10.10.115' -> '10.10.10.115'
+[2026-06-09 11:21:50][OK]   [sub:Remark] 'Command' server '10.10.10.115' -> '10.10.10.115'
+[2026-06-09 11:21:50][OK]   saved 6 table(s)
+[2026-06-09 11:21:50][INFO] --> C:\Tool\ExportedFromSAP\SBO_SDA_key\1.AR_Credit Memo_ENG ใบลดหนี้ แก้ไขยอดเงิน.rpt
+[2026-06-09 11:21:51][OK]   [main] 'AR_CN_BS' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:21:51][OK]   [main] 'Address' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:21:51][OK]   [main] 'Create' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:21:51][OK]   [main] 'Approve' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:21:51][OK]   [sub:Batch/Serial] 'AR_CN_BS' server '10.10.10.115' -> '10.10.10.115'
+[2026-06-09 11:21:51][OK]   [sub:HREMARK] 'Command' server '10.10.10.115' -> '10.10.10.115'
+[2026-06-09 11:21:51][OK]   [sub:Text] 'AR_CN_BS_Text' server '10.10.10.115' -> '10.10.10.115'
+[2026-06-09 11:21:51][OK]   saved 7 table(s)
+[2026-06-09 11:21:51][INFO] --> C:\Tool\ExportedFromSAP\SBO_SDA_key\1.AR_Credit Memo_ใบลดหนี้ แก้ไขยอดเงิน.rpt
+[2026-06-09 11:21:52][OK]   [main] 'AR_CN_BS' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:21:52][OK]   [main] 'Address' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:21:52][OK]   [main] 'Create' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:21:52][OK]   [main] 'Approve' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:21:52][OK]   [sub:Batch/Serial] 'AR_CN_BS' server '10.10.10.115' -> '10.10.10.115'
+[2026-06-09 11:21:52][OK]   [sub:HREMARK] 'Command' server '10.10.10.115' -> '10.10.10.115'
+[2026-06-09 11:21:52][OK]   [sub:Text] 'AR_CN_BS_Text' server '10.10.10.115' -> '10.10.10.115'
+[2026-06-09 11:21:52][OK]   saved 7 table(s)
+[2026-06-09 11:21:52][INFO] --> C:\Tool\ExportedFromSAP\SBO_SDA_key\1.Delivery_ใบส่งของ_Eng (Batch_Serial).rpt
+[2026-06-09 11:21:52][OK]   [main] 'AR_Delivery_BS' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:21:52][OK]   [main] 'address_eng' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:21:52][OK]   [main] 'Create' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:21:52][OK]   [sub:Batch/Serial] 'AR_Drlivery_BS' server '10.10.10.115' -> '10.10.10.115'
+[2026-06-09 11:21:52][OK]   [sub:Head_Remark] 'Command' server '10.10.10.115' -> '10.10.10.115'
+[2026-06-09 11:21:52][OK]   [sub:Remark] 'Command' server '10.10.10.115' -> '10.10.10.115'
+[2026-06-09 11:21:52][OK]   saved 6 table(s)
+[2026-06-09 11:21:52][INFO] --> C:\Tool\ExportedFromSAP\SBO_SDA_key\1.Goods Issue_ENG ใบเบิกสินค้า.rpt
+[2026-06-09 11:21:53][OK]   [main] 'G_Issue_BS' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:21:53][OK]   [main] 'Address' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:21:53][OK]   [main] 'Approve' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:21:53][OK]   [sub:Head_Remark] 'Command' server '10.10.10.115' -> '10.10.10.115'
+[2026-06-09 11:21:53][OK]   [sub:Remark] 'Command' server '10.10.10.115' -> '10.10.10.115'
+[2026-06-09 11:21:53][OK]   saved 5 table(s)
+[2026-06-09 11:21:53][INFO] --> C:\Tool\ExportedFromSAP\SBO_SDA_key\1.Goods Issue_ใบเบิกสินค้า.rpt
+[2026-06-09 11:21:53][OK]   [main] 'G_Issue_BS' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:21:53][OK]   [main] 'Address' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:21:53][OK]   [main] 'Approve' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:21:53][OK]   [sub:Head_Remark] 'Command' server '10.10.10.115' -> '10.10.10.115'
+[2026-06-09 11:21:54][OK]   [sub:Remark] 'Command' server '10.10.10.115' -> '10.10.10.115'
+[2026-06-09 11:21:54][OK]   saved 5 table(s)
+[2026-06-09 11:21:54][INFO] --> C:\Tool\ExportedFromSAP\SBO_SDA_key\1.Goods Receipt_ENG ใบรับสินค้า.rpt
+[2026-06-09 11:21:54][OK]   [main] 'G_Receipt' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:21:54][OK]   [main] 'Address' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:21:54][OK]   [sub:Head_Remark] 'Command' server '10.10.10.115' -> '10.10.10.115'
+[2026-06-09 11:21:54][OK]   [sub:Remark] 'Command' server '10.10.10.115' -> '10.10.10.115'
+[2026-06-09 11:21:55][OK]   saved 4 table(s)
+[2026-06-09 11:21:56][INFO] --> C:\Tool\ExportedFromSAP\SBO_SDA_key\1.Goods Receipt_ใบรับสินค้า.rpt
+[2026-06-09 11:21:56][OK]   [main] 'G_Receipt' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:21:56][OK]   [main] 'Address' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:21:56][OK]   [sub:Head_Remark] 'Command' server '10.10.10.115' -> '10.10.10.115'
+[2026-06-09 11:21:56][OK]   [sub:Remark] 'Command' server '10.10.10.115' -> '10.10.10.115'
+[2026-06-09 11:21:57][OK]   saved 4 table(s)
+[2026-06-09 11:21:58][INFO] --> C:\Tool\ExportedFromSAP\SBO_SDA_key\1.Incoming Payments_Eng ใบเสร็จรับเงิน.rpt
+[2026-06-09 11:21:58][OK]   [main] 'Bank_Receipt' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:21:58][OK]   [main] 'Address' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:21:58][OK]   [main] 'Create' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:21:58][OK]   [sub:CheckNum] 'Command' server '10.10.10.115' -> '10.10.10.115'
+[2026-06-09 11:21:58][OK]   saved 4 table(s)
+[2026-06-09 11:21:58][INFO] --> C:\Tool\ExportedFromSAP\SBO_SDA_key\1.Incoming Payments_ใบเสร็จรับเงิน.rpt
+[2026-06-09 11:21:58][OK]   [main] 'Bank_Receipt' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:21:58][OK]   [main] 'Address' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:21:58][OK]   [main] 'Create' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:21:58][OK]   [sub:CheckNum] 'Command' server '10.10.10.115' -> '10.10.10.115'
+[2026-06-09 11:21:58][OK]   saved 4 table(s)
+[2026-06-09 11:21:58][INFO] --> C:\Tool\ExportedFromSAP\SBO_SDA_key\1.Inventory Counting_ใบตรวจนับสินค้า_Befor.rpt
+[2026-06-09 11:21:59][OK]   [main] 'Command' server '10.10.10.115' -> '10.10.10.115'
+[2026-06-09 11:21:59][OK]   [main] 'Address' server '10.10.10.115' -> '10.10.10.115'
+[2026-06-09 11:21:59][OK]   saved 2 table(s)
+[2026-06-09 11:21:59][INFO] --> C:\Tool\ExportedFromSAP\SBO_SDA_key\1.Inventory Transfer Request_ใบขอโอนสินค้า.rpt
+[2026-06-09 11:21:59][OK]   [main] 'Transfer_Re' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:21:59][OK]   [main] 'Transfer_Re_Address' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:21:59][OK]   [main] 'Address' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:21:59][OK]   [main] 'Create' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:21:59][OK]   [main] 'Approve' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:21:59][OK]   [sub:HRemark] 'Command' server '10.10.10.115' -> '10.10.10.115'
+[2026-06-09 11:21:59][OK]   [sub:TEXT] 'Transfer_Re_Text' server '10.10.10.115' -> '10.10.10.115'
+[2026-06-09 11:21:59][OK]   saved 7 table(s)
+[2026-06-09 11:21:59][INFO] --> C:\Tool\ExportedFromSAP\SBO_SDA_key\1.Issue for Production_ใบเบิกวัตถุดิบเพื่อการผลิต.rpt
+[2026-06-09 11:21:59][OK]   [main] 'Issue_f_Prodution' server '10.10.10.115' -> '10.10.10.115'
+[2026-06-09 11:21:59][OK]   [main] 'Address' server '10.10.10.115' -> '10.10.10.115'
+[2026-06-09 11:21:59][OK]   [sub:TEXT] 'Command' server '10.10.10.115' -> '10.10.10.115'
+[2026-06-09 11:21:59][OK]   saved 3 table(s)
+[2026-06-09 11:21:59][INFO] --> C:\Tool\ExportedFromSAP\SBO_SDA_key\1.Journal Entry_ใบบันทึกรายการบัญชี.rpt
+[2026-06-09 11:22:00][OK]   [main] 'Bank_JE' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:22:00][OK]   [main] 'Command_Addrees' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:22:00][OK]   [main] 'Create_Sign' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:22:00][OK]   saved 3 table(s)
+[2026-06-09 11:22:00][INFO] --> C:\Tool\ExportedFromSAP\SBO_SDA_key\1.Landed Costs_ใบปรับราคาต้นทุนสินค้า.rpt
+[2026-06-09 11:22:00][OK]   [main] 'Landed_Cost' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:22:00][OK]   [main] 'Address' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:22:00][OK]   [sub:Landed_Cost] 'Landed_Cost' server '10.10.10.115' -> '10.10.10.115'
+[2026-06-09 11:22:00][OK]   saved 3 table(s)
+[2026-06-09 11:22:00][INFO] --> C:\Tool\ExportedFromSAP\SBO_SDA_key\1.Outgoing Payments_ENG ใบจ่ายชำระ.rpt
+[2026-06-09 11:22:01][OK]   [main] 'Bank_Payment' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:22:01][OK]   [main] 'Address' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:22:01][OK]   [main] 'Create' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:22:01][OK]   [main] 'Approve' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:22:01][OK]   [sub:Bank] 'Command' server '10.10.10.115' -> '10.10.10.115'
+[2026-06-09 11:22:01][OK]   [sub:Cash] 'Command' server '10.10.10.115' -> '10.10.10.115'
+[2026-06-09 11:22:01][OK]   [sub:Credit Card] 'Command' server '10.10.10.115' -> '10.10.10.115'
+[2026-06-09 11:22:01][OK]   [sub:JE] 'Command' server '10.10.10.115' -> '10.10.10.115'
+[2026-06-09 11:22:01][OK]   [sub:Report] 'Command' server '10.10.10.115' -> '10.10.10.115'
+[2026-06-09 11:22:01][OK]   [sub:TranFer] 'Command' server '10.10.10.115' -> '10.10.10.115'
+[2026-06-09 11:22:01][OK]   saved 10 table(s)
+[2026-06-09 11:22:01][INFO] --> C:\Tool\ExportedFromSAP\SBO_SDA_key\1.Outgoing Payments_ใบจ่ายชำระ.rpt
+[2026-06-09 11:22:01][OK]   [main] 'Bank_Payment' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:22:01][OK]   [main] 'Address' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:22:01][OK]   [main] 'Create' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:22:01][OK]   [main] 'Approve' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:22:01][OK]   [sub:Bank] 'Command' server '10.10.10.115' -> '10.10.10.115'
+[2026-06-09 11:22:01][OK]   [sub:Cash] 'Command' server '10.10.10.115' -> '10.10.10.115'
+[2026-06-09 11:22:01][OK]   [sub:Credit Card] 'Command' server '10.10.10.115' -> '10.10.10.115'
+[2026-06-09 11:22:01][OK]   [sub:JE] 'Command' server '10.10.10.115' -> '10.10.10.115'
+[2026-06-09 11:22:01][OK]   [sub:Report] 'Command' server '10.10.10.115' -> '10.10.10.115'
+[2026-06-09 11:22:01][OK]   [sub:TranFer] 'Command' server '10.10.10.115' -> '10.10.10.115'
+[2026-06-09 11:22:01][OK]   saved 10 table(s)
+[2026-06-09 11:22:01][INFO] --> C:\Tool\ExportedFromSAP\SBO_SDA_key\1.Production Order_ใบสั่งผลิต.rpt
+[2026-06-09 11:22:02][OK]   [main] 'Prodution_Order' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:22:02][OK]   [main] 'Address' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:22:02][OK]   [sub:Text] 'Command' server '10.10.10.115' -> '10.10.10.115'
+[2026-06-09 11:22:02][OK]   saved 3 table(s)
+[2026-06-09 11:22:02][INFO] --> C:\Tool\ExportedFromSAP\SBO_SDA_key\1.Purchase Order_ENG_ใบสั่งซื้อ.rpt
+[2026-06-09 11:22:02][OK]   [main] 'AP_PO' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:22:02][OK]   [main] 'Address' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:22:02][OK]   [main] 'Create' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:22:02][OK]   [main] 'Approve' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:22:02][OK]   [sub:Hremark] 'Command' server '10.10.10.115' -> '10.10.10.115'
+[2026-06-09 11:22:02][OK]   [sub:Remark] 'Command' server '10.10.10.115' -> '10.10.10.115'
+[2026-06-09 11:22:02][OK]   saved 6 table(s)
+[2026-06-09 11:22:02][INFO] --> C:\Tool\ExportedFromSAP\SBO_SDA_key\1.Purchase Order_TH_ใบสั่งซื้อ.rpt
+[2026-06-09 11:22:02][OK]   [main] 'AP_PO' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:22:02][OK]   [main] 'Address' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:22:03][OK]   [main] 'Create' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:22:03][OK]   [main] 'Approve' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:22:03][OK]   [sub:Hremark] 'Command' server '10.10.10.115' -> '10.10.10.115'
+[2026-06-09 11:22:03][OK]   [sub:Remark] 'Command' server '10.10.10.115' -> '10.10.10.115'
+[2026-06-09 11:22:03][OK]   saved 6 table(s)
+[2026-06-09 11:22:03][INFO] --> C:\Tool\ExportedFromSAP\SBO_SDA_key\1.Purchase Quotation_ใบเสนอราคาซื้อ.rpt
+[2026-06-09 11:22:03][OK]   [main] 'AP_PQ' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:22:03][OK]   [main] 'Address' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:22:03][OK]   [main] 'Create' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:22:03][OK]   [main] 'Approve' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:22:03][OK]   [sub:Hremark] 'Command' server '10.10.10.115' -> '10.10.10.115'
+[2026-06-09 11:22:03][OK]   [sub:Remark] 'Command' server '10.10.10.115' -> '10.10.10.115'
+[2026-06-09 11:22:03][OK]   saved 6 table(s)
+[2026-06-09 11:22:04][INFO] --> C:\Tool\ExportedFromSAP\SBO_SDA_key\1.Purchase Request_TH_ใบขอซื้อ.rpt
+[2026-06-09 11:22:04][OK]   [main] 'AP_PR' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:22:04][OK]   [main] 'Address' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:22:04][OK]   [main] 'Approve' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:22:04][OK]   [main] 'Create' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:22:04][OK]   [sub:Hremark] 'Command' server '10.10.10.115' -> '10.10.10.115'
+[2026-06-09 11:22:04][OK]   [sub:Remark] 'Command' server '10.10.10.115' -> '10.10.10.115'
+[2026-06-09 11:22:04][OK]   saved 6 table(s)
+[2026-06-09 11:22:05][INFO] --> C:\Tool\ExportedFromSAP\SBO_SDA_key\1.Receipt from Production_ใบรับสินค้าจากการผลิต.rpt
+[2026-06-09 11:22:05][OK]   [main] 'Receipt_f_Production' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:22:05][OK]   [main] 'Address' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:22:05][OK]   [sub:TEXT] 'Command' server '10.10.10.115' -> '10.10.10.115'
+[2026-06-09 11:22:05][OK]   saved 3 table(s)
+[2026-06-09 11:22:05][INFO] --> C:\Tool\ExportedFromSAP\SBO_SDA_key\1.Retrun_ใบรับคืนสินค้า_(Batch_Serial).rpt
+[2026-06-09 11:22:05][OK]   [main] 'AR_Retrun_BS' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:22:05][OK]   [main] 'OADM' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:22:05][OK]   [main] 'Create' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:22:05][OK]   [sub:Batch/Serial] 'AR_Retrun_BS' server '10.10.10.115' -> '10.10.10.115'
+[2026-06-09 11:22:05][OK]   [sub:Head_Sup] 'Command' server '10.10.10.115' -> '10.10.10.115'
+[2026-06-09 11:22:05][OK]   [sub:Line_Remark] 'Command' server '10.10.10.115' -> '10.10.10.115'
+[2026-06-09 11:22:05][OK]   saved 6 table(s)
+[2026-06-09 11:22:05][INFO] --> C:\Tool\ExportedFromSAP\SBO_SDA_key\1.Retrun_ใบรับคืนสินค้า_ENG (Batch_Serial).rpt
+[2026-06-09 11:22:06][OK]   [main] 'AR_Retrun_BS' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:22:06][OK]   [main] 'Address' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:22:06][OK]   [main] 'Create' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:22:06][OK]   [sub:Batch/Serial] 'AR_Retrun_BS' server '10.10.10.115' -> '10.10.10.115'
+[2026-06-09 11:22:06][OK]   [sub:Head_Sup] 'Command' server '10.10.10.115' -> '10.10.10.115'
+[2026-06-09 11:22:06][OK]   [sub:Line_Remark] 'Command' server '10.10.10.115' -> '10.10.10.115'
+[2026-06-09 11:22:06][OK]   saved 6 table(s)
+[2026-06-09 11:22:06][INFO] --> C:\Tool\ExportedFromSAP\SBO_SDA_key\1.Sale Order_ใบสั่งขาย_(Bom).rpt
+[2026-06-09 11:22:06][OK]   [main] 'AR_SO' server 'SLD-C090' -> '10.10.10.115'
+[2026-06-09 11:22:06][OK]   [main] 'Address' server 'SLD-C090' -> '10.10.10.115'
+[2026-06-09 11:22:06][OK]   [main] 'Create' server 'SLD-C090' -> '10.10.10.115'
+[2026-06-09 11:22:06][OK]   [main] 'Approve' server 'SLD-C090' -> '10.10.10.115'
+[2026-06-09 11:22:06][OK]   [sub:Haed_Remark] 'Command' server '10.10.10.115' -> '10.10.10.115'
+[2026-06-09 11:22:06][OK]   [sub:Remark] 'Command' server '10.10.10.115' -> '10.10.10.115'
+[2026-06-09 11:22:43][OK]   saved 6 table(s)
+[2026-06-09 11:22:43][INFO] --> C:\Tool\ExportedFromSAP\SBO_SDA_key\1.Sale Order_ใบสั่งขาย_(Dis).rpt
+[2026-06-09 11:22:44][OK]   [main] 'AR_SO' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:22:44][OK]   [main] 'Address' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:22:44][OK]   [main] 'Create' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:22:44][OK]   [main] 'Approve' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:22:44][OK]   [sub:Hremark] 'Command' server '10.10.10.115' -> '10.10.10.115'
+[2026-06-09 11:22:44][OK]   [sub:Remark] 'Command' server '10.10.10.115' -> '10.10.10.115'
+[2026-06-09 11:22:44][OK]   saved 6 table(s)
+[2026-06-09 11:22:44][INFO] --> C:\Tool\ExportedFromSAP\SBO_SDA_key\1.Sale Quotation_ใบเสนอราคาขาย_(Dis) ENG.rpt
+[2026-06-09 11:22:44][OK]   [main] 'AR_SQ' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:22:44][OK]   [main] 'Address' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:22:44][OK]   [main] 'Create' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:22:44][OK]   [main] 'Approve' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:22:44][OK]   [sub:Head_Remark] 'Command' server '10.10.10.115' -> '10.10.10.115'
+[2026-06-09 11:22:44][OK]   [sub:Remark] 'Command' server '10.10.10.115' -> '10.10.10.115'
+[2026-06-09 11:22:44][OK]   saved 6 table(s)
+[2026-06-09 11:22:45][INFO] --> C:\Tool\ExportedFromSAP\SBO_SDA_key\1.Sale Quotation_ใบเสนอราคาขาย_(Dis).rpt
+[2026-06-09 11:22:45][OK]   [main] 'AR_SQ' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:22:45][OK]   [main] 'Address' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:22:45][OK]   [main] 'Create' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:22:45][OK]   [main] 'Approve' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:22:45][OK]   [sub:Head_Remark] 'Command' server '10.10.10.115' -> '10.10.10.115'
+[2026-06-09 11:22:45][OK]   [sub:Remark] 'Command' server '10.10.10.115' -> '10.10.10.115'
+[2026-06-09 11:22:45][OK]   saved 6 table(s)
+[2026-06-09 11:22:46][INFO] --> C:\Tool\ExportedFromSAP\SBO_SDA_key\2.AP Down Payment Invoice_ENG ใบจ่ายเงินมัดจำใบกำกับภาษี.rpt
+[2026-06-09 11:22:46][OK]   [main] 'AP_DownPayment' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:22:46][OK]   [main] 'Address' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:22:46][OK]   [main] 'Create' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:22:46][OK]   [main] 'Approve' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:22:46][OK]   [sub:H remark] 'Command' server '10.10.10.115' -> '10.10.10.115'
+[2026-06-09 11:22:46][OK]   [sub:Remark] 'Command' server '10.10.10.115' -> '10.10.10.115'
+[2026-06-09 11:22:46][OK]   saved 6 table(s)
+[2026-06-09 11:22:46][INFO] --> C:\Tool\ExportedFromSAP\SBO_SDA_key\2.AP Down Payment Invoice_ใบจ่ายเงินมัดจำใบกำกับภาษี.rpt
+[2026-06-09 11:22:47][OK]   [main] 'AP_DownPayment' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:22:47][OK]   [main] 'Address' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:22:47][OK]   [main] 'Create' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:22:47][OK]   [main] 'Approve' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:22:47][OK]   [sub:HaedRemark] 'Command' server '10.10.10.115' -> '10.10.10.115'
+[2026-06-09 11:22:47][OK]   [sub:Remark] 'Command' server '10.10.10.115' -> '10.10.10.115'
+[2026-06-09 11:22:47][OK]   saved 6 table(s)
+[2026-06-09 11:22:47][INFO] --> C:\Tool\ExportedFromSAP\SBO_SDA_key\2.AP Invoice_ใบแจ้งหนี้_(Batch_Serial).rpt
+[2026-06-09 11:22:47][OK]   [main] 'AP_INV_BN' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:22:47][OK]   [main] 'Address' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:22:47][OK]   [main] 'Create' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:22:47][OK]   [main] 'Approve' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:22:47][OK]   [sub:HeadRemark] 'Command' server '10.10.10.115' -> '10.10.10.115'
+[2026-06-09 11:22:47][OK]   [sub:Remark] 'Command' server '10.10.10.115' -> '10.10.10.115'
+[2026-06-09 11:22:47][OK]   [sub:batch&sserial] 'AP_INV_BN' server '10.10.10.115' -> '10.10.10.115'
+[2026-06-09 11:22:47][OK]   saved 7 table(s)
+[2026-06-09 11:22:47][INFO] --> C:\Tool\ExportedFromSAP\SBO_SDA_key\2.AR Down PaymentTax Invoice_BOM ใบเสร็จรับเงินมัดจำใบกำกับภาษี.rpt
+[2026-06-09 11:22:48][OK]   [main] 'AR_DownPayment' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:22:48][OK]   [main] 'Address' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:22:48][OK]   [main] 'Create' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:22:48][OK]   [main] 'Command' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:22:48][OK]   [sub:Remark] 'Command' server '10.10.10.115' -> '10.10.10.115'
+[2026-06-09 11:22:48][OK]   [sub:head remark] 'Command' server '10.10.10.115' -> '10.10.10.115'
+[2026-06-09 11:22:48][OK]   saved 6 table(s)
+[2026-06-09 11:22:48][INFO] --> C:\Tool\ExportedFromSAP\SBO_SDA_key\2.AR Down PaymentTax Invoice_BOM_ENG ใบเสร็จรับเงินมัดจำใบกำกับภาษี.rpt
+[2026-06-09 11:22:48][OK]   [main] 'AR_DownPayment' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:22:48][OK]   [main] 'Address' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:22:48][OK]   [main] 'Create' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:22:48][OK]   [main] 'Command' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:22:48][OK]   [sub:Hremark] 'Command' server '10.10.10.115' -> '10.10.10.115'
+[2026-06-09 11:22:48][OK]   [sub:Remark] 'Command' server '10.10.10.115' -> '10.10.10.115'
+[2026-06-09 11:22:48][OK]   saved 6 table(s)
+[2026-06-09 11:22:48][INFO] --> C:\Tool\ExportedFromSAP\SBO_SDA_key\2.AR Down PaymentTax Invoice_ENG ใบเสร็จรับเงินมัดจำใบกำกับภาษี.rpt
+[2026-06-09 11:22:49][OK]   [main] 'AR_DownPayment' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:22:49][OK]   [main] 'Address' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:22:49][OK]   [main] 'Create' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:22:49][OK]   [sub:Remark] 'Command' server '10.10.10.115' -> '10.10.10.115'
+[2026-06-09 11:22:49][OK]   [sub:hmark] 'Command' server '10.10.10.115' -> '10.10.10.115'
+[2026-06-09 11:22:49][OK]   saved 5 table(s)
+[2026-06-09 11:22:49][INFO] --> C:\Tool\ExportedFromSAP\SBO_SDA_key\2.AR Down PaymentTax Invoice_ใบเสร็จรับเงินมัดจำใบกำกับภาษี.rpt
+[2026-06-09 11:22:49][OK]   [main] 'AR_DownPayment' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:22:49][OK]   [main] 'Address' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:22:49][OK]   [main] 'Create' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:22:49][OK]   [sub:Remark] 'Command' server '10.10.10.115' -> '10.10.10.115'
+[2026-06-09 11:22:49][OK]   saved 4 table(s)
+[2026-06-09 11:22:49][INFO] --> C:\Tool\ExportedFromSAP\SBO_SDA_key\2.AR Invoice_ENG ใบแจ้งหนี้_(Dis).rpt
+[2026-06-09 11:22:49][OK]   [main] 'AR_INV' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:22:50][OK]   [main] 'Address' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:22:50][OK]   [main] 'Create' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:22:50][OK]   [main] 'Approve' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:22:50][OK]   [sub:HRemark] 'Command' server '10.10.10.115' -> '10.10.10.115'
+[2026-06-09 11:22:50][OK]   [sub:Remark] 'Command' server '10.10.10.115' -> '10.10.10.115'
+[2026-06-09 11:22:50][OK]   saved 6 table(s)
+[2026-06-09 11:22:50][INFO] --> C:\Tool\ExportedFromSAP\SBO_SDA_key\2.AR Invoice_ใบแจ้งหนี้_(Dis).rpt
+[2026-06-09 11:22:50][OK]   [main] 'AR_INV' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:22:50][OK]   [main] 'Address' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:22:50][OK]   [main] 'Create' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:22:50][OK]   [main] 'Approve' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:22:50][OK]   [sub:HRemark] 'Command' server '10.10.10.115' -> '10.10.10.115'
+[2026-06-09 11:22:50][OK]   [sub:Remark] 'Command' server '10.10.10.115' -> '10.10.10.115'
+[2026-06-09 11:22:50][OK]   saved 6 table(s)
+[2026-06-09 11:22:50][INFO] --> C:\Tool\ExportedFromSAP\SBO_SDA_key\2.AR_Credit Memo_ENG ใบลดหนี้_(Dis) แก้ไขยอดเงิน.rpt
+[2026-06-09 11:22:50][OK]   [main] 'AR_CN' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:22:50][OK]   [main] 'Address' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:22:50][OK]   [main] 'Create' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:22:50][OK]   [main] 'Approve' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:22:50][OK]   [sub:HREMARK] 'Command' server '10.10.10.115' -> '10.10.10.115'
+[2026-06-09 11:22:50][OK]   [sub:Text] 'AR_CN_Text' server '10.10.10.115' -> '10.10.10.115'
+[2026-06-09 11:22:51][OK]   saved 6 table(s)
+[2026-06-09 11:22:51][INFO] --> C:\Tool\ExportedFromSAP\SBO_SDA_key\2.AR_Credit Memo_ใบลดหนี้_(Dis) แก้ไขยอดเงิน.rpt
+[2026-06-09 11:22:51][OK]   [main] 'AR_CN' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:22:51][OK]   [main] 'Address' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:22:51][OK]   [main] 'Create' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:22:51][OK]   [main] 'Approve' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:22:51][OK]   [sub:HREMARK] 'Command' server '10.10.10.115' -> '10.10.10.115'
+[2026-06-09 11:22:51][OK]   [sub:Text] 'AR_CN_Text' server '10.10.10.115' -> '10.10.10.115'
+[2026-06-09 11:22:51][OK]   saved 6 table(s)
+[2026-06-09 11:22:51][INFO] --> C:\Tool\ExportedFromSAP\SBO_SDA_key\2.Delivery_ใบส่งของ_(Batch_Serial).rpt
+[2026-06-09 11:22:51][OK]   [main] 'AR_Delivery_BS' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:22:51][OK]   [main] 'Address' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:22:51][OK]   [main] 'Create' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:22:51][OK]   [sub:Batch/Serial] 'AR_Drlivery_BS' server '10.10.10.115' -> '10.10.10.115'
+[2026-06-09 11:22:51][OK]   [sub:Haed_Remark] 'Command' server '10.10.10.115' -> '10.10.10.115'
+[2026-06-09 11:22:51][OK]   [sub:Remark] 'Command' server '10.10.10.115' -> '10.10.10.115'
+[2026-06-09 11:22:52][OK]   saved 6 table(s)
+[2026-06-09 11:22:52][INFO] --> C:\Tool\ExportedFromSAP\SBO_SDA_key\2.Goods Issue_ใบเบิกสินค้า_(Batch_Serial).rpt
+[2026-06-09 11:22:52][OK]   [main] 'G_Issue_BS' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:22:52][OK]   [main] 'Address' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:22:52][OK]   [main] 'Approve' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:22:52][OK]   [sub:Batch] 'Command' server '10.10.10.115' -> '10.10.10.115'
+[2026-06-09 11:22:52][OK]   [sub:Head_Remark] 'Command' server '10.10.10.115' -> '10.10.10.115'
+[2026-06-09 11:22:52][OK]   [sub:Remark] 'Command' server '10.10.10.115' -> '10.10.10.115'
+[2026-06-09 11:22:52][OK]   saved 6 table(s)
+[2026-06-09 11:22:53][INFO] --> C:\Tool\ExportedFromSAP\SBO_SDA_key\2.Goods Issue_ใบเบิกสินค้า_ENG (Batch_Serial).rpt
+[2026-06-09 11:22:53][OK]   [main] 'G_Issue_BS' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:22:53][OK]   [main] 'Address' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:22:53][OK]   [main] 'Approve' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:22:53][OK]   [sub:Batch] 'Command' server '10.10.10.115' -> '10.10.10.115'
+[2026-06-09 11:22:53][OK]   [sub:Head_Remark] 'Command' server '10.10.10.115' -> '10.10.10.115'
+[2026-06-09 11:22:53][OK]   [sub:Remark] 'Command' server '10.10.10.115' -> '10.10.10.115'
+[2026-06-09 11:22:53][OK]   saved 6 table(s)
+[2026-06-09 11:22:53][INFO] --> C:\Tool\ExportedFromSAP\SBO_SDA_key\2.Goods Receipt_ENG ใบรับสินค้า_(Batch_Serial).rpt
+[2026-06-09 11:22:53][OK]   [main] 'G_Receipt' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:22:53][OK]   [main] 'Address' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:22:53][OK]   [sub:Batch] 'Command' server '10.10.10.115' -> '10.10.10.115'
+[2026-06-09 11:22:53][OK]   [sub:Head_Remark] 'Command' server '10.10.10.115' -> '10.10.10.115'
+[2026-06-09 11:22:53][OK]   [sub:Remark] 'Command' server '10.10.10.115' -> '10.10.10.115'
+[2026-06-09 11:23:37][OK]   saved 5 table(s)
+[2026-06-09 11:23:38][INFO] --> C:\Tool\ExportedFromSAP\SBO_SDA_key\2.Goods Receipt_ใบรับสินค้า_(Batch_Serial).rpt
+[2026-06-09 11:23:38][OK]   [main] 'G_Receipt' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:23:39][OK]   [main] 'Address' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:23:39][OK]   [sub:Batch] 'Command' server '10.10.10.115' -> '10.10.10.115'
+[2026-06-09 11:23:39][OK]   [sub:Head_Remark] 'Command' server '10.10.10.115' -> '10.10.10.115'
+[2026-06-09 11:23:39][OK]   [sub:Remark] 'Command' server '10.10.10.115' -> '10.10.10.115'
+[2026-06-09 11:24:03][OK]   saved 5 table(s)
+[2026-06-09 11:24:04][INFO] --> C:\Tool\ExportedFromSAP\SBO_SDA_key\2.Goods Reciept PO_TH_ใบรับสินค้า_(Batch_Serial).rpt
+[2026-06-09 11:24:04][OK]   [main] 'AP_GRPO_BN' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:24:04][OK]   [main] 'Address' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:24:04][OK]   [main] 'Create' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:24:04][OK]   [sub:Batch/Serial] 'AP_GRPO_BN' server '10.10.10.115' -> '10.10.10.115'
+[2026-06-09 11:24:04][OK]   [sub:Hremark] 'Command' server '10.10.10.115' -> '10.10.10.115'
+[2026-06-09 11:24:04][OK]   [sub:Remark] 'Command' server '10.10.10.115' -> '10.10.10.115'
+[2026-06-09 11:24:05][OK]   saved 6 table(s)
+[2026-06-09 11:24:05][INFO] --> C:\Tool\ExportedFromSAP\SBO_SDA_key\2.Goods Return_TH_ใบส่งคืนสินค้า_(Batch_Serial).rpt
+[2026-06-09 11:24:05][OK]   [main] 'AP_GR_BN' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:24:05][OK]   [main] 'Company' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:24:05][OK]   [sub:Head_Sub] 'Command' server '10.10.10.115' -> '10.10.10.115'
+[2026-06-09 11:24:05][OK]   [sub:Remark] 'Remark' server '10.10.10.115' -> '10.10.10.115'
+[2026-06-09 11:24:05][OK]   [sub:batch&serial] 'AP_GR_BN' server '10.10.10.115' -> '10.10.10.115'
+[2026-06-09 11:24:05][OK]   saved 5 table(s)
+[2026-06-09 11:24:06][INFO] --> C:\Tool\ExportedFromSAP\SBO_SDA_key\2.Incoming Payments_ ENG ใบเสร็จรับเงินใบกำกับภาษี.rpt
+[2026-06-09 11:24:06][OK]   [main] 'Bank_ReceiptTax' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:24:06][OK]   [main] 'Address' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:24:06][OK]   [sub:CheckNum] 'Command' server '10.10.10.115' -> '10.10.10.115'
+[2026-06-09 11:24:06][OK]   saved 3 table(s)
+[2026-06-09 11:24:07][INFO] --> C:\Tool\ExportedFromSAP\SBO_SDA_key\2.Incoming Payments_ใบเสร็จรับเงินใบกำกับภาษี.rpt
+[2026-06-09 11:24:07][OK]   [main] 'Bank_ReceiptTax' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:24:07][OK]   [main] 'Address' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:24:07][OK]   [sub:CheckNum] 'Command' server '10.10.10.115' -> '10.10.10.115'
+[2026-06-09 11:24:07][OK]   saved 3 table(s)
+[2026-06-09 11:24:07][INFO] --> C:\Tool\ExportedFromSAP\SBO_SDA_key\2.Inventory Counting_ใบหลังตรวจนับสินค้า_After.rpt
+[2026-06-09 11:24:07][OK]   [main] 'Command' server '10.10.10.115' -> '10.10.10.115'
+[2026-06-09 11:24:07][OK]   [main] 'Address' server '10.10.10.115' -> '10.10.10.115'
+[2026-06-09 11:24:07][OK]   saved 2 table(s)
+[2026-06-09 11:24:08][INFO] --> C:\Tool\ExportedFromSAP\SBO_SDA_key\2.Inventory Transfer_ใบโอนสินค้า.rpt
+[2026-06-09 11:24:08][OK]   [main] 'Transfer' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:24:08][OK]   [main] 'Address' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:24:08][OK]   [main] 'Create' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:24:08][OK]   [main] 'Approve' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:24:08][OK]   [sub:HRemark] 'Command' server '10.10.10.115' -> '10.10.10.115'
+[2026-06-09 11:24:08][OK]   [sub:TEXT] 'Transfer_Re_Text' server '10.10.10.115' -> '10.10.10.115'
+[2026-06-09 11:24:08][OK]   saved 6 table(s)
+[2026-06-09 11:24:09][INFO] --> C:\Tool\ExportedFromSAP\SBO_SDA_key\2.Inventory Transfer_ใบโอนสินค้า_TH_(Batch_Serial).rpt
+[2026-06-09 11:24:09][OK]   [main] 'Transfer' server '10.10.10.115' -> '10.10.10.115'
+[2026-06-09 11:24:09][OK]   [main] 'Address' server '10.10.10.115' -> '10.10.10.115'
+[2026-06-09 11:24:09][OK]   [main] 'Create' server '10.10.10.115' -> '10.10.10.115'
+[2026-06-09 11:24:09][OK]   [main] 'Approve' server '10.10.10.115' -> '10.10.10.115'
+[2026-06-09 11:24:09][OK]   [sub:Batch] 'Command' server '10.10.10.115' -> '10.10.10.115'
+[2026-06-09 11:24:09][OK]   [sub:HRemark] 'Command' server '10.10.10.115' -> '10.10.10.115'
+[2026-06-09 11:24:09][OK]   [sub:TEXT] 'Transfer_Re_Text' server '10.10.10.115' -> '10.10.10.115'
+[2026-06-09 11:24:09][OK]   saved 7 table(s)
+[2026-06-09 11:24:09][INFO] --> C:\Tool\ExportedFromSAP\SBO_SDA_key\2.Issue for Production_ใบเบิกวัตถุดิบเพื่อการผลิต_(Batch_Serial).rpt
+[2026-06-09 11:24:09][OK]   [main] 'Issue_f_Prodution' server '10.10.10.115' -> '10.10.10.115'
+[2026-06-09 11:24:09][OK]   [main] 'Address' server '10.10.10.115' -> '10.10.10.115'
+[2026-06-09 11:24:09][OK]   [sub:B/S Num] 'Command' server '10.10.10.115' -> '10.10.10.115'
+[2026-06-09 11:24:09][OK]   [sub:TEXT] 'Command' server '10.10.10.115' -> '10.10.10.115'
+[2026-06-09 11:24:10][OK]   saved 4 table(s)
+[2026-06-09 11:24:10][INFO] --> C:\Tool\ExportedFromSAP\SBO_SDA_key\2.Receipt from Production_ใบรับสินค้าจากการผลิต_(Batch_Serial).rpt
+[2026-06-09 11:24:10][OK]   [main] 'Receipt_f_Prodution' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:24:10][OK]   [main] 'Address' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:24:10][OK]   [sub:B/S Number] 'Command' server '10.10.10.115' -> '10.10.10.115'
+[2026-06-09 11:24:10][OK]   [sub:TEXT] 'Command' server '10.10.10.115' -> '10.10.10.115'
+[2026-06-09 11:24:10][OK]   saved 4 table(s)
+[2026-06-09 11:24:10][INFO] --> C:\Tool\ExportedFromSAP\SBO_SDA_key\2.Sale Quotation_ใบเสนอราคาขาย_(BOM) ENG.rpt
+[2026-06-09 11:24:10][OK]   [main] 'AR_SQ' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:24:10][OK]   [main] 'Address' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:24:10][OK]   [main] 'Create' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:24:10][OK]   [main] 'Approve' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:24:10][OK]   [sub:Head_Remark] 'Command' server '10.10.10.115' -> '10.10.10.115'
+[2026-06-09 11:24:10][OK]   [sub:Remark] 'Command' server '10.10.10.115' -> '10.10.10.115'
+[2026-06-09 11:24:11][OK]   saved 6 table(s)
+[2026-06-09 11:24:11][INFO] --> C:\Tool\ExportedFromSAP\SBO_SDA_key\2.Sale Quotation_ใบเสนอราคาขาย_(Bom).rpt
+[2026-06-09 11:24:11][OK]   [main] 'AR_SQ' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:24:11][OK]   [main] 'Address' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:24:11][OK]   [main] 'Create' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:24:11][OK]   [main] 'Approve' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:24:11][OK]   [sub:Head_Remark] 'Command' server '10.10.10.115' -> '10.10.10.115'
+[2026-06-09 11:24:11][OK]   [sub:Remark] 'Command' server '10.10.10.115' -> '10.10.10.115'
+[2026-06-09 11:24:11][OK]   saved 6 table(s)
+[2026-06-09 11:24:11][INFO] --> C:\Tool\ExportedFromSAP\SBO_SDA_key\3.AP InvoiceTax Invoice_ใบแจ้งหนี้ใบกำกับภาษี(Batch_Serial).rpt
+[2026-06-09 11:24:12][OK]   [main] 'AP_INV_BN' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:24:12][OK]   [main] 'Address' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:24:12][OK]   [main] 'Create' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:24:12][OK]   [main] 'Approve' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:24:12][OK]   [sub:HeadRemark] 'Command' server '10.10.10.115' -> '10.10.10.115'
+[2026-06-09 11:24:12][OK]   [sub:Remark] 'Command' server '10.10.10.115' -> '10.10.10.115'
+[2026-06-09 11:24:12][OK]   [sub:batch&sserial] 'AP_INV_BN' server '10.10.10.115' -> '10.10.10.115'
+[2026-06-09 11:24:12][OK]   saved 7 table(s)
+[2026-06-09 11:24:12][INFO] --> C:\Tool\ExportedFromSAP\SBO_SDA_key\3.AP InvoiceTax Invoice_ใบแจ้งหนี้ใบกำกับภาษี.rpt
+[2026-06-09 11:24:13][OK]   [main] 'AP_INV_BN' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:24:13][OK]   [main] 'Address' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:24:13][OK]   [main] 'Create' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:24:13][OK]   [main] 'Approve' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:24:13][OK]   [sub:TEXT] 'AP_INV_Text' server '10.10.10.115' -> '10.10.10.115'
+[2026-06-09 11:24:13][OK]   saved 5 table(s)
+[2026-06-09 11:24:13][INFO] --> C:\Tool\ExportedFromSAP\SBO_SDA_key\3.AR Down Payment Invoice_BOM ใบแจ้งหนี้เงินค่ามัดจำใบกำกับภาษี.rpt
+[2026-06-09 11:24:14][OK]   [main] 'AR_DownPayment' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:24:14][OK]   [main] 'Address' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:24:14][OK]   [main] 'Create' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:24:14][OK]   [main] 'Command' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:24:14][OK]   [sub:Remark] 'Command' server '10.10.10.115' -> '10.10.10.115'
+[2026-06-09 11:24:14][OK]   [sub:head remark] 'Command' server '10.10.10.115' -> '10.10.10.115'
+[2026-06-09 11:24:14][OK]   saved 6 table(s)
+[2026-06-09 11:24:14][INFO] --> C:\Tool\ExportedFromSAP\SBO_SDA_key\3.AR Down PaymentTax Invoice_BOM_ENG ใบแจ้งหนี้เงินค่ามัดจำใบกำกับภาษี.rpt
+[2026-06-09 11:24:14][OK]   [main] 'AR_DownPayment' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:24:14][OK]   [main] 'Address' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:24:14][OK]   [main] 'Create' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:24:14][OK]   [main] 'Command' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:24:14][OK]   [sub:Hremark] 'Command' server '10.10.10.115' -> '10.10.10.115'
+[2026-06-09 11:24:14][OK]   [sub:Remark] 'Command' server '10.10.10.115' -> '10.10.10.115'
+[2026-06-09 11:24:15][OK]   saved 6 table(s)
+[2026-06-09 11:24:15][INFO] --> C:\Tool\ExportedFromSAP\SBO_SDA_key\3.AR Down PaymentTax Invoice_ENG ใบแจ้งหนี้เงินค่ามัดจำใบกำกับภาษี.rpt
+[2026-06-09 11:24:15][OK]   [main] 'AR_DownPayment' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:24:15][OK]   [main] 'Address' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:24:15][OK]   [main] 'Create' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:24:15][OK]   [sub:Remark] 'Command' server '10.10.10.115' -> '10.10.10.115'
+[2026-06-09 11:24:15][OK]   [sub:hmark] 'Command' server '10.10.10.115' -> '10.10.10.115'
+[2026-06-09 11:24:15][OK]   saved 5 table(s)
+[2026-06-09 11:24:15][INFO] --> C:\Tool\ExportedFromSAP\SBO_SDA_key\3.AR Down PaymentTax Invoice_ใบแจ้งหนี้เงินค่ามัดจำใบกำกับภาษี.rpt
+[2026-06-09 11:24:16][OK]   [main] 'AR_DownPayment' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:24:16][OK]   [main] 'Address' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:24:16][OK]   [main] 'Create' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:24:16][OK]   [sub:Remark] 'Command' server '10.10.10.115' -> '10.10.10.115'
+[2026-06-09 11:24:16][OK]   [sub:hmark] 'Command' server '10.10.10.115' -> '10.10.10.115'
+[2026-06-09 11:24:16][OK]   saved 5 table(s)
+[2026-06-09 11:24:16][INFO] --> C:\Tool\ExportedFromSAP\SBO_SDA_key\3.AR_Credit Memo_ใบลดหนี้_(Batch_Serial) แก้ไขยอดเงิน.rpt
+[2026-06-09 11:24:16][OK]   [main] 'AR_CN_BS' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:24:16][OK]   [main] 'Address' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:24:16][OK]   [main] 'Create' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:24:16][OK]   [main] 'Approve' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:24:16][OK]   [sub:Batch/Serial] 'AR_CN_BS' server '10.10.10.115' -> '10.10.10.115'
+[2026-06-09 11:24:16][OK]   [sub:HREMARK] 'Command' server '10.10.10.115' -> '10.10.10.115'
+[2026-06-09 11:24:16][OK]   [sub:Text] 'AR_CN_BS_Text' server '10.10.10.115' -> '10.10.10.115'
+[2026-06-09 11:24:17][OK]   saved 7 table(s)
+[2026-06-09 11:24:17][INFO] --> C:\Tool\ExportedFromSAP\SBO_SDA_key\3.AR_Credit Memo_ใบลดหนี้_ENG (Batch_Serial) แก้ไขยอดเงิน.rpt
+[2026-06-09 11:24:17][OK]   [main] 'AR_CN_BS' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:24:17][OK]   [main] 'Address' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:24:17][OK]   [main] 'Create' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:24:17][OK]   [main] 'Approve' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:24:17][OK]   [sub:Batch/Serial] 'AR_CN_BS' server '10.10.10.115' -> '10.10.10.115'
+[2026-06-09 11:24:17][OK]   [sub:HREMARK] 'Command' server '10.10.10.115' -> '10.10.10.115'
+[2026-06-09 11:24:17][OK]   [sub:Text] 'AR_CN_BS_Text' server '10.10.10.115' -> '10.10.10.115'
+[2026-06-09 11:24:17][OK]   saved 7 table(s)
+[2026-06-09 11:24:17][INFO] --> C:\Tool\ExportedFromSAP\SBO_SDA_key\3.BillingAR InvoiceTax Invoice_ENG ใบวางบิลใบแจ้งหนี้ใบกำกับภาษี (Bom).rpt
+[2026-06-09 11:24:18][OK]   [main] 'AR_INV' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:24:18][OK]   [main] 'Address' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:24:18][OK]   [main] 'Create' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:24:18][OK]   [sub:HRemark] 'Command' server '10.10.10.115' -> '10.10.10.115'
+[2026-06-09 11:24:18][OK]   [sub:Remark] 'Command' server '10.10.10.115' -> '10.10.10.115'
+[2026-06-09 11:24:18][OK]   saved 5 table(s)
+[2026-06-09 11:24:18][INFO] --> C:\Tool\ExportedFromSAP\SBO_SDA_key\3.BillingAR InvoiceTax Invoice_ใบวางบิลใบแจ้งหนี้ใบกำกับภาษี (Bom).rpt
+[2026-06-09 11:24:19][OK]   [main] 'AR_INV' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:24:19][OK]   [main] 'Address' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:24:19][OK]   [main] 'Create' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:24:19][OK]   [sub:HRemark] 'Command' server '10.10.10.115' -> '10.10.10.115'
+[2026-06-09 11:24:19][OK]   [sub:Remark] 'Command' server '10.10.10.115' -> '10.10.10.115'
+[2026-06-09 11:24:19][OK]   saved 5 table(s)
+[2026-06-09 11:24:19][INFO] --> C:\Tool\ExportedFromSAP\SBO_SDA_key\4.AP Debit Note_ใบเพิ่มหนี้.rpt
+[2026-06-09 11:24:19][OK]   [main] 'AP_INV' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:24:19][OK]   [main] 'Address' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:24:19][OK]   [main] 'Create' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:24:19][OK]   [main] 'Approve' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:24:19][OK]   [sub:TEXT] 'AR_INV_Text' server '10.10.10.115' -> '10.10.10.115'
+[2026-06-09 11:24:20][OK]   saved 5 table(s)
+[2026-06-09 11:24:20][INFO] --> C:\Tool\ExportedFromSAP\SBO_SDA_key\4.AR_Credit Memo_ใบลดหนี้_(Batch_Serial) (Dis).rpt
+[2026-06-09 11:24:20][OK]   [main] 'AR_CN' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:24:20][OK]   [main] 'Address' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:24:20][OK]   [main] 'Create' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:24:20][OK]   [main] 'Approve' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:24:20][OK]   [sub:B/S] 'Command' server '10.10.10.115' -> '10.10.10.115'
+[2026-06-09 11:24:20][OK]   [sub:HREMARK] 'Command' server '10.10.10.115' -> '10.10.10.115'
+[2026-06-09 11:24:20][OK]   [sub:Text] 'AR_CN_Text' server '10.10.10.115' -> '10.10.10.115'
+[2026-06-09 11:24:20][OK]   saved 7 table(s)
+[2026-06-09 11:24:20][INFO] --> C:\Tool\ExportedFromSAP\SBO_SDA_key\4.AR_Credit Memo_ใบลดหนี้_ENG (Batch_Serial) (Dis).rpt
+[2026-06-09 11:24:21][OK]   [main] 'AR_CN' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:24:21][OK]   [main] 'Address' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:24:21][OK]   [main] 'Create' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:24:21][OK]   [main] 'Approve' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:24:21][OK]   [sub:B/S] 'Command' server '10.10.10.115' -> '10.10.10.115'
+[2026-06-09 11:24:21][OK]   [sub:HREMARK] 'Command' server '10.10.10.115' -> '10.10.10.115'
+[2026-06-09 11:24:21][OK]   [sub:Text] 'AR_CN_Text' server '10.10.10.115' -> '10.10.10.115'
+[2026-06-09 11:24:21][OK]   saved 7 table(s)
+[2026-06-09 11:24:21][INFO] --> C:\Tool\ExportedFromSAP\SBO_SDA_key\4.BillingAR InvoiceTax Invoice_ENG ใบวางบิลใบแจ้งหนี้ใบกำกับภาษี (Dis).rpt
+[2026-06-09 11:24:22][OK]   [main] 'AR_INV' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:24:22][OK]   [main] 'Address' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:24:22][OK]   [main] 'Create' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:24:22][OK]   [main] 'Approve' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:24:22][OK]   [sub:HRemark] 'Command' server '10.10.10.115' -> '10.10.10.115'
+[2026-06-09 11:24:22][OK]   [sub:Remark] 'Command' server '10.10.10.115' -> '10.10.10.115'
+[2026-06-09 11:24:22][OK]   saved 6 table(s)
+[2026-06-09 11:24:22][INFO] --> C:\Tool\ExportedFromSAP\SBO_SDA_key\4.BillingAR InvoiceTax Invoice_ใบวางบิลใบแจ้งหนี้ใบกำกับภาษี (Dis).rpt
+[2026-06-09 11:24:22][OK]   [main] 'AR_INV' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:24:22][OK]   [main] 'Address' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:24:22][OK]   [main] 'Create' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:24:22][OK]   [main] 'Approve' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:24:22][OK]   [sub:HRemark] 'Command' server '10.10.10.115' -> '10.10.10.115'
+[2026-06-09 11:24:22][OK]   [sub:Remark] 'Command' server '10.10.10.115' -> '10.10.10.115'
+[2026-06-09 11:24:22][OK]   saved 6 table(s)
+[2026-06-09 11:24:22][INFO] --> C:\Tool\ExportedFromSAP\SBO_SDA_key\5.BillingAR Invoice_ENG ใบวางบิลใบแจ้งหนี้ (Bom).rpt
+[2026-06-09 11:24:23][OK]   [main] 'AR_INV' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:24:23][OK]   [main] 'Address' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:24:23][OK]   [main] 'Create' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:24:23][OK]   [sub:HRemark] 'Command' server '10.10.10.115' -> '10.10.10.115'
+[2026-06-09 11:24:23][OK]   [sub:Remark] 'Command' server '10.10.10.115' -> '10.10.10.115'
+[2026-06-09 11:24:23][OK]   saved 5 table(s)
+[2026-06-09 11:24:23][INFO] --> C:\Tool\ExportedFromSAP\SBO_SDA_key\5.BillingAR Invoice_ใบวางบิลใบแจ้งหนี้ (Bom).rpt
+[2026-06-09 11:24:24][OK]   [main] 'AR_INV' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:24:24][OK]   [main] 'Address' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:24:24][OK]   [main] 'Create' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:24:24][OK]   [sub:HRemark] 'Command' server '10.10.10.115' -> '10.10.10.115'
+[2026-06-09 11:24:24][OK]   [sub:Remark] 'Command' server '10.10.10.115' -> '10.10.10.115'
+[2026-06-09 11:24:24][OK]   saved 5 table(s)
+[2026-06-09 11:24:24][INFO] --> C:\Tool\ExportedFromSAP\SBO_SDA_key\6.BillingAR Invoice_ENG ใบวางบิลใบแจ้งหนี้ (Dis).rpt
+[2026-06-09 11:24:24][OK]   [main] 'AR_INV' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:24:24][OK]   [main] 'Address' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:24:24][OK]   [main] 'Create' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:24:24][OK]   [main] 'Approve' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:24:24][OK]   [sub:HRemark] 'Command' server '10.10.10.115' -> '10.10.10.115'
+[2026-06-09 11:24:24][OK]   [sub:Remark] 'Command' server '10.10.10.115' -> '10.10.10.115'
+[2026-06-09 11:24:24][OK]   saved 6 table(s)
+[2026-06-09 11:24:25][INFO] --> C:\Tool\ExportedFromSAP\SBO_SDA_key\6.BillingAR Invoice_ใบวางบิลใบแจ้งหนี้ (Dis).rpt
+[2026-06-09 11:24:25][OK]   [main] 'AR_INV' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:24:25][OK]   [main] 'Address' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:24:26][OK]   [main] 'Create' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:24:26][OK]   [main] 'Approve' server '192.168.0.216' -> '10.10.10.115'
+[2026-06-09 11:24:26][OK]   [sub:HRemark] 'Command' server '10.10.10.115' -> '10.10.10.115'
+[2026-06-09 11:24:26][OK]   [sub:Remark] 'Command' server '10.10.10.115' -> '10.10.10.115'
+[2026-06-09 11:24:26][OK]   saved 6 table(s)
+[2026-06-09 11:24:26][INFO] === Done. ok=84  err=0  skipped=0  total=84 ===
+[2026-06-09 11:32:40][INFO] === Set-DatasourceLocation start ===
+[2026-06-09 11:32:40][INFO] Path=C:\Tool  NewServer=10.10.10.109  OldServer=  NewDatabase=  NewUser=  WhatIf=False
+[2026-06-09 11:32:40][INFO] Found 84 report file(s).
+[2026-06-09 11:32:40][INFO] --> C:\Tool\ExportedFromSAP\SBO_SDA_key\1.AP Credit Memo_ใบลดหนี้.rpt
+[2026-06-09 11:32:41][OK]   [main] 'AP_CN' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:32:41][OK]   [main] 'HAddress' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:32:41][OK]   [main] 'Create' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:32:41][OK]   [main] 'Approve' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:32:41][OK]   [sub:HeadRemark] 'Command' server '10.10.10.109' -> '10.10.10.109'
+[2026-06-09 11:32:41][OK]   [sub:Remark] 'Command' server '10.10.10.109' -> '10.10.10.109'
+[2026-06-09 11:32:41][OK]   saved 6 table(s)
+[2026-06-09 11:32:42][INFO] --> C:\Tool\ExportedFromSAP\SBO_SDA_key\1.AP Down Payment_ENG ใบจ่ายเงินมัดจำ.rpt
+[2026-06-09 11:32:42][OK]   [main] 'AP_DownPayment' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:32:42][OK]   [main] 'Address' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:32:42][OK]   [main] 'Create' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:32:42][OK]   [main] 'Approve' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:32:42][OK]   [sub:H remark] 'Command' server '10.10.10.109' -> '10.10.10.109'
+[2026-06-09 11:32:42][OK]   [sub:Remark] 'Command' server '10.10.10.109' -> '10.10.10.109'
+[2026-06-09 11:32:42][OK]   saved 6 table(s)
+[2026-06-09 11:32:43][INFO] --> C:\Tool\ExportedFromSAP\SBO_SDA_key\1.AP Down Payment_ใบจ่ายเงินมัดจำ.rpt
+[2026-06-09 11:32:43][OK]   [main] 'AP_DownPayment' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:32:43][OK]   [main] 'Address' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:32:43][OK]   [main] 'Create' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:32:43][OK]   [main] 'Approve' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:32:43][OK]   [sub:H remark] 'Command' server '10.10.10.109' -> '10.10.10.109'
+[2026-06-09 11:32:43][OK]   [sub:Remark] 'Command' server '10.10.10.109' -> '10.10.10.109'
+[2026-06-09 11:32:43][OK]   saved 6 table(s)
+[2026-06-09 11:32:43][INFO] --> C:\Tool\ExportedFromSAP\SBO_SDA_key\1.AP Invoice_ใบแจ้งหนี้.rpt
+[2026-06-09 11:32:43][OK]   [main] 'AP_INV_BN' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:32:43][OK]   [main] 'Address' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:32:43][OK]   [main] 'Create' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:32:43][OK]   [main] 'Approve' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:32:43][OK]   [sub:HaedRemark] 'Command' server '10.10.10.109' -> '10.10.10.109'
+[2026-06-09 11:32:43][OK]   [sub:Remark] 'Command' server '10.10.10.109' -> '10.10.10.109'
+[2026-06-09 11:32:43][OK]   saved 6 table(s)
+[2026-06-09 11:32:44][INFO] --> C:\Tool\ExportedFromSAP\SBO_SDA_key\1.AR Down Payment_BOM ใบเสร็จรับเงินมัดจำ.rpt
+[2026-06-09 11:32:44][OK]   [main] 'AR_DownPayment' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:32:44][OK]   [main] 'Address' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:32:44][OK]   [main] 'Create' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:32:44][OK]   [main] 'Command' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:32:44][OK]   [sub:Remark] 'Command' server '10.10.10.109' -> '10.10.10.109'
+[2026-06-09 11:32:44][OK]   [sub:head remark] 'Command' server '10.10.10.109' -> '10.10.10.109'
+[2026-06-09 11:32:45][OK]   saved 6 table(s)
+[2026-06-09 11:32:45][INFO] --> C:\Tool\ExportedFromSAP\SBO_SDA_key\1.AR Down Payment_BOM_ENG ใบเสร็จรับเงินมัดจำ.rpt
+[2026-06-09 11:32:45][OK]   [main] 'AR_DownPayment' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:32:45][OK]   [main] 'Address' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:32:45][OK]   [main] 'Create' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:32:45][OK]   [main] 'Command' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:32:45][OK]   [sub:Hremark] 'Command' server '10.10.10.109' -> '10.10.10.109'
+[2026-06-09 11:32:45][OK]   [sub:Remark] 'Command' server '10.10.10.109' -> '10.10.10.109'
+[2026-06-09 11:32:45][OK]   saved 6 table(s)
+[2026-06-09 11:32:45][INFO] --> C:\Tool\ExportedFromSAP\SBO_SDA_key\1.AR Down Payment_ENG ใบเสร็จรับเงินมัดจำ.rpt
+[2026-06-09 11:32:45][OK]   [main] 'AR_DownPayment' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:32:45][OK]   [main] 'Address' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:32:45][OK]   [main] 'Create' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:32:45][OK]   [sub:Hreport] 'Command' server '10.10.10.109' -> '10.10.10.109'
+[2026-06-09 11:32:45][OK]   [sub:Remark] 'Command' server '10.10.10.109' -> '10.10.10.109'
+[2026-06-09 11:32:45][OK]   saved 5 table(s)
+[2026-06-09 11:32:45][INFO] --> C:\Tool\ExportedFromSAP\SBO_SDA_key\1.AR Down Payment_ใบเสร็จรับเงินมัดจำ.rpt
+[2026-06-09 11:32:46][OK]   [main] 'AR_DownPayment' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:32:46][OK]   [main] 'Address' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:32:46][OK]   [main] 'Create' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:32:46][OK]   [sub:Remark] 'Command' server '10.10.10.109' -> '10.10.10.109'
+[2026-06-09 11:32:46][OK]   [sub:head remark] 'Command' server '10.10.10.109' -> '10.10.10.109'
+[2026-06-09 11:32:46][OK]   saved 5 table(s)
+[2026-06-09 11:32:46][INFO] --> C:\Tool\ExportedFromSAP\SBO_SDA_key\1.AR Invoice_BOM ใบแจ้งหนี้.rpt
+[2026-06-09 11:32:46][OK]   [main] 'AR_INV' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:32:46][OK]   [main] 'Address' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:32:46][OK]   [main] 'Create' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:32:46][OK]   [main] 'Command' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:32:46][OK]   [sub:HRemark] 'Command' server '10.10.10.109' -> '10.10.10.109'
+[2026-06-09 11:32:46][OK]   [sub:Remark] 'Command' server '10.10.10.109' -> '10.10.10.109'
+[2026-06-09 11:32:46][OK]   saved 6 table(s)
+[2026-06-09 11:32:46][INFO] --> C:\Tool\ExportedFromSAP\SBO_SDA_key\1.AR Invoice_BOM_ENG ใบแจ้งหนี้.rpt
+[2026-06-09 11:32:47][OK]   [main] 'AR_INV' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:32:47][OK]   [main] 'Address' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:32:47][OK]   [main] 'Create' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:32:47][OK]   [main] 'Command' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:32:47][OK]   [sub:HRemark] 'Command' server '10.10.10.109' -> '10.10.10.109'
+[2026-06-09 11:32:47][OK]   [sub:Remark] 'Command' server '10.10.10.109' -> '10.10.10.109'
+[2026-06-09 11:32:47][OK]   saved 6 table(s)
+[2026-06-09 11:32:47][INFO] --> C:\Tool\ExportedFromSAP\SBO_SDA_key\1.AR_Credit Memo_ENG ใบลดหนี้ แก้ไขยอดเงิน.rpt
+[2026-06-09 11:32:47][OK]   [main] 'AR_CN_BS' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:32:47][OK]   [main] 'Address' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:32:47][OK]   [main] 'Create' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:32:47][OK]   [main] 'Approve' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:32:47][OK]   [sub:Batch/Serial] 'AR_CN_BS' server '10.10.10.109' -> '10.10.10.109'
+[2026-06-09 11:32:47][OK]   [sub:HREMARK] 'Command' server '10.10.10.109' -> '10.10.10.109'
+[2026-06-09 11:32:47][OK]   [sub:Text] 'AR_CN_BS_Text' server '10.10.10.109' -> '10.10.10.109'
+[2026-06-09 11:32:47][OK]   saved 7 table(s)
+[2026-06-09 11:32:47][INFO] --> C:\Tool\ExportedFromSAP\SBO_SDA_key\1.AR_Credit Memo_ใบลดหนี้ แก้ไขยอดเงิน.rpt
+[2026-06-09 11:32:48][OK]   [main] 'AR_CN_BS' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:32:48][OK]   [main] 'Address' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:32:48][OK]   [main] 'Create' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:32:48][OK]   [main] 'Approve' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:32:48][OK]   [sub:Batch/Serial] 'AR_CN_BS' server '10.10.10.109' -> '10.10.10.109'
+[2026-06-09 11:32:48][OK]   [sub:HREMARK] 'Command' server '10.10.10.109' -> '10.10.10.109'
+[2026-06-09 11:32:48][OK]   [sub:Text] 'AR_CN_BS_Text' server '10.10.10.109' -> '10.10.10.109'
+[2026-06-09 11:32:48][OK]   saved 7 table(s)
+[2026-06-09 11:32:48][INFO] --> C:\Tool\ExportedFromSAP\SBO_SDA_key\1.Delivery_ใบส่งของ_Eng (Batch_Serial).rpt
+[2026-06-09 11:32:48][OK]   [main] 'AR_Delivery_BS' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:32:48][OK]   [main] 'address_eng' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:32:48][OK]   [main] 'Create' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:32:48][OK]   [sub:Batch/Serial] 'AR_Drlivery_BS' server '10.10.10.109' -> '10.10.10.109'
+[2026-06-09 11:32:48][OK]   [sub:Head_Remark] 'Command' server '10.10.10.109' -> '10.10.10.109'
+[2026-06-09 11:32:48][OK]   [sub:Remark] 'Command' server '10.10.10.109' -> '10.10.10.109'
+[2026-06-09 11:32:48][OK]   saved 6 table(s)
+[2026-06-09 11:32:49][INFO] --> C:\Tool\ExportedFromSAP\SBO_SDA_key\1.Goods Issue_ENG ใบเบิกสินค้า.rpt
+[2026-06-09 11:32:49][OK]   [main] 'G_Issue_BS' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:32:49][OK]   [main] 'Address' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:32:49][OK]   [main] 'Approve' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:32:49][OK]   [sub:Head_Remark] 'Command' server '10.10.10.109' -> '10.10.10.109'
+[2026-06-09 11:32:49][OK]   [sub:Remark] 'Command' server '10.10.10.109' -> '10.10.10.109'
+[2026-06-09 11:32:49][OK]   saved 5 table(s)
+[2026-06-09 11:32:49][INFO] --> C:\Tool\ExportedFromSAP\SBO_SDA_key\1.Goods Issue_ใบเบิกสินค้า.rpt
+[2026-06-09 11:32:49][OK]   [main] 'G_Issue_BS' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:32:49][OK]   [main] 'Address' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:32:50][OK]   [main] 'Approve' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:32:50][OK]   [sub:Head_Remark] 'Command' server '10.10.10.109' -> '10.10.10.109'
+[2026-06-09 11:32:50][OK]   [sub:Remark] 'Command' server '10.10.10.109' -> '10.10.10.109'
+[2026-06-09 11:32:50][OK]   saved 5 table(s)
+[2026-06-09 11:32:50][INFO] --> C:\Tool\ExportedFromSAP\SBO_SDA_key\1.Goods Receipt_ENG ใบรับสินค้า.rpt
+[2026-06-09 11:32:50][OK]   [main] 'G_Receipt' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:32:50][OK]   [main] 'Address' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:32:50][OK]   [sub:Head_Remark] 'Command' server '10.10.10.109' -> '10.10.10.109'
+[2026-06-09 11:32:50][OK]   [sub:Remark] 'Command' server '10.10.10.109' -> '10.10.10.109'
+[2026-06-09 11:32:51][OK]   saved 4 table(s)
+[2026-06-09 11:32:51][INFO] --> C:\Tool\ExportedFromSAP\SBO_SDA_key\1.Goods Receipt_ใบรับสินค้า.rpt
+[2026-06-09 11:32:52][OK]   [main] 'G_Receipt' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:32:52][OK]   [main] 'Address' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:32:52][OK]   [sub:Head_Remark] 'Command' server '10.10.10.109' -> '10.10.10.109'
+[2026-06-09 11:32:52][OK]   [sub:Remark] 'Command' server '10.10.10.109' -> '10.10.10.109'
+[2026-06-09 11:32:53][OK]   saved 4 table(s)
+[2026-06-09 11:32:53][INFO] --> C:\Tool\ExportedFromSAP\SBO_SDA_key\1.Incoming Payments_Eng ใบเสร็จรับเงิน.rpt
+[2026-06-09 11:32:53][OK]   [main] 'Bank_Receipt' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:32:53][OK]   [main] 'Address' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:32:53][OK]   [main] 'Create' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:32:53][OK]   [sub:CheckNum] 'Command' server '10.10.10.109' -> '10.10.10.109'
+[2026-06-09 11:32:53][OK]   saved 4 table(s)
+[2026-06-09 11:32:54][INFO] --> C:\Tool\ExportedFromSAP\SBO_SDA_key\1.Incoming Payments_ใบเสร็จรับเงิน.rpt
+[2026-06-09 11:32:54][OK]   [main] 'Bank_Receipt' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:32:54][OK]   [main] 'Address' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:32:54][OK]   [main] 'Create' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:32:54][OK]   [sub:CheckNum] 'Command' server '10.10.10.109' -> '10.10.10.109'
+[2026-06-09 11:32:54][OK]   saved 4 table(s)
+[2026-06-09 11:32:54][INFO] --> C:\Tool\ExportedFromSAP\SBO_SDA_key\1.Inventory Counting_ใบตรวจนับสินค้า_Befor.rpt
+[2026-06-09 11:32:55][OK]   [main] 'Command' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:32:55][OK]   [main] 'Address' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:32:55][OK]   saved 2 table(s)
+[2026-06-09 11:32:55][INFO] --> C:\Tool\ExportedFromSAP\SBO_SDA_key\1.Inventory Transfer Request_ใบขอโอนสินค้า.rpt
+[2026-06-09 11:32:55][OK]   [main] 'Transfer_Re' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:32:55][OK]   [main] 'Transfer_Re_Address' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:32:55][OK]   [main] 'Address' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:32:55][OK]   [main] 'Create' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:32:56][OK]   [main] 'Approve' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:32:56][OK]   [sub:HRemark] 'Command' server '10.10.10.109' -> '10.10.10.109'
+[2026-06-09 11:32:56][OK]   [sub:TEXT] 'Transfer_Re_Text' server '10.10.10.109' -> '10.10.10.109'
+[2026-06-09 11:32:56][OK]   saved 7 table(s)
+[2026-06-09 11:32:56][INFO] --> C:\Tool\ExportedFromSAP\SBO_SDA_key\1.Issue for Production_ใบเบิกวัตถุดิบเพื่อการผลิต.rpt
+[2026-06-09 11:32:56][OK]   [main] 'Issue_f_Prodution' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:32:56][OK]   [main] 'Address' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:32:56][OK]   [sub:TEXT] 'Command' server '10.10.10.109' -> '10.10.10.109'
+[2026-06-09 11:32:56][OK]   saved 3 table(s)
+[2026-06-09 11:32:57][INFO] --> C:\Tool\ExportedFromSAP\SBO_SDA_key\1.Journal Entry_ใบบันทึกรายการบัญชี.rpt
+[2026-06-09 11:32:57][OK]   [main] 'Bank_JE' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:32:57][OK]   [main] 'Command_Addrees' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:32:57][OK]   [main] 'Create_Sign' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:32:57][OK]   saved 3 table(s)
+[2026-06-09 11:32:57][INFO] --> C:\Tool\ExportedFromSAP\SBO_SDA_key\1.Landed Costs_ใบปรับราคาต้นทุนสินค้า.rpt
+[2026-06-09 11:32:58][OK]   [main] 'Landed_Cost' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:32:58][OK]   [main] 'Address' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:32:58][OK]   [sub:Landed_Cost] 'Landed_Cost' server '10.10.10.109' -> '10.10.10.109'
+[2026-06-09 11:32:58][OK]   saved 3 table(s)
+[2026-06-09 11:32:58][INFO] --> C:\Tool\ExportedFromSAP\SBO_SDA_key\1.Outgoing Payments_ENG ใบจ่ายชำระ.rpt
+[2026-06-09 11:32:59][OK]   [main] 'Bank_Payment' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:32:59][OK]   [main] 'Address' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:32:59][OK]   [main] 'Create' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:32:59][OK]   [main] 'Approve' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:32:59][OK]   [sub:Bank] 'Command' server '10.10.10.109' -> '10.10.10.109'
+[2026-06-09 11:32:59][OK]   [sub:Cash] 'Command' server '10.10.10.109' -> '10.10.10.109'
+[2026-06-09 11:32:59][OK]   [sub:Credit Card] 'Command' server '10.10.10.109' -> '10.10.10.109'
+[2026-06-09 11:32:59][OK]   [sub:JE] 'Command' server '10.10.10.109' -> '10.10.10.109'
+[2026-06-09 11:32:59][OK]   [sub:Report] 'Command' server '10.10.10.109' -> '10.10.10.109'
+[2026-06-09 11:32:59][OK]   [sub:TranFer] 'Command' server '10.10.10.109' -> '10.10.10.109'
+[2026-06-09 11:32:59][OK]   saved 10 table(s)
+[2026-06-09 11:32:59][INFO] --> C:\Tool\ExportedFromSAP\SBO_SDA_key\1.Outgoing Payments_ใบจ่ายชำระ.rpt
+[2026-06-09 11:33:00][OK]   [main] 'Bank_Payment' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:33:00][OK]   [main] 'Address' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:33:00][OK]   [main] 'Create' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:33:00][OK]   [main] 'Approve' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:33:00][OK]   [sub:Bank] 'Command' server '10.10.10.109' -> '10.10.10.109'
+[2026-06-09 11:33:00][OK]   [sub:Cash] 'Command' server '10.10.10.109' -> '10.10.10.109'
+[2026-06-09 11:33:00][OK]   [sub:Credit Card] 'Command' server '10.10.10.109' -> '10.10.10.109'
+[2026-06-09 11:33:00][OK]   [sub:JE] 'Command' server '10.10.10.109' -> '10.10.10.109'
+[2026-06-09 11:33:00][OK]   [sub:Report] 'Command' server '10.10.10.109' -> '10.10.10.109'
+[2026-06-09 11:33:00][OK]   [sub:TranFer] 'Command' server '10.10.10.109' -> '10.10.10.109'
+[2026-06-09 11:33:00][OK]   saved 10 table(s)
+[2026-06-09 11:33:00][INFO] --> C:\Tool\ExportedFromSAP\SBO_SDA_key\1.Production Order_ใบสั่งผลิต.rpt
+[2026-06-09 11:33:00][OK]   [main] 'Prodution_Order' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:33:00][OK]   [main] 'Address' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:33:00][OK]   [sub:Text] 'Command' server '10.10.10.109' -> '10.10.10.109'
+[2026-06-09 11:33:00][OK]   saved 3 table(s)
+[2026-06-09 11:33:01][INFO] --> C:\Tool\ExportedFromSAP\SBO_SDA_key\1.Purchase Order_ENG_ใบสั่งซื้อ.rpt
+[2026-06-09 11:33:01][OK]   [main] 'AP_PO' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:33:01][OK]   [main] 'Address' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:33:01][OK]   [main] 'Create' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:33:01][OK]   [main] 'Approve' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:33:01][OK]   [sub:Hremark] 'Command' server '10.10.10.109' -> '10.10.10.109'
+[2026-06-09 11:33:01][OK]   [sub:Remark] 'Command' server '10.10.10.109' -> '10.10.10.109'
+[2026-06-09 11:33:01][OK]   saved 6 table(s)
+[2026-06-09 11:33:01][INFO] --> C:\Tool\ExportedFromSAP\SBO_SDA_key\1.Purchase Order_TH_ใบสั่งซื้อ.rpt
+[2026-06-09 11:33:01][OK]   [main] 'AP_PO' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:33:01][OK]   [main] 'Address' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:33:01][OK]   [main] 'Create' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:33:01][OK]   [main] 'Approve' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:33:01][OK]   [sub:Hremark] 'Command' server '10.10.10.109' -> '10.10.10.109'
+[2026-06-09 11:33:01][OK]   [sub:Remark] 'Command' server '10.10.10.109' -> '10.10.10.109'
+[2026-06-09 11:33:02][OK]   saved 6 table(s)
+[2026-06-09 11:33:02][INFO] --> C:\Tool\ExportedFromSAP\SBO_SDA_key\1.Purchase Quotation_ใบเสนอราคาซื้อ.rpt
+[2026-06-09 11:33:02][OK]   [main] 'AP_PQ' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:33:02][OK]   [main] 'Address' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:33:02][OK]   [main] 'Create' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:33:02][OK]   [main] 'Approve' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:33:03][OK]   [sub:Hremark] 'Command' server '10.10.10.109' -> '10.10.10.109'
+[2026-06-09 11:33:03][OK]   [sub:Remark] 'Command' server '10.10.10.109' -> '10.10.10.109'
+[2026-06-09 11:33:03][OK]   saved 6 table(s)
+[2026-06-09 11:33:03][INFO] --> C:\Tool\ExportedFromSAP\SBO_SDA_key\1.Purchase Request_TH_ใบขอซื้อ.rpt
+[2026-06-09 11:33:03][OK]   [main] 'AP_PR' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:33:03][OK]   [main] 'Address' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:33:03][OK]   [main] 'Approve' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:33:03][OK]   [main] 'Create' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:33:03][OK]   [sub:Hremark] 'Command' server '10.10.10.109' -> '10.10.10.109'
+[2026-06-09 11:33:03][OK]   [sub:Remark] 'Command' server '10.10.10.109' -> '10.10.10.109'
+[2026-06-09 11:33:03][OK]   saved 6 table(s)
+[2026-06-09 11:33:04][INFO] --> C:\Tool\ExportedFromSAP\SBO_SDA_key\1.Receipt from Production_ใบรับสินค้าจากการผลิต.rpt
+[2026-06-09 11:33:04][OK]   [main] 'Receipt_f_Production' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:33:04][OK]   [main] 'Address' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:33:04][OK]   [sub:TEXT] 'Command' server '10.10.10.109' -> '10.10.10.109'
+[2026-06-09 11:33:04][OK]   saved 3 table(s)
+[2026-06-09 11:33:04][INFO] --> C:\Tool\ExportedFromSAP\SBO_SDA_key\1.Retrun_ใบรับคืนสินค้า_(Batch_Serial).rpt
+[2026-06-09 11:33:05][OK]   [main] 'AR_Retrun_BS' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:33:05][OK]   [main] 'OADM' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:33:05][OK]   [main] 'Create' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:33:05][OK]   [sub:Batch/Serial] 'AR_Retrun_BS' server '10.10.10.109' -> '10.10.10.109'
+[2026-06-09 11:33:05][OK]   [sub:Head_Sup] 'Command' server '10.10.10.109' -> '10.10.10.109'
+[2026-06-09 11:33:05][OK]   [sub:Line_Remark] 'Command' server '10.10.10.109' -> '10.10.10.109'
+[2026-06-09 11:33:05][OK]   saved 6 table(s)
+[2026-06-09 11:33:05][INFO] --> C:\Tool\ExportedFromSAP\SBO_SDA_key\1.Retrun_ใบรับคืนสินค้า_ENG (Batch_Serial).rpt
+[2026-06-09 11:33:05][OK]   [main] 'AR_Retrun_BS' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:33:05][OK]   [main] 'Address' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:33:05][OK]   [main] 'Create' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:33:05][OK]   [sub:Batch/Serial] 'AR_Retrun_BS' server '10.10.10.109' -> '10.10.10.109'
+[2026-06-09 11:33:05][OK]   [sub:Head_Sup] 'Command' server '10.10.10.109' -> '10.10.10.109'
+[2026-06-09 11:33:05][OK]   [sub:Line_Remark] 'Command' server '10.10.10.109' -> '10.10.10.109'
+[2026-06-09 11:33:05][OK]   saved 6 table(s)
+[2026-06-09 11:33:05][INFO] --> C:\Tool\ExportedFromSAP\SBO_SDA_key\1.Sale Order_ใบสั่งขาย_(Bom).rpt
+[2026-06-09 11:33:06][OK]   [main] 'AR_SO' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:33:06][OK]   [main] 'Address' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:33:06][OK]   [main] 'Create' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:33:06][OK]   [main] 'Approve' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:33:06][OK]   [sub:Haed_Remark] 'Command' server '10.10.10.109' -> '10.10.10.109'
+[2026-06-09 11:33:06][OK]   [sub:Remark] 'Command' server '10.10.10.109' -> '10.10.10.109'
+[2026-06-09 11:33:06][OK]   saved 6 table(s)
+[2026-06-09 11:33:06][INFO] --> C:\Tool\ExportedFromSAP\SBO_SDA_key\1.Sale Order_ใบสั่งขาย_(Dis).rpt
+[2026-06-09 11:33:07][OK]   [main] 'AR_SO' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:33:07][OK]   [main] 'Address' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:33:07][OK]   [main] 'Create' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:33:07][OK]   [main] 'Approve' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:33:07][OK]   [sub:Hremark] 'Command' server '10.10.10.109' -> '10.10.10.109'
+[2026-06-09 11:33:07][OK]   [sub:Remark] 'Command' server '10.10.10.109' -> '10.10.10.109'
+[2026-06-09 11:33:07][OK]   saved 6 table(s)
+[2026-06-09 11:33:07][INFO] --> C:\Tool\ExportedFromSAP\SBO_SDA_key\1.Sale Quotation_ใบเสนอราคาขาย_(Dis) ENG.rpt
+[2026-06-09 11:33:07][OK]   [main] 'AR_SQ' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:33:07][OK]   [main] 'Address' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:33:07][OK]   [main] 'Create' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:33:07][OK]   [main] 'Approve' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:33:07][OK]   [sub:Head_Remark] 'Command' server '10.10.10.109' -> '10.10.10.109'
+[2026-06-09 11:33:07][OK]   [sub:Remark] 'Command' server '10.10.10.109' -> '10.10.10.109'
+[2026-06-09 11:33:07][OK]   saved 6 table(s)
+[2026-06-09 11:33:07][INFO] --> C:\Tool\ExportedFromSAP\SBO_SDA_key\1.Sale Quotation_ใบเสนอราคาขาย_(Dis).rpt
+[2026-06-09 11:33:07][OK]   [main] 'AR_SQ' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:33:07][OK]   [main] 'Address' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:33:07][OK]   [main] 'Create' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:33:08][OK]   [main] 'Approve' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:33:08][OK]   [sub:Head_Remark] 'Command' server '10.10.10.109' -> '10.10.10.109'
+[2026-06-09 11:33:08][OK]   [sub:Remark] 'Command' server '10.10.10.109' -> '10.10.10.109'
+[2026-06-09 11:33:08][OK]   saved 6 table(s)
+[2026-06-09 11:33:08][INFO] --> C:\Tool\ExportedFromSAP\SBO_SDA_key\2.AP Down Payment Invoice_ENG ใบจ่ายเงินมัดจำใบกำกับภาษี.rpt
+[2026-06-09 11:33:08][OK]   [main] 'AP_DownPayment' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:33:08][OK]   [main] 'Address' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:33:08][OK]   [main] 'Create' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:33:08][OK]   [main] 'Approve' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:33:08][OK]   [sub:H remark] 'Command' server '10.10.10.109' -> '10.10.10.109'
+[2026-06-09 11:33:08][OK]   [sub:Remark] 'Command' server '10.10.10.109' -> '10.10.10.109'
+[2026-06-09 11:33:08][OK]   saved 6 table(s)
+[2026-06-09 11:33:08][INFO] --> C:\Tool\ExportedFromSAP\SBO_SDA_key\2.AP Down Payment Invoice_ใบจ่ายเงินมัดจำใบกำกับภาษี.rpt
+[2026-06-09 11:33:08][OK]   [main] 'AP_DownPayment' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:33:08][OK]   [main] 'Address' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:33:08][OK]   [main] 'Create' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:33:08][OK]   [main] 'Approve' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:33:08][OK]   [sub:HaedRemark] 'Command' server '10.10.10.109' -> '10.10.10.109'
+[2026-06-09 11:33:08][OK]   [sub:Remark] 'Command' server '10.10.10.109' -> '10.10.10.109'
+[2026-06-09 11:33:09][OK]   saved 6 table(s)
+[2026-06-09 11:33:09][INFO] --> C:\Tool\ExportedFromSAP\SBO_SDA_key\2.AP Invoice_ใบแจ้งหนี้_(Batch_Serial).rpt
+[2026-06-09 11:33:09][OK]   [main] 'AP_INV_BN' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:33:09][OK]   [main] 'Address' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:33:09][OK]   [main] 'Create' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:33:09][OK]   [main] 'Approve' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:33:09][OK]   [sub:HeadRemark] 'Command' server '10.10.10.109' -> '10.10.10.109'
+[2026-06-09 11:33:09][OK]   [sub:Remark] 'Command' server '10.10.10.109' -> '10.10.10.109'
+[2026-06-09 11:33:09][OK]   [sub:batch&sserial] 'AP_INV_BN' server '10.10.10.109' -> '10.10.10.109'
+[2026-06-09 11:33:09][OK]   saved 7 table(s)
+[2026-06-09 11:33:10][INFO] --> C:\Tool\ExportedFromSAP\SBO_SDA_key\2.AR Down PaymentTax Invoice_BOM ใบเสร็จรับเงินมัดจำใบกำกับภาษี.rpt
+[2026-06-09 11:33:10][OK]   [main] 'AR_DownPayment' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:33:10][OK]   [main] 'Address' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:33:10][OK]   [main] 'Create' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:33:10][OK]   [main] 'Command' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:33:10][OK]   [sub:Remark] 'Command' server '10.10.10.109' -> '10.10.10.109'
+[2026-06-09 11:33:10][OK]   [sub:head remark] 'Command' server '10.10.10.109' -> '10.10.10.109'
+[2026-06-09 11:33:10][OK]   saved 6 table(s)
+[2026-06-09 11:33:10][INFO] --> C:\Tool\ExportedFromSAP\SBO_SDA_key\2.AR Down PaymentTax Invoice_BOM_ENG ใบเสร็จรับเงินมัดจำใบกำกับภาษี.rpt
+[2026-06-09 11:33:10][OK]   [main] 'AR_DownPayment' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:33:10][OK]   [main] 'Address' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:33:10][OK]   [main] 'Create' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:33:10][OK]   [main] 'Command' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:33:10][OK]   [sub:Hremark] 'Command' server '10.10.10.109' -> '10.10.10.109'
+[2026-06-09 11:33:10][OK]   [sub:Remark] 'Command' server '10.10.10.109' -> '10.10.10.109'
+[2026-06-09 11:33:10][OK]   saved 6 table(s)
+[2026-06-09 11:33:11][INFO] --> C:\Tool\ExportedFromSAP\SBO_SDA_key\2.AR Down PaymentTax Invoice_ENG ใบเสร็จรับเงินมัดจำใบกำกับภาษี.rpt
+[2026-06-09 11:33:11][OK]   [main] 'AR_DownPayment' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:33:11][OK]   [main] 'Address' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:33:11][OK]   [main] 'Create' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:33:11][OK]   [sub:Remark] 'Command' server '10.10.10.109' -> '10.10.10.109'
+[2026-06-09 11:33:11][OK]   [sub:hmark] 'Command' server '10.10.10.109' -> '10.10.10.109'
+[2026-06-09 11:33:11][OK]   saved 5 table(s)
+[2026-06-09 11:33:11][INFO] --> C:\Tool\ExportedFromSAP\SBO_SDA_key\2.AR Down PaymentTax Invoice_ใบเสร็จรับเงินมัดจำใบกำกับภาษี.rpt
+[2026-06-09 11:33:11][OK]   [main] 'AR_DownPayment' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:33:11][OK]   [main] 'Address' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:33:11][OK]   [main] 'Create' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:33:11][OK]   [sub:Remark] 'Command' server '10.10.10.109' -> '10.10.10.109'
+[2026-06-09 11:33:11][OK]   saved 4 table(s)
+[2026-06-09 11:33:11][INFO] --> C:\Tool\ExportedFromSAP\SBO_SDA_key\2.AR Invoice_ENG ใบแจ้งหนี้_(Dis).rpt
+[2026-06-09 11:33:12][OK]   [main] 'AR_INV' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:33:12][OK]   [main] 'Address' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:33:12][OK]   [main] 'Create' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:33:12][OK]   [main] 'Approve' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:33:12][OK]   [sub:HRemark] 'Command' server '10.10.10.109' -> '10.10.10.109'
+[2026-06-09 11:33:12][OK]   [sub:Remark] 'Command' server '10.10.10.109' -> '10.10.10.109'
+[2026-06-09 11:33:12][OK]   saved 6 table(s)
+[2026-06-09 11:33:12][INFO] --> C:\Tool\ExportedFromSAP\SBO_SDA_key\2.AR Invoice_ใบแจ้งหนี้_(Dis).rpt
+[2026-06-09 11:33:13][OK]   [main] 'AR_INV' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:33:13][OK]   [main] 'Address' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:33:13][OK]   [main] 'Create' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:33:13][OK]   [main] 'Approve' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:33:13][OK]   [sub:HRemark] 'Command' server '10.10.10.109' -> '10.10.10.109'
+[2026-06-09 11:33:13][OK]   [sub:Remark] 'Command' server '10.10.10.109' -> '10.10.10.109'
+[2026-06-09 11:33:13][OK]   saved 6 table(s)
+[2026-06-09 11:33:13][INFO] --> C:\Tool\ExportedFromSAP\SBO_SDA_key\2.AR_Credit Memo_ENG ใบลดหนี้_(Dis) แก้ไขยอดเงิน.rpt
+[2026-06-09 11:33:14][OK]   [main] 'AR_CN' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:33:14][OK]   [main] 'Address' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:33:14][OK]   [main] 'Create' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:33:14][OK]   [main] 'Approve' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:33:14][OK]   [sub:HREMARK] 'Command' server '10.10.10.109' -> '10.10.10.109'
+[2026-06-09 11:33:14][OK]   [sub:Text] 'AR_CN_Text' server '10.10.10.109' -> '10.10.10.109'
+[2026-06-09 11:33:14][OK]   saved 6 table(s)
+[2026-06-09 11:33:14][INFO] --> C:\Tool\ExportedFromSAP\SBO_SDA_key\2.AR_Credit Memo_ใบลดหนี้_(Dis) แก้ไขยอดเงิน.rpt
+[2026-06-09 11:33:14][OK]   [main] 'AR_CN' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:33:14][OK]   [main] 'Address' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:33:14][OK]   [main] 'Create' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:33:14][OK]   [main] 'Approve' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:33:14][OK]   [sub:HREMARK] 'Command' server '10.10.10.109' -> '10.10.10.109'
+[2026-06-09 11:33:14][OK]   [sub:Text] 'AR_CN_Text' server '10.10.10.109' -> '10.10.10.109'
+[2026-06-09 11:33:14][OK]   saved 6 table(s)
+[2026-06-09 11:33:14][INFO] --> C:\Tool\ExportedFromSAP\SBO_SDA_key\2.Delivery_ใบส่งของ_(Batch_Serial).rpt
+[2026-06-09 11:33:15][OK]   [main] 'AR_Delivery_BS' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:33:15][OK]   [main] 'Address' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:33:15][OK]   [main] 'Create' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:33:15][OK]   [sub:Batch/Serial] 'AR_Drlivery_BS' server '10.10.10.109' -> '10.10.10.109'
+[2026-06-09 11:33:15][OK]   [sub:Haed_Remark] 'Command' server '10.10.10.109' -> '10.10.10.109'
+[2026-06-09 11:33:15][OK]   [sub:Remark] 'Command' server '10.10.10.109' -> '10.10.10.109'
+[2026-06-09 11:33:15][OK]   saved 6 table(s)
+[2026-06-09 11:33:15][INFO] --> C:\Tool\ExportedFromSAP\SBO_SDA_key\2.Goods Issue_ใบเบิกสินค้า_(Batch_Serial).rpt
+[2026-06-09 11:33:15][OK]   [main] 'G_Issue_BS' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:33:15][OK]   [main] 'Address' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:33:15][OK]   [main] 'Approve' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:33:15][OK]   [sub:Batch] 'Command' server '10.10.10.109' -> '10.10.10.109'
+[2026-06-09 11:33:15][OK]   [sub:Head_Remark] 'Command' server '10.10.10.109' -> '10.10.10.109'
+[2026-06-09 11:33:15][OK]   [sub:Remark] 'Command' server '10.10.10.109' -> '10.10.10.109'
+[2026-06-09 11:33:15][OK]   saved 6 table(s)
+[2026-06-09 11:33:15][INFO] --> C:\Tool\ExportedFromSAP\SBO_SDA_key\2.Goods Issue_ใบเบิกสินค้า_ENG (Batch_Serial).rpt
+[2026-06-09 11:33:15][OK]   [main] 'G_Issue_BS' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:33:15][OK]   [main] 'Address' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:33:15][OK]   [main] 'Approve' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:33:15][OK]   [sub:Batch] 'Command' server '10.10.10.109' -> '10.10.10.109'
+[2026-06-09 11:33:15][OK]   [sub:Head_Remark] 'Command' server '10.10.10.109' -> '10.10.10.109'
+[2026-06-09 11:33:15][OK]   [sub:Remark] 'Command' server '10.10.10.109' -> '10.10.10.109'
+[2026-06-09 11:33:15][OK]   saved 6 table(s)
+[2026-06-09 11:33:16][INFO] --> C:\Tool\ExportedFromSAP\SBO_SDA_key\2.Goods Receipt_ENG ใบรับสินค้า_(Batch_Serial).rpt
+[2026-06-09 11:33:16][OK]   [main] 'G_Receipt' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:33:16][OK]   [main] 'Address' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:33:16][OK]   [sub:Batch] 'Command' server '10.10.10.109' -> '10.10.10.109'
+[2026-06-09 11:33:16][OK]   [sub:Head_Remark] 'Command' server '10.10.10.109' -> '10.10.10.109'
+[2026-06-09 11:33:16][OK]   [sub:Remark] 'Command' server '10.10.10.109' -> '10.10.10.109'
+[2026-06-09 11:33:16][OK]   saved 5 table(s)
+[2026-06-09 11:33:17][INFO] --> C:\Tool\ExportedFromSAP\SBO_SDA_key\2.Goods Receipt_ใบรับสินค้า_(Batch_Serial).rpt
+[2026-06-09 11:33:17][OK]   [main] 'G_Receipt' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:33:17][OK]   [main] 'Address' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:33:17][OK]   [sub:Batch] 'Command' server '10.10.10.109' -> '10.10.10.109'
+[2026-06-09 11:33:17][OK]   [sub:Head_Remark] 'Command' server '10.10.10.109' -> '10.10.10.109'
+[2026-06-09 11:33:17][OK]   [sub:Remark] 'Command' server '10.10.10.109' -> '10.10.10.109'
+[2026-06-09 11:33:17][OK]   saved 5 table(s)
+[2026-06-09 11:33:17][INFO] --> C:\Tool\ExportedFromSAP\SBO_SDA_key\2.Goods Reciept PO_TH_ใบรับสินค้า_(Batch_Serial).rpt
+[2026-06-09 11:33:18][OK]   [main] 'AP_GRPO_BN' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:33:18][OK]   [main] 'Address' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:33:18][OK]   [main] 'Create' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:33:18][OK]   [sub:Batch/Serial] 'AP_GRPO_BN' server '10.10.10.109' -> '10.10.10.109'
+[2026-06-09 11:33:18][OK]   [sub:Hremark] 'Command' server '10.10.10.109' -> '10.10.10.109'
+[2026-06-09 11:33:18][OK]   [sub:Remark] 'Command' server '10.10.10.109' -> '10.10.10.109'
+[2026-06-09 11:33:18][OK]   saved 6 table(s)
+[2026-06-09 11:33:18][INFO] --> C:\Tool\ExportedFromSAP\SBO_SDA_key\2.Goods Return_TH_ใบส่งคืนสินค้า_(Batch_Serial).rpt
+[2026-06-09 11:33:18][OK]   [main] 'AP_GR_BN' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:33:18][OK]   [main] 'Company' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:33:18][OK]   [sub:Head_Sub] 'Command' server '10.10.10.109' -> '10.10.10.109'
+[2026-06-09 11:33:18][OK]   [sub:Remark] 'Remark' server '10.10.10.109' -> '10.10.10.109'
+[2026-06-09 11:33:18][OK]   [sub:batch&serial] 'AP_GR_BN' server '10.10.10.109' -> '10.10.10.109'
+[2026-06-09 11:33:18][OK]   saved 5 table(s)
+[2026-06-09 11:33:18][INFO] --> C:\Tool\ExportedFromSAP\SBO_SDA_key\2.Incoming Payments_ ENG ใบเสร็จรับเงินใบกำกับภาษี.rpt
+[2026-06-09 11:33:18][OK]   [main] 'Bank_ReceiptTax' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:33:18][OK]   [main] 'Address' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:33:18][OK]   [sub:CheckNum] 'Command' server '10.10.10.109' -> '10.10.10.109'
+[2026-06-09 11:33:18][OK]   saved 3 table(s)
+[2026-06-09 11:33:18][INFO] --> C:\Tool\ExportedFromSAP\SBO_SDA_key\2.Incoming Payments_ใบเสร็จรับเงินใบกำกับภาษี.rpt
+[2026-06-09 11:33:19][OK]   [main] 'Bank_ReceiptTax' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:33:19][OK]   [main] 'Address' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:33:19][OK]   [sub:CheckNum] 'Command' server '10.10.10.109' -> '10.10.10.109'
+[2026-06-09 11:33:19][OK]   saved 3 table(s)
+[2026-06-09 11:33:19][INFO] --> C:\Tool\ExportedFromSAP\SBO_SDA_key\2.Inventory Counting_ใบหลังตรวจนับสินค้า_After.rpt
+[2026-06-09 11:33:20][OK]   [main] 'Command' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:33:20][OK]   [main] 'Address' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:33:20][OK]   saved 2 table(s)
+[2026-06-09 11:33:20][INFO] --> C:\Tool\ExportedFromSAP\SBO_SDA_key\2.Inventory Transfer_ใบโอนสินค้า.rpt
+[2026-06-09 11:33:20][OK]   [main] 'Transfer' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:33:20][OK]   [main] 'Address' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:33:20][OK]   [main] 'Create' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:33:21][OK]   [main] 'Approve' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:33:21][OK]   [sub:HRemark] 'Command' server '10.10.10.109' -> '10.10.10.109'
+[2026-06-09 11:33:21][OK]   [sub:TEXT] 'Transfer_Re_Text' server '10.10.10.109' -> '10.10.10.109'
+[2026-06-09 11:33:21][OK]   saved 6 table(s)
+[2026-06-09 11:33:21][INFO] --> C:\Tool\ExportedFromSAP\SBO_SDA_key\2.Inventory Transfer_ใบโอนสินค้า_TH_(Batch_Serial).rpt
+[2026-06-09 11:33:21][OK]   [main] 'Transfer' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:33:21][OK]   [main] 'Address' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:33:21][OK]   [main] 'Create' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:33:21][OK]   [main] 'Approve' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:33:21][OK]   [sub:Batch] 'Command' server '10.10.10.109' -> '10.10.10.109'
+[2026-06-09 11:33:21][OK]   [sub:HRemark] 'Command' server '10.10.10.109' -> '10.10.10.109'
+[2026-06-09 11:33:21][OK]   [sub:TEXT] 'Transfer_Re_Text' server '10.10.10.109' -> '10.10.10.109'
+[2026-06-09 11:33:21][OK]   saved 7 table(s)
+[2026-06-09 11:33:21][INFO] --> C:\Tool\ExportedFromSAP\SBO_SDA_key\2.Issue for Production_ใบเบิกวัตถุดิบเพื่อการผลิต_(Batch_Serial).rpt
+[2026-06-09 11:33:21][OK]   [main] 'Issue_f_Prodution' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:33:21][OK]   [main] 'Address' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:33:21][OK]   [sub:B/S Num] 'Command' server '10.10.10.109' -> '10.10.10.109'
+[2026-06-09 11:33:21][OK]   [sub:TEXT] 'Command' server '10.10.10.109' -> '10.10.10.109'
+[2026-06-09 11:33:21][OK]   saved 4 table(s)
+[2026-06-09 11:33:22][INFO] --> C:\Tool\ExportedFromSAP\SBO_SDA_key\2.Receipt from Production_ใบรับสินค้าจากการผลิต_(Batch_Serial).rpt
+[2026-06-09 11:33:22][OK]   [main] 'Receipt_f_Prodution' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:33:22][OK]   [main] 'Address' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:33:22][OK]   [sub:B/S Number] 'Command' server '10.10.10.109' -> '10.10.10.109'
+[2026-06-09 11:33:22][OK]   [sub:TEXT] 'Command' server '10.10.10.109' -> '10.10.10.109'
+[2026-06-09 11:33:22][OK]   saved 4 table(s)
+[2026-06-09 11:33:22][INFO] --> C:\Tool\ExportedFromSAP\SBO_SDA_key\2.Sale Quotation_ใบเสนอราคาขาย_(BOM) ENG.rpt
+[2026-06-09 11:33:22][OK]   [main] 'AR_SQ' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:33:23][OK]   [main] 'Address' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:33:23][OK]   [main] 'Create' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:33:23][OK]   [main] 'Approve' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:33:23][OK]   [sub:Head_Remark] 'Command' server '10.10.10.109' -> '10.10.10.109'
+[2026-06-09 11:33:23][OK]   [sub:Remark] 'Command' server '10.10.10.109' -> '10.10.10.109'
+[2026-06-09 11:33:23][OK]   saved 6 table(s)
+[2026-06-09 11:33:23][INFO] --> C:\Tool\ExportedFromSAP\SBO_SDA_key\2.Sale Quotation_ใบเสนอราคาขาย_(Bom).rpt
+[2026-06-09 11:33:23][OK]   [main] 'AR_SQ' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:33:24][OK]   [main] 'Address' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:33:24][OK]   [main] 'Create' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:33:24][OK]   [main] 'Approve' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:33:24][OK]   [sub:Head_Remark] 'Command' server '10.10.10.109' -> '10.10.10.109'
+[2026-06-09 11:33:24][OK]   [sub:Remark] 'Command' server '10.10.10.109' -> '10.10.10.109'
+[2026-06-09 11:33:24][OK]   saved 6 table(s)
+[2026-06-09 11:33:24][INFO] --> C:\Tool\ExportedFromSAP\SBO_SDA_key\3.AP InvoiceTax Invoice_ใบแจ้งหนี้ใบกำกับภาษี(Batch_Serial).rpt
+[2026-06-09 11:33:25][OK]   [main] 'AP_INV_BN' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:33:25][OK]   [main] 'Address' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:33:25][OK]   [main] 'Create' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:33:25][OK]   [main] 'Approve' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:33:25][OK]   [sub:HeadRemark] 'Command' server '10.10.10.109' -> '10.10.10.109'
+[2026-06-09 11:33:25][OK]   [sub:Remark] 'Command' server '10.10.10.109' -> '10.10.10.109'
+[2026-06-09 11:33:25][OK]   [sub:batch&sserial] 'AP_INV_BN' server '10.10.10.109' -> '10.10.10.109'
+[2026-06-09 11:33:25][OK]   saved 7 table(s)
+[2026-06-09 11:33:25][INFO] --> C:\Tool\ExportedFromSAP\SBO_SDA_key\3.AP InvoiceTax Invoice_ใบแจ้งหนี้ใบกำกับภาษี.rpt
+[2026-06-09 11:33:25][OK]   [main] 'AP_INV_BN' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:33:25][OK]   [main] 'Address' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:33:25][OK]   [main] 'Create' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:33:25][OK]   [main] 'Approve' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:33:25][OK]   [sub:TEXT] 'AP_INV_Text' server '10.10.10.109' -> '10.10.10.109'
+[2026-06-09 11:33:25][OK]   saved 5 table(s)
+[2026-06-09 11:33:25][INFO] --> C:\Tool\ExportedFromSAP\SBO_SDA_key\3.AR Down Payment Invoice_BOM ใบแจ้งหนี้เงินค่ามัดจำใบกำกับภาษี.rpt
+[2026-06-09 11:33:25][OK]   [main] 'AR_DownPayment' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:33:25][OK]   [main] 'Address' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:33:25][OK]   [main] 'Create' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:33:25][OK]   [main] 'Command' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:33:25][OK]   [sub:Remark] 'Command' server '10.10.10.109' -> '10.10.10.109'
+[2026-06-09 11:33:25][OK]   [sub:head remark] 'Command' server '10.10.10.109' -> '10.10.10.109'
+[2026-06-09 11:33:26][OK]   saved 6 table(s)
+[2026-06-09 11:33:26][INFO] --> C:\Tool\ExportedFromSAP\SBO_SDA_key\3.AR Down PaymentTax Invoice_BOM_ENG ใบแจ้งหนี้เงินค่ามัดจำใบกำกับภาษี.rpt
+[2026-06-09 11:33:26][OK]   [main] 'AR_DownPayment' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:33:26][OK]   [main] 'Address' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:33:26][OK]   [main] 'Create' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:33:26][OK]   [main] 'Command' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:33:26][OK]   [sub:Hremark] 'Command' server '10.10.10.109' -> '10.10.10.109'
+[2026-06-09 11:33:26][OK]   [sub:Remark] 'Command' server '10.10.10.109' -> '10.10.10.109'
+[2026-06-09 11:33:27][OK]   saved 6 table(s)
+[2026-06-09 11:33:27][INFO] --> C:\Tool\ExportedFromSAP\SBO_SDA_key\3.AR Down PaymentTax Invoice_ENG ใบแจ้งหนี้เงินค่ามัดจำใบกำกับภาษี.rpt
+[2026-06-09 11:33:27][OK]   [main] 'AR_DownPayment' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:33:27][OK]   [main] 'Address' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:33:27][OK]   [main] 'Create' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:33:27][OK]   [sub:Remark] 'Command' server '10.10.10.109' -> '10.10.10.109'
+[2026-06-09 11:33:27][OK]   [sub:hmark] 'Command' server '10.10.10.109' -> '10.10.10.109'
+[2026-06-09 11:33:27][OK]   saved 5 table(s)
+[2026-06-09 11:33:28][INFO] --> C:\Tool\ExportedFromSAP\SBO_SDA_key\3.AR Down PaymentTax Invoice_ใบแจ้งหนี้เงินค่ามัดจำใบกำกับภาษี.rpt
+[2026-06-09 11:33:28][OK]   [main] 'AR_DownPayment' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:33:28][OK]   [main] 'Address' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:33:28][OK]   [main] 'Create' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:33:28][OK]   [sub:Remark] 'Command' server '10.10.10.109' -> '10.10.10.109'
+[2026-06-09 11:33:28][OK]   [sub:hmark] 'Command' server '10.10.10.109' -> '10.10.10.109'
+[2026-06-09 11:33:28][OK]   saved 5 table(s)
+[2026-06-09 11:33:28][INFO] --> C:\Tool\ExportedFromSAP\SBO_SDA_key\3.AR_Credit Memo_ใบลดหนี้_(Batch_Serial) แก้ไขยอดเงิน.rpt
+[2026-06-09 11:33:28][OK]   [main] 'AR_CN_BS' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:33:28][OK]   [main] 'Address' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:33:28][OK]   [main] 'Create' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:33:28][OK]   [main] 'Approve' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:33:28][OK]   [sub:Batch/Serial] 'AR_CN_BS' server '10.10.10.109' -> '10.10.10.109'
+[2026-06-09 11:33:28][OK]   [sub:HREMARK] 'Command' server '10.10.10.109' -> '10.10.10.109'
+[2026-06-09 11:33:28][OK]   [sub:Text] 'AR_CN_BS_Text' server '10.10.10.109' -> '10.10.10.109'
+[2026-06-09 11:33:28][OK]   saved 7 table(s)
+[2026-06-09 11:33:28][INFO] --> C:\Tool\ExportedFromSAP\SBO_SDA_key\3.AR_Credit Memo_ใบลดหนี้_ENG (Batch_Serial) แก้ไขยอดเงิน.rpt
+[2026-06-09 11:33:29][OK]   [main] 'AR_CN_BS' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:33:29][OK]   [main] 'Address' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:33:29][OK]   [main] 'Create' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:33:29][OK]   [main] 'Approve' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:33:29][OK]   [sub:Batch/Serial] 'AR_CN_BS' server '10.10.10.109' -> '10.10.10.109'
+[2026-06-09 11:33:29][OK]   [sub:HREMARK] 'Command' server '10.10.10.109' -> '10.10.10.109'
+[2026-06-09 11:33:29][OK]   [sub:Text] 'AR_CN_BS_Text' server '10.10.10.109' -> '10.10.10.109'
+[2026-06-09 11:33:29][OK]   saved 7 table(s)
+[2026-06-09 11:33:29][INFO] --> C:\Tool\ExportedFromSAP\SBO_SDA_key\3.BillingAR InvoiceTax Invoice_ENG ใบวางบิลใบแจ้งหนี้ใบกำกับภาษี (Bom).rpt
+[2026-06-09 11:33:29][OK]   [main] 'AR_INV' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:33:29][OK]   [main] 'Address' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:33:29][OK]   [main] 'Create' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:33:29][OK]   [sub:HRemark] 'Command' server '10.10.10.109' -> '10.10.10.109'
+[2026-06-09 11:33:29][OK]   [sub:Remark] 'Command' server '10.10.10.109' -> '10.10.10.109'
+[2026-06-09 11:33:29][OK]   saved 5 table(s)
+[2026-06-09 11:33:30][INFO] --> C:\Tool\ExportedFromSAP\SBO_SDA_key\3.BillingAR InvoiceTax Invoice_ใบวางบิลใบแจ้งหนี้ใบกำกับภาษี (Bom).rpt
+[2026-06-09 11:33:30][OK]   [main] 'AR_INV' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:33:30][OK]   [main] 'Address' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:33:30][OK]   [main] 'Create' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:33:30][OK]   [sub:HRemark] 'Command' server '10.10.10.109' -> '10.10.10.109'
+[2026-06-09 11:33:30][OK]   [sub:Remark] 'Command' server '10.10.10.109' -> '10.10.10.109'
+[2026-06-09 11:33:30][OK]   saved 5 table(s)
+[2026-06-09 11:33:31][INFO] --> C:\Tool\ExportedFromSAP\SBO_SDA_key\4.AP Debit Note_ใบเพิ่มหนี้.rpt
+[2026-06-09 11:33:31][OK]   [main] 'AP_INV' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:33:31][OK]   [main] 'Address' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:33:31][OK]   [main] 'Create' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:33:31][OK]   [main] 'Approve' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:33:31][OK]   [sub:TEXT] 'AR_INV_Text' server '10.10.10.109' -> '10.10.10.109'
+[2026-06-09 11:33:31][OK]   saved 5 table(s)
+[2026-06-09 11:33:31][INFO] --> C:\Tool\ExportedFromSAP\SBO_SDA_key\4.AR_Credit Memo_ใบลดหนี้_(Batch_Serial) (Dis).rpt
+[2026-06-09 11:33:32][OK]   [main] 'AR_CN' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:33:32][OK]   [main] 'Address' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:33:32][OK]   [main] 'Create' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:33:32][OK]   [main] 'Approve' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:33:32][OK]   [sub:B/S] 'Command' server '10.10.10.109' -> '10.10.10.109'
+[2026-06-09 11:33:32][OK]   [sub:HREMARK] 'Command' server '10.10.10.109' -> '10.10.10.109'
+[2026-06-09 11:33:32][OK]   [sub:Text] 'AR_CN_Text' server '10.10.10.109' -> '10.10.10.109'
+[2026-06-09 11:33:32][OK]   saved 7 table(s)
+[2026-06-09 11:33:32][INFO] --> C:\Tool\ExportedFromSAP\SBO_SDA_key\4.AR_Credit Memo_ใบลดหนี้_ENG (Batch_Serial) (Dis).rpt
+[2026-06-09 11:33:32][OK]   [main] 'AR_CN' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:33:32][OK]   [main] 'Address' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:33:32][OK]   [main] 'Create' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:33:32][OK]   [main] 'Approve' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:33:32][OK]   [sub:B/S] 'Command' server '10.10.10.109' -> '10.10.10.109'
+[2026-06-09 11:33:32][OK]   [sub:HREMARK] 'Command' server '10.10.10.109' -> '10.10.10.109'
+[2026-06-09 11:33:32][OK]   [sub:Text] 'AR_CN_Text' server '10.10.10.109' -> '10.10.10.109'
+[2026-06-09 11:33:32][OK]   saved 7 table(s)
+[2026-06-09 11:33:32][INFO] --> C:\Tool\ExportedFromSAP\SBO_SDA_key\4.BillingAR InvoiceTax Invoice_ENG ใบวางบิลใบแจ้งหนี้ใบกำกับภาษี (Dis).rpt
+[2026-06-09 11:33:33][OK]   [main] 'AR_INV' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:33:33][OK]   [main] 'Address' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:33:33][OK]   [main] 'Create' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:33:33][OK]   [main] 'Approve' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:33:33][OK]   [sub:HRemark] 'Command' server '10.10.10.109' -> '10.10.10.109'
+[2026-06-09 11:33:33][OK]   [sub:Remark] 'Command' server '10.10.10.109' -> '10.10.10.109'
+[2026-06-09 11:33:33][OK]   saved 6 table(s)
+[2026-06-09 11:33:33][INFO] --> C:\Tool\ExportedFromSAP\SBO_SDA_key\4.BillingAR InvoiceTax Invoice_ใบวางบิลใบแจ้งหนี้ใบกำกับภาษี (Dis).rpt
+[2026-06-09 11:33:34][OK]   [main] 'AR_INV' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:33:34][OK]   [main] 'Address' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:33:34][OK]   [main] 'Create' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:33:34][OK]   [main] 'Approve' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:33:34][OK]   [sub:HRemark] 'Command' server '10.10.10.109' -> '10.10.10.109'
+[2026-06-09 11:33:34][OK]   [sub:Remark] 'Command' server '10.10.10.109' -> '10.10.10.109'
+[2026-06-09 11:33:34][OK]   saved 6 table(s)
+[2026-06-09 11:33:34][INFO] --> C:\Tool\ExportedFromSAP\SBO_SDA_key\5.BillingAR Invoice_ENG ใบวางบิลใบแจ้งหนี้ (Bom).rpt
+[2026-06-09 11:33:34][OK]   [main] 'AR_INV' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:33:34][OK]   [main] 'Address' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:33:34][OK]   [main] 'Create' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:33:34][OK]   [sub:HRemark] 'Command' server '10.10.10.109' -> '10.10.10.109'
+[2026-06-09 11:33:34][OK]   [sub:Remark] 'Command' server '10.10.10.109' -> '10.10.10.109'
+[2026-06-09 11:33:34][OK]   saved 5 table(s)
+[2026-06-09 11:33:34][INFO] --> C:\Tool\ExportedFromSAP\SBO_SDA_key\5.BillingAR Invoice_ใบวางบิลใบแจ้งหนี้ (Bom).rpt
+[2026-06-09 11:33:34][OK]   [main] 'AR_INV' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:33:34][OK]   [main] 'Address' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:33:34][OK]   [main] 'Create' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:33:34][OK]   [sub:HRemark] 'Command' server '10.10.10.109' -> '10.10.10.109'
+[2026-06-09 11:33:34][OK]   [sub:Remark] 'Command' server '10.10.10.109' -> '10.10.10.109'
+[2026-06-09 11:33:35][OK]   saved 5 table(s)
+[2026-06-09 11:33:35][INFO] --> C:\Tool\ExportedFromSAP\SBO_SDA_key\6.BillingAR Invoice_ENG ใบวางบิลใบแจ้งหนี้ (Dis).rpt
+[2026-06-09 11:33:35][OK]   [main] 'AR_INV' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:33:35][OK]   [main] 'Address' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:33:35][OK]   [main] 'Create' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:33:35][OK]   [main] 'Approve' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:33:35][OK]   [sub:HRemark] 'Command' server '10.10.10.109' -> '10.10.10.109'
+[2026-06-09 11:33:35][OK]   [sub:Remark] 'Command' server '10.10.10.109' -> '10.10.10.109'
+[2026-06-09 11:33:35][OK]   saved 6 table(s)
+[2026-06-09 11:33:35][INFO] --> C:\Tool\ExportedFromSAP\SBO_SDA_key\6.BillingAR Invoice_ใบวางบิลใบแจ้งหนี้ (Dis).rpt
+[2026-06-09 11:33:36][OK]   [main] 'AR_INV' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:33:36][OK]   [main] 'Address' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:33:36][OK]   [main] 'Create' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:33:36][OK]   [main] 'Approve' server '10.10.10.115' -> '10.10.10.109'
+[2026-06-09 11:33:36][OK]   [sub:HRemark] 'Command' server '10.10.10.109' -> '10.10.10.109'
+[2026-06-09 11:33:36][OK]   [sub:Remark] 'Command' server '10.10.10.109' -> '10.10.10.109'
+[2026-06-09 11:33:36][OK]   saved 6 table(s)
+[2026-06-09 11:33:36][INFO] === Done. ok=84  err=0  skipped=0  total=84 ===
+[2026-06-11 01:19:07][INFO] === Set-DatasourceLocation start ===
+[2026-06-11 01:19:07][INFO] Path=C:\Tool  NewServer=172.18.40.121  OldServer=  NewDatabase=  NewUser=  WhatIf=False
+[2026-06-11 01:19:07][INFO] Found 85 report file(s).
+[2026-06-11 01:19:07][INFO] --> C:\Tool\ExportedFromSAP\MSIG\SLD_Receipt ໃບເກັບອາກອນ_(Lao)_SAPB1.rpt
+[2026-06-11 01:19:11][OK]   [main] 'Command' server 'INC-Server10' -> '172.18.40.121'
+[2026-06-11 01:19:11][OK]   [main] 'Command_1' server 'INC-Server10' -> '172.18.40.121'
+[2026-06-11 01:19:11][OK]   [main] 'Command_2' server 'INC-Server10' -> '172.18.40.121'
+[2026-06-11 01:19:11][OK]   [sub:Detail] 'Command' server '172.18.40.121' -> '172.18.40.121'
+[2026-06-11 01:19:11][OK]   [sub:INV Document] 'INV' server '172.18.40.121' -> '172.18.40.121'
+[2026-06-11 01:19:11][OK]   saved 5 table(s)
+[2026-06-11 01:19:12][INFO] --> C:\Tool\ExportedFromSAP\SBO_SDA_key\1.AP Credit Memo_ใบลดหนี้.rpt
+[2026-06-11 01:19:12][OK]   [main] 'AP_CN' server '10.10.10.109' -> '172.18.40.121'
+[2026-06-11 01:19:12][OK]   [main] 'HAddress' server '10.10.10.109' -> '172.18.40.121'
+[2026-06-11 01:19:12][OK]   [main] 'Create' server '10.10.10.109' -> '172.18.40.121'
+[2026-06-11 01:19:12][OK]   [main] 'Approve' server '10.10.10.109' -> '172.18.40.121'
+[2026-06-11 01:19:12][OK]   [sub:HeadRemark] 'Command' server '172.18.40.121' -> '172.18.40.121'
+[2026-06-11 01:19:12][OK]   [sub:Remark] 'Command' server '172.18.40.121' -> '172.18.40.121'
+[2026-06-11 01:19:12][OK]   saved 6 table(s)
+[2026-06-11 01:19:13][INFO] --> C:\Tool\ExportedFromSAP\SBO_SDA_key\1.AP Down Payment_ENG ใบจ่ายเงินมัดจำ.rpt
+[2026-06-11 01:19:13][OK]   [main] 'AP_DownPayment' server '10.10.10.109' -> '172.18.40.121'
+[2026-06-11 01:19:13][OK]   [main] 'Address' server '10.10.10.109' -> '172.18.40.121'
+[2026-06-11 01:19:13][OK]   [main] 'Create' server '10.10.10.109' -> '172.18.40.121'
+[2026-06-11 01:19:13][OK]   [main] 'Approve' server '10.10.10.109' -> '172.18.40.121'
+[2026-06-11 01:19:13][OK]   [sub:H remark] 'Command' server '172.18.40.121' -> '172.18.40.121'
+[2026-06-11 01:19:13][OK]   [sub:Remark] 'Command' server '172.18.40.121' -> '172.18.40.121'
+[2026-06-11 01:19:13][OK]   saved 6 table(s)
+[2026-06-11 01:19:14][INFO] --> C:\Tool\ExportedFromSAP\SBO_SDA_key\1.AP Down Payment_ใบจ่ายเงินมัดจำ.rpt
+[2026-06-11 01:19:14][OK]   [main] 'AP_DownPayment' server '10.10.10.109' -> '172.18.40.121'
+[2026-06-11 01:19:14][OK]   [main] 'Address' server '10.10.10.109' -> '172.18.40.121'
+[2026-06-11 01:19:14][OK]   [main] 'Create' server '10.10.10.109' -> '172.18.40.121'
+[2026-06-11 01:19:14][OK]   [main] 'Approve' server '10.10.10.109' -> '172.18.40.121'
+[2026-06-11 01:19:14][OK]   [sub:H remark] 'Command' server '172.18.40.121' -> '172.18.40.121'
+[2026-06-11 01:19:14][OK]   [sub:Remark] 'Command' server '172.18.40.121' -> '172.18.40.121'
+[2026-06-11 01:19:15][OK]   saved 6 table(s)
+[2026-06-11 01:19:15][INFO] --> C:\Tool\ExportedFromSAP\SBO_SDA_key\1.AP Invoice_ใบแจ้งหนี้.rpt
+[2026-06-11 01:19:15][OK]   [main] 'AP_INV_BN' server '10.10.10.109' -> '172.18.40.121'
+[2026-06-11 01:19:16][OK]   [main] 'Address' server '10.10.10.109' -> '172.18.40.121'
+[2026-06-11 01:19:16][OK]   [main] 'Create' server '10.10.10.109' -> '172.18.40.121'
+[2026-06-11 01:19:16][OK]   [main] 'Approve' server '10.10.10.109' -> '172.18.40.121'
+[2026-06-11 01:19:16][OK]   [sub:HaedRemark] 'Command' server '172.18.40.121' -> '172.18.40.121'
+[2026-06-11 01:19:16][OK]   [sub:Remark] 'Command' server '172.18.40.121' -> '172.18.40.121'
+[2026-06-11 01:19:16][OK]   saved 6 table(s)
+[2026-06-11 01:19:16][INFO] --> C:\Tool\ExportedFromSAP\SBO_SDA_key\1.AR Down Payment_BOM ใบเสร็จรับเงินมัดจำ.rpt
+[2026-06-11 01:19:17][OK]   [main] 'AR_DownPayment' server '10.10.10.109' -> '172.18.40.121'
+[2026-06-11 01:19:17][OK]   [main] 'Address' server '10.10.10.109' -> '172.18.40.121'
+[2026-06-11 01:19:17][OK]   [main] 'Create' server '10.10.10.109' -> '172.18.40.121'
+[2026-06-11 01:19:17][OK]   [main] 'Command' server '10.10.10.109' -> '172.18.40.121'
+[2026-06-11 01:19:17][OK]   [sub:Remark] 'Command' server '172.18.40.121' -> '172.18.40.121'
+[2026-06-11 01:19:17][OK]   [sub:head remark] 'Command' server '172.18.40.121' -> '172.18.40.121'
+[2026-06-11 01:19:17][OK]   saved 6 table(s)
+[2026-06-11 01:19:17][INFO] --> C:\Tool\ExportedFromSAP\SBO_SDA_key\1.AR Down Payment_BOM_ENG ใบเสร็จรับเงินมัดจำ.rpt
+[2026-06-11 01:19:18][OK]   [main] 'AR_DownPayment' server '10.10.10.109' -> '172.18.40.121'
+[2026-06-11 01:19:18][OK]   [main] 'Address' server '10.10.10.109' -> '172.18.40.121'
+[2026-06-11 01:19:18][OK]   [main] 'Create' server '10.10.10.109' -> '172.18.40.121'
+[2026-06-11 01:19:18][OK]   [main] 'Command' server '10.10.10.109' -> '172.18.40.121'
+[2026-06-11 01:19:18][OK]   [sub:Hremark] 'Command' server '172.18.40.121' -> '172.18.40.121'
+[2026-06-11 01:19:18][OK]   [sub:Remark] 'Command' server '172.18.40.121' -> '172.18.40.121'
+[2026-06-11 01:19:18][OK]   saved 6 table(s)
+[2026-06-11 01:19:19][INFO] --> C:\Tool\ExportedFromSAP\SBO_SDA_key\1.AR Down Payment_ENG ใบเสร็จรับเงินมัดจำ.rpt
+[2026-06-11 01:19:19][OK]   [main] 'AR_DownPayment' server '10.10.10.109' -> '172.18.40.121'
+[2026-06-11 01:19:19][OK]   [main] 'Address' server '10.10.10.109' -> '172.18.40.121'
+[2026-06-11 01:19:19][OK]   [main] 'Create' server '10.10.10.109' -> '172.18.40.121'
+[2026-06-11 01:19:19][OK]   [sub:Hreport] 'Command' server '172.18.40.121' -> '172.18.40.121'
+[2026-06-11 01:19:19][OK]   [sub:Remark] 'Command' server '172.18.40.121' -> '172.18.40.121'
+[2026-06-11 01:19:19][OK]   saved 5 table(s)
+[2026-06-11 01:19:19][INFO] --> C:\Tool\ExportedFromSAP\SBO_SDA_key\1.AR Down Payment_ใบเสร็จรับเงินมัดจำ.rpt
+[2026-06-11 01:19:20][OK]   [main] 'AR_DownPayment' server '10.10.10.109' -> '172.18.40.121'
+[2026-06-11 01:19:20][OK]   [main] 'Address' server '10.10.10.109' -> '172.18.40.121'
+[2026-06-11 01:19:20][OK]   [main] 'Create' server '10.10.10.109' -> '172.18.40.121'
+[2026-06-11 01:19:20][OK]   [sub:Remark] 'Command' server '172.18.40.121' -> '172.18.40.121'
+[2026-06-11 01:19:20][OK]   [sub:head remark] 'Command' server '172.18.40.121' -> '172.18.40.121'
+[2026-06-11 01:19:20][OK]   saved 5 table(s)
+[2026-06-11 01:19:20][INFO] --> C:\Tool\ExportedFromSAP\SBO_SDA_key\1.AR Invoice_BOM ใบแจ้งหนี้.rpt
+[2026-06-11 01:19:20][OK]   [main] 'AR_INV' server '10.10.10.109' -> '172.18.40.121'
+[2026-06-11 01:19:20][OK]   [main] 'Address' server '10.10.10.109' -> '172.18.40.121'
+[2026-06-11 01:19:20][OK]   [main] 'Create' server '10.10.10.109' -> '172.18.40.121'
+[2026-06-11 01:19:20][OK]   [main] 'Command' server '10.10.10.109' -> '172.18.40.121'
+[2026-06-11 01:19:20][OK]   [sub:HRemark] 'Command' server '172.18.40.121' -> '172.18.40.121'
+[2026-06-11 01:19:20][OK]   [sub:Remark] 'Command' server '172.18.40.121' -> '172.18.40.121'
+[2026-06-11 01:19:20][OK]   saved 6 table(s)
+[2026-06-11 01:19:21][INFO] --> C:\Tool\ExportedFromSAP\SBO_SDA_key\1.AR Invoice_BOM_ENG ใบแจ้งหนี้.rpt
+[2026-06-11 01:19:21][OK]   [main] 'AR_INV' server '10.10.10.109' -> '172.18.40.121'
+[2026-06-11 01:19:21][OK]   [main] 'Address' server '10.10.10.109' -> '172.18.40.121'
+[2026-06-11 01:19:21][OK]   [main] 'Create' server '10.10.10.109' -> '172.18.40.121'
+[2026-06-11 01:19:21][OK]   [main] 'Command' server '10.10.10.109' -> '172.18.40.121'
+[2026-06-11 01:19:21][OK]   [sub:HRemark] 'Command' server '172.18.40.121' -> '172.18.40.121'
+[2026-06-11 01:19:21][OK]   [sub:Remark] 'Command' server '172.18.40.121' -> '172.18.40.121'
+[2026-06-11 01:19:21][OK]   saved 6 table(s)
+[2026-06-11 01:19:22][INFO] --> C:\Tool\ExportedFromSAP\SBO_SDA_key\1.AR_Credit Memo_ENG ใบลดหนี้ แก้ไขยอดเงิน.rpt
+[2026-06-11 01:19:22][OK]   [main] 'AR_CN_BS' server '10.10.10.109' -> '172.18.40.121'
+[2026-06-11 01:19:22][OK]   [main] 'Address' server '10.10.10.109' -> '172.18.40.121'
+[2026-06-11 01:19:23][OK]   [main] 'Create' server '10.10.10.109' -> '172.18.40.121'
+[2026-06-11 01:19:23][OK]   [main] 'Approve' server '10.10.10.109' -> '172.18.40.121'
+[2026-06-11 01:19:23][OK]   [sub:Batch/Serial] 'AR_CN_BS' server '172.18.40.121' -> '172.18.40.121'
+[2026-06-11 01:19:23][OK]   [sub:HREMARK] 'Command' server '172.18.40.121' -> '172.18.40.121'
+[2026-06-11 01:19:23][OK]   [sub:Text] 'AR_CN_BS_Text' server '172.18.40.121' -> '172.18.40.121'
+[2026-06-11 01:19:23][OK]   saved 7 table(s)
+[2026-06-11 01:19:23][INFO] --> C:\Tool\ExportedFromSAP\SBO_SDA_key\1.AR_Credit Memo_ใบลดหนี้ แก้ไขยอดเงิน.rpt
+[2026-06-11 01:19:24][OK]   [main] 'AR_CN_BS' server '10.10.10.109' -> '172.18.40.121'
+[2026-06-11 01:19:24][OK]   [main] 'Address' server '10.10.10.109' -> '172.18.40.121'
+[2026-06-11 01:19:24][OK]   [main] 'Create' server '10.10.10.109' -> '172.18.40.121'
+[2026-06-11 01:19:24][OK]   [main] 'Approve' server '10.10.10.109' -> '172.18.40.121'
+[2026-06-11 01:19:24][OK]   [sub:Batch/Serial] 'AR_CN_BS' server '172.18.40.121' -> '172.18.40.121'
+[2026-06-11 01:19:24][OK]   [sub:HREMARK] 'Command' server '172.18.40.121' -> '172.18.40.121'
+[2026-06-11 01:19:24][OK]   [sub:Text] 'AR_CN_BS_Text' server '172.18.40.121' -> '172.18.40.121'
+[2026-06-11 01:19:24][OK]   saved 7 table(s)
+[2026-06-11 01:19:24][INFO] --> C:\Tool\ExportedFromSAP\SBO_SDA_key\1.Delivery_ใบส่งของ_Eng (Batch_Serial).rpt
+[2026-06-11 01:19:25][OK]   [main] 'AR_Delivery_BS' server '10.10.10.109' -> '172.18.40.121'
+[2026-06-11 01:19:25][OK]   [main] 'address_eng' server '10.10.10.109' -> '172.18.40.121'
+[2026-06-11 01:19:25][OK]   [main] 'Create' server '10.10.10.109' -> '172.18.40.121'
+[2026-06-11 01:19:25][OK]   [sub:Batch/Serial] 'AR_Drlivery_BS' server '172.18.40.121' -> '172.18.40.121'
+[2026-06-11 01:19:25][OK]   [sub:Head_Remark] 'Command' server '172.18.40.121' -> '172.18.40.121'
+[2026-06-11 01:19:25][OK]   [sub:Remark] 'Command' server '172.18.40.121' -> '172.18.40.121'
+[2026-06-11 01:19:25][OK]   saved 6 table(s)
+[2026-06-11 01:19:26][INFO] --> C:\Tool\ExportedFromSAP\SBO_SDA_key\1.Goods Issue_ENG ใบเบิกสินค้า.rpt
+[2026-06-11 01:19:26][OK]   [main] 'G_Issue_BS' server '10.10.10.109' -> '172.18.40.121'
+[2026-06-11 01:19:26][OK]   [main] 'Address' server '10.10.10.109' -> '172.18.40.121'
+[2026-06-11 01:19:26][OK]   [main] 'Approve' server '10.10.10.109' -> '172.18.40.121'
+[2026-06-11 01:19:26][OK]   [sub:Head_Remark] 'Command' server '172.18.40.121' -> '172.18.40.121'
+[2026-06-11 01:19:26][OK]   [sub:Remark] 'Command' server '172.18.40.121' -> '172.18.40.121'
+[2026-06-11 01:19:26][OK]   saved 5 table(s)
+[2026-06-11 01:19:27][INFO] --> C:\Tool\ExportedFromSAP\SBO_SDA_key\1.Goods Issue_ใบเบิกสินค้า.rpt
+[2026-06-11 01:19:27][OK]   [main] 'G_Issue_BS' server '10.10.10.109' -> '172.18.40.121'
+[2026-06-11 01:19:27][OK]   [main] 'Address' server '10.10.10.109' -> '172.18.40.121'
+[2026-06-11 01:19:27][OK]   [main] 'Approve' server '10.10.10.109' -> '172.18.40.121'
+[2026-06-11 01:19:27][OK]   [sub:Head_Remark] 'Command' server '172.18.40.121' -> '172.18.40.121'
+[2026-06-11 01:19:27][OK]   [sub:Remark] 'Command' server '172.18.40.121' -> '172.18.40.121'
+[2026-06-11 01:19:27][OK]   saved 5 table(s)
+[2026-06-11 01:19:28][INFO] --> C:\Tool\ExportedFromSAP\SBO_SDA_key\1.Goods Receipt_ENG ใบรับสินค้า.rpt
+[2026-06-11 01:19:28][OK]   [main] 'G_Receipt' server '10.10.10.109' -> '172.18.40.121'
+[2026-06-11 01:19:28][OK]   [main] 'Address' server '10.10.10.109' -> '172.18.40.121'
+[2026-06-11 01:19:28][OK]   [sub:Head_Remark] 'Command' server '172.18.40.121' -> '172.18.40.121'
+[2026-06-11 01:19:28][OK]   [sub:Remark] 'Command' server '172.18.40.121' -> '172.18.40.121'
+[2026-06-11 01:19:29][OK]   saved 4 table(s)
+[2026-06-11 01:19:30][INFO] --> C:\Tool\ExportedFromSAP\SBO_SDA_key\1.Goods Receipt_ใบรับสินค้า.rpt
+[2026-06-11 01:19:30][OK]   [main] 'G_Receipt' server '10.10.10.109' -> '172.18.40.121'
+[2026-06-11 01:19:30][OK]   [main] 'Address' server '10.10.10.109' -> '172.18.40.121'
+[2026-06-11 01:19:30][OK]   [sub:Head_Remark] 'Command' server '172.18.40.121' -> '172.18.40.121'
+[2026-06-11 01:19:30][OK]   [sub:Remark] 'Command' server '172.18.40.121' -> '172.18.40.121'
+[2026-06-11 01:19:31][OK]   saved 4 table(s)
+[2026-06-11 01:19:32][INFO] --> C:\Tool\ExportedFromSAP\SBO_SDA_key\1.Incoming Payments_Eng ใบเสร็จรับเงิน.rpt
+[2026-06-11 01:19:32][OK]   [main] 'Bank_Receipt' server '10.10.10.109' -> '172.18.40.121'
+[2026-06-11 01:19:32][OK]   [main] 'Address' server '10.10.10.109' -> '172.18.40.121'
+[2026-06-11 01:19:32][OK]   [main] 'Create' server '10.10.10.109' -> '172.18.40.121'
+[2026-06-11 01:19:32][OK]   [sub:CheckNum] 'Command' server '172.18.40.121' -> '172.18.40.121'
+[2026-06-11 01:19:33][OK]   saved 4 table(s)
+[2026-06-11 01:19:33][INFO] --> C:\Tool\ExportedFromSAP\SBO_SDA_key\1.Incoming Payments_ใบเสร็จรับเงิน.rpt
+[2026-06-11 01:19:33][OK]   [main] 'Bank_Receipt' server '10.10.10.109' -> '172.18.40.121'
+[2026-06-11 01:19:33][OK]   [main] 'Address' server '10.10.10.109' -> '172.18.40.121'
+[2026-06-11 01:19:33][OK]   [main] 'Create' server '10.10.10.109' -> '172.18.40.121'
+[2026-06-11 01:19:33][OK]   [sub:CheckNum] 'Command' server '172.18.40.121' -> '172.18.40.121'
+[2026-06-11 01:19:33][OK]   saved 4 table(s)

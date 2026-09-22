@@ -1,0 +1,455 @@
+﻿[2026-06-09 11:14:03] [INFO] === Start SQL Direct Import ===
+[2026-06-09 11:14:03] [INFO] MapFile: C:\Tool\ExportedFromSAP\SBO_SDA_key\_ExportIndex.csv
+[2026-06-09 11:14:03] [INFO] RptRoot: C:\Tool\ExportedFromSAP\SBO_SDA_key
+[2026-06-09 11:14:03] [INFO] DryRun : False
+[2026-06-09 11:14:03] [INFO] Loaded 84 mapping rows
+[2026-06-09 11:14:04] [INFO] Pre-loaded max sequences for 400 TypeCodes
+[2026-06-09 11:14:04] [ERROR] FAIL [  1] 1.Delivery_ใบส่งของ_Eng (Batch_Serial).rpt: Exception calling "ReadAllBytes" with "1" argument(s): "Empty path name is not legal."
+[2026-06-09 11:14:04] [ERROR] FAIL [  2] 2.Delivery_ใบส่งของ_(Batch_Serial).rpt: Exception calling "ReadAllBytes" with "1" argument(s): "Empty path name is not legal."
+[2026-06-09 11:14:04] [ERROR] FAIL [  3] 1.AR Down Payment_BOM ใบเสร็จรับเงินมัดจำ.rpt: Exception calling "ReadAllBytes" with "1" argument(s): "Empty path name is not legal."
+[2026-06-09 11:14:04] [ERROR] FAIL [  4] 1.AR Down Payment_BOM_ENG ใบเสร็จรับเงินมัดจำ.rpt: Exception calling "ReadAllBytes" with "1" argument(s): "Empty path name is not legal."
+[2026-06-09 11:14:04] [ERROR] FAIL [  5] 1.AR Down Payment_ENG ใบเสร็จรับเงินมัดจำ.rpt: Exception calling "ReadAllBytes" with "1" argument(s): "Empty path name is not legal."
+[2026-06-09 11:14:04] [ERROR] FAIL [  6] 1.AR Down Payment_ใบเสร็จรับเงินมัดจำ.rpt: Exception calling "ReadAllBytes" with "1" argument(s): "Empty path name is not legal."
+[2026-06-09 11:14:04] [ERROR] FAIL [  7] 2.AR Down PaymentTax Invoice_BOM ใบเสร็จรับเงินมัดจำใบกำกับภาษี.rpt: Exception calling "ReadAllBytes" with "1" argument(s): "Empty path name is not legal."
+[2026-06-09 11:14:04] [ERROR] FAIL [  8] 2.AR Down PaymentTax Invoice_BOM_ENG ใบเสร็จรับเงินมัดจำใบกำกับภาษี.rpt: Exception calling "ReadAllBytes" with "1" argument(s): "Empty path name is not legal."
+[2026-06-09 11:14:04] [ERROR] FAIL [  9] 2.AR Down PaymentTax Invoice_ENG ใบเสร็จรับเงินมัดจำใบกำกับภาษี.rpt: Exception calling "ReadAllBytes" with "1" argument(s): "Empty path name is not legal."
+[2026-06-09 11:14:04] [ERROR] FAIL [ 10] 2.AR Down PaymentTax Invoice_ใบเสร็จรับเงินมัดจำใบกำกับภาษี.rpt: Exception calling "ReadAllBytes" with "1" argument(s): "Empty path name is not legal."
+[2026-06-09 11:14:04] [ERROR] FAIL [ 11] 3.AR Down Payment Invoice_BOM ใบแจ้งหนี้เงินค่ามัดจำใบกำกับภาษี.rpt: Exception calling "ReadAllBytes" with "1" argument(s): "Empty path name is not legal."
+[2026-06-09 11:14:04] [ERROR] FAIL [ 12] 3.AR Down PaymentTax Invoice_BOM_ENG ใบแจ้งหนี้เงินค่ามัดจำใบกำกับภาษี.rpt: Exception calling "ReadAllBytes" with "1" argument(s): "Empty path name is not legal."
+[2026-06-09 11:14:04] [ERROR] FAIL [ 13] 3.AR Down PaymentTax Invoice_ENG ใบแจ้งหนี้เงินค่ามัดจำใบกำกับภาษี.rpt: Exception calling "ReadAllBytes" with "1" argument(s): "Empty path name is not legal."
+[2026-06-09 11:14:04] [ERROR] FAIL [ 14] 3.AR Down PaymentTax Invoice_ใบแจ้งหนี้เงินค่ามัดจำใบกำกับภาษี.rpt: Exception calling "ReadAllBytes" with "1" argument(s): "Empty path name is not legal."
+[2026-06-09 11:14:04] [ERROR] FAIL [ 15] 1.AP Down Payment_ENG ใบจ่ายเงินมัดจำ.rpt: Exception calling "ReadAllBytes" with "1" argument(s): "Empty path name is not legal."
+[2026-06-09 11:14:04] [ERROR] FAIL [ 16] 1.AP Down Payment_ใบจ่ายเงินมัดจำ.rpt: Exception calling "ReadAllBytes" with "1" argument(s): "Empty path name is not legal."
+[2026-06-09 11:14:04] [ERROR] FAIL [ 17] 2.AP Down Payment Invoice_ENG ใบจ่ายเงินมัดจำใบกำกับภาษี.rpt: Exception calling "ReadAllBytes" with "1" argument(s): "Empty path name is not legal."
+[2026-06-09 11:14:04] [ERROR] FAIL [ 18] 2.AP Down Payment Invoice_ใบจ่ายเงินมัดจำใบกำกับภาษี.rpt: Exception calling "ReadAllBytes" with "1" argument(s): "Empty path name is not legal."
+[2026-06-09 11:14:04] [ERROR] FAIL [ 19] 1.Goods Issue_ENG ใบเบิกสินค้า.rpt: Exception calling "ReadAllBytes" with "1" argument(s): "Empty path name is not legal."
+[2026-06-09 11:14:04] [ERROR] FAIL [ 20] 1.Goods Issue_ใบเบิกสินค้า.rpt: Exception calling "ReadAllBytes" with "1" argument(s): "Empty path name is not legal."
+[2026-06-09 11:14:04] [ERROR] FAIL [ 21] 1.Issue for Production_ใบเบิกวัตถุดิบเพื่อการผลิต.rpt: Exception calling "ReadAllBytes" with "1" argument(s): "Empty path name is not legal."
+[2026-06-09 11:14:04] [ERROR] FAIL [ 22] 2.Goods Issue_ใบเบิกสินค้า_(Batch_Serial).rpt: Exception calling "ReadAllBytes" with "1" argument(s): "Empty path name is not legal."
+[2026-06-09 11:14:04] [ERROR] FAIL [ 23] 2.Goods Issue_ใบเบิกสินค้า_ENG (Batch_Serial).rpt: Exception calling "ReadAllBytes" with "1" argument(s): "Empty path name is not legal."
+[2026-06-09 11:14:04] [ERROR] FAIL [ 24] 2.Issue for Production_ใบเบิกวัตถุดิบเพื่อการผลิต_(Batch_Serial).rpt: Exception calling "ReadAllBytes" with "1" argument(s): "Empty path name is not legal."
+[2026-06-09 11:14:04] [ERROR] FAIL [ 25] 1.Goods Receipt_ENG ใบรับสินค้า.rpt: Exception calling "ReadAllBytes" with "1" argument(s): "Empty path name is not legal."
+[2026-06-09 11:14:04] [ERROR] FAIL [ 26] 1.Goods Receipt_ใบรับสินค้า.rpt: Exception calling "ReadAllBytes" with "1" argument(s): "Empty path name is not legal."
+[2026-06-09 11:14:04] [ERROR] FAIL [ 27] 1.Receipt from Production_ใบรับสินค้าจากการผลิต.rpt: Exception calling "ReadAllBytes" with "1" argument(s): "Empty path name is not legal."
+[2026-06-09 11:14:04] [ERROR] FAIL [ 28] 2.Goods Receipt_ENG ใบรับสินค้า_(Batch_Serial).rpt: Exception calling "ReadAllBytes" with "1" argument(s): "Empty path name is not legal."
+[2026-06-09 11:14:04] [ERROR] FAIL [ 29] 2.Goods Receipt_ใบรับสินค้า_(Batch_Serial).rpt: Exception calling "ReadAllBytes" with "1" argument(s): "Empty path name is not legal."
+[2026-06-09 11:14:04] [ERROR] FAIL [ 30] 2.Receipt from Production_ใบรับสินค้าจากการผลิต_(Batch_Serial).rpt: Exception calling "ReadAllBytes" with "1" argument(s): "Empty path name is not legal."
+[2026-06-09 11:14:04] [ERROR] FAIL [ 31] 1.Inventory Counting_ใบตรวจนับสินค้า_Befor.rpt: Exception calling "ReadAllBytes" with "1" argument(s): "Empty path name is not legal."
+[2026-06-09 11:14:04] [ERROR] FAIL [ 32] 2.Inventory Counting_ใบหลังตรวจนับสินค้า_After.rpt: Exception calling "ReadAllBytes" with "1" argument(s): "Empty path name is not legal."
+[2026-06-09 11:14:04] [ERROR] FAIL [ 33] 1.AR Invoice_BOM ใบแจ้งหนี้.rpt: Exception calling "ReadAllBytes" with "1" argument(s): "Empty path name is not legal."
+[2026-06-09 11:14:04] [ERROR] FAIL [ 34] 1.AR Invoice_BOM_ENG ใบแจ้งหนี้.rpt: Exception calling "ReadAllBytes" with "1" argument(s): "Empty path name is not legal."
+[2026-06-09 11:14:04] [ERROR] FAIL [ 35] 2.AR Invoice_ENG ใบแจ้งหนี้_(Dis).rpt: Exception calling "ReadAllBytes" with "1" argument(s): "Empty path name is not legal."
+[2026-06-09 11:14:04] [ERROR] FAIL [ 36] 2.AR Invoice_ใบแจ้งหนี้_(Dis).rpt: Exception calling "ReadAllBytes" with "1" argument(s): "Empty path name is not legal."
+[2026-06-09 11:14:04] [ERROR] FAIL [ 37] 3.BillingAR InvoiceTax Invoice_ENG ใบวางบิลใบแจ้งหนี้ใบกำกับภาษี (Bom).rpt: Exception calling "ReadAllBytes" with "1" argument(s): "Empty path name is not legal."
+[2026-06-09 11:14:04] [ERROR] FAIL [ 38] 3.BillingAR InvoiceTax Invoice_ใบวางบิลใบแจ้งหนี้ใบกำกับภาษี (Bom).rpt: Exception calling "ReadAllBytes" with "1" argument(s): "Empty path name is not legal."
+[2026-06-09 11:14:04] [ERROR] FAIL [ 39] 4.BillingAR InvoiceTax Invoice_ENG ใบวางบิลใบแจ้งหนี้ใบกำกับภาษี (Dis).rpt: Exception calling "ReadAllBytes" with "1" argument(s): "Empty path name is not legal."
+[2026-06-09 11:14:04] [ERROR] FAIL [ 40] 4.BillingAR InvoiceTax Invoice_ใบวางบิลใบแจ้งหนี้ใบกำกับภาษี (Dis).rpt: Exception calling "ReadAllBytes" with "1" argument(s): "Empty path name is not legal."
+[2026-06-09 11:14:04] [ERROR] FAIL [ 41] 5.BillingAR Invoice_ENG ใบวางบิลใบแจ้งหนี้ (Bom).rpt: Exception calling "ReadAllBytes" with "1" argument(s): "Empty path name is not legal."
+[2026-06-09 11:14:04] [ERROR] FAIL [ 42] 5.BillingAR Invoice_ใบวางบิลใบแจ้งหนี้ (Bom).rpt: Exception calling "ReadAllBytes" with "1" argument(s): "Empty path name is not legal."
+[2026-06-09 11:14:04] [ERROR] FAIL [ 43] 6.BillingAR Invoice_ENG ใบวางบิลใบแจ้งหนี้ (Dis).rpt: Exception calling "ReadAllBytes" with "1" argument(s): "Empty path name is not legal."
+[2026-06-09 11:14:04] [ERROR] FAIL [ 44] 6.BillingAR Invoice_ใบวางบิลใบแจ้งหนี้ (Dis).rpt: Exception calling "ReadAllBytes" with "1" argument(s): "Empty path name is not legal."
+[2026-06-09 11:14:04] [ERROR] FAIL [ 45] 1.Landed Costs_ใบปรับราคาต้นทุนสินค้า.rpt: Exception calling "ReadAllBytes" with "1" argument(s): "Empty path name is not legal."
+[2026-06-09 11:14:04] [ERROR] FAIL [ 46] 1.Journal Entry_ใบบันทึกรายการบัญชี.rpt: Exception calling "ReadAllBytes" with "1" argument(s): "Empty path name is not legal."
+[2026-06-09 11:14:04] [ERROR] FAIL [ 47] 1.AP Invoice_ใบแจ้งหนี้.rpt: Exception calling "ReadAllBytes" with "1" argument(s): "Empty path name is not legal."
+[2026-06-09 11:14:05] [ERROR] FAIL [ 48] 2.AP Invoice_ใบแจ้งหนี้_(Batch_Serial).rpt: Exception calling "ReadAllBytes" with "1" argument(s): "Empty path name is not legal."
+[2026-06-09 11:14:05] [ERROR] FAIL [ 49] 3.AP InvoiceTax Invoice_ใบแจ้งหนี้ใบกำกับภาษี.rpt: Exception calling "ReadAllBytes" with "1" argument(s): "Empty path name is not legal."
+[2026-06-09 11:14:05] [ERROR] FAIL [ 50] 3.AP InvoiceTax Invoice_ใบแจ้งหนี้ใบกำกับภาษี(Batch_Serial).rpt: Exception calling "ReadAllBytes" with "1" argument(s): "Empty path name is not legal."
+[2026-06-09 11:14:05] [ERROR] FAIL [ 51] 4.AP Debit Note_ใบเพิ่มหนี้.rpt: Exception calling "ReadAllBytes" with "1" argument(s): "Empty path name is not legal."
+[2026-06-09 11:14:05] [ERROR] FAIL [ 52] 2.Goods Reciept PO_TH_ใบรับสินค้า_(Batch_Serial).rpt: Exception calling "ReadAllBytes" with "1" argument(s): "Empty path name is not legal."
+[2026-06-09 11:14:05] [ERROR] FAIL [ 53] 1.Purchase Order_ENG_ใบสั่งซื้อ.rpt: Exception calling "ReadAllBytes" with "1" argument(s): "Empty path name is not legal."
+[2026-06-09 11:14:05] [ERROR] FAIL [ 54] 1.Purchase Order_TH_ใบสั่งซื้อ.rpt: Exception calling "ReadAllBytes" with "1" argument(s): "Empty path name is not legal."
+[2026-06-09 11:14:05] [ERROR] FAIL [ 55] 1.Purchase Quotation_ใบเสนอราคาซื้อ.rpt: Exception calling "ReadAllBytes" with "1" argument(s): "Empty path name is not legal."
+[2026-06-09 11:14:05] [ERROR] FAIL [ 56] 1.Purchase Request_TH_ใบขอซื้อ.rpt: Exception calling "ReadAllBytes" with "1" argument(s): "Empty path name is not legal."
+[2026-06-09 11:14:05] [ERROR] FAIL [ 57] 1.Sale Quotation_ใบเสนอราคาขาย_(Dis).rpt: Exception calling "ReadAllBytes" with "1" argument(s): "Empty path name is not legal."
+[2026-06-09 11:14:05] [ERROR] FAIL [ 58] 1.Sale Quotation_ใบเสนอราคาขาย_(Dis) ENG.rpt: Exception calling "ReadAllBytes" with "1" argument(s): "Empty path name is not legal."
+[2026-06-09 11:14:05] [ERROR] FAIL [ 59] 2.Sale Quotation_ใบเสนอราคาขาย_(Bom).rpt: Exception calling "ReadAllBytes" with "1" argument(s): "Empty path name is not legal."
+[2026-06-09 11:14:05] [ERROR] FAIL [ 60] 2.Sale Quotation_ใบเสนอราคาขาย_(BOM) ENG.rpt: Exception calling "ReadAllBytes" with "1" argument(s): "Empty path name is not legal."
+[2026-06-09 11:14:05] [ERROR] FAIL [ 61] 1.Incoming Payments_Eng ใบเสร็จรับเงิน.rpt: Exception calling "ReadAllBytes" with "1" argument(s): "Empty path name is not legal."
+[2026-06-09 11:14:05] [ERROR] FAIL [ 62] 1.Incoming Payments_ใบเสร็จรับเงิน.rpt: Exception calling "ReadAllBytes" with "1" argument(s): "Empty path name is not legal."
+[2026-06-09 11:14:05] [ERROR] FAIL [ 63] 2.Incoming Payments_ ENG ใบเสร็จรับเงินใบกำกับภาษี.rpt: Exception calling "ReadAllBytes" with "1" argument(s): "Empty path name is not legal."
+[2026-06-09 11:14:05] [ERROR] FAIL [ 64] 2.Incoming Payments_ใบเสร็จรับเงินใบกำกับภาษี.rpt: Exception calling "ReadAllBytes" with "1" argument(s): "Empty path name is not legal."
+[2026-06-09 11:14:05] [ERROR] FAIL [ 65] 1.Retrun_ใบรับคืนสินค้า_(Batch_Serial).rpt: Exception calling "ReadAllBytes" with "1" argument(s): "Empty path name is not legal."
+[2026-06-09 11:14:05] [ERROR] FAIL [ 66] 1.Retrun_ใบรับคืนสินค้า_ENG (Batch_Serial).rpt: Exception calling "ReadAllBytes" with "1" argument(s): "Empty path name is not legal."
+[2026-06-09 11:14:05] [ERROR] FAIL [ 67] 1.Sale Order_ใบสั่งขาย_(Bom).rpt: Exception calling "ReadAllBytes" with "1" argument(s): "Empty path name is not legal."
+[2026-06-09 11:14:05] [ERROR] FAIL [ 68] 1.Sale Order_ใบสั่งขาย_(Dis).rpt: Exception calling "ReadAllBytes" with "1" argument(s): "Empty path name is not legal."
+[2026-06-09 11:14:05] [ERROR] FAIL [ 69] 1.AR_Credit Memo_ENG ใบลดหนี้ แก้ไขยอดเงิน.rpt: Exception calling "ReadAllBytes" with "1" argument(s): "Empty path name is not legal."
+[2026-06-09 11:14:05] [ERROR] FAIL [ 70] 1.AR_Credit Memo_ใบลดหนี้ แก้ไขยอดเงิน.rpt: Exception calling "ReadAllBytes" with "1" argument(s): "Empty path name is not legal."
+[2026-06-09 11:14:05] [ERROR] FAIL [ 71] 2.AR_Credit Memo_ENG ใบลดหนี้_(Dis) แก้ไขยอดเงิน.rpt: Exception calling "ReadAllBytes" with "1" argument(s): "Empty path name is not legal."
+[2026-06-09 11:14:05] [ERROR] FAIL [ 72] 2.AR_Credit Memo_ใบลดหนี้_(Dis) แก้ไขยอดเงิน.rpt: Exception calling "ReadAllBytes" with "1" argument(s): "Empty path name is not legal."
+[2026-06-09 11:14:05] [ERROR] FAIL [ 73] 3.AR_Credit Memo_ใบลดหนี้_(Batch_Serial) แก้ไขยอดเงิน.rpt: Exception calling "ReadAllBytes" with "1" argument(s): "Empty path name is not legal."
+[2026-06-09 11:14:05] [ERROR] FAIL [ 74] 3.AR_Credit Memo_ใบลดหนี้_ENG (Batch_Serial) แก้ไขยอดเงิน.rpt: Exception calling "ReadAllBytes" with "1" argument(s): "Empty path name is not legal."
+[2026-06-09 11:14:05] [ERROR] FAIL [ 75] 4.AR_Credit Memo_ใบลดหนี้_(Batch_Serial) (Dis).rpt: Exception calling "ReadAllBytes" with "1" argument(s): "Empty path name is not legal."
+[2026-06-09 11:14:05] [ERROR] FAIL [ 76] 4.AR_Credit Memo_ใบลดหนี้_ENG (Batch_Serial) (Dis).rpt: Exception calling "ReadAllBytes" with "1" argument(s): "Empty path name is not legal."
+[2026-06-09 11:14:05] [ERROR] FAIL [ 77] 1.AP Credit Memo_ใบลดหนี้.rpt: Exception calling "ReadAllBytes" with "1" argument(s): "Empty path name is not legal."
+[2026-06-09 11:14:05] [ERROR] FAIL [ 78] 2.Goods Return_TH_ใบส่งคืนสินค้า_(Batch_Serial).rpt: Exception calling "ReadAllBytes" with "1" argument(s): "Empty path name is not legal."
+[2026-06-09 11:14:05] [ERROR] FAIL [ 79] 1.Outgoing Payments_ENG ใบจ่ายชำระ.rpt: Exception calling "ReadAllBytes" with "1" argument(s): "Empty path name is not legal."
+[2026-06-09 11:14:05] [ERROR] FAIL [ 80] 1.Outgoing Payments_ใบจ่ายชำระ.rpt: Exception calling "ReadAllBytes" with "1" argument(s): "Empty path name is not legal."
+[2026-06-09 11:14:05] [ERROR] FAIL [ 81] 1.Production Order_ใบสั่งผลิต.rpt: Exception calling "ReadAllBytes" with "1" argument(s): "Empty path name is not legal."
+[2026-06-09 11:14:05] [ERROR] FAIL [ 82] 1.Inventory Transfer Request_ใบขอโอนสินค้า.rpt: Exception calling "ReadAllBytes" with "1" argument(s): "Empty path name is not legal."
+[2026-06-09 11:14:05] [ERROR] FAIL [ 83] 2.Inventory Transfer_ใบโอนสินค้า.rpt: Exception calling "ReadAllBytes" with "1" argument(s): "Empty path name is not legal."
+[2026-06-09 11:14:05] [ERROR] FAIL [ 84] 2.Inventory Transfer_ใบโอนสินค้า_TH_(Batch_Serial).rpt: Exception calling "ReadAllBytes" with "1" argument(s): "Empty path name is not legal."
+[2026-06-09 11:14:05] [INFO] === Summary: OK=0 FAIL=84 SKIP=0 ===
+[2026-06-09 11:14:40] [INFO] === Start SQL Direct Import ===
+[2026-06-09 11:14:40] [INFO] MapFile: C:\Tool\ExportedFromSAP\SBO_SDA_key\_ExportIndex.csv
+[2026-06-09 11:14:40] [INFO] RptRoot: C:\Tool\ExportedFromSAP\SBO_SDA_key
+[2026-06-09 11:14:41] [INFO] DryRun : False
+[2026-06-09 11:14:41] [INFO] Loaded 84 mapping rows
+[2026-06-09 11:14:41] [INFO] Pre-loaded max sequences for 400 TypeCodes
+[2026-06-09 11:14:41] [ERROR] FAIL [  1] 1.Delivery_ใบส่งของ_Eng (Batch_Serial).rpt: Exception calling "ReadAllBytes" with "1" argument(s): "Empty path name is not legal."
+[2026-06-09 11:14:41] [ERROR] FAIL [  2] 2.Delivery_ใบส่งของ_(Batch_Serial).rpt: Exception calling "ReadAllBytes" with "1" argument(s): "Empty path name is not legal."
+[2026-06-09 11:14:41] [ERROR] FAIL [  3] 1.AR Down Payment_BOM ใบเสร็จรับเงินมัดจำ.rpt: Exception calling "ReadAllBytes" with "1" argument(s): "Empty path name is not legal."
+[2026-06-09 11:14:41] [ERROR] FAIL [  4] 1.AR Down Payment_BOM_ENG ใบเสร็จรับเงินมัดจำ.rpt: Exception calling "ReadAllBytes" with "1" argument(s): "Empty path name is not legal."
+[2026-06-09 11:14:41] [ERROR] FAIL [  5] 1.AR Down Payment_ENG ใบเสร็จรับเงินมัดจำ.rpt: Exception calling "ReadAllBytes" with "1" argument(s): "Empty path name is not legal."
+[2026-06-09 11:14:41] [ERROR] FAIL [  6] 1.AR Down Payment_ใบเสร็จรับเงินมัดจำ.rpt: Exception calling "ReadAllBytes" with "1" argument(s): "Empty path name is not legal."
+[2026-06-09 11:14:41] [ERROR] FAIL [  7] 2.AR Down PaymentTax Invoice_BOM ใบเสร็จรับเงินมัดจำใบกำกับภาษี.rpt: Exception calling "ReadAllBytes" with "1" argument(s): "Empty path name is not legal."
+[2026-06-09 11:14:41] [ERROR] FAIL [  8] 2.AR Down PaymentTax Invoice_BOM_ENG ใบเสร็จรับเงินมัดจำใบกำกับภาษี.rpt: Exception calling "ReadAllBytes" with "1" argument(s): "Empty path name is not legal."
+[2026-06-09 11:14:41] [ERROR] FAIL [  9] 2.AR Down PaymentTax Invoice_ENG ใบเสร็จรับเงินมัดจำใบกำกับภาษี.rpt: Exception calling "ReadAllBytes" with "1" argument(s): "Empty path name is not legal."
+[2026-06-09 11:14:41] [ERROR] FAIL [ 10] 2.AR Down PaymentTax Invoice_ใบเสร็จรับเงินมัดจำใบกำกับภาษี.rpt: Exception calling "ReadAllBytes" with "1" argument(s): "Empty path name is not legal."
+[2026-06-09 11:14:41] [ERROR] FAIL [ 11] 3.AR Down Payment Invoice_BOM ใบแจ้งหนี้เงินค่ามัดจำใบกำกับภาษี.rpt: Exception calling "ReadAllBytes" with "1" argument(s): "Empty path name is not legal."
+[2026-06-09 11:14:41] [ERROR] FAIL [ 12] 3.AR Down PaymentTax Invoice_BOM_ENG ใบแจ้งหนี้เงินค่ามัดจำใบกำกับภาษี.rpt: Exception calling "ReadAllBytes" with "1" argument(s): "Empty path name is not legal."
+[2026-06-09 11:14:41] [ERROR] FAIL [ 13] 3.AR Down PaymentTax Invoice_ENG ใบแจ้งหนี้เงินค่ามัดจำใบกำกับภาษี.rpt: Exception calling "ReadAllBytes" with "1" argument(s): "Empty path name is not legal."
+[2026-06-09 11:14:41] [ERROR] FAIL [ 14] 3.AR Down PaymentTax Invoice_ใบแจ้งหนี้เงินค่ามัดจำใบกำกับภาษี.rpt: Exception calling "ReadAllBytes" with "1" argument(s): "Empty path name is not legal."
+[2026-06-09 11:14:41] [ERROR] FAIL [ 15] 1.AP Down Payment_ENG ใบจ่ายเงินมัดจำ.rpt: Exception calling "ReadAllBytes" with "1" argument(s): "Empty path name is not legal."
+[2026-06-09 11:14:41] [ERROR] FAIL [ 16] 1.AP Down Payment_ใบจ่ายเงินมัดจำ.rpt: Exception calling "ReadAllBytes" with "1" argument(s): "Empty path name is not legal."
+[2026-06-09 11:14:41] [ERROR] FAIL [ 17] 2.AP Down Payment Invoice_ENG ใบจ่ายเงินมัดจำใบกำกับภาษี.rpt: Exception calling "ReadAllBytes" with "1" argument(s): "Empty path name is not legal."
+[2026-06-09 11:14:41] [ERROR] FAIL [ 18] 2.AP Down Payment Invoice_ใบจ่ายเงินมัดจำใบกำกับภาษี.rpt: Exception calling "ReadAllBytes" with "1" argument(s): "Empty path name is not legal."
+[2026-06-09 11:14:41] [ERROR] FAIL [ 19] 1.Goods Issue_ENG ใบเบิกสินค้า.rpt: Exception calling "ReadAllBytes" with "1" argument(s): "Empty path name is not legal."
+[2026-06-09 11:14:41] [ERROR] FAIL [ 20] 1.Goods Issue_ใบเบิกสินค้า.rpt: Exception calling "ReadAllBytes" with "1" argument(s): "Empty path name is not legal."
+[2026-06-09 11:14:41] [ERROR] FAIL [ 21] 1.Issue for Production_ใบเบิกวัตถุดิบเพื่อการผลิต.rpt: Exception calling "ReadAllBytes" with "1" argument(s): "Empty path name is not legal."
+[2026-06-09 11:14:41] [ERROR] FAIL [ 22] 2.Goods Issue_ใบเบิกสินค้า_(Batch_Serial).rpt: Exception calling "ReadAllBytes" with "1" argument(s): "Empty path name is not legal."
+[2026-06-09 11:14:41] [ERROR] FAIL [ 23] 2.Goods Issue_ใบเบิกสินค้า_ENG (Batch_Serial).rpt: Exception calling "ReadAllBytes" with "1" argument(s): "Empty path name is not legal."
+[2026-06-09 11:14:41] [ERROR] FAIL [ 24] 2.Issue for Production_ใบเบิกวัตถุดิบเพื่อการผลิต_(Batch_Serial).rpt: Exception calling "ReadAllBytes" with "1" argument(s): "Empty path name is not legal."
+[2026-06-09 11:14:41] [ERROR] FAIL [ 25] 1.Goods Receipt_ENG ใบรับสินค้า.rpt: Exception calling "ReadAllBytes" with "1" argument(s): "Empty path name is not legal."
+[2026-06-09 11:14:41] [ERROR] FAIL [ 26] 1.Goods Receipt_ใบรับสินค้า.rpt: Exception calling "ReadAllBytes" with "1" argument(s): "Empty path name is not legal."
+[2026-06-09 11:14:41] [ERROR] FAIL [ 27] 1.Receipt from Production_ใบรับสินค้าจากการผลิต.rpt: Exception calling "ReadAllBytes" with "1" argument(s): "Empty path name is not legal."
+[2026-06-09 11:14:41] [ERROR] FAIL [ 28] 2.Goods Receipt_ENG ใบรับสินค้า_(Batch_Serial).rpt: Exception calling "ReadAllBytes" with "1" argument(s): "Empty path name is not legal."
+[2026-06-09 11:14:41] [ERROR] FAIL [ 29] 2.Goods Receipt_ใบรับสินค้า_(Batch_Serial).rpt: Exception calling "ReadAllBytes" with "1" argument(s): "Empty path name is not legal."
+[2026-06-09 11:14:41] [ERROR] FAIL [ 30] 2.Receipt from Production_ใบรับสินค้าจากการผลิต_(Batch_Serial).rpt: Exception calling "ReadAllBytes" with "1" argument(s): "Empty path name is not legal."
+[2026-06-09 11:14:42] [ERROR] FAIL [ 31] 1.Inventory Counting_ใบตรวจนับสินค้า_Befor.rpt: Exception calling "ReadAllBytes" with "1" argument(s): "Empty path name is not legal."
+[2026-06-09 11:14:42] [ERROR] FAIL [ 32] 2.Inventory Counting_ใบหลังตรวจนับสินค้า_After.rpt: Exception calling "ReadAllBytes" with "1" argument(s): "Empty path name is not legal."
+[2026-06-09 11:14:42] [ERROR] FAIL [ 33] 1.AR Invoice_BOM ใบแจ้งหนี้.rpt: Exception calling "ReadAllBytes" with "1" argument(s): "Empty path name is not legal."
+[2026-06-09 11:14:42] [ERROR] FAIL [ 34] 1.AR Invoice_BOM_ENG ใบแจ้งหนี้.rpt: Exception calling "ReadAllBytes" with "1" argument(s): "Empty path name is not legal."
+[2026-06-09 11:14:42] [ERROR] FAIL [ 35] 2.AR Invoice_ENG ใบแจ้งหนี้_(Dis).rpt: Exception calling "ReadAllBytes" with "1" argument(s): "Empty path name is not legal."
+[2026-06-09 11:14:42] [ERROR] FAIL [ 36] 2.AR Invoice_ใบแจ้งหนี้_(Dis).rpt: Exception calling "ReadAllBytes" with "1" argument(s): "Empty path name is not legal."
+[2026-06-09 11:14:42] [ERROR] FAIL [ 37] 3.BillingAR InvoiceTax Invoice_ENG ใบวางบิลใบแจ้งหนี้ใบกำกับภาษี (Bom).rpt: Exception calling "ReadAllBytes" with "1" argument(s): "Empty path name is not legal."
+[2026-06-09 11:14:42] [ERROR] FAIL [ 38] 3.BillingAR InvoiceTax Invoice_ใบวางบิลใบแจ้งหนี้ใบกำกับภาษี (Bom).rpt: Exception calling "ReadAllBytes" with "1" argument(s): "Empty path name is not legal."
+[2026-06-09 11:14:42] [ERROR] FAIL [ 39] 4.BillingAR InvoiceTax Invoice_ENG ใบวางบิลใบแจ้งหนี้ใบกำกับภาษี (Dis).rpt: Exception calling "ReadAllBytes" with "1" argument(s): "Empty path name is not legal."
+[2026-06-09 11:14:42] [ERROR] FAIL [ 40] 4.BillingAR InvoiceTax Invoice_ใบวางบิลใบแจ้งหนี้ใบกำกับภาษี (Dis).rpt: Exception calling "ReadAllBytes" with "1" argument(s): "Empty path name is not legal."
+[2026-06-09 11:14:42] [ERROR] FAIL [ 41] 5.BillingAR Invoice_ENG ใบวางบิลใบแจ้งหนี้ (Bom).rpt: Exception calling "ReadAllBytes" with "1" argument(s): "Empty path name is not legal."
+[2026-06-09 11:14:42] [ERROR] FAIL [ 42] 5.BillingAR Invoice_ใบวางบิลใบแจ้งหนี้ (Bom).rpt: Exception calling "ReadAllBytes" with "1" argument(s): "Empty path name is not legal."
+[2026-06-09 11:14:42] [ERROR] FAIL [ 43] 6.BillingAR Invoice_ENG ใบวางบิลใบแจ้งหนี้ (Dis).rpt: Exception calling "ReadAllBytes" with "1" argument(s): "Empty path name is not legal."
+[2026-06-09 11:14:42] [ERROR] FAIL [ 44] 6.BillingAR Invoice_ใบวางบิลใบแจ้งหนี้ (Dis).rpt: Exception calling "ReadAllBytes" with "1" argument(s): "Empty path name is not legal."
+[2026-06-09 11:14:42] [ERROR] FAIL [ 45] 1.Landed Costs_ใบปรับราคาต้นทุนสินค้า.rpt: Exception calling "ReadAllBytes" with "1" argument(s): "Empty path name is not legal."
+[2026-06-09 11:14:42] [ERROR] FAIL [ 46] 1.Journal Entry_ใบบันทึกรายการบัญชี.rpt: Exception calling "ReadAllBytes" with "1" argument(s): "Empty path name is not legal."
+[2026-06-09 11:14:42] [ERROR] FAIL [ 47] 1.AP Invoice_ใบแจ้งหนี้.rpt: Exception calling "ReadAllBytes" with "1" argument(s): "Empty path name is not legal."
+[2026-06-09 11:14:42] [ERROR] FAIL [ 48] 2.AP Invoice_ใบแจ้งหนี้_(Batch_Serial).rpt: Exception calling "ReadAllBytes" with "1" argument(s): "Empty path name is not legal."
+[2026-06-09 11:14:42] [ERROR] FAIL [ 49] 3.AP InvoiceTax Invoice_ใบแจ้งหนี้ใบกำกับภาษี.rpt: Exception calling "ReadAllBytes" with "1" argument(s): "Empty path name is not legal."
+[2026-06-09 11:14:42] [ERROR] FAIL [ 50] 3.AP InvoiceTax Invoice_ใบแจ้งหนี้ใบกำกับภาษี(Batch_Serial).rpt: Exception calling "ReadAllBytes" with "1" argument(s): "Empty path name is not legal."
+[2026-06-09 11:14:42] [ERROR] FAIL [ 51] 4.AP Debit Note_ใบเพิ่มหนี้.rpt: Exception calling "ReadAllBytes" with "1" argument(s): "Empty path name is not legal."
+[2026-06-09 11:14:42] [ERROR] FAIL [ 52] 2.Goods Reciept PO_TH_ใบรับสินค้า_(Batch_Serial).rpt: Exception calling "ReadAllBytes" with "1" argument(s): "Empty path name is not legal."
+[2026-06-09 11:14:42] [ERROR] FAIL [ 53] 1.Purchase Order_ENG_ใบสั่งซื้อ.rpt: Exception calling "ReadAllBytes" with "1" argument(s): "Empty path name is not legal."
+[2026-06-09 11:14:42] [ERROR] FAIL [ 54] 1.Purchase Order_TH_ใบสั่งซื้อ.rpt: Exception calling "ReadAllBytes" with "1" argument(s): "Empty path name is not legal."
+[2026-06-09 11:14:42] [ERROR] FAIL [ 55] 1.Purchase Quotation_ใบเสนอราคาซื้อ.rpt: Exception calling "ReadAllBytes" with "1" argument(s): "Empty path name is not legal."
+[2026-06-09 11:14:42] [ERROR] FAIL [ 56] 1.Purchase Request_TH_ใบขอซื้อ.rpt: Exception calling "ReadAllBytes" with "1" argument(s): "Empty path name is not legal."
+[2026-06-09 11:14:42] [ERROR] FAIL [ 57] 1.Sale Quotation_ใบเสนอราคาขาย_(Dis).rpt: Exception calling "ReadAllBytes" with "1" argument(s): "Empty path name is not legal."
+[2026-06-09 11:14:42] [ERROR] FAIL [ 58] 1.Sale Quotation_ใบเสนอราคาขาย_(Dis) ENG.rpt: Exception calling "ReadAllBytes" with "1" argument(s): "Empty path name is not legal."
+[2026-06-09 11:14:42] [ERROR] FAIL [ 59] 2.Sale Quotation_ใบเสนอราคาขาย_(Bom).rpt: Exception calling "ReadAllBytes" with "1" argument(s): "Empty path name is not legal."
+[2026-06-09 11:14:42] [ERROR] FAIL [ 60] 2.Sale Quotation_ใบเสนอราคาขาย_(BOM) ENG.rpt: Exception calling "ReadAllBytes" with "1" argument(s): "Empty path name is not legal."
+[2026-06-09 11:14:42] [ERROR] FAIL [ 61] 1.Incoming Payments_Eng ใบเสร็จรับเงิน.rpt: Exception calling "ReadAllBytes" with "1" argument(s): "Empty path name is not legal."
+[2026-06-09 11:14:42] [ERROR] FAIL [ 62] 1.Incoming Payments_ใบเสร็จรับเงิน.rpt: Exception calling "ReadAllBytes" with "1" argument(s): "Empty path name is not legal."
+[2026-06-09 11:14:42] [ERROR] FAIL [ 63] 2.Incoming Payments_ ENG ใบเสร็จรับเงินใบกำกับภาษี.rpt: Exception calling "ReadAllBytes" with "1" argument(s): "Empty path name is not legal."
+[2026-06-09 11:14:42] [ERROR] FAIL [ 64] 2.Incoming Payments_ใบเสร็จรับเงินใบกำกับภาษี.rpt: Exception calling "ReadAllBytes" with "1" argument(s): "Empty path name is not legal."
+[2026-06-09 11:14:42] [ERROR] FAIL [ 65] 1.Retrun_ใบรับคืนสินค้า_(Batch_Serial).rpt: Exception calling "ReadAllBytes" with "1" argument(s): "Empty path name is not legal."
+[2026-06-09 11:14:42] [ERROR] FAIL [ 66] 1.Retrun_ใบรับคืนสินค้า_ENG (Batch_Serial).rpt: Exception calling "ReadAllBytes" with "1" argument(s): "Empty path name is not legal."
+[2026-06-09 11:14:42] [ERROR] FAIL [ 67] 1.Sale Order_ใบสั่งขาย_(Bom).rpt: Exception calling "ReadAllBytes" with "1" argument(s): "Empty path name is not legal."
+[2026-06-09 11:14:42] [ERROR] FAIL [ 68] 1.Sale Order_ใบสั่งขาย_(Dis).rpt: Exception calling "ReadAllBytes" with "1" argument(s): "Empty path name is not legal."
+[2026-06-09 11:14:42] [ERROR] FAIL [ 69] 1.AR_Credit Memo_ENG ใบลดหนี้ แก้ไขยอดเงิน.rpt: Exception calling "ReadAllBytes" with "1" argument(s): "Empty path name is not legal."
+[2026-06-09 11:14:42] [ERROR] FAIL [ 70] 1.AR_Credit Memo_ใบลดหนี้ แก้ไขยอดเงิน.rpt: Exception calling "ReadAllBytes" with "1" argument(s): "Empty path name is not legal."
+[2026-06-09 11:14:42] [ERROR] FAIL [ 71] 2.AR_Credit Memo_ENG ใบลดหนี้_(Dis) แก้ไขยอดเงิน.rpt: Exception calling "ReadAllBytes" with "1" argument(s): "Empty path name is not legal."
+[2026-06-09 11:14:42] [ERROR] FAIL [ 72] 2.AR_Credit Memo_ใบลดหนี้_(Dis) แก้ไขยอดเงิน.rpt: Exception calling "ReadAllBytes" with "1" argument(s): "Empty path name is not legal."
+[2026-06-09 11:14:42] [ERROR] FAIL [ 73] 3.AR_Credit Memo_ใบลดหนี้_(Batch_Serial) แก้ไขยอดเงิน.rpt: Exception calling "ReadAllBytes" with "1" argument(s): "Empty path name is not legal."
+[2026-06-09 11:14:42] [ERROR] FAIL [ 74] 3.AR_Credit Memo_ใบลดหนี้_ENG (Batch_Serial) แก้ไขยอดเงิน.rpt: Exception calling "ReadAllBytes" with "1" argument(s): "Empty path name is not legal."
+[2026-06-09 11:14:42] [ERROR] FAIL [ 75] 4.AR_Credit Memo_ใบลดหนี้_(Batch_Serial) (Dis).rpt: Exception calling "ReadAllBytes" with "1" argument(s): "Empty path name is not legal."
+[2026-06-09 11:14:42] [ERROR] FAIL [ 76] 4.AR_Credit Memo_ใบลดหนี้_ENG (Batch_Serial) (Dis).rpt: Exception calling "ReadAllBytes" with "1" argument(s): "Empty path name is not legal."
+[2026-06-09 11:14:42] [ERROR] FAIL [ 77] 1.AP Credit Memo_ใบลดหนี้.rpt: Exception calling "ReadAllBytes" with "1" argument(s): "Empty path name is not legal."
+[2026-06-09 11:14:42] [ERROR] FAIL [ 78] 2.Goods Return_TH_ใบส่งคืนสินค้า_(Batch_Serial).rpt: Exception calling "ReadAllBytes" with "1" argument(s): "Empty path name is not legal."
+[2026-06-09 11:14:42] [ERROR] FAIL [ 79] 1.Outgoing Payments_ENG ใบจ่ายชำระ.rpt: Exception calling "ReadAllBytes" with "1" argument(s): "Empty path name is not legal."
+[2026-06-09 11:14:42] [ERROR] FAIL [ 80] 1.Outgoing Payments_ใบจ่ายชำระ.rpt: Exception calling "ReadAllBytes" with "1" argument(s): "Empty path name is not legal."
+[2026-06-09 11:14:42] [ERROR] FAIL [ 81] 1.Production Order_ใบสั่งผลิต.rpt: Exception calling "ReadAllBytes" with "1" argument(s): "Empty path name is not legal."
+[2026-06-09 11:14:43] [ERROR] FAIL [ 82] 1.Inventory Transfer Request_ใบขอโอนสินค้า.rpt: Exception calling "ReadAllBytes" with "1" argument(s): "Empty path name is not legal."
+[2026-06-09 11:14:43] [ERROR] FAIL [ 83] 2.Inventory Transfer_ใบโอนสินค้า.rpt: Exception calling "ReadAllBytes" with "1" argument(s): "Empty path name is not legal."
+[2026-06-09 11:14:43] [ERROR] FAIL [ 84] 2.Inventory Transfer_ใบโอนสินค้า_TH_(Batch_Serial).rpt: Exception calling "ReadAllBytes" with "1" argument(s): "Empty path name is not legal."
+[2026-06-09 11:14:43] [INFO] === Summary: OK=0 FAIL=84 SKIP=0 ===
+[2026-06-09 11:18:26] [INFO] === Start SQL Direct Import ===
+[2026-06-09 11:18:26] [INFO] MapFile: C:\Tool\ExportedFromSAP\SBO_SDA_key\_ExportIndex.csv
+[2026-06-09 11:18:26] [INFO] RptRoot: C:\Tool\ExportedFromSAP\SBO_SDA_key
+[2026-06-09 11:18:26] [INFO] DryRun : False
+[2026-06-09 11:18:26] [INFO] Loaded 84 mapping rows
+[2026-06-09 11:18:27] [INFO] Pre-loaded max sequences for 400 TypeCodes
+[2026-06-09 11:18:27] [INFO] INSERT [  1] 1.Delivery_ใบส่งของ_Eng (Batch_Serial).rpt -> DocCode=DLN20008 (429056 bytes, 1.Delivery_ใบส่งของ_Eng (Batch_Serial))
+[2026-06-09 11:18:28] [INFO] INSERT [  2] 2.Delivery_ใบส่งของ_(Batch_Serial).rpt -> DocCode=DLN20009 (430080 bytes, 2.Delivery_ใบส่งของ_(Batch_Serial))
+[2026-06-09 11:18:30] [INFO] INSERT [  3] 1.AR Down Payment_BOM ใบเสร็จรับเงินมัดจำ.rpt -> DocCode=DPI20004 (1254400 bytes, 1.AR Down Payment_BOM ใบเสร็จรับเงินมัดจำ)
+[2026-06-09 11:18:31] [INFO] INSERT [  4] 1.AR Down Payment_BOM_ENG ใบเสร็จรับเงินมัดจำ.rpt -> DocCode=DPI20005 (1253376 bytes, 1.AR Down Payment_BOM_ENG ใบเสร็จรับเงินมัดจำ)
+[2026-06-09 11:18:31] [INFO] INSERT [  5] 1.AR Down Payment_ENG ใบเสร็จรับเงินมัดจำ.rpt -> DocCode=DPI20006 (400384 bytes, 1.AR Down Payment_ENG ใบเสร็จรับเงินมัดจำ)
+[2026-06-09 11:18:32] [INFO] INSERT [  6] 1.AR Down Payment_ใบเสร็จรับเงินมัดจำ.rpt -> DocCode=DPI20007 (400384 bytes, 1.AR Down Payment_ใบเสร็จรับเงินมัดจำ)
+[2026-06-09 11:18:33] [INFO] INSERT [  7] 2.AR Down PaymentTax Invoice_BOM ใบเสร็จรับเงินมัดจำใบกำกับภาษี.rpt -> DocCode=DPI20008 (1254400 bytes, 2.AR Down PaymentTax Invoice_BOM ใบเสร็จรับเงินมัดจำใบกำกับภาษี)
+[2026-06-09 11:18:34] [INFO] INSERT [  8] 2.AR Down PaymentTax Invoice_BOM_ENG ใบเสร็จรับเงินมัดจำใบกำกับภาษี.rpt -> DocCode=DPI20009 (1253376 bytes, 2.AR Down PaymentTax Invoice_BOM_ENG ใบเสร็จรับเงินมัดจำใบกำกับภาษี)
+[2026-06-09 11:18:34] [INFO] INSERT [  9] 2.AR Down PaymentTax Invoice_ENG ใบเสร็จรับเงินมัดจำใบกำกับภาษี.rpt -> DocCode=DPI20010 (401920 bytes, 2.AR Down PaymentTax Invoice_ENG ใบเสร็จรับเงินมัดจำใบกำกับภาษี)
+[2026-06-09 11:18:35] [INFO] INSERT [ 10] 2.AR Down PaymentTax Invoice_ใบเสร็จรับเงินมัดจำใบกำกับภาษี.rpt -> DocCode=DPI20011 (390144 bytes, 2.AR Down PaymentTax Invoice_ใบเสร็จรับเงินมัดจำใบกำกับภาษี)
+[2026-06-09 11:18:36] [INFO] INSERT [ 11] 3.AR Down Payment Invoice_BOM ใบแจ้งหนี้เงินค่ามัดจำใบกำกับภาษี.rpt -> DocCode=DPI20012 (1254400 bytes, 3.AR Down Payment Invoice_BOM ใบแจ้งหนี้เงินค่ามัดจำใบกำกับภาษี)
+[2026-06-09 11:18:37] [INFO] INSERT [ 12] 3.AR Down PaymentTax Invoice_BOM_ENG ใบแจ้งหนี้เงินค่ามัดจำใบกำกับภาษี.rpt -> DocCode=DPI20013 (1253376 bytes, 3.AR Down PaymentTax Invoice_BOM_ENG ใบแจ้งหนี้เงินค่ามัดจำใบกำกับภาษี)
+[2026-06-09 11:18:37] [INFO] INSERT [ 13] 3.AR Down PaymentTax Invoice_ENG ใบแจ้งหนี้เงินค่ามัดจำใบกำกับภาษี.rpt -> DocCode=DPI20014 (400896 bytes, 3.AR Down PaymentTax Invoice_ENG ใบแจ้งหนี้เงินค่ามัดจำใบกำกับภาษี)
+[2026-06-09 11:18:38] [INFO] INSERT [ 14] 3.AR Down PaymentTax Invoice_ใบแจ้งหนี้เงินค่ามัดจำใบกำกับภาษี.rpt -> DocCode=DPI20015 (400384 bytes, 3.AR Down PaymentTax Invoice_ใบแจ้งหนี้เงินค่ามัดจำใบกำกับภาษี)
+[2026-06-09 11:18:38] [INFO] INSERT [ 15] 1.AP Down Payment_ENG ใบจ่ายเงินมัดจำ.rpt -> DocCode=DPO20002 (825856 bytes, 1.AP Down Payment_ENG ใบจ่ายเงินมัดจำ)
+[2026-06-09 11:18:39] [INFO] INSERT [ 16] 1.AP Down Payment_ใบจ่ายเงินมัดจำ.rpt -> DocCode=DPO20003 (820224 bytes, 1.AP Down Payment_ใบจ่ายเงินมัดจำ)
+[2026-06-09 11:18:40] [INFO] INSERT [ 17] 2.AP Down Payment Invoice_ENG ใบจ่ายเงินมัดจำใบกำกับภาษี.rpt -> DocCode=DPO20004 (825856 bytes, 2.AP Down Payment Invoice_ENG ใบจ่ายเงินมัดจำใบกำกับภาษี)
+[2026-06-09 11:18:40] [INFO] INSERT [ 18] 2.AP Down Payment Invoice_ใบจ่ายเงินมัดจำใบกำกับภาษี.rpt -> DocCode=DPO20005 (821248 bytes, 2.AP Down Payment Invoice_ใบจ่ายเงินมัดจำใบกำกับภาษี)
+[2026-06-09 11:18:42] [INFO] INSERT [ 19] 1.Goods Issue_ENG ใบเบิกสินค้า.rpt -> DocCode=IGE10002 (826368 bytes, 1.Goods Issue_ENG ใบเบิกสินค้า)
+[2026-06-09 11:18:42] [INFO] INSERT [ 20] 1.Goods Issue_ใบเบิกสินค้า.rpt -> DocCode=IGE10003 (826880 bytes, 1.Goods Issue_ใบเบิกสินค้า)
+[2026-06-09 11:18:43] [INFO] INSERT [ 21] 1.Issue for Production_ใบเบิกวัตถุดิบเพื่อการผลิต.rpt -> DocCode=IGE10004 (400896 bytes, 1.Issue for Production_ใบเบิกวัตถุดิบเพื่อการผลิต)
+[2026-06-09 11:18:43] [INFO] INSERT [ 22] 2.Goods Issue_ใบเบิกสินค้า_(Batch_Serial).rpt -> DocCode=IGE10005 (835584 bytes, 2.Goods Issue_ใบเบิกสินค้า_(Batch_Serial))
+[2026-06-09 11:18:44] [INFO] INSERT [ 23] 2.Goods Issue_ใบเบิกสินค้า_ENG (Batch_Serial).rpt -> DocCode=IGE10006 (835072 bytes, 2.Goods Issue_ใบเบิกสินค้า_ENG (Batch_Serial))
+[2026-06-09 11:18:45] [INFO] INSERT [ 24] 2.Issue for Production_ใบเบิกวัตถุดิบเพื่อการผลิต_(Batch_Serial).rpt -> DocCode=IGE10007 (421888 bytes, 2.Issue for Production_ใบเบิกวัตถุดิบเพื่อการผลิต_(Batch_Serial))
+[2026-06-09 11:18:46] [INFO] INSERT [ 25] 1.Goods Receipt_ENG ใบรับสินค้า.rpt -> DocCode=IGN10002 (464896 bytes, 1.Goods Receipt_ENG ใบรับสินค้า)
+[2026-06-09 11:18:47] [INFO] INSERT [ 26] 1.Goods Receipt_ใบรับสินค้า.rpt -> DocCode=IGN10003 (487424 bytes, 1.Goods Receipt_ใบรับสินค้า)
+[2026-06-09 11:18:48] [INFO] INSERT [ 27] 1.Receipt from Production_ใบรับสินค้าจากการผลิต.rpt -> DocCode=IGN10004 (399360 bytes, 1.Receipt from Production_ใบรับสินค้าจากการผลิต)
+[2026-06-09 11:18:49] [INFO] INSERT [ 28] 2.Goods Receipt_ENG ใบรับสินค้า_(Batch_Serial).rpt -> DocCode=IGN10005 (537600 bytes, 2.Goods Receipt_ENG ใบรับสินค้า_(Batch_Serial))
+[2026-06-09 11:18:50] [INFO] INSERT [ 29] 2.Goods Receipt_ใบรับสินค้า_(Batch_Serial).rpt -> DocCode=IGN10006 (555520 bytes, 2.Goods Receipt_ใบรับสินค้า_(Batch_Serial))
+[2026-06-09 11:18:50] [INFO] INSERT [ 30] 2.Receipt from Production_ใบรับสินค้าจากการผลิต_(Batch_Serial).rpt -> DocCode=IGN10007 (421888 bytes, 2.Receipt from Production_ใบรับสินค้าจากการผลิต_(Batch_Serial))
+[2026-06-09 11:18:50] [INFO] INSERT [ 31] 1.Inventory Counting_ใบตรวจนับสินค้า_Befor.rpt -> DocCode=INC10002 (420864 bytes, 1.Inventory Counting_ใบตรวจนับสินค้า_Befor)
+[2026-06-09 11:18:51] [INFO] INSERT [ 32] 2.Inventory Counting_ใบหลังตรวจนับสินค้า_After.rpt -> DocCode=INC10003 (421888 bytes, 2.Inventory Counting_ใบหลังตรวจนับสินค้า_After)
+[2026-06-09 11:18:52] [INFO] INSERT [ 33] 1.AR Invoice_BOM ใบแจ้งหนี้.rpt -> DocCode=INV20012 (1256448 bytes, 1.AR Invoice_BOM ใบแจ้งหนี้)
+[2026-06-09 11:18:52] [INFO] INSERT [ 34] 1.AR Invoice_BOM_ENG ใบแจ้งหนี้.rpt -> DocCode=INV20013 (1244160 bytes, 1.AR Invoice_BOM_ENG ใบแจ้งหนี้)
+[2026-06-09 11:18:53] [INFO] INSERT [ 35] 2.AR Invoice_ENG ใบแจ้งหนี้_(Dis).rpt -> DocCode=INV20014 (835072 bytes, 2.AR Invoice_ENG ใบแจ้งหนี้_(Dis))
+[2026-06-09 11:18:54] [INFO] INSERT [ 36] 2.AR Invoice_ใบแจ้งหนี้_(Dis).rpt -> DocCode=INV20015 (834048 bytes, 2.AR Invoice_ใบแจ้งหนี้_(Dis))
+[2026-06-09 11:18:56] [INFO] INSERT [ 37] 3.BillingAR InvoiceTax Invoice_ENG ใบวางบิลใบแจ้งหนี้ใบกำกับภาษี (Bom).rpt -> DocCode=INV20016 (1243136 bytes, 3.BillingAR InvoiceTax Invoice_ENG ใบวางบิลใบแจ้งหนี้ใบกำกับภาษี (Bom))
+[2026-06-09 11:18:59] [INFO] INSERT [ 38] 3.BillingAR InvoiceTax Invoice_ใบวางบิลใบแจ้งหนี้ใบกำกับภาษี (Bom).rpt -> DocCode=INV20017 (1242624 bytes, 3.BillingAR InvoiceTax Invoice_ใบวางบิลใบแจ้งหนี้ใบกำกับภาษี (Bom))
+[2026-06-09 11:19:00] [INFO] INSERT [ 39] 4.BillingAR InvoiceTax Invoice_ENG ใบวางบิลใบแจ้งหนี้ใบกำกับภาษี (Dis).rpt -> DocCode=INV20018 (834048 bytes, 4.BillingAR InvoiceTax Invoice_ENG ใบวางบิลใบแจ้งหนี้ใบกำกับภาษี (Dis))
+[2026-06-09 11:19:02] [INFO] INSERT [ 40] 4.BillingAR InvoiceTax Invoice_ใบวางบิลใบแจ้งหนี้ใบกำกับภาษี (Dis).rpt -> DocCode=INV20019 (834048 bytes, 4.BillingAR InvoiceTax Invoice_ใบวางบิลใบแจ้งหนี้ใบกำกับภาษี (Dis))
+[2026-06-09 11:19:03] [INFO] INSERT [ 41] 5.BillingAR Invoice_ENG ใบวางบิลใบแจ้งหนี้ (Bom).rpt -> DocCode=INV20020 (1243136 bytes, 5.BillingAR Invoice_ENG ใบวางบิลใบแจ้งหนี้ (Bom))
+[2026-06-09 11:19:04] [INFO] INSERT [ 42] 5.BillingAR Invoice_ใบวางบิลใบแจ้งหนี้ (Bom).rpt -> DocCode=INV20021 (1242624 bytes, 5.BillingAR Invoice_ใบวางบิลใบแจ้งหนี้ (Bom))
+[2026-06-09 11:19:05] [INFO] INSERT [ 43] 6.BillingAR Invoice_ENG ใบวางบิลใบแจ้งหนี้ (Dis).rpt -> DocCode=INV20022 (834048 bytes, 6.BillingAR Invoice_ENG ใบวางบิลใบแจ้งหนี้ (Dis))
+[2026-06-09 11:19:07] [INFO] INSERT [ 44] 6.BillingAR Invoice_ใบวางบิลใบแจ้งหนี้ (Dis).rpt -> DocCode=INV20023 (834048 bytes, 6.BillingAR Invoice_ใบวางบิลใบแจ้งหนี้ (Dis))
+[2026-06-09 11:19:07] [INFO] INSERT [ 45] 1.Landed Costs_ใบปรับราคาต้นทุนสินค้า.rpt -> DocCode=IPF10002 (384000 bytes, 1.Landed Costs_ใบปรับราคาต้นทุนสินค้า)
+[2026-06-09 11:19:08] [INFO] INSERT [ 46] 1.Journal Entry_ใบบันทึกรายการบัญชี.rpt -> DocCode=JDT20002 (812544 bytes, 1.Journal Entry_ใบบันทึกรายการบัญชี)
+[2026-06-09 11:19:08] [INFO] INSERT [ 47] 1.AP Invoice_ใบแจ้งหนี้.rpt -> DocCode=PCH20004 (821248 bytes, 1.AP Invoice_ใบแจ้งหนี้)
+[2026-06-09 11:19:09] [INFO] INSERT [ 48] 2.AP Invoice_ใบแจ้งหนี้_(Batch_Serial).rpt -> DocCode=PCH20005 (832000 bytes, 2.AP Invoice_ใบแจ้งหนี้_(Batch_Serial))
+[2026-06-09 11:19:10] [INFO] INSERT [ 49] 3.AP InvoiceTax Invoice_ใบแจ้งหนี้ใบกำกับภาษี.rpt -> DocCode=PCH20006 (827392 bytes, 3.AP InvoiceTax Invoice_ใบแจ้งหนี้ใบกำกับภาษี)
+[2026-06-09 11:19:11] [INFO] INSERT [ 50] 3.AP InvoiceTax Invoice_ใบแจ้งหนี้ใบกำกับภาษี(Batch_Serial).rpt -> DocCode=PCH20007 (833024 bytes, 3.AP InvoiceTax Invoice_ใบแจ้งหนี้ใบกำกับภาษี(Batch_Serial))
+[2026-06-09 11:19:11] [INFO] INSERT [ 51] 4.AP Debit Note_ใบเพิ่มหนี้.rpt -> DocCode=PCH20008 (827392 bytes, 4.AP Debit Note_ใบเพิ่มหนี้)
+[2026-06-09 11:19:11] [INFO] INSERT [ 52] 2.Goods Reciept PO_TH_ใบรับสินค้า_(Batch_Serial).rpt -> DocCode=PDN20004 (428544 bytes, 2.Goods Reciept PO_TH_ใบรับสินค้า_(Batch_Serial))
+[2026-06-09 11:19:13] [INFO] INSERT [ 53] 1.Purchase Order_ENG_ใบสั่งซื้อ.rpt -> DocCode=POR20004 (1243136 bytes, 1.Purchase Order_ENG_ใบสั่งซื้อ)
+[2026-06-09 11:19:13] [INFO] INSERT [ 54] 1.Purchase Order_TH_ใบสั่งซื้อ.rpt -> DocCode=POR20005 (1243648 bytes, 1.Purchase Order_TH_ใบสั่งซื้อ)
+[2026-06-09 11:19:14] [INFO] INSERT [ 55] 1.Purchase Quotation_ใบเสนอราคาซื้อ.rpt -> DocCode=PQT20002 (832512 bytes, 1.Purchase Quotation_ใบเสนอราคาซื้อ)
+[2026-06-09 11:19:15] [INFO] INSERT [ 56] 1.Purchase Request_TH_ใบขอซื้อ.rpt -> DocCode=PRQ20002 (1253376 bytes, 1.Purchase Request_TH_ใบขอซื้อ)
+[2026-06-09 11:19:16] [INFO] INSERT [ 57] 1.Sale Quotation_ใบเสนอราคาขาย_(Dis).rpt -> DocCode=QUT20008 (1257472 bytes, 1.Sale Quotation_ใบเสนอราคาขาย_(Dis))
+[2026-06-09 11:19:17] [INFO] INSERT [ 58] 1.Sale Quotation_ใบเสนอราคาขาย_(Dis) ENG.rpt -> DocCode=QUT20009 (1256960 bytes, 1.Sale Quotation_ใบเสนอราคาขาย_(Dis) ENG)
+[2026-06-09 11:19:17] [INFO] INSERT [ 59] 2.Sale Quotation_ใบเสนอราคาขาย_(Bom).rpt -> DocCode=QUT20010 (1248768 bytes, 2.Sale Quotation_ใบเสนอราคาขาย_(Bom))
+[2026-06-09 11:19:18] [INFO] INSERT [ 60] 2.Sale Quotation_ใบเสนอราคาขาย_(BOM) ENG.rpt -> DocCode=QUT20011 (1252864 bytes, 2.Sale Quotation_ใบเสนอราคาขาย_(BOM) ENG)
+[2026-06-09 11:19:19] [INFO] INSERT [ 61] 1.Incoming Payments_Eng ใบเสร็จรับเงิน.rpt -> DocCode=RCT10004 (405504 bytes, 1.Incoming Payments_Eng ใบเสร็จรับเงิน)
+[2026-06-09 11:19:19] [INFO] INSERT [ 62] 1.Incoming Payments_ใบเสร็จรับเงิน.rpt -> DocCode=RCT10005 (403968 bytes, 1.Incoming Payments_ใบเสร็จรับเงิน)
+[2026-06-09 11:19:20] [INFO] INSERT [ 63] 2.Incoming Payments_ ENG ใบเสร็จรับเงินใบกำกับภาษี.rpt -> DocCode=RCT10006 (407040 bytes, 2.Incoming Payments_ ENG ใบเสร็จรับเงินใบกำกับภาษี)
+[2026-06-09 11:19:20] [INFO] INSERT [ 64] 2.Incoming Payments_ใบเสร็จรับเงินใบกำกับภาษี.rpt -> DocCode=RCT10007 (406016 bytes, 2.Incoming Payments_ใบเสร็จรับเงินใบกำกับภาษี)
+[2026-06-09 11:19:20] [INFO] INSERT [ 65] 1.Retrun_ใบรับคืนสินค้า_(Batch_Serial).rpt -> DocCode=RDN20008 (427520 bytes, 1.Retrun_ใบรับคืนสินค้า_(Batch_Serial))
+[2026-06-09 11:19:20] [INFO] INSERT [ 66] 1.Retrun_ใบรับคืนสินค้า_ENG (Batch_Serial).rpt -> DocCode=RDN20009 (406528 bytes, 1.Retrun_ใบรับคืนสินค้า_ENG (Batch_Serial))
+[2026-06-09 11:19:22] [INFO] INSERT [ 67] 1.Sale Order_ใบสั่งขาย_(Bom).rpt -> DocCode=RDR20008 (1266688 bytes, 1.Sale Order_ใบสั่งขาย_(Bom))
+[2026-06-09 11:19:23] [INFO] INSERT [ 68] 1.Sale Order_ใบสั่งขาย_(Dis).rpt -> DocCode=RDR20009 (1282048 bytes, 1.Sale Order_ใบสั่งขาย_(Dis))
+[2026-06-09 11:19:23] [INFO] INSERT [ 69] 1.AR_Credit Memo_ENG ใบลดหนี้ แก้ไขยอดเงิน.rpt -> DocCode=RIN20008 (1263104 bytes, 1.AR_Credit Memo_ENG ใบลดหนี้ แก้ไขยอดเงิน)
+[2026-06-09 11:19:24] [INFO] INSERT [ 70] 1.AR_Credit Memo_ใบลดหนี้ แก้ไขยอดเงิน.rpt -> DocCode=RIN20009 (1262592 bytes, 1.AR_Credit Memo_ใบลดหนี้ แก้ไขยอดเงิน)
+[2026-06-09 11:19:25] [INFO] INSERT [ 71] 2.AR_Credit Memo_ENG ใบลดหนี้_(Dis) แก้ไขยอดเงิน.rpt -> DocCode=RIN20010 (1246720 bytes, 2.AR_Credit Memo_ENG ใบลดหนี้_(Dis) แก้ไขยอดเงิน)
+[2026-06-09 11:19:26] [INFO] INSERT [ 72] 2.AR_Credit Memo_ใบลดหนี้_(Dis) แก้ไขยอดเงิน.rpt -> DocCode=RIN20011 (1245184 bytes, 2.AR_Credit Memo_ใบลดหนี้_(Dis) แก้ไขยอดเงิน)
+[2026-06-09 11:19:26] [INFO] INSERT [ 73] 3.AR_Credit Memo_ใบลดหนี้_(Batch_Serial) แก้ไขยอดเงิน.rpt -> DocCode=RIN20012 (1258496 bytes, 3.AR_Credit Memo_ใบลดหนี้_(Batch_Serial) แก้ไขยอดเงิน)
+[2026-06-09 11:19:27] [INFO] INSERT [ 74] 3.AR_Credit Memo_ใบลดหนี้_ENG (Batch_Serial) แก้ไขยอดเงิน.rpt -> DocCode=RIN20013 (1259520 bytes, 3.AR_Credit Memo_ใบลดหนี้_ENG (Batch_Serial) แก้ไขยอดเงิน)
+[2026-06-09 11:19:28] [INFO] INSERT [ 75] 4.AR_Credit Memo_ใบลดหนี้_(Batch_Serial) (Dis).rpt -> DocCode=RIN20014 (1259008 bytes, 4.AR_Credit Memo_ใบลดหนี้_(Batch_Serial) (Dis))
+[2026-06-09 11:19:29] [INFO] INSERT [ 76] 4.AR_Credit Memo_ใบลดหนี้_ENG (Batch_Serial) (Dis).rpt -> DocCode=RIN20015 (1259520 bytes, 4.AR_Credit Memo_ใบลดหนี้_ENG (Batch_Serial) (Dis))
+[2026-06-09 11:19:29] [INFO] INSERT [ 77] 1.AP Credit Memo_ใบลดหนี้.rpt -> DocCode=RPC20004 (1256960 bytes, 1.AP Credit Memo_ใบลดหนี้)
+[2026-06-09 11:19:29] [INFO] INSERT [ 78] 2.Goods Return_TH_ใบส่งคืนสินค้า_(Batch_Serial).rpt -> DocCode=RPD20004 (428032 bytes, 2.Goods Return_TH_ใบส่งคืนสินค้า_(Batch_Serial))
+[2026-06-09 11:19:31] [INFO] INSERT [ 79] 1.Outgoing Payments_ENG ใบจ่ายชำระ.rpt -> DocCode=VPM10004 (1301504 bytes, 1.Outgoing Payments_ENG ใบจ่ายชำระ)
+[2026-06-09 11:19:32] [INFO] INSERT [ 80] 1.Outgoing Payments_ใบจ่ายชำระ.rpt -> DocCode=VPM10005 (1302016 bytes, 1.Outgoing Payments_ใบจ่ายชำระ)
+[2026-06-09 11:19:32] [INFO] INSERT [ 81] 1.Production Order_ใบสั่งผลิต.rpt -> DocCode=WOR10002 (402944 bytes, 1.Production Order_ใบสั่งผลิต)
+[2026-06-09 11:19:34] [INFO] INSERT [ 82] 1.Inventory Transfer Request_ใบขอโอนสินค้า.rpt -> DocCode=WTQ10002 (1254912 bytes, 1.Inventory Transfer Request_ใบขอโอนสินค้า)
+[2026-06-09 11:19:34] [INFO] INSERT [ 83] 2.Inventory Transfer_ใบโอนสินค้า.rpt -> DocCode=WTR10002 (1257472 bytes, 2.Inventory Transfer_ใบโอนสินค้า)
+[2026-06-09 11:19:35] [INFO] INSERT [ 84] 2.Inventory Transfer_ใบโอนสินค้า_TH_(Batch_Serial).rpt -> DocCode=WTR10003 (1267200 bytes, 2.Inventory Transfer_ใบโอนสินค้า_TH_(Batch_Serial))
+[2026-06-09 11:19:35] [INFO] === Summary: OK=84 FAIL=0 SKIP=0 ===
+[2026-06-09 11:24:31] [INFO] === Start SQL Direct Import ===
+[2026-06-09 11:24:31] [INFO] MapFile: C:\Tool\ExportedFromSAP\SBO_SDA_key\_ExportIndex.csv
+[2026-06-09 11:24:31] [INFO] RptRoot: C:\Tool\ExportedFromSAP\SBO_SDA_key
+[2026-06-09 11:24:31] [INFO] DryRun : False
+[2026-06-09 11:24:31] [INFO] Loaded 84 mapping rows
+[2026-06-09 11:24:32] [INFO] Pre-loaded max sequences for 400 TypeCodes
+[2026-06-09 11:24:41] [INFO] INSERT [  1] 1.Delivery_ใบส่งของ_Eng (Batch_Serial).rpt -> DocCode=DLN20008 (422912 bytes, 1.Delivery_ใบส่งของ_Eng (Batch_Serial))
+[2026-06-09 11:24:41] [INFO] INSERT [  2] 2.Delivery_ใบส่งของ_(Batch_Serial).rpt -> DocCode=DLN20009 (423936 bytes, 2.Delivery_ใบส่งของ_(Batch_Serial))
+[2026-06-09 11:24:43] [INFO] INSERT [  3] 1.AR Down Payment_BOM ใบเสร็จรับเงินมัดจำ.rpt -> DocCode=DPI20004 (1249792 bytes, 1.AR Down Payment_BOM ใบเสร็จรับเงินมัดจำ)
+[2026-06-09 11:24:44] [INFO] INSERT [  4] 1.AR Down Payment_BOM_ENG ใบเสร็จรับเงินมัดจำ.rpt -> DocCode=DPI20005 (1248768 bytes, 1.AR Down Payment_BOM_ENG ใบเสร็จรับเงินมัดจำ)
+[2026-06-09 11:24:45] [INFO] INSERT [  5] 1.AR Down Payment_ENG ใบเสร็จรับเงินมัดจำ.rpt -> DocCode=DPI20006 (395776 bytes, 1.AR Down Payment_ENG ใบเสร็จรับเงินมัดจำ)
+[2026-06-09 11:24:45] [INFO] INSERT [  6] 1.AR Down Payment_ใบเสร็จรับเงินมัดจำ.rpt -> DocCode=DPI20007 (395776 bytes, 1.AR Down Payment_ใบเสร็จรับเงินมัดจำ)
+[2026-06-09 11:24:46] [INFO] INSERT [  7] 2.AR Down PaymentTax Invoice_BOM ใบเสร็จรับเงินมัดจำใบกำกับภาษี.rpt -> DocCode=DPI20008 (1249792 bytes, 2.AR Down PaymentTax Invoice_BOM ใบเสร็จรับเงินมัดจำใบกำกับภาษี)
+[2026-06-09 11:24:48] [INFO] INSERT [  8] 2.AR Down PaymentTax Invoice_BOM_ENG ใบเสร็จรับเงินมัดจำใบกำกับภาษี.rpt -> DocCode=DPI20009 (1248768 bytes, 2.AR Down PaymentTax Invoice_BOM_ENG ใบเสร็จรับเงินมัดจำใบกำกับภาษี)
+[2026-06-09 11:24:49] [INFO] INSERT [  9] 2.AR Down PaymentTax Invoice_ENG ใบเสร็จรับเงินมัดจำใบกำกับภาษี.rpt -> DocCode=DPI20010 (397312 bytes, 2.AR Down PaymentTax Invoice_ENG ใบเสร็จรับเงินมัดจำใบกำกับภาษี)
+[2026-06-09 11:24:50] [INFO] INSERT [ 10] 2.AR Down PaymentTax Invoice_ใบเสร็จรับเงินมัดจำใบกำกับภาษี.rpt -> DocCode=DPI20011 (387072 bytes, 2.AR Down PaymentTax Invoice_ใบเสร็จรับเงินมัดจำใบกำกับภาษี)
+[2026-06-09 11:24:54] [INFO] INSERT [ 11] 3.AR Down Payment Invoice_BOM ใบแจ้งหนี้เงินค่ามัดจำใบกำกับภาษี.rpt -> DocCode=DPI20012 (1249792 bytes, 3.AR Down Payment Invoice_BOM ใบแจ้งหนี้เงินค่ามัดจำใบกำกับภาษี)
+[2026-06-09 11:24:56] [INFO] INSERT [ 12] 3.AR Down PaymentTax Invoice_BOM_ENG ใบแจ้งหนี้เงินค่ามัดจำใบกำกับภาษี.rpt -> DocCode=DPI20013 (1248768 bytes, 3.AR Down PaymentTax Invoice_BOM_ENG ใบแจ้งหนี้เงินค่ามัดจำใบกำกับภาษี)
+[2026-06-09 11:24:57] [INFO] INSERT [ 13] 3.AR Down PaymentTax Invoice_ENG ใบแจ้งหนี้เงินค่ามัดจำใบกำกับภาษี.rpt -> DocCode=DPI20014 (396800 bytes, 3.AR Down PaymentTax Invoice_ENG ใบแจ้งหนี้เงินค่ามัดจำใบกำกับภาษี)
+[2026-06-09 11:24:57] [INFO] INSERT [ 14] 3.AR Down PaymentTax Invoice_ใบแจ้งหนี้เงินค่ามัดจำใบกำกับภาษี.rpt -> DocCode=DPI20015 (395776 bytes, 3.AR Down PaymentTax Invoice_ใบแจ้งหนี้เงินค่ามัดจำใบกำกับภาษี)
+[2026-06-09 11:24:58] [INFO] INSERT [ 15] 1.AP Down Payment_ENG ใบจ่ายเงินมัดจำ.rpt -> DocCode=DPO20002 (821248 bytes, 1.AP Down Payment_ENG ใบจ่ายเงินมัดจำ)
+[2026-06-09 11:25:01] [INFO] INSERT [ 16] 1.AP Down Payment_ใบจ่ายเงินมัดจำ.rpt -> DocCode=DPO20003 (820224 bytes, 1.AP Down Payment_ใบจ่ายเงินมัดจำ)
+[2026-06-09 11:25:02] [INFO] INSERT [ 17] 2.AP Down Payment Invoice_ENG ใบจ่ายเงินมัดจำใบกำกับภาษี.rpt -> DocCode=DPO20004 (821248 bytes, 2.AP Down Payment Invoice_ENG ใบจ่ายเงินมัดจำใบกำกับภาษี)
+[2026-06-09 11:25:03] [INFO] INSERT [ 18] 2.AP Down Payment Invoice_ใบจ่ายเงินมัดจำใบกำกับภาษี.rpt -> DocCode=DPO20005 (821248 bytes, 2.AP Down Payment Invoice_ใบจ่ายเงินมัดจำใบกำกับภาษี)
+[2026-06-09 11:25:04] [INFO] INSERT [ 19] 1.Goods Issue_ENG ใบเบิกสินค้า.rpt -> DocCode=IGE10002 (823296 bytes, 1.Goods Issue_ENG ใบเบิกสินค้า)
+[2026-06-09 11:25:05] [INFO] INSERT [ 20] 1.Goods Issue_ใบเบิกสินค้า.rpt -> DocCode=IGE10003 (824320 bytes, 1.Goods Issue_ใบเบิกสินค้า)
+[2026-06-09 11:25:05] [INFO] INSERT [ 21] 1.Issue for Production_ใบเบิกวัตถุดิบเพื่อการผลิต.rpt -> DocCode=IGE10004 (401920 bytes, 1.Issue for Production_ใบเบิกวัตถุดิบเพื่อการผลิต)
+[2026-06-09 11:25:06] [INFO] INSERT [ 22] 2.Goods Issue_ใบเบิกสินค้า_(Batch_Serial).rpt -> DocCode=IGE10005 (831488 bytes, 2.Goods Issue_ใบเบิกสินค้า_(Batch_Serial))
+[2026-06-09 11:25:06] [INFO] INSERT [ 23] 2.Goods Issue_ใบเบิกสินค้า_ENG (Batch_Serial).rpt -> DocCode=IGE10006 (830464 bytes, 2.Goods Issue_ใบเบิกสินค้า_ENG (Batch_Serial))
+[2026-06-09 11:25:07] [INFO] INSERT [ 24] 2.Issue for Production_ใบเบิกวัตถุดิบเพื่อการผลิต_(Batch_Serial).rpt -> DocCode=IGE10007 (402944 bytes, 2.Issue for Production_ใบเบิกวัตถุดิบเพื่อการผลิต_(Batch_Serial))
+[2026-06-09 11:25:07] [INFO] INSERT [ 25] 1.Goods Receipt_ENG ใบรับสินค้า.rpt -> DocCode=IGN10002 (459264 bytes, 1.Goods Receipt_ENG ใบรับสินค้า)
+[2026-06-09 11:25:07] [INFO] INSERT [ 26] 1.Goods Receipt_ใบรับสินค้า.rpt -> DocCode=IGN10003 (482816 bytes, 1.Goods Receipt_ใบรับสินค้า)
+[2026-06-09 11:25:08] [INFO] INSERT [ 27] 1.Receipt from Production_ใบรับสินค้าจากการผลิต.rpt -> DocCode=IGN10004 (397312 bytes, 1.Receipt from Production_ใบรับสินค้าจากการผลิต)
+[2026-06-09 11:25:08] [INFO] INSERT [ 28] 2.Goods Receipt_ENG ใบรับสินค้า_(Batch_Serial).rpt -> DocCode=IGN10005 (408064 bytes, 2.Goods Receipt_ENG ใบรับสินค้า_(Batch_Serial))
+[2026-06-09 11:25:08] [INFO] INSERT [ 29] 2.Goods Receipt_ใบรับสินค้า_(Batch_Serial).rpt -> DocCode=IGN10006 (408576 bytes, 2.Goods Receipt_ใบรับสินค้า_(Batch_Serial))
+[2026-06-09 11:25:08] [INFO] INSERT [ 30] 2.Receipt from Production_ใบรับสินค้าจากการผลิต_(Batch_Serial).rpt -> DocCode=IGN10007 (398848 bytes, 2.Receipt from Production_ใบรับสินค้าจากการผลิต_(Batch_Serial))
+[2026-06-09 11:25:09] [INFO] INSERT [ 31] 1.Inventory Counting_ใบตรวจนับสินค้า_Befor.rpt -> DocCode=INC10002 (420864 bytes, 1.Inventory Counting_ใบตรวจนับสินค้า_Befor)
+[2026-06-09 11:25:09] [INFO] INSERT [ 32] 2.Inventory Counting_ใบหลังตรวจนับสินค้า_After.rpt -> DocCode=INC10003 (421888 bytes, 2.Inventory Counting_ใบหลังตรวจนับสินค้า_After)
+[2026-06-09 11:25:10] [INFO] INSERT [ 33] 1.AR Invoice_BOM ใบแจ้งหนี้.rpt -> DocCode=INV20012 (1252352 bytes, 1.AR Invoice_BOM ใบแจ้งหนี้)
+[2026-06-09 11:25:10] [INFO] INSERT [ 34] 1.AR Invoice_BOM_ENG ใบแจ้งหนี้.rpt -> DocCode=INV20013 (1239552 bytes, 1.AR Invoice_BOM_ENG ใบแจ้งหนี้)
+[2026-06-09 11:25:11] [INFO] INSERT [ 35] 2.AR Invoice_ENG ใบแจ้งหนี้_(Dis).rpt -> DocCode=INV20014 (829952 bytes, 2.AR Invoice_ENG ใบแจ้งหนี้_(Dis))
+[2026-06-09 11:25:11] [INFO] INSERT [ 36] 2.AR Invoice_ใบแจ้งหนี้_(Dis).rpt -> DocCode=INV20015 (829440 bytes, 2.AR Invoice_ใบแจ้งหนี้_(Dis))
+[2026-06-09 11:25:12] [INFO] INSERT [ 37] 3.BillingAR InvoiceTax Invoice_ENG ใบวางบิลใบแจ้งหนี้ใบกำกับภาษี (Bom).rpt -> DocCode=INV20016 (1238528 bytes, 3.BillingAR InvoiceTax Invoice_ENG ใบวางบิลใบแจ้งหนี้ใบกำกับภาษี (Bom))
+[2026-06-09 11:25:13] [INFO] INSERT [ 38] 3.BillingAR InvoiceTax Invoice_ใบวางบิลใบแจ้งหนี้ใบกำกับภาษี (Bom).rpt -> DocCode=INV20017 (1238016 bytes, 3.BillingAR InvoiceTax Invoice_ใบวางบิลใบแจ้งหนี้ใบกำกับภาษี (Bom))
+[2026-06-09 11:25:14] [INFO] INSERT [ 39] 4.BillingAR InvoiceTax Invoice_ENG ใบวางบิลใบแจ้งหนี้ใบกำกับภาษี (Dis).rpt -> DocCode=INV20018 (829440 bytes, 4.BillingAR InvoiceTax Invoice_ENG ใบวางบิลใบแจ้งหนี้ใบกำกับภาษี (Dis))
+[2026-06-09 11:25:15] [INFO] INSERT [ 40] 4.BillingAR InvoiceTax Invoice_ใบวางบิลใบแจ้งหนี้ใบกำกับภาษี (Dis).rpt -> DocCode=INV20019 (829440 bytes, 4.BillingAR InvoiceTax Invoice_ใบวางบิลใบแจ้งหนี้ใบกำกับภาษี (Dis))
+[2026-06-09 11:25:19] [INFO] INSERT [ 41] 5.BillingAR Invoice_ENG ใบวางบิลใบแจ้งหนี้ (Bom).rpt -> DocCode=INV20020 (1238528 bytes, 5.BillingAR Invoice_ENG ใบวางบิลใบแจ้งหนี้ (Bom))
+[2026-06-09 11:25:22] [INFO] INSERT [ 42] 5.BillingAR Invoice_ใบวางบิลใบแจ้งหนี้ (Bom).rpt -> DocCode=INV20021 (1237504 bytes, 5.BillingAR Invoice_ใบวางบิลใบแจ้งหนี้ (Bom))
+[2026-06-09 11:25:23] [INFO] INSERT [ 43] 6.BillingAR Invoice_ENG ใบวางบิลใบแจ้งหนี้ (Dis).rpt -> DocCode=INV20022 (829440 bytes, 6.BillingAR Invoice_ENG ใบวางบิลใบแจ้งหนี้ (Dis))
+[2026-06-09 11:25:25] [INFO] INSERT [ 44] 6.BillingAR Invoice_ใบวางบิลใบแจ้งหนี้ (Dis).rpt -> DocCode=INV20023 (829440 bytes, 6.BillingAR Invoice_ใบวางบิลใบแจ้งหนี้ (Dis))
+[2026-06-09 11:25:25] [INFO] INSERT [ 45] 1.Landed Costs_ใบปรับราคาต้นทุนสินค้า.rpt -> DocCode=IPF10002 (378880 bytes, 1.Landed Costs_ใบปรับราคาต้นทุนสินค้า)
+[2026-06-09 11:25:27] [INFO] INSERT [ 46] 1.Journal Entry_ใบบันทึกรายการบัญชี.rpt -> DocCode=JDT20002 (812032 bytes, 1.Journal Entry_ใบบันทึกรายการบัญชี)
+[2026-06-09 11:25:30] [INFO] INSERT [ 47] 1.AP Invoice_ใบแจ้งหนี้.rpt -> DocCode=PCH20004 (816640 bytes, 1.AP Invoice_ใบแจ้งหนี้)
+[2026-06-09 11:25:30] [INFO] INSERT [ 48] 2.AP Invoice_ใบแจ้งหนี้_(Batch_Serial).rpt -> DocCode=PCH20005 (825856 bytes, 2.AP Invoice_ใบแจ้งหนี้_(Batch_Serial))
+[2026-06-09 11:25:33] [INFO] INSERT [ 49] 3.AP InvoiceTax Invoice_ใบแจ้งหนี้ใบกำกับภาษี.rpt -> DocCode=PCH20006 (823808 bytes, 3.AP InvoiceTax Invoice_ใบแจ้งหนี้ใบกำกับภาษี)
+[2026-06-09 11:25:34] [INFO] INSERT [ 50] 3.AP InvoiceTax Invoice_ใบแจ้งหนี้ใบกำกับภาษี(Batch_Serial).rpt -> DocCode=PCH20007 (826880 bytes, 3.AP InvoiceTax Invoice_ใบแจ้งหนี้ใบกำกับภาษี(Batch_Serial))
+[2026-06-09 11:25:36] [INFO] INSERT [ 51] 4.AP Debit Note_ใบเพิ่มหนี้.rpt -> DocCode=PCH20008 (823808 bytes, 4.AP Debit Note_ใบเพิ่มหนี้)
+[2026-06-09 11:25:36] [INFO] INSERT [ 52] 2.Goods Reciept PO_TH_ใบรับสินค้า_(Batch_Serial).rpt -> DocCode=PDN20004 (422912 bytes, 2.Goods Reciept PO_TH_ใบรับสินค้า_(Batch_Serial))
+[2026-06-09 11:25:38] [INFO] INSERT [ 53] 1.Purchase Order_ENG_ใบสั่งซื้อ.rpt -> DocCode=POR20004 (1238528 bytes, 1.Purchase Order_ENG_ใบสั่งซื้อ)
+[2026-06-09 11:25:46] [INFO] INSERT [ 54] 1.Purchase Order_TH_ใบสั่งซื้อ.rpt -> DocCode=POR20005 (1239552 bytes, 1.Purchase Order_TH_ใบสั่งซื้อ)
+[2026-06-09 11:25:47] [INFO] INSERT [ 55] 1.Purchase Quotation_ใบเสนอราคาซื้อ.rpt -> DocCode=PQT20002 (827904 bytes, 1.Purchase Quotation_ใบเสนอราคาซื้อ)
+[2026-06-09 11:25:49] [INFO] INSERT [ 56] 1.Purchase Request_TH_ใบขอซื้อ.rpt -> DocCode=PRQ20002 (1248768 bytes, 1.Purchase Request_TH_ใบขอซื้อ)
+[2026-06-09 11:25:51] [INFO] INSERT [ 57] 1.Sale Quotation_ใบเสนอราคาขาย_(Dis).rpt -> DocCode=QUT20008 (1252864 bytes, 1.Sale Quotation_ใบเสนอราคาขาย_(Dis))
+[2026-06-09 11:25:53] [INFO] INSERT [ 58] 1.Sale Quotation_ใบเสนอราคาขาย_(Dis) ENG.rpt -> DocCode=QUT20009 (1252352 bytes, 1.Sale Quotation_ใบเสนอราคาขาย_(Dis) ENG)
+[2026-06-09 11:25:56] [INFO] INSERT [ 59] 2.Sale Quotation_ใบเสนอราคาขาย_(Bom).rpt -> DocCode=QUT20010 (1248256 bytes, 2.Sale Quotation_ใบเสนอราคาขาย_(Bom))
+[2026-06-09 11:25:58] [INFO] INSERT [ 60] 2.Sale Quotation_ใบเสนอราคาขาย_(BOM) ENG.rpt -> DocCode=QUT20011 (1252864 bytes, 2.Sale Quotation_ใบเสนอราคาขาย_(BOM) ENG)
+[2026-06-09 11:25:59] [INFO] INSERT [ 61] 1.Incoming Payments_Eng ใบเสร็จรับเงิน.rpt -> DocCode=RCT10004 (401920 bytes, 1.Incoming Payments_Eng ใบเสร็จรับเงิน)
+[2026-06-09 11:26:00] [INFO] INSERT [ 62] 1.Incoming Payments_ใบเสร็จรับเงิน.rpt -> DocCode=RCT10005 (400384 bytes, 1.Incoming Payments_ใบเสร็จรับเงิน)
+[2026-06-09 11:26:01] [INFO] INSERT [ 63] 2.Incoming Payments_ ENG ใบเสร็จรับเงินใบกำกับภาษี.rpt -> DocCode=RCT10006 (403456 bytes, 2.Incoming Payments_ ENG ใบเสร็จรับเงินใบกำกับภาษี)
+[2026-06-09 11:26:02] [INFO] INSERT [ 64] 2.Incoming Payments_ใบเสร็จรับเงินใบกำกับภาษี.rpt -> DocCode=RCT10007 (402432 bytes, 2.Incoming Payments_ใบเสร็จรับเงินใบกำกับภาษี)
+[2026-06-09 11:26:02] [INFO] INSERT [ 65] 1.Retrun_ใบรับคืนสินค้า_(Batch_Serial).rpt -> DocCode=RDN20008 (421376 bytes, 1.Retrun_ใบรับคืนสินค้า_(Batch_Serial))
+[2026-06-09 11:26:03] [INFO] INSERT [ 66] 1.Retrun_ใบรับคืนสินค้า_ENG (Batch_Serial).rpt -> DocCode=RDN20009 (400384 bytes, 1.Retrun_ใบรับคืนสินค้า_ENG (Batch_Serial))
+[2026-06-09 11:26:06] [INFO] INSERT [ 67] 1.Sale Order_ใบสั่งขาย_(Bom).rpt -> DocCode=RDR20008 (1232896 bytes, 1.Sale Order_ใบสั่งขาย_(Bom))
+[2026-06-09 11:26:08] [INFO] INSERT [ 68] 1.Sale Order_ใบสั่งขาย_(Dis).rpt -> DocCode=RDR20009 (1276928 bytes, 1.Sale Order_ใบสั่งขาย_(Dis))
+[2026-06-09 11:26:11] [INFO] INSERT [ 69] 1.AR_Credit Memo_ENG ใบลดหนี้ แก้ไขยอดเงิน.rpt -> DocCode=RIN20008 (1256960 bytes, 1.AR_Credit Memo_ENG ใบลดหนี้ แก้ไขยอดเงิน)
+[2026-06-09 11:26:14] [INFO] INSERT [ 70] 1.AR_Credit Memo_ใบลดหนี้ แก้ไขยอดเงิน.rpt -> DocCode=RIN20009 (1256448 bytes, 1.AR_Credit Memo_ใบลดหนี้ แก้ไขยอดเงิน)
+[2026-06-09 11:26:16] [INFO] INSERT [ 71] 2.AR_Credit Memo_ENG ใบลดหนี้_(Dis) แก้ไขยอดเงิน.rpt -> DocCode=RIN20010 (1241600 bytes, 2.AR_Credit Memo_ENG ใบลดหนี้_(Dis) แก้ไขยอดเงิน)
+[2026-06-09 11:26:18] [INFO] INSERT [ 72] 2.AR_Credit Memo_ใบลดหนี้_(Dis) แก้ไขยอดเงิน.rpt -> DocCode=RIN20011 (1240576 bytes, 2.AR_Credit Memo_ใบลดหนี้_(Dis) แก้ไขยอดเงิน)
+[2026-06-09 11:26:20] [INFO] INSERT [ 73] 3.AR_Credit Memo_ใบลดหนี้_(Batch_Serial) แก้ไขยอดเงิน.rpt -> DocCode=RIN20012 (1251840 bytes, 3.AR_Credit Memo_ใบลดหนี้_(Batch_Serial) แก้ไขยอดเงิน)
+[2026-06-09 11:26:21] [INFO] INSERT [ 74] 3.AR_Credit Memo_ใบลดหนี้_ENG (Batch_Serial) แก้ไขยอดเงิน.rpt -> DocCode=RIN20013 (1252864 bytes, 3.AR_Credit Memo_ใบลดหนี้_ENG (Batch_Serial) แก้ไขยอดเงิน)
+[2026-06-09 11:26:22] [INFO] INSERT [ 75] 4.AR_Credit Memo_ใบลดหนี้_(Batch_Serial) (Dis).rpt -> DocCode=RIN20014 (1252352 bytes, 4.AR_Credit Memo_ใบลดหนี้_(Batch_Serial) (Dis))
+[2026-06-09 11:26:23] [INFO] INSERT [ 76] 4.AR_Credit Memo_ใบลดหนี้_ENG (Batch_Serial) (Dis).rpt -> DocCode=RIN20015 (1253376 bytes, 4.AR_Credit Memo_ใบลดหนี้_ENG (Batch_Serial) (Dis))
+[2026-06-09 11:26:25] [INFO] INSERT [ 77] 1.AP Credit Memo_ใบลดหนี้.rpt -> DocCode=RPC20004 (1252352 bytes, 1.AP Credit Memo_ใบลดหนี้)
+[2026-06-09 11:26:26] [INFO] INSERT [ 78] 2.Goods Return_TH_ใบส่งคืนสินค้า_(Batch_Serial).rpt -> DocCode=RPD20004 (421888 bytes, 2.Goods Return_TH_ใบส่งคืนสินค้า_(Batch_Serial))
+[2026-06-09 11:26:28] [INFO] INSERT [ 79] 1.Outgoing Payments_ENG ใบจ่ายชำระ.rpt -> DocCode=VPM10004 (1290752 bytes, 1.Outgoing Payments_ENG ใบจ่ายชำระ)
+[2026-06-09 11:26:28] [INFO] INSERT [ 80] 1.Outgoing Payments_ใบจ่ายชำระ.rpt -> DocCode=VPM10005 (1291264 bytes, 1.Outgoing Payments_ใบจ่ายชำระ)
+[2026-06-09 11:26:30] [INFO] INSERT [ 81] 1.Production Order_ใบสั่งผลิต.rpt -> DocCode=WOR10002 (379392 bytes, 1.Production Order_ใบสั่งผลิต)
+[2026-06-09 11:26:32] [INFO] INSERT [ 82] 1.Inventory Transfer Request_ใบขอโอนสินค้า.rpt -> DocCode=WTQ10002 (1230848 bytes, 1.Inventory Transfer Request_ใบขอโอนสินค้า)
+[2026-06-09 11:26:33] [INFO] INSERT [ 83] 2.Inventory Transfer_ใบโอนสินค้า.rpt -> DocCode=WTR10002 (1232896 bytes, 2.Inventory Transfer_ใบโอนสินค้า)
+[2026-06-09 11:26:34] [INFO] INSERT [ 84] 2.Inventory Transfer_ใบโอนสินค้า_TH_(Batch_Serial).rpt -> DocCode=WTR10003 (1249280 bytes, 2.Inventory Transfer_ใบโอนสินค้า_TH_(Batch_Serial))
+[2026-06-09 11:26:34] [INFO] === Summary: OK=84 FAIL=0 SKIP=0 ===
+[2026-06-09 11:33:48] [INFO] === Start SQL Direct Import ===
+[2026-06-09 11:33:48] [INFO] MapFile: C:\Tool\ExportedFromSAP\SBO_SDA_key\_ExportIndex.csv
+[2026-06-09 11:33:48] [INFO] RptRoot: C:\Tool\ExportedFromSAP\SBO_SDA_key
+[2026-06-09 11:33:48] [INFO] DryRun : False
+[2026-06-09 11:33:48] [INFO] Loaded 84 mapping rows
+[2026-06-09 11:33:49] [INFO] Pre-loaded max sequences for 400 TypeCodes
+[2026-06-09 11:33:50] [INFO] INSERT [  1] 1.Delivery_ใบส่งของ_Eng (Batch_Serial).rpt -> DocCode=DLN20008 (422912 bytes, 1.Delivery_ใบส่งของ_Eng (Batch_Serial))
+[2026-06-09 11:33:51] [INFO] INSERT [  2] 2.Delivery_ใบส่งของ_(Batch_Serial).rpt -> DocCode=DLN20009 (423936 bytes, 2.Delivery_ใบส่งของ_(Batch_Serial))
+[2026-06-09 11:33:51] [INFO] INSERT [  3] 1.AR Down Payment_BOM ใบเสร็จรับเงินมัดจำ.rpt -> DocCode=DPI20004 (1249792 bytes, 1.AR Down Payment_BOM ใบเสร็จรับเงินมัดจำ)
+[2026-06-09 11:33:53] [INFO] INSERT [  4] 1.AR Down Payment_BOM_ENG ใบเสร็จรับเงินมัดจำ.rpt -> DocCode=DPI20005 (1248768 bytes, 1.AR Down Payment_BOM_ENG ใบเสร็จรับเงินมัดจำ)
+[2026-06-09 11:33:53] [INFO] INSERT [  5] 1.AR Down Payment_ENG ใบเสร็จรับเงินมัดจำ.rpt -> DocCode=DPI20006 (395776 bytes, 1.AR Down Payment_ENG ใบเสร็จรับเงินมัดจำ)
+[2026-06-09 11:33:54] [INFO] INSERT [  6] 1.AR Down Payment_ใบเสร็จรับเงินมัดจำ.rpt -> DocCode=DPI20007 (395776 bytes, 1.AR Down Payment_ใบเสร็จรับเงินมัดจำ)
+[2026-06-09 11:33:55] [INFO] INSERT [  7] 2.AR Down PaymentTax Invoice_BOM ใบเสร็จรับเงินมัดจำใบกำกับภาษี.rpt -> DocCode=DPI20008 (1249792 bytes, 2.AR Down PaymentTax Invoice_BOM ใบเสร็จรับเงินมัดจำใบกำกับภาษี)
+[2026-06-09 11:33:57] [INFO] INSERT [  8] 2.AR Down PaymentTax Invoice_BOM_ENG ใบเสร็จรับเงินมัดจำใบกำกับภาษี.rpt -> DocCode=DPI20009 (1248768 bytes, 2.AR Down PaymentTax Invoice_BOM_ENG ใบเสร็จรับเงินมัดจำใบกำกับภาษี)
+[2026-06-09 11:33:57] [INFO] INSERT [  9] 2.AR Down PaymentTax Invoice_ENG ใบเสร็จรับเงินมัดจำใบกำกับภาษี.rpt -> DocCode=DPI20010 (397312 bytes, 2.AR Down PaymentTax Invoice_ENG ใบเสร็จรับเงินมัดจำใบกำกับภาษี)
+[2026-06-09 11:33:58] [INFO] INSERT [ 10] 2.AR Down PaymentTax Invoice_ใบเสร็จรับเงินมัดจำใบกำกับภาษี.rpt -> DocCode=DPI20011 (387072 bytes, 2.AR Down PaymentTax Invoice_ใบเสร็จรับเงินมัดจำใบกำกับภาษี)
+[2026-06-09 11:33:59] [INFO] INSERT [ 11] 3.AR Down Payment Invoice_BOM ใบแจ้งหนี้เงินค่ามัดจำใบกำกับภาษี.rpt -> DocCode=DPI20012 (1249792 bytes, 3.AR Down Payment Invoice_BOM ใบแจ้งหนี้เงินค่ามัดจำใบกำกับภาษี)
+[2026-06-09 11:34:01] [INFO] INSERT [ 12] 3.AR Down PaymentTax Invoice_BOM_ENG ใบแจ้งหนี้เงินค่ามัดจำใบกำกับภาษี.rpt -> DocCode=DPI20013 (1248768 bytes, 3.AR Down PaymentTax Invoice_BOM_ENG ใบแจ้งหนี้เงินค่ามัดจำใบกำกับภาษี)
+[2026-06-09 11:34:02] [INFO] INSERT [ 13] 3.AR Down PaymentTax Invoice_ENG ใบแจ้งหนี้เงินค่ามัดจำใบกำกับภาษี.rpt -> DocCode=DPI20014 (396800 bytes, 3.AR Down PaymentTax Invoice_ENG ใบแจ้งหนี้เงินค่ามัดจำใบกำกับภาษี)
+[2026-06-09 11:34:03] [INFO] INSERT [ 14] 3.AR Down PaymentTax Invoice_ใบแจ้งหนี้เงินค่ามัดจำใบกำกับภาษี.rpt -> DocCode=DPI20015 (395776 bytes, 3.AR Down PaymentTax Invoice_ใบแจ้งหนี้เงินค่ามัดจำใบกำกับภาษี)
+[2026-06-09 11:34:03] [INFO] INSERT [ 15] 1.AP Down Payment_ENG ใบจ่ายเงินมัดจำ.rpt -> DocCode=DPO20002 (821248 bytes, 1.AP Down Payment_ENG ใบจ่ายเงินมัดจำ)
+[2026-06-09 11:34:03] [INFO] INSERT [ 16] 1.AP Down Payment_ใบจ่ายเงินมัดจำ.rpt -> DocCode=DPO20003 (820224 bytes, 1.AP Down Payment_ใบจ่ายเงินมัดจำ)
+[2026-06-09 11:34:06] [INFO] INSERT [ 17] 2.AP Down Payment Invoice_ENG ใบจ่ายเงินมัดจำใบกำกับภาษี.rpt -> DocCode=DPO20004 (821248 bytes, 2.AP Down Payment Invoice_ENG ใบจ่ายเงินมัดจำใบกำกับภาษี)
+[2026-06-09 11:34:06] [INFO] INSERT [ 18] 2.AP Down Payment Invoice_ใบจ่ายเงินมัดจำใบกำกับภาษี.rpt -> DocCode=DPO20005 (821248 bytes, 2.AP Down Payment Invoice_ใบจ่ายเงินมัดจำใบกำกับภาษี)
+[2026-06-09 11:34:06] [INFO] INSERT [ 19] 1.Goods Issue_ENG ใบเบิกสินค้า.rpt -> DocCode=IGE10002 (823296 bytes, 1.Goods Issue_ENG ใบเบิกสินค้า)
+[2026-06-09 11:34:07] [INFO] INSERT [ 20] 1.Goods Issue_ใบเบิกสินค้า.rpt -> DocCode=IGE10003 (824320 bytes, 1.Goods Issue_ใบเบิกสินค้า)
+[2026-06-09 11:34:08] [INFO] INSERT [ 21] 1.Issue for Production_ใบเบิกวัตถุดิบเพื่อการผลิต.rpt -> DocCode=IGE10004 (398848 bytes, 1.Issue for Production_ใบเบิกวัตถุดิบเพื่อการผลิต)
+[2026-06-09 11:34:09] [INFO] INSERT [ 22] 2.Goods Issue_ใบเบิกสินค้า_(Batch_Serial).rpt -> DocCode=IGE10005 (831488 bytes, 2.Goods Issue_ใบเบิกสินค้า_(Batch_Serial))
+[2026-06-09 11:34:10] [INFO] INSERT [ 23] 2.Goods Issue_ใบเบิกสินค้า_ENG (Batch_Serial).rpt -> DocCode=IGE10006 (830464 bytes, 2.Goods Issue_ใบเบิกสินค้า_ENG (Batch_Serial))
+[2026-06-09 11:34:10] [INFO] INSERT [ 24] 2.Issue for Production_ใบเบิกวัตถุดิบเพื่อการผลิต_(Batch_Serial).rpt -> DocCode=IGE10007 (398848 bytes, 2.Issue for Production_ใบเบิกวัตถุดิบเพื่อการผลิต_(Batch_Serial))
+[2026-06-09 11:34:10] [INFO] INSERT [ 25] 1.Goods Receipt_ENG ใบรับสินค้า.rpt -> DocCode=IGN10002 (459264 bytes, 1.Goods Receipt_ENG ใบรับสินค้า)
+[2026-06-09 11:34:11] [INFO] INSERT [ 26] 1.Goods Receipt_ใบรับสินค้า.rpt -> DocCode=IGN10003 (482816 bytes, 1.Goods Receipt_ใบรับสินค้า)
+[2026-06-09 11:34:12] [INFO] INSERT [ 27] 1.Receipt from Production_ใบรับสินค้าจากการผลิต.rpt -> DocCode=IGN10004 (397312 bytes, 1.Receipt from Production_ใบรับสินค้าจากการผลิต)
+[2026-06-09 11:34:12] [INFO] INSERT [ 28] 2.Goods Receipt_ENG ใบรับสินค้า_(Batch_Serial).rpt -> DocCode=IGN10005 (408064 bytes, 2.Goods Receipt_ENG ใบรับสินค้า_(Batch_Serial))
+[2026-06-09 11:34:13] [INFO] INSERT [ 29] 2.Goods Receipt_ใบรับสินค้า_(Batch_Serial).rpt -> DocCode=IGN10006 (408576 bytes, 2.Goods Receipt_ใบรับสินค้า_(Batch_Serial))
+[2026-06-09 11:34:13] [INFO] INSERT [ 30] 2.Receipt from Production_ใบรับสินค้าจากการผลิต_(Batch_Serial).rpt -> DocCode=IGN10007 (398848 bytes, 2.Receipt from Production_ใบรับสินค้าจากการผลิต_(Batch_Serial))
+[2026-06-09 11:34:14] [INFO] INSERT [ 31] 1.Inventory Counting_ใบตรวจนับสินค้า_Befor.rpt -> DocCode=INC10002 (418816 bytes, 1.Inventory Counting_ใบตรวจนับสินค้า_Befor)
+[2026-06-09 11:34:14] [INFO] INSERT [ 32] 2.Inventory Counting_ใบหลังตรวจนับสินค้า_After.rpt -> DocCode=INC10003 (420352 bytes, 2.Inventory Counting_ใบหลังตรวจนับสินค้า_After)
+[2026-06-09 11:34:16] [INFO] INSERT [ 33] 1.AR Invoice_BOM ใบแจ้งหนี้.rpt -> DocCode=INV20012 (1252352 bytes, 1.AR Invoice_BOM ใบแจ้งหนี้)
+[2026-06-09 11:34:17] [INFO] INSERT [ 34] 1.AR Invoice_BOM_ENG ใบแจ้งหนี้.rpt -> DocCode=INV20013 (1239552 bytes, 1.AR Invoice_BOM_ENG ใบแจ้งหนี้)
+[2026-06-09 11:34:19] [INFO] INSERT [ 35] 2.AR Invoice_ENG ใบแจ้งหนี้_(Dis).rpt -> DocCode=INV20014 (829952 bytes, 2.AR Invoice_ENG ใบแจ้งหนี้_(Dis))
+[2026-06-09 11:34:19] [INFO] INSERT [ 36] 2.AR Invoice_ใบแจ้งหนี้_(Dis).rpt -> DocCode=INV20015 (829440 bytes, 2.AR Invoice_ใบแจ้งหนี้_(Dis))
+[2026-06-09 11:34:22] [INFO] INSERT [ 37] 3.BillingAR InvoiceTax Invoice_ENG ใบวางบิลใบแจ้งหนี้ใบกำกับภาษี (Bom).rpt -> DocCode=INV20016 (1238528 bytes, 3.BillingAR InvoiceTax Invoice_ENG ใบวางบิลใบแจ้งหนี้ใบกำกับภาษี (Bom))
+[2026-06-09 11:34:23] [INFO] INSERT [ 38] 3.BillingAR InvoiceTax Invoice_ใบวางบิลใบแจ้งหนี้ใบกำกับภาษี (Bom).rpt -> DocCode=INV20017 (1238016 bytes, 3.BillingAR InvoiceTax Invoice_ใบวางบิลใบแจ้งหนี้ใบกำกับภาษี (Bom))
+[2026-06-09 11:34:24] [INFO] INSERT [ 39] 4.BillingAR InvoiceTax Invoice_ENG ใบวางบิลใบแจ้งหนี้ใบกำกับภาษี (Dis).rpt -> DocCode=INV20018 (829440 bytes, 4.BillingAR InvoiceTax Invoice_ENG ใบวางบิลใบแจ้งหนี้ใบกำกับภาษี (Dis))
+[2026-06-09 11:34:25] [INFO] INSERT [ 40] 4.BillingAR InvoiceTax Invoice_ใบวางบิลใบแจ้งหนี้ใบกำกับภาษี (Dis).rpt -> DocCode=INV20019 (829440 bytes, 4.BillingAR InvoiceTax Invoice_ใบวางบิลใบแจ้งหนี้ใบกำกับภาษี (Dis))
+[2026-06-09 11:34:26] [INFO] INSERT [ 41] 5.BillingAR Invoice_ENG ใบวางบิลใบแจ้งหนี้ (Bom).rpt -> DocCode=INV20020 (1238528 bytes, 5.BillingAR Invoice_ENG ใบวางบิลใบแจ้งหนี้ (Bom))
+[2026-06-09 11:34:28] [INFO] INSERT [ 42] 5.BillingAR Invoice_ใบวางบิลใบแจ้งหนี้ (Bom).rpt -> DocCode=INV20021 (1237504 bytes, 5.BillingAR Invoice_ใบวางบิลใบแจ้งหนี้ (Bom))
+[2026-06-09 11:34:28] [INFO] INSERT [ 43] 6.BillingAR Invoice_ENG ใบวางบิลใบแจ้งหนี้ (Dis).rpt -> DocCode=INV20022 (829440 bytes, 6.BillingAR Invoice_ENG ใบวางบิลใบแจ้งหนี้ (Dis))
+[2026-06-09 11:34:30] [INFO] INSERT [ 44] 6.BillingAR Invoice_ใบวางบิลใบแจ้งหนี้ (Dis).rpt -> DocCode=INV20023 (829440 bytes, 6.BillingAR Invoice_ใบวางบิลใบแจ้งหนี้ (Dis))
+[2026-06-09 11:34:30] [INFO] INSERT [ 45] 1.Landed Costs_ใบปรับราคาต้นทุนสินค้า.rpt -> DocCode=IPF10002 (378880 bytes, 1.Landed Costs_ใบปรับราคาต้นทุนสินค้า)
+[2026-06-09 11:34:31] [INFO] INSERT [ 46] 1.Journal Entry_ใบบันทึกรายการบัญชี.rpt -> DocCode=JDT20002 (812032 bytes, 1.Journal Entry_ใบบันทึกรายการบัญชี)
+[2026-06-09 11:34:32] [INFO] INSERT [ 47] 1.AP Invoice_ใบแจ้งหนี้.rpt -> DocCode=PCH20004 (816640 bytes, 1.AP Invoice_ใบแจ้งหนี้)
+[2026-06-09 11:34:33] [INFO] INSERT [ 48] 2.AP Invoice_ใบแจ้งหนี้_(Batch_Serial).rpt -> DocCode=PCH20005 (825856 bytes, 2.AP Invoice_ใบแจ้งหนี้_(Batch_Serial))
+[2026-06-09 11:34:34] [INFO] INSERT [ 49] 3.AP InvoiceTax Invoice_ใบแจ้งหนี้ใบกำกับภาษี.rpt -> DocCode=PCH20006 (823808 bytes, 3.AP InvoiceTax Invoice_ใบแจ้งหนี้ใบกำกับภาษี)
+[2026-06-09 11:34:34] [INFO] INSERT [ 50] 3.AP InvoiceTax Invoice_ใบแจ้งหนี้ใบกำกับภาษี(Batch_Serial).rpt -> DocCode=PCH20007 (826880 bytes, 3.AP InvoiceTax Invoice_ใบแจ้งหนี้ใบกำกับภาษี(Batch_Serial))
+[2026-06-09 11:34:35] [INFO] INSERT [ 51] 4.AP Debit Note_ใบเพิ่มหนี้.rpt -> DocCode=PCH20008 (823808 bytes, 4.AP Debit Note_ใบเพิ่มหนี้)
+[2026-06-09 11:34:35] [INFO] INSERT [ 52] 2.Goods Reciept PO_TH_ใบรับสินค้า_(Batch_Serial).rpt -> DocCode=PDN20004 (422912 bytes, 2.Goods Reciept PO_TH_ใบรับสินค้า_(Batch_Serial))
+[2026-06-09 11:34:36] [INFO] INSERT [ 53] 1.Purchase Order_ENG_ใบสั่งซื้อ.rpt -> DocCode=POR20004 (1238528 bytes, 1.Purchase Order_ENG_ใบสั่งซื้อ)
+[2026-06-09 11:34:37] [INFO] INSERT [ 54] 1.Purchase Order_TH_ใบสั่งซื้อ.rpt -> DocCode=POR20005 (1239552 bytes, 1.Purchase Order_TH_ใบสั่งซื้อ)
+[2026-06-09 11:34:38] [INFO] INSERT [ 55] 1.Purchase Quotation_ใบเสนอราคาซื้อ.rpt -> DocCode=PQT20002 (827904 bytes, 1.Purchase Quotation_ใบเสนอราคาซื้อ)
+[2026-06-09 11:34:39] [INFO] INSERT [ 56] 1.Purchase Request_TH_ใบขอซื้อ.rpt -> DocCode=PRQ20002 (1248768 bytes, 1.Purchase Request_TH_ใบขอซื้อ)
+[2026-06-09 11:34:40] [INFO] INSERT [ 57] 1.Sale Quotation_ใบเสนอราคาขาย_(Dis).rpt -> DocCode=QUT20008 (1252864 bytes, 1.Sale Quotation_ใบเสนอราคาขาย_(Dis))
+[2026-06-09 11:34:42] [INFO] INSERT [ 58] 1.Sale Quotation_ใบเสนอราคาขาย_(Dis) ENG.rpt -> DocCode=QUT20009 (1252352 bytes, 1.Sale Quotation_ใบเสนอราคาขาย_(Dis) ENG)
+[2026-06-09 11:34:43] [INFO] INSERT [ 59] 2.Sale Quotation_ใบเสนอราคาขาย_(Bom).rpt -> DocCode=QUT20010 (1248256 bytes, 2.Sale Quotation_ใบเสนอราคาขาย_(Bom))
+[2026-06-09 11:34:45] [INFO] INSERT [ 60] 2.Sale Quotation_ใบเสนอราคาขาย_(BOM) ENG.rpt -> DocCode=QUT20011 (1252864 bytes, 2.Sale Quotation_ใบเสนอราคาขาย_(BOM) ENG)
+[2026-06-09 11:34:46] [INFO] INSERT [ 61] 1.Incoming Payments_Eng ใบเสร็จรับเงิน.rpt -> DocCode=RCT10004 (401920 bytes, 1.Incoming Payments_Eng ใบเสร็จรับเงิน)
+[2026-06-09 11:34:46] [INFO] INSERT [ 62] 1.Incoming Payments_ใบเสร็จรับเงิน.rpt -> DocCode=RCT10005 (400384 bytes, 1.Incoming Payments_ใบเสร็จรับเงิน)
+[2026-06-09 11:34:47] [INFO] INSERT [ 63] 2.Incoming Payments_ ENG ใบเสร็จรับเงินใบกำกับภาษี.rpt -> DocCode=RCT10006 (403456 bytes, 2.Incoming Payments_ ENG ใบเสร็จรับเงินใบกำกับภาษี)
+[2026-06-09 11:34:47] [INFO] INSERT [ 64] 2.Incoming Payments_ใบเสร็จรับเงินใบกำกับภาษี.rpt -> DocCode=RCT10007 (402432 bytes, 2.Incoming Payments_ใบเสร็จรับเงินใบกำกับภาษี)
+[2026-06-09 11:34:49] [INFO] INSERT [ 65] 1.Retrun_ใบรับคืนสินค้า_(Batch_Serial).rpt -> DocCode=RDN20008 (421376 bytes, 1.Retrun_ใบรับคืนสินค้า_(Batch_Serial))
+[2026-06-09 11:34:49] [INFO] INSERT [ 66] 1.Retrun_ใบรับคืนสินค้า_ENG (Batch_Serial).rpt -> DocCode=RDN20009 (400384 bytes, 1.Retrun_ใบรับคืนสินค้า_ENG (Batch_Serial))
+[2026-06-09 11:34:50] [INFO] INSERT [ 67] 1.Sale Order_ใบสั่งขาย_(Bom).rpt -> DocCode=RDR20008 (1232896 bytes, 1.Sale Order_ใบสั่งขาย_(Bom))
+[2026-06-09 11:34:52] [INFO] INSERT [ 68] 1.Sale Order_ใบสั่งขาย_(Dis).rpt -> DocCode=RDR20009 (1276928 bytes, 1.Sale Order_ใบสั่งขาย_(Dis))
+[2026-06-09 11:34:54] [INFO] INSERT [ 69] 1.AR_Credit Memo_ENG ใบลดหนี้ แก้ไขยอดเงิน.rpt -> DocCode=RIN20008 (1256960 bytes, 1.AR_Credit Memo_ENG ใบลดหนี้ แก้ไขยอดเงิน)
+[2026-06-09 11:34:55] [INFO] INSERT [ 70] 1.AR_Credit Memo_ใบลดหนี้ แก้ไขยอดเงิน.rpt -> DocCode=RIN20009 (1256448 bytes, 1.AR_Credit Memo_ใบลดหนี้ แก้ไขยอดเงิน)
+[2026-06-09 11:34:56] [INFO] INSERT [ 71] 2.AR_Credit Memo_ENG ใบลดหนี้_(Dis) แก้ไขยอดเงิน.rpt -> DocCode=RIN20010 (1241600 bytes, 2.AR_Credit Memo_ENG ใบลดหนี้_(Dis) แก้ไขยอดเงิน)
+[2026-06-09 11:34:58] [INFO] INSERT [ 72] 2.AR_Credit Memo_ใบลดหนี้_(Dis) แก้ไขยอดเงิน.rpt -> DocCode=RIN20011 (1240576 bytes, 2.AR_Credit Memo_ใบลดหนี้_(Dis) แก้ไขยอดเงิน)
+[2026-06-09 11:35:00] [INFO] INSERT [ 73] 3.AR_Credit Memo_ใบลดหนี้_(Batch_Serial) แก้ไขยอดเงิน.rpt -> DocCode=RIN20012 (1251840 bytes, 3.AR_Credit Memo_ใบลดหนี้_(Batch_Serial) แก้ไขยอดเงิน)
+[2026-06-09 11:35:02] [INFO] INSERT [ 74] 3.AR_Credit Memo_ใบลดหนี้_ENG (Batch_Serial) แก้ไขยอดเงิน.rpt -> DocCode=RIN20013 (1252864 bytes, 3.AR_Credit Memo_ใบลดหนี้_ENG (Batch_Serial) แก้ไขยอดเงิน)
+[2026-06-09 11:35:05] [INFO] INSERT [ 75] 4.AR_Credit Memo_ใบลดหนี้_(Batch_Serial) (Dis).rpt -> DocCode=RIN20014 (1252352 bytes, 4.AR_Credit Memo_ใบลดหนี้_(Batch_Serial) (Dis))
+[2026-06-09 11:35:05] [INFO] INSERT [ 76] 4.AR_Credit Memo_ใบลดหนี้_ENG (Batch_Serial) (Dis).rpt -> DocCode=RIN20015 (1253376 bytes, 4.AR_Credit Memo_ใบลดหนี้_ENG (Batch_Serial) (Dis))
+[2026-06-09 11:35:07] [INFO] INSERT [ 77] 1.AP Credit Memo_ใบลดหนี้.rpt -> DocCode=RPC20004 (1252352 bytes, 1.AP Credit Memo_ใบลดหนี้)
+[2026-06-09 11:35:07] [INFO] INSERT [ 78] 2.Goods Return_TH_ใบส่งคืนสินค้า_(Batch_Serial).rpt -> DocCode=RPD20004 (421888 bytes, 2.Goods Return_TH_ใบส่งคืนสินค้า_(Batch_Serial))
+[2026-06-09 11:35:09] [INFO] INSERT [ 79] 1.Outgoing Payments_ENG ใบจ่ายชำระ.rpt -> DocCode=VPM10004 (1290752 bytes, 1.Outgoing Payments_ENG ใบจ่ายชำระ)
+[2026-06-09 11:35:11] [INFO] INSERT [ 80] 1.Outgoing Payments_ใบจ่ายชำระ.rpt -> DocCode=VPM10005 (1291264 bytes, 1.Outgoing Payments_ใบจ่ายชำระ)
+[2026-06-09 11:35:12] [INFO] INSERT [ 81] 1.Production Order_ใบสั่งผลิต.rpt -> DocCode=WOR10002 (379392 bytes, 1.Production Order_ใบสั่งผลิต)
+[2026-06-09 11:35:13] [INFO] INSERT [ 82] 1.Inventory Transfer Request_ใบขอโอนสินค้า.rpt -> DocCode=WTQ10002 (1230848 bytes, 1.Inventory Transfer Request_ใบขอโอนสินค้า)
+[2026-06-09 11:35:15] [INFO] INSERT [ 83] 2.Inventory Transfer_ใบโอนสินค้า.rpt -> DocCode=WTR10002 (1232896 bytes, 2.Inventory Transfer_ใบโอนสินค้า)
+[2026-06-09 11:35:17] [INFO] INSERT [ 84] 2.Inventory Transfer_ใบโอนสินค้า_TH_(Batch_Serial).rpt -> DocCode=WTR10003 (1242624 bytes, 2.Inventory Transfer_ใบโอนสินค้า_TH_(Batch_Serial))
+[2026-06-09 11:35:17] [INFO] === Summary: OK=84 FAIL=0 SKIP=0 ===
