@@ -1,0 +1,7 @@
+config/secrets/
+jobs/
+*.bak_*
+backups/
+scratch/
+rpt/
+staging/

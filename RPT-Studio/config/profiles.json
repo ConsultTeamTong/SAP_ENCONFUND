@@ -1,0 +1,46 @@
+{
+    "profiles":  [
+                     {
+                         "name":  "Enconfund",
+                         "engine":  "HANA",
+                         "server":  "10.21.100.31",
+                         "port":  30015,
+                         "companyDb":  "SBO_ENCONFUND",
+                         "user":  "SYSTEM",
+                         "hasPassword":  true,
+                         "author":  "RPTStudio",
+                         "rptRoot":  "C:\\Users\\User\\Documents\\GitHub\\RPT-Studio\\rpt",
+                         "mapPath":  "",
+                         "onDuplicate":  "Update",
+                         "dryRun":  true,
+                         "locationTarget":  {
+                                                "engine":  "HANA",
+                                                "server":  "10.21.100.31:30015",
+                                                "database":  "SBO_ENCONFUND",
+                                                "user":  "SYSTEM",
+                                                "dsn":  ""
+                                            }
+                     },
+                     {
+                         "name":  "Seoul",
+                         "engine":  "MSSQL",
+                         "server":  "172.17.0.22",
+                         "port":  null,
+                         "companyDb":  "SBO_Seoul_Clinic",
+                         "user":  "sa",
+                         "hasPassword":  true,
+                         "author":  "SDA",
+                         "rptRoot":  "C:\\Users\\User\\Documents\\GitHub\\SBO_Seoul\\Form-Layout",
+                         "mapPath":  "C:\\Users\\User\\Documents\\GitHub\\RPT-Studio\\config\\maps\\Seoul_RPT_Import_Map.xlsx",
+                         "onDuplicate":  "Update",
+                         "dryRun":  true,
+                         "locationTarget":  {
+                                                "engine":  "MSSQL",
+                                                "server":  "172.17.0.22",
+                                                "database":  "SBO_Seoul_Clinic",
+                                                "user":  "sa",
+                                                "dsn":  ""
+                                            }
+                     }
+                 ]
+}

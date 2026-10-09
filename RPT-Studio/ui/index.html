@@ -1,0 +1,962 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>RPT Studio</title>
+<style>
+/* Visual language from docs\ledgerline-reference.html (tokens, pill buttons, mono eyebrows, black / pale-mint sections) - no web fonts */
+:root{
+  --ink:#060807;--ink-2:#0d100f;--panel:#111514;--rule:#242927;
+  --fg:#f3f6f3;--mute:#868d8a;--mint:#36d89b;--mint-bg:#e4f1ec;--mint-ink:#0b1410;--mint-mute:#5d6a64;--mint-rule:#c6dad2;--coral:#ef695e;--amber:#e3b341;
+  --sans:"Geist","Segoe UI","Leelawadee UI","Leelawadee",Tahoma,sans-serif;
+  --mono:"Geist Mono",Consolas,"Leelawadee UI",ui-monospace,monospace;
+  color-scheme:dark}
+*{box-sizing:border-box}
+body{margin:0;background:var(--ink);color:var(--fg);font-family:var(--sans);font-size:15px;line-height:1.55;-webkit-font-smoothing:antialiased}
+:focus-visible{outline:2px solid var(--mint);outline-offset:2px}
+.wrap{max-width:1300px;margin:0 auto;padding-inline:clamp(16px,3vw,40px)}
+.eyebrow{font-family:var(--mono);font-size:12px;text-transform:uppercase;letter-spacing:.12em;color:var(--mute)}
+.strip{font-family:var(--mono);font-size:11.5px;text-align:center;padding:6px 16px;color:var(--fg);background:linear-gradient(90deg,#0c2a1e,#123d2c 40%,#0c2a1e),var(--ink)}
+.strip b{color:var(--mint);font-weight:500}
+header{position:sticky;top:0;z-index:20;background:var(--ink);border-bottom:1px solid var(--rule)}
+.nav{display:flex;flex-wrap:wrap;align-items:center;gap:10px 18px;min-height:64px;padding-block:8px}
+.logo{display:flex;align-items:center;gap:10px;font-weight:500;font-size:17px;margin:0}
+.nav .right{margin-left:auto;display:flex;flex-wrap:wrap;align-items:center;gap:10px}
+#connStatus{font-family:var(--mono);font-size:12px;color:var(--mute)}
+nav#tabs{display:flex;gap:4px;overflow-x:auto;padding-block:0 10px}
+nav#tabs button{flex:none;border:1px solid transparent;background:none;color:var(--mute);height:34px;padding:0 14px;border-radius:999px;font:500 13px var(--sans);cursor:pointer}
+nav#tabs button:hover{color:var(--fg)}
+nav#tabs button.active{background:var(--fg);color:var(--ink)}
+main{padding-block:28px 40px}
+section.tab{display:none}
+section.tab.active{display:block}
+.tabhead{margin:0 0 20px}
+.tabhead h2{font-size:clamp(26px,3.4vw,40px);font-weight:300;letter-spacing:-.02em;line-height:1.15;margin:6px 0 0}
+.tabhead h2 span{color:var(--mute)}
+.card{background:var(--panel);border:1px solid var(--rule);border-radius:4px;padding:20px;margin-bottom:16px}
+.card h3{margin:0 0 12px;font-family:var(--mono);font-size:12px;font-weight:500;text-transform:uppercase;letter-spacing:.1em;color:var(--mute)}
+.card.mint{background:var(--mint-bg);color:var(--mint-ink);border-color:var(--mint-rule)}
+.card.mint h3,.card.mint .muted,.card.mint label.f{color:var(--mint-mute)}
+.row{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-bottom:10px}
+.grid2{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:10px 16px}
+label.f{display:flex;flex-direction:column;font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:var(--mute);gap:4px}
+input[type=text],input[type=number],input[type=password],select,textarea{font:14px var(--sans);text-transform:none;letter-spacing:0;padding:7px 10px;border:1px solid var(--rule);border-radius:4px;background:var(--ink-2);color:var(--fg);min-width:0}
+input:focus,select:focus,textarea:focus{border-color:var(--mint);outline:none}
+.card.mint input,.card.mint select,.card.mint textarea{background:#f5faf8;color:var(--mint-ink);border-color:var(--mint-rule)}
+textarea{width:100%;min-height:80px;font-family:var(--mono);font-size:13px}
+input[type=checkbox],input[type=radio]{accent-color:var(--mint)}
+/* pill buttons: default = .btn-o, .pri = .btn-w, .cmd = .btn-cmd, .danger = coral */
+button{display:inline-flex;align-items:center;gap:8px;height:36px;padding:0 16px;border-radius:999px;font:500 13px var(--sans);border:1px solid var(--rule);background:transparent;color:var(--fg);cursor:pointer;transition:background .2s,border-color .2s,color .2s}
+button:hover{border-color:var(--mute)}
+button.pri{background:var(--fg);color:var(--ink);border-color:var(--fg)} button.pri:hover{background:#d5dcd8}
+button.cmd{font-family:var(--mono);background:rgba(54,216,155,.08);border-color:rgba(54,216,155,.4);color:var(--mint)} button.cmd:hover{background:rgba(54,216,155,.16)}
+button.danger{background:rgba(239,105,94,.1);border-color:rgba(239,105,94,.55);color:var(--coral)} button.danger:hover{background:rgba(239,105,94,.2)}
+.card.mint button{color:var(--mint-ink);border-color:var(--mint-rule)}
+.card.mint button.pri{background:var(--mint-ink);color:var(--mint-bg);border-color:var(--mint-ink)}
+button:disabled{opacity:.45;cursor:default}
+.tblwrap{overflow:auto;max-height:420px;border:1px solid var(--rule);border-radius:3px;background:var(--ink-2)}
+.card.mint .tblwrap{background:#f5faf8;border-color:var(--mint-rule)}
+table{border-collapse:collapse;width:100%;font-family:var(--mono);font-size:12.5px;font-variant-numeric:tabular-nums}
+th,td{border-bottom:1px solid #1a1f1d;padding:6px 8px;text-align:left;white-space:nowrap}
+th{background:var(--panel);color:var(--mute);font-weight:400;position:sticky;top:0;z-index:1;border-bottom:1px solid var(--rule)}
+.card.mint th{background:var(--mint-bg);color:var(--mint-mute);border-color:var(--mint-rule)}
+.card.mint td{border-color:#d6e6df}
+tr.flag td{background:rgba(239,105,94,.14)}
+.card.mint tr.flag td{background:#f9d9d5}
+td.ed input{width:100%;min-width:80px;border:1px solid transparent;padding:3px 5px;background:transparent;font-family:var(--mono);font-size:12.5px}
+td.ed input:focus{border-color:var(--mint)}
+.ok{color:var(--mint);font-weight:500}.bad{color:var(--coral);font-weight:500}.wn{color:var(--amber);font-weight:500}
+.card.mint .ok{color:#127a52}
+.banner{padding:10px 14px;border-radius:3px;margin:10px 0;display:none;font-size:14px}
+.banner.warn{display:block;background:rgba(227,179,65,.1);border:1px solid rgba(227,179,65,.5);color:#f1d48a}
+.banner.err{display:block;background:rgba(239,105,94,.1);border:1px solid rgba(239,105,94,.55);color:#f6a69e}
+.banner.info{display:block;background:rgba(54,216,155,.08);border:1px solid rgba(54,216,155,.4);color:var(--mint)}
+.muted{color:var(--mute);font-size:12.5px}
+p{margin:8px 0}
+#logPanel{position:sticky;bottom:0;z-index:15;background:var(--panel);border-top:1px solid var(--rule);font-family:var(--mono);font-size:12px}
+#logHead{display:flex;gap:10px;align-items:center;padding:6px clamp(16px,3vw,40px);border-bottom:1px solid var(--rule);color:var(--mute)}
+#logHead i{width:9px;height:9px;border-radius:50%;background:var(--rule)}
+#logHead i.live{background:var(--mint);box-shadow:0 0 0 3px rgba(54,216,155,.18)}
+#logHead button{height:26px;padding:0 10px;font-size:12px}
+#logBody{max-height:200px;overflow:auto;padding:8px clamp(16px,3vw,40px);white-space:pre-wrap;word-break:break-all;color:#c9d1cd;line-height:1.6}
+#logPanel.min #logBody{display:none}
+.modal{position:fixed;inset:0;background:rgba(0,0,0,.6);display:none;align-items:center;justify-content:center;z-index:50;padding:16px}
+.modal.open{display:flex}
+.modal .box{background:var(--panel);border:1px solid var(--rule);border-radius:4px;width:min(720px,100%);max-height:90vh;display:flex;flex-direction:column;padding:16px}
+#brList{overflow:auto;flex:1;border:1px solid var(--rule);border-radius:3px;margin:8px 0;min-height:200px;background:var(--ink-2);font-size:14px}
+#brList div{padding:6px 10px;border-bottom:1px solid #1a1f1d;cursor:pointer;display:flex;gap:6px;align-items:center}
+#brList div:hover{background:rgba(54,216,155,.08)}
+.pill{display:inline-block;padding:2px 10px;border-radius:999px;font-family:var(--mono);font-size:12px;border:1px solid var(--rule)}
+.drop{border:1px dashed rgba(54,216,155,.45);border-radius:4px;padding:18px;text-align:center;margin:0 0 10px;color:var(--mute);background:rgba(54,216,155,.04)}
+.drop.over{background:rgba(54,216,155,.14);color:var(--mint);border-style:solid}
+.card.mint .drop{border-color:var(--mint-mute);background:#f5faf8;color:var(--mint-mute)}
+.card.mint .drop.over{background:#cfe9de;color:var(--mint-ink)}
+.pathlist{border:1px solid var(--rule);border-radius:3px;background:var(--ink-2);max-height:220px;overflow:auto}
+.pathlist div{display:flex;gap:10px;align-items:center;padding:5px 10px;border-bottom:1px solid #1a1f1d}
+.pathlist code{flex:1;font-family:var(--mono);font-size:12.5px;word-break:break-all}
+.pathlist button{height:26px;padding:0 10px;font-size:12px;color:var(--coral);border-color:rgba(239,105,94,.4)}
+/* step indicator, one-line hints, advanced accordions */
+#steps{display:flex;flex-wrap:wrap;align-items:center;gap:6px;padding-block:0 8px}
+#steps button{height:30px;padding:0 12px;font-size:12.5px;color:var(--mute);border-color:var(--rule)}
+#steps button b{font-family:var(--mono);color:var(--mint);margin-right:4px}
+#steps button.active{border-color:var(--mint);color:var(--fg);background:rgba(54,216,155,.1)}
+#steps i{color:var(--mute);font-style:normal}
+.hint{color:var(--mute);font-size:13px;margin:-4px 0 12px}
+.card.mint .hint{color:var(--mint-mute)}
+details.adv{margin-top:14px;border-top:1px dashed var(--rule);padding-top:10px}
+details.adv.card{border-top:1px solid var(--rule);padding:14px 20px}
+details.adv>summary{cursor:pointer;font-family:var(--mono);font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:var(--mute);margin-bottom:10px}
+details.adv[open]>summary{color:var(--mint)}
+.card.mint details.adv{border-color:var(--mint-rule)}
+.card.mint details.adv>summary{color:var(--mint-mute)}
+table.hidecodes .code{display:none}
+.cancelled{border:1px solid rgba(227,179,65,.5);background:rgba(227,179,65,.08);border-radius:3px;padding:10px 14px;margin-top:10px}
+.danger-note{color:var(--coral);font-size:13px}
+@media (max-width:640px){main{padding-block:18px}.logo{width:100%}.nav .right{margin-left:0}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<div class="strip"><span>RPT Studio · เครื่องมือย้ายแบบฟอร์มพิมพ์ (Crystal) ระหว่างบริษัท · <b>ใช้ในเครื่องนี้เท่านั้น</b></span></div>
+<header>
+  <div class="wrap nav">
+    <h1 class="logo"><svg width="22" height="22" viewBox="0 0 22 22" aria-hidden="true"><rect x="1" y="1" width="20" height="20" fill="none" stroke="#36d89b" stroke-width="2"/><rect x="5" y="6" width="12" height="2" fill="#f3f6f3"/><rect x="5" y="10" width="8" height="2" fill="#f3f6f3"/><rect x="5" y="14" width="10" height="2" fill="#36d89b"/></svg>RPT Studio</h1>
+    <div class="right">
+      <span class="eyebrow">บริษัท</span><select id="profileSel" aria-label="เลือกบริษัท"></select>
+      <button id="btnTestConn">ตรวจการเชื่อมต่อ</button>
+      <button class="cmd" id="btnGoPipeline">ทำทุกขั้นต่อกัน</button>
+    </div>
+    <span id="connStatus" style="width:100%"></span>
+  </div>
+  <!-- simple step indicator: 1 export -> 2 change connection -> 3 list -> 4 import -->
+  <nav id="steps" class="wrap" aria-label="ขั้นตอน">
+    <button data-tab="export"><b>1</b> ส่งออกแบบฟอร์ม</button><i>→</i>
+    <button data-tab="setloc"><b>2</b> เปลี่ยนการเชื่อมต่อ</button><i>→</i>
+    <button data-tab="map"><b>3</b> จัดรายการ</button><i>→</i>
+    <button data-tab="import"><b>4</b> นำเข้า</button>
+  </nav>
+  <nav id="tabs" class="wrap">
+    <button data-tab="settings" class="active">ตั้งค่าบริษัท</button>
+    <button data-tab="export">1 · ส่งออก</button>
+    <button data-tab="setloc">2 · เปลี่ยนการเชื่อมต่อ</button>
+    <button data-tab="map">3 · จัดรายการ</button>
+    <button data-tab="import">4 · นำเข้า</button>
+    <button data-tab="history">ประวัติ / ย้อนกลับ</button>
+  </nav>
+</header>
+<main class="wrap">
+<div id="globalMsg" class="banner"></div>
+
+<!-- ============ Settings ============ -->
+<section class="tab active" id="tab-settings">
+  <div class="tabhead"><div class="eyebrow">ตั้งค่า</div><h2>ข้อมูลบริษัท <span>ตั้งครั้งเดียว ใช้ได้ทุกขั้นตอน</span></h2></div>
+  <div class="card">
+    <div class="row">
+      <select id="setProfileList" style="min-width:200px" aria-label="บริษัทที่จะแก้"></select>
+      <button id="btnAddProfile">+ เพิ่มบริษัท</button>
+      <button class="pri" id="btnSaveProfiles">บันทึก</button>
+    </div>
+    <div class="hint">เลือกบริษัทที่จะแก้ไข แก้ค่าแล้วกด "บันทึก"</div>
+    <div class="grid2" id="profileForm">
+      <label class="f">ชื่อเรียก<input type="text" data-k="name"></label>
+      <label class="f">ชนิดฐานข้อมูล<select data-k="engine"><option>HANA</option><option>MSSQL</option></select></label>
+      <label class="f">ที่อยู่เซิร์ฟเวอร์<input type="text" data-k="server"></label>
+      <label class="f">ชื่อบริษัทในระบบ (Company DB)<input type="text" data-k="companyDb"></label>
+      <label class="f">ชื่อผู้ใช้<input type="text" data-k="user"></label>
+      <label class="f">ไฟล์รายการ Excel<span class="row" style="margin:0"><input type="text" data-k="mapPath" style="flex:1"><button data-pick="mapPath" data-mode="xlsx">...</button></span></label>
+    </div>
+    <h3 style="margin-top:14px">รหัสผ่านฐานข้อมูล</h3>
+    <div class="row">
+      <span id="pwState" class="pill"></span>
+      <input type="password" id="pwInput" placeholder="รหัสผ่านใหม่" autocomplete="new-password">
+      <button id="btnSetPw">บันทึกรหัสผ่าน</button>
+    </div>
+    <div class="hint">รหัสผ่านถูกเข้ารหัสเก็บในเครื่องนี้ทันที ไม่แสดงในหน้าเว็บ (บริษัทใหม่ให้กด "บันทึก" ก่อน)</div>
+    <details class="adv" data-adv="settings"><summary>ตัวเลือกขั้นสูง</summary>
+      <div class="row"><button id="btnDelProfile" class="danger">ลบบริษัทนี้</button><button id="btnReloadProfiles">โหลดใหม่</button></div>
+      <div class="grid2">
+        <label class="f">Port<input type="number" data-k="port"></label>
+        <label class="f">Author (ชื่อผู้นำเข้าที่บันทึกในระบบ)<input type="text" data-k="author"></label>
+        <label class="f">โฟลเดอร์หลักของไฟล์ (rptRoot)<span class="row" style="margin:0"><input type="text" data-k="rptRoot" style="flex:1"><button data-pick="rptRoot" data-mode="folder">...</button></span></label>
+        <label class="f">ถ้าชื่อซ้ำ (onDuplicate)<select data-k="onDuplicate"><option value="Update">เขียนทับของเดิม (Update)</option><option value="Skip">ข้าม (Skip)</option><option value="Insert">เพิ่มเป็นอันใหม่ (Insert)</option></select></label>
+        <label class="f">ทดลองก่อนเป็นค่าเริ่มต้น (dryRun)<select data-k="dryRun"><option value="true">ใช่</option><option value="false">ไม่</option></select></label>
+      </div>
+      <h3 style="margin-top:14px">ปลายทางเปลี่ยนการเชื่อมต่อ (locationTarget)</h3>
+      <div class="grid2" id="targetForm">
+        <label class="f">Engine<select data-t="engine"><option>HANA</option><option>MSSQL</option></select></label>
+        <label class="f">Server<input type="text" data-t="server"></label>
+        <label class="f">Database<input type="text" data-t="database"></label>
+        <label class="f">User<input type="text" data-t="user"></label>
+        <label class="f">DSN<input type="text" data-t="dsn"></label>
+      </div>
+    </details>
+  </div>
+</section>
+
+<!-- ============ 1. Export ============ -->
+<section class="tab" id="tab-export">
+  <div class="tabhead"><div class="eyebrow">ขั้นที่ 1</div><h2>ส่งออกแบบฟอร์มพิมพ์ <span>ดึงแบบฟอร์มจากบริษัทต้นทางออกมาเป็นไฟล์</span></h2></div>
+  <div class="card">
+    <div class="row">
+      <input type="text" id="exQ" placeholder="ค้นชื่อแบบฟอร์ม (ไม่ใส่ = ทั้งหมด)" style="width:260px">
+      <button class="pri" id="btnListRdoc">แสดงรายการ</button>
+      <span id="exCount" class="muted"></span>
+    </div>
+    <div class="hint">ดึงรายชื่อแบบฟอร์มพิมพ์ของบริษัทที่เลือก แล้วติ๊กอันที่ต้องการ</div>
+    <div class="tblwrap"><table id="exTable" class="hidecodes"><thead><tr><th><input type="checkbox" id="exAll" aria-label="เลือกทั้งหมด"></th><th class="code">DocCode</th><th>ชื่อแบบฟอร์ม</th><th class="code">TypeCode</th><th>ผู้สร้าง</th><th class="code">System</th><th class="code">Size</th></tr></thead><tbody></tbody></table></div>
+    <div class="row" style="margin-top:10px">
+      <button class="pri" id="btnExport">ส่งออกที่ติ๊ก</button>
+      <button class="danger stopbtn" hidden>หยุด</button>
+    </div>
+    <div class="hint">บันทึกเป็นไฟล์ลงโฟลเดอร์ของบริษัทนี้ ไฟล์เดิมในโฟลเดอร์จะไม่ถูกลบ</div>
+    <details class="adv" data-adv="export"><summary>ตัวเลือกขั้นสูง</summary>
+      <div class="row">
+        <input type="text" id="exType" placeholder="TypeCode เช่น INV2" style="width:150px">
+        <label><input type="checkbox" id="exSys"> รวม System layout</label>
+        <label><input type="checkbox" id="exShowCodes"> แสดงคอลัมน์ DocCode/TypeCode</label>
+      </div>
+      <label class="f">โฟลเดอร์ปลายทาง (ว่าง = rptRoot\companyDb)<span class="row" style="margin:0"><input type="text" id="exOut" style="flex:1"><button data-pickid="exOut" data-mode="folder">...</button></span></label>
+    </details>
+    <div id="exResult"></div>
+  </div>
+</section>
+
+<!-- ============ 2. Set Location ============ -->
+<section class="tab" id="tab-setloc">
+  <div class="tabhead"><div class="eyebrow">ขั้นที่ 2</div><h2>เปลี่ยนการเชื่อมต่อของไฟล์ <span>ให้แบบฟอร์มดึงข้อมูลจากฐานข้อมูลปลายทาง</span></h2></div>
+  <div class="card">
+    <h3>ไฟล์ที่จะเปลี่ยน</h3>
+    <div class="row"><button class="cmd" data-native="files" data-target="sl">+ เลือกไฟล์</button><button class="cmd" data-native="folder" data-target="sl">+ เลือกทั้งโฟลเดอร์</button><button id="btnSlFromExport">ใช้ไฟล์ที่เพิ่งส่งออก</button></div>
+    <div class="drop" data-drop="sl">หรือลากไฟล์ .rpt / โฟลเดอร์มาวางที่นี่</div>
+    <div id="slList" class="pathlist"></div>
+  </div>
+  <div class="card">
+    <h3>เชื่อมต่อไปที่</h3>
+    <div class="row"><button id="btnSlHistory">โหลดรายการการเชื่อมต่อ</button><select id="slHist" style="min-width:260px"><option value="">-- เลือกการเชื่อมต่อ --</option></select></div>
+    <div class="hint">รายการนี้มาจากการเชื่อมต่อที่เคยใช้ในโปรแกรม Crystal ของเครื่องนี้ (ฐานข้อมูล HANA ต้องเลือกจากรายการนี้)</div>
+    <div class="row" style="margin-top:8px">
+      <label><input type="checkbox" id="slTestOnly" checked> ทดลองก่อน ยังไม่แก้ไฟล์จริง</label>
+      <button class="pri" id="btnSlRun">เริ่มเปลี่ยนการเชื่อมต่อ</button>
+      <button class="danger stopbtn" hidden>หยุด</button>
+    </div>
+    <div class="hint">ติ๊ก "ทดลองก่อน" ไว้เพื่อดูผลโดยไฟล์ไม่เปลี่ยน เอาติ๊กออกเมื่อพร้อมแก้จริง (มีสำรองไฟล์ให้อัตโนมัติ)</div>
+    <details class="adv" data-adv="setloc"><summary>ตัวเลือกขั้นสูง</summary>
+      <div class="row"><button data-addlist="slFiles" data-mode="folder">เรียกดูโฟลเดอร์ในหน้าเว็บ...</button><input type="text" id="slManual" placeholder="พิมพ์ path แล้วกดเพิ่ม" style="flex:1"><button id="btnSlManual">เพิ่ม</button><button id="btnSlClear">ล้างรายการ</button></div>
+      <div class="muted">โฟลเดอร์จะรวมโฟลเดอร์ย่อยทั้งหมดเสมอ · ไฟล์ที่ลากวางจะถูกคัดลอกไปที่ staging\ และแก้ที่สำเนานั้น</div>
+      <div class="row"><button id="btnSlFromProfile">ใช้ค่าจากบริษัท</button></div>
+      <div class="grid2">
+        <label class="f">Engine<select id="slEngine"><option>HANA</option><option>MSSQL</option></select></label>
+        <label class="f">Server<input type="text" id="slServer"></label>
+        <label class="f">Database<input type="text" id="slDb"></label>
+        <label class="f">User<input type="text" id="slUser"></label>
+        <label class="f">DSN / connection<input type="text" id="slDsn"></label>
+        <label class="f">useHistory (เลขจากรายการ)<input type="text" id="slUseHist" placeholder="ว่าง = ไม่ใช้"></label>
+        <label class="f">รหัสผ่านจาก<select id="slPwMode"><option value="profile">บริษัทที่บันทึกรหัสไว้ (target.profile)</option><option value="typed">พิมพ์เอง</option><option value="none">ไม่ใช้</option></select></label>
+        <label class="f" id="slPwProfWrap">บริษัทที่มีรหัส<select id="slPwProfile"></select></label>
+        <label class="f" id="slPwWrap" style="display:none">รหัสผ่าน<input type="password" id="slPw" autocomplete="new-password"></label>
+      </div>
+      <div class="row"><label><input type="checkbox" id="slBackup" checked> สำรองไฟล์ก่อนแก้ (backup)</label></div>
+    </details>
+    <div id="slWarn" class="banner"></div>
+    <div id="slResult"></div>
+  </div>
+</section>
+
+<!-- ============ 3. Import Map ============ -->
+<section class="tab" id="tab-map">
+  <div class="tabhead"><div class="eyebrow">ขั้นที่ 3</div><h2>จัดรายการที่จะนำเข้า <span>เพิ่มไฟล์ ติ๊กอันที่จะนำเข้ารอบนี้ แล้วบันทึก</span></h2></div>
+  <div class="card mint">
+    <div class="row">
+      <button class="pri" id="btnMapRead">เปิดรายการเดิม</button>
+      <button data-native="files" data-target="map">+ เพิ่มไฟล์</button>
+      <button data-native="folder" data-target="map">+ เพิ่มทั้งโฟลเดอร์</button>
+    </div>
+    <div class="hint">"เปิดรายการเดิม" อ่านไฟล์ Excel ของบริษัทนี้ · "เพิ่มไฟล์/โฟลเดอร์" ใส่ไฟล์ใหม่เป็นแถวและติ๊กให้อัตโนมัติ</div>
+    <div class="drop" data-drop="map">หรือลากไฟล์ .rpt / โฟลเดอร์มาวางที่นี่</div>
+    <div class="row"><input type="text" id="mapFilter" placeholder="ค้นในรายการ"><button id="btnMapTickAll">ติ๊กที่เห็นทั้งหมด</button><button id="btnMapUntick">เอาติ๊กออกทั้งหมด</button><span id="mapCount" class="muted"></span></div>
+    <div class="tblwrap" style="max-height:480px"><table id="mapTable"><thead></thead><tbody></tbody></table></div>
+    <div class="hint">แถวสีแดง = ยังไม่รู้ว่าเป็นเอกสารชนิดไหน ต้องแก้ช่อง Object_Type ก่อนนำเข้า (แก้ในตารางได้เลย)</div>
+    <div class="row" style="margin-top:10px">
+      <button class="pri" id="btnMapSave">บันทึกรายการ</button>
+      <button id="btnMapToImport">ไปขั้นนำเข้า →</button>
+    </div>
+    <div class="hint">บันทึกลงไฟล์ Excel (สำรองไฟล์เดิมให้อัตโนมัติ) และสร้างไฟล์รอบนี้จากแถวที่ติ๊ก</div>
+    <details class="adv" data-adv="map"><summary>ตัวเลือกขั้นสูง</summary>
+      <label class="f">ไฟล์ Excel รายการ (mapPath)<span class="row" style="margin:0"><input type="text" id="mapPath" style="flex:1"><button data-pickid="mapPath" data-mode="xlsx">...</button></span></label>
+      <div class="row" style="margin-top:8px">
+        <label class="f" style="flex:1">Scan โฟลเดอร์ (พิมพ์ path)<span class="row" style="margin:0"><input type="text" id="mapScanDir" style="flex:1"><button data-pickid="mapScanDir" data-mode="folder">...</button></span></label>
+        <label class="f" style="flex:1">_ExportIndex.csv (ไม่บังคับ)<input type="text" id="mapIndexCsv"></label>
+        <button id="btnMapScan">Scan</button>
+      </div>
+      <label class="f">โฟลเดอร์ไฟล์รอบ Round_*.xlsx (ว่าง = โฟลเดอร์เดียวกับไฟล์ Excel)<input type="text" id="mapRoundDir"></label>
+    </details>
+    <div id="mapResult"></div>
+  </div>
+</section>
+
+<!-- ============ 4. Import ============ -->
+<section class="tab" id="tab-import">
+  <div class="tabhead"><div class="eyebrow">ขั้นที่ 4</div><h2>นำเข้าแบบฟอร์มเข้าบริษัท <span>ดูตัวอย่างก่อน แล้วค่อยยืนยันนำเข้าจริง</span></h2></div>
+  <div class="card">
+    <div class="row">
+      <button class="pri" id="btnDryRun">ดูตัวอย่างการนำเข้า</button>
+      <button class="danger" id="btnImportReal" hidden>ยืนยันนำเข้าจริง</button>
+      <button class="danger stopbtn" hidden>หยุด</button>
+      <span id="imCount" class="muted"></span>
+    </div>
+    <div class="hint" id="imHint">ขั้นแรกดูก่อนว่าจะเพิ่มใหม่ / เขียนทับ / ข้าม อันไหนบ้าง ยังไม่มีอะไรเปลี่ยนในระบบ</div>
+    <div class="tblwrap" style="margin-top:8px"><table id="imTable"><thead><tr><th>#</th><th>ไฟล์</th><th>โฟลเดอร์</th><th>ชนิดเอกสาร</th><th>ชื่อที่จะใช้</th><th>ผล</th><th>หมายเหตุ</th></tr></thead><tbody></tbody></table></div>
+    <div id="imResult"></div>
+    <details class="adv" data-adv="import"><summary>ตัวเลือกขั้นสูง</summary>
+      <div class="row">
+        <label>ถ้าชื่อซ้ำ <select id="imDup"><option value="Update">เขียนทับของเดิม (Update)</option><option value="Skip">ข้าม (Skip)</option><option value="Insert">เพิ่มเป็นอันใหม่ (Insert)</option></select></label>
+        <button id="btnPrecheck">ตรวจเบื้องต้น (Precheck)</button>
+      </div>
+      <div class="muted">ดูตัวอย่าง = DryRun (ไม่เขียนฐานข้อมูล) · นำเข้าจริงจะสำรองข้อมูลก่อนเสมอและต้องพิมพ์ชื่อ Company DB ยืนยัน · ระบบไม่แตะแบบฟอร์มมาตรฐานของ SAP (System layout)</div>
+    </details>
+  </div>
+</section>
+
+<!-- ============ History / Undo ============ -->
+<section class="tab" id="tab-history">
+  <div class="tabhead"><div class="eyebrow">ประวัติ</div><h2>ประวัติและย้อนกลับ <span>ย้อนการนำเข้าที่ทำไปแล้ว</span></h2></div>
+  <div class="card">
+    <h3>การนำเข้าที่ผ่านมา</h3>
+    <div class="row"><button class="pri" id="btnBatches">แสดงรายการ</button><button class="danger stopbtn" hidden>หยุด</button></div>
+    <div class="hint">แต่ละแถวคือการนำเข้าหนึ่งครั้ง กด "ย้อนการนำเข้านี้" เพื่อลบแบบฟอร์มที่เพิ่มเข้าไปและคืนค่าแบบฟอร์มที่ถูกเขียนทับ</div>
+    <div class="tblwrap" style="max-height:260px"><table id="batchTable"><thead><tr><th>เวลา</th><th>บริษัท</th><th>เพิ่มใหม่</th><th>เขียนทับ</th><th>สถานะ</th><th></th></tr></thead><tbody></tbody></table></div>
+    <div id="batchDetail"></div>
+    <div id="undoBox"></div>
+  </div>
+  <div class="card mint" id="pipelineCard">
+    <h3>ทำทุกขั้นต่อกัน</h3>
+    <div class="hint">ใช้ค่าที่ตั้งไว้ในแต่ละขั้นตอน รันเรียงกัน หยุดทันทีถ้าขั้นใดไม่ผ่าน (การนำเข้าในโหมดนี้เป็นแค่ดูตัวอย่างเสมอ)</div>
+    <div class="row" style="margin-top:6px">
+      <label><input type="checkbox" id="pExport" checked> 1 ส่งออก</label>
+      <label><input type="checkbox" id="pSetloc" checked> 2 เปลี่ยนการเชื่อมต่อ</label>
+      <label><input type="checkbox" id="pPrecheck" checked> ตรวจเบื้องต้น</label>
+      <label><input type="checkbox" id="pDry" checked> 4 ดูตัวอย่างนำเข้า</label>
+      <button class="pri" id="btnPipeline">เริ่ม</button>
+      <button class="danger stopbtn" hidden>หยุด</button>
+    </div>
+    <div id="pResult"></div>
+  </div>
+  <details class="adv card" data-adv="history"><summary>ตัวเลือกขั้นสูง: งานที่รัน / สำรองข้อมูล / Rollback</summary>
+    <h3>งานที่รัน (jobs)</h3>
+    <div class="row"><button id="btnJobs">รีเฟรช</button></div>
+    <div class="tblwrap" style="max-height:260px"><table id="jobTable"><thead><tr><th>jobId</th><th>tool</th><th>action</th><th>status</th><th>เริ่ม</th><th>จบ</th><th></th></tr></thead><tbody></tbody></table></div>
+    <h3 style="margin-top:14px">Backup RDOC / Rollback</h3>
+    <div class="row"><button id="btnBackups">โหลดรายการ backup</button><button id="btnBackupNow">Backup ตอนนี้</button><button class="danger stopbtn" hidden>หยุด</button></div>
+    <div class="tblwrap" style="max-height:220px"><table id="bkTable"><thead><tr><th></th><th>backupId</th><th>เวลา</th><th>profile</th><th>rows</th><th>path</th></tr></thead><tbody></tbody></table></div>
+    <div class="row" style="margin-top:8px">
+      <label class="f" style="flex:1">DocCode ที่จะย้อน (คั่นด้วย , ว่าง = ทั้งหมดใน backup ตามที่ lib กำหนด)<input type="text" id="rbCodes"></label>
+      <button id="btnRbDry">Rollback (DryRun)</button>
+      <button class="danger" id="btnRbReal">Rollback จริง</button>
+    </div>
+    <div id="rbResult"></div>
+  </details>
+</section>
+</main>
+
+<div id="logPanel" class="min">
+  <div id="logHead"><i id="logDot"></i><span class="eyebrow">บันทึกการทำงาน</span><span id="logJob" class="muted"></span><span style="flex:1"></span><button class="danger stopbtn" hidden>หยุด</button><button id="btnLogClear">ล้าง</button><button id="btnLogMin">แสดง/ซ่อน</button></div>
+  <div id="logBody"></div>
+</div>
+
+<div class="modal" id="brModal"><div class="box">
+  <div class="row"><b id="brTitle">เลือก</b><span style="flex:1"></span><button id="brClose">ปิด</button></div>
+  <div class="row"><button id="brUp">ขึ้น</button><input type="text" id="brPath" style="flex:1"><button id="brGo">ไป</button></div>
+  <div id="brList"></div>
+  <div class="row"><span class="muted" id="brHint"></span><span style="flex:1"></span><button class="pri" id="brPickDir">เลือกโฟลเดอร์นี้</button></div>
+</div></div>
+
+<script>
+'use strict';
+const $ = s => document.querySelector(s);
+const $$ = s => Array.from(document.querySelectorAll(s));
+const esc = v => String(v ?? '').replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const MAP_COLS = ['No','Module','RPT_FileName','RPT_FolderPath','SAP_Document','Header_Table','Line_Table','Object_Type','Form_MenuUID','LayoutName_Suggest','Note'];
+const S = { profiles: [], editIdx: -1, exRows: [], lastExportDir: '', mapRows: [], imRows: [], busy: false };
+
+function msg(text, kind) { const b = $('#globalMsg'); b.className = 'banner ' + (kind || 'info'); b.textContent = text; if (!text) b.className = 'banner'; }
+function logLine(t) { const lb = $('#logBody'); lb.textContent += t + '\n'; lb.scrollTop = lb.scrollHeight; }
+
+async function api(method, url, body) {
+  const r = await fetch(url, { method, headers: body ? { 'Content-Type': 'application/json' } : {}, body: body ? JSON.stringify(body) : undefined });
+  const t = await r.text();
+  try { return JSON.parse(t); } catch (e) { return { ok: false, error: 'HTTP ' + r.status + ': ' + t.slice(0, 300) }; }
+}
+const curProfile = () => S.profiles.find(p => p.name === $('#profileSel').value) || null;
+
+// run a lib action async with live log; resolves with RESULT json
+async function run(tool, action, args, label) {
+  if (S.busy) { msg('มีงานกำลังรันอยู่ รอให้เสร็จก่อน', 'warn'); return null; }
+  S.busy = true; msg(''); $('#logDot').classList.add('live');
+  try {
+    const st = await api('POST', '/api/run', { tool, action, args, async: true });
+    if (!st.jobId) { msg('เริ่มงานไม่ได้: ' + (st.error || ''), 'err'); return st; }
+    return await follow(st.jobId, label || (tool + ' ' + action));
+  } finally { S.busy = false; $('#logDot').classList.remove('live'); }
+}
+// Stop buttons: shown only while a job is running
+function setRunning(jobId) {
+  S.curJob = jobId || null;
+  $$('.stopbtn').forEach(b => { b.hidden = !jobId; b.disabled = false; });
+}
+document.addEventListener('click', async e => {
+  const b = e.target.closest('.stopbtn'); if (!b || !S.curJob) return;
+  if (!confirm('หยุดงานที่กำลังทำอยู่?\nรายการที่เสร็จแล้วจะคงอยู่ รายการที่เหลือจะไม่ถูกทำ')) return;
+  $$('.stopbtn').forEach(x => x.disabled = true);
+  const r = await api('POST', '/api/jobs/' + S.curJob + '/cancel', {});
+  if (!r.ok) { msg('หยุดไม่ได้: ' + (r.error || ''), 'warn'); $$('.stopbtn').forEach(x => x.disabled = false); }
+});
+// table of items finished before cancel (+ remaining count when total known)
+function showCancelled(res, box, total) {
+  const items = res.completedItems || [];
+  const left = typeof total === 'number' ? Math.max(0, total - items.length) : null;
+  box.innerHTML = `<div class="cancelled"><b class="wn">ยกเลิกแล้ว</b> · ทำเสร็จก่อนหยุด ${items.length} รายการ${left !== null ? ` · ยังไม่ได้ทำ ${left} รายการ` : ''}` +
+    (items.length ? tbl(['รายการ', 'ผล', 'หมายเหตุ'], items.map(i => [i.key ?? '', okTxt(i.ok), i.msg ?? ''])) : '<p class="muted">ไม่มีรายการที่เสร็จ (ไม่มีการเปลี่ยนแปลง)</p>') + '</div>';
+}
+async function follow(jobId, label) {
+  setRunning(jobId);
+  $('#logJob').textContent = label + ' · ' + jobId;
+  logLine('---- ' + label + ' (' + jobId + ') ----');
+  let from = 0, status = 'running';
+  while (status === 'running') {
+    await new Promise(r => setTimeout(r, 600));
+    const l = await api('GET', '/api/jobs/' + jobId + '/log?from=' + from);
+    (l.lines || []).forEach(logLine);
+    if (typeof l.next === 'number') from = l.next;
+    status = l.status || 'failed';
+  }
+  const l2 = await api('GET', '/api/jobs/' + jobId + '/log?from=' + from); (l2.lines || []).forEach(logLine);
+  const j = await api('GET', '/api/jobs/' + jobId);
+  setRunning(null);
+  const res = j.result || { ok: false, error: 'ไม่มีผลลัพธ์' };
+  if (j.status === 'cancelled') { res.cancelled = true; res.completedItems = j.completedItems || []; msg(label + ': ยกเลิกแล้วตามที่สั่ง', 'warn'); return res; }
+  if (!res.ok) msg(label + ' ไม่สำเร็จ: ' + (res.error || ''), 'err');
+  return res;
+}
+
+/* ---------- tabs ---------- */
+function showTab(name) { $$('#tabs button, #steps button').forEach(b => b.classList.toggle('active', b.dataset.tab === name)); $$('section.tab').forEach(s => s.classList.toggle('active', s.id === 'tab-' + name)); }
+$$('#tabs button, #steps button').forEach(b => b.onclick = () => showTab(b.dataset.tab));
+// remember open/closed state of each "advanced" accordion
+$$('details.adv').forEach(d => {
+  const k = 'rpt.adv.' + d.dataset.adv;
+  try { if (localStorage.getItem(k) === '1') d.open = true; } catch (e) {}
+  d.addEventListener('toggle', () => { try { localStorage.setItem(k, d.open ? '1' : '0'); } catch (e) {} });
+});
+$('#exShowCodes').onchange = e => $('#exTable').classList.toggle('hidecodes', !e.target.checked);
+$('#btnGoPipeline').onclick = () => { showTab('history'); $('#pipelineCard').scrollIntoView(); };
+$('#btnLogClear').onclick = () => $('#logBody').textContent = '';
+$('#btnLogMin').onclick = () => $('#logPanel').classList.toggle('min');
+
+/* ---------- profiles ---------- */
+async function loadProfiles() {
+  const r = await api('GET', '/api/profiles');
+  if (!r.ok) { msg('โหลดโปรไฟล์ไม่ได้: ' + (r.error || ''), 'err'); return; }
+  S.profiles = (r.data && r.data.profiles) || [];
+  renderProfiles();
+}
+function renderProfiles(keepSel) {
+  let saved = ''; try { saved = localStorage.getItem('rpt.profile') || ''; } catch (e) {}
+  const prev = keepSel || $('#profileSel').value || saved;
+  const opts = S.profiles.map(p => `<option>${esc(p.name)}</option>`).join('');
+  $('#profileSel').innerHTML = opts; $('#setProfileList').innerHTML = opts;
+  $('#slPwProfile').innerHTML = S.profiles.filter(p => p.hasPassword).map(p => `<option>${esc(p.name)}</option>`).join('');
+  if (S.profiles.some(p => p.name === prev)) $('#profileSel').value = prev;
+  $('#setProfileList').value = $('#profileSel').value;
+  S.editIdx = S.profiles.findIndex(p => p.name === $('#setProfileList').value);
+  fillForm(); onProfileChange();
+}
+function fillForm() {
+  const p = S.profiles[S.editIdx] || {};
+  $$('#tab-settings [data-k]').forEach(el => { const v = p[el.dataset.k]; el.value = v === undefined || v === null ? '' : String(v); });
+  const t = p.locationTarget || {};
+  $$('#targetForm [data-t]').forEach(el => el.value = t[el.dataset.t] ?? '');
+  $('#pwState').textContent = p.hasPassword ? 'มีรหัสผ่านแล้ว' : 'ยังไม่มีรหัสผ่าน';
+  $('#pwState').className = 'pill ' + (p.hasPassword ? 'ok' : 'wn');
+}
+function readForm() {
+  const p = S.profiles[S.editIdx]; if (!p) return;
+  $$('#tab-settings [data-k]').forEach(el => {
+    const k = el.dataset.k; let v = el.value;
+    if (k === 'port') v = v === '' ? null : Number(v);
+    if (k === 'dryRun') v = v === 'true';
+    p[k] = v;
+  });
+  p.locationTarget = p.locationTarget || {};
+  $$('#targetForm [data-t]').forEach(el => p.locationTarget[el.dataset.t] = el.value);
+}
+$$('#tab-settings [data-k], #targetForm [data-t]').forEach(el => el.addEventListener('change', readForm));
+$('#setProfileList').onchange = () => { readForm(); S.editIdx = S.profiles.findIndex(p => p.name === $('#setProfileList').value); fillForm(); };
+$('#btnAddProfile').onclick = () => {
+  readForm();
+  let n = 'NewProfile', i = 1; while (S.profiles.some(p => p.name === n)) n = 'NewProfile' + (++i);
+  S.profiles.push({ name: n, engine: 'HANA', server: '', port: 30015, companyDb: '', user: '', hasPassword: false, author: '', rptRoot: '', mapPath: '', onDuplicate: 'Update', dryRun: true, locationTarget: { engine: 'HANA', server: '', database: '', user: '', dsn: '' } });
+  renderProfiles(n); $('#setProfileList').value = n; S.editIdx = S.profiles.length - 1; fillForm();
+  msg('เพิ่มโปรไฟล์แล้ว แก้ค่าแล้วกด "บันทึกทั้งหมด"', 'info');
+};
+$('#btnDelProfile').onclick = () => {
+  const p = S.profiles[S.editIdx]; if (!p) return;
+  if (!confirm('ลบโปรไฟล์ "' + p.name + '" ออกจากรายการ? (มีผลเมื่อกดบันทึกทั้งหมด)')) return;
+  S.profiles.splice(S.editIdx, 1); renderProfiles();
+};
+$('#btnReloadProfiles').onclick = loadProfiles;
+$('#btnSaveProfiles').onclick = async () => {
+  readForm();
+  const names = S.profiles.map(p => (p.name || '').trim());
+  if (names.some(n => !n) || new Set(names).size !== names.length) { msg('ชื่อโปรไฟล์ต้องไม่ว่างและไม่ซ้ำ', 'err'); return; }
+  const r = await api('POST', '/api/profiles', { profiles: S.profiles });
+  if (r.ok) { msg('บันทึกโปรไฟล์แล้ว', 'info'); const keep = S.profiles[S.editIdx]?.name; await loadProfiles(); renderProfiles(keep); }
+  else msg('บันทึกไม่สำเร็จ: ' + (r.error || ''), 'err');
+};
+$('#btnSetPw').onclick = async () => {
+  const p = S.profiles[S.editIdx]; const pw = $('#pwInput').value;
+  if (!p || !pw) { msg('เลือกโปรไฟล์และพิมพ์รหัสผ่าน', 'warn'); return; }
+  const r = await api('POST', '/api/profiles/password', { profile: p.name, password: pw });
+  $('#pwInput').value = '';
+  if (r.ok) { msg('บันทึกรหัสผ่านของ ' + p.name + ' แล้ว', 'info'); const keep = p.name; await loadProfiles(); renderProfiles(keep); }
+  else msg('บันทึกรหัสผ่านไม่สำเร็จ: ' + (r.error || ''), 'err');
+};
+function onProfileChange() {
+  const p = curProfile();
+  try { localStorage.setItem('rpt.profile', $('#profileSel').value); } catch (e) {}
+  $('#connStatus').textContent = p ? `${p.engine} · ${p.server} · ${p.companyDb}` : 'ยังไม่มีโปรไฟล์';
+  if (!p) return;
+  $('#exOut').placeholder = (p.rptRoot ? p.rptRoot.replace(/\\$/, '') + '\\' : '') + (p.companyDb || '');
+  if (!$('#mapPath').value) $('#mapPath').value = p.mapPath || '';
+  $('#imDup').value = p.onDuplicate || 'Update';
+}
+$('#profileSel').onchange = () => { $('#mapPath').value = ''; onProfileChange(); };
+$('#btnTestConn').onclick = async () => {
+  const p = curProfile(); if (!p) return;
+  $('#connStatus').textContent = 'กำลังทดสอบ...';
+  const r = await run('rdoc', 'TestConnection', { profile: p.name }, 'TestConnection');
+  if (r && r.ok) $('#connStatus').innerHTML = `<span class="ok">เชื่อมต่อได้</span> · ${esc(r.data.server)} · ${esc(r.data.db)} · RDOC ${esc(r.data.rdocCount)} รายการ`;
+  else { $('#connStatus').innerHTML = `<span class="bad">เชื่อมต่อไม่ได้</span> · ${esc(p.name)} (${esc(p.engine)} ${esc(p.server)})`; msg(`เชื่อมต่อ ${p.name} ไม่ได้: ${(r && r.error) || ''} - ตรวจว่าเครื่องนี้เข้าถึง ${p.server} ได้ (VPN / firewall / ชื่อ instance)`, 'err'); }
+};
+
+/* ---------- export ---------- */
+$('#btnListRdoc').onclick = async () => {
+  const p = curProfile(); if (!p) return;
+  const args = { profile: p.name, includeSystem: $('#exSys').checked };
+  if ($('#exType').value.trim()) args.typeCode = $('#exType').value.trim();
+  if ($('#exQ').value.trim()) args.q = $('#exQ').value.trim();
+  const r = await run('rdoc', 'ListRdoc', args, 'ListRdoc');
+  if (!r || !r.ok) return;
+  S.exRows = (r.data && r.data.rows) || [];
+  $('#exTable tbody').innerHTML = S.exRows.map((x, i) => `<tr><td><input type="checkbox" data-i="${i}" ${x.IsSystem && x.IsSystem !== 'N' ? 'disabled' : ''}></td><td class="code">${esc(x.DocCode)}</td><td>${esc(x.DocName)}</td><td class="code">${esc(x.TypeCode)}</td><td>${esc(x.Author)}</td><td class="code">${esc(x.IsSystem)}</td><td class="code">${esc(x.Size)}</td></tr>`).join('');
+  $('#exCount').textContent = S.exRows.length + ' รายการ';
+};
+$('#exAll').onchange = e => $$('#exTable tbody input:not(:disabled)').forEach(c => c.checked = e.target.checked);
+const exSelected = () => $$('#exTable tbody input:checked').map(c => S.exRows[+c.dataset.i].DocCode);
+function exportArgs() {
+  const p = curProfile(); const a = { profile: p.name, docCodes: exSelected() };
+  if ($('#exOut').value.trim()) a.outDir = $('#exOut').value.trim();
+  return a;
+}
+$('#btnExport').onclick = async () => {
+  const p = curProfile(); if (!p) return;
+  const a = exportArgs(); if (!a.docCodes.length) { msg('ยังไม่ได้ติ๊กแบบฟอร์ม', 'warn'); return; }
+  const r = await run('rdoc', 'Export', a, 'ส่งออก');
+  if (r && r.cancelled) { showCancelled(r, $('#exResult'), a.docCodes.length); return; }
+  if (!r || !r.ok) return;
+  S.lastExportDir = r.data.outDir || '';
+  const files = r.data.files || [];
+  $('#exResult').innerHTML = `<p class="ok">ส่งออกแล้ว ${files.filter(f => f.ok).length}/${files.length} ไฟล์</p><p>บันทึกที่: <b>${esc(r.data.outDir)}</b></p>` + tbl(['รหัส', 'ไฟล์', 'ผล', 'หมายเหตุ'], files.map(f => [f.docCode, f.file, okTxt(f.ok), f.msg]));
+  if (r.data.indexCsv) $('#mapIndexCsv').value = r.data.indexCsv;
+  if (S.lastExportDir) $('#mapScanDir').value = S.lastExportDir;
+};
+const okTxt = v => v ? '<span class="ok">OK</span>' : '<span class="bad">ไม่ผ่าน</span>';
+function tbl(heads, rows) { return `<div class="tblwrap" style="margin-top:6px"><table><thead><tr>${heads.map(h => `<th>${esc(h)}</th>`).join('')}</tr></thead><tbody>${rows.map(r => `<tr>${r.map((c, i) => `<td>${typeof c === 'string' && c.startsWith('<span') ? c : esc(c)}</td>`).join('')}</tr>`).join('')}</tbody></table></div>`; }
+
+/* ---------- set location ---------- */
+$('#btnSlFromExport').onclick = () => { if (S.lastExportDir) addLine('slFiles', S.lastExportDir); else msg('ยังไม่มี Export ในรอบนี้', 'warn'); };
+// Set Location path list (folderOrFiles[])
+S.slItems = [];
+function addLine(id, v) { v = String(v || '').trim(); if (v && !S.slItems.some(x => x.toLowerCase() === v.toLowerCase())) S.slItems.push(v); renderSl(); }
+function renderSl() {
+  $('#slList').innerHTML = S.slItems.length ? S.slItems.map((p, i) => `<div><span class="pill">${/\.rpt$/i.test(p) ? 'ไฟล์' : 'โฟลเดอร์'}</span><code>${esc(p)}</code><button data-rm="${i}" title="ลบออก">ลบ</button></div>`).join('') : '<div class="muted">ยังไม่มีรายการ</div>';
+}
+$('#slList').addEventListener('click', e => { const i = e.target.dataset && e.target.dataset.rm; if (i !== undefined) { S.slItems.splice(+i, 1); renderSl(); } });
+$('#btnSlManual').onclick = () => { addLine('slFiles', $('#slManual').value); $('#slManual').value = ''; };
+$('#btnSlClear').onclick = () => { S.slItems = []; renderSl(); };
+renderSl();
+$('#slPwMode').onchange = () => { const m = $('#slPwMode').value; $('#slPwProfWrap').style.display = m === 'profile' ? '' : 'none'; $('#slPwWrap').style.display = m === 'typed' ? '' : 'none'; };
+$('#btnSlFromProfile').onclick = () => {
+  const p = curProfile(); if (!p) return; const t = p.locationTarget || {};
+  $('#slEngine').value = t.engine || p.engine; $('#slServer').value = t.server || ''; $('#slDb').value = t.database || ''; $('#slUser').value = t.user || ''; $('#slDsn').value = t.dsn || '';
+};
+let slHistItems = [];
+// ListHistory items: {index (1-based, null = unusable), name, engine, server, database, user, usable, note}
+$('#btnSlHistory').onclick = async () => {
+  const r = await run('setloc', 'ListHistory', {}, 'ListHistory'); if (!r || !r.ok) return;
+  slHistItems = ((r.data && r.data.items) || []).filter(h => h && h.usable && h.index);
+  $('#slHist').innerHTML = '<option value="">-- ไม่ใช้ history (MSSQL เท่านั้น) · ใช้ได้ ' + slHistItems.length + ' รายการ --</option>' + slHistItems.map((h, i) => `<option value="${i}">#${esc(h.index)} · ${esc(h.engine || '?')} · ${esc(h.server || '')} · ${esc(h.database || '')}${h.user ? ' · ' + esc(h.user) : ''}</option>`).join('');
+};
+$('#slHist').onchange = () => {
+  const h = slHistItems[+$('#slHist').value];
+  if (!h) { $('#slUseHist').value = ''; return; }
+  if (h.engine === 'HANA' || h.engine === 'MSSQL') $('#slEngine').value = h.engine;
+  $('#slServer').value = h.server || ''; $('#slDb').value = h.database || ''; $('#slUser').value = h.user || ''; $('#slDsn').value = '';
+  $('#slUseHist').value = String(h.index);
+};
+function setlocArgs() {
+  const target = { engine: $('#slEngine').value, server: $('#slServer').value.trim(), database: $('#slDb').value.trim(), user: $('#slUser').value.trim() };
+  if ($('#slDsn').value.trim()) target.dsn = $('#slDsn').value.trim();
+  if ($('#slUseHist').value) target.useHistory = $('#slUseHist').value;
+  const m = $('#slPwMode').value;
+  if (m === 'profile' && $('#slPwProfile').value) target.profile = $('#slPwProfile').value;
+  if (m === 'typed' && $('#slPw').value) target.password = $('#slPw').value;
+  return { folderOrFiles: S.slItems.slice(), target, testOnly: $('#slTestOnly').checked, backup: $('#slBackup').checked };
+}
+// HANA / DSN targets need a Crystal "My Connections" entry (lib rule)
+function setlocCheck(a) {
+  if ((a.target.engine === 'HANA' || a.target.dsn) && !a.target.useHistory) { msg('ปลายทาง HANA (หรือ DSN) ต้องเลือกการเชื่อมต่อจาก Crystal history ก่อน: กด "โหลด Crystal history" แล้วเลือกรายการ', 'warn'); return false; }
+  return true;
+}
+function showSetloc(r, box, warn) {
+  warn.className = 'banner'; warn.textContent = '';
+  if (!r || !r.data) return;
+  if (r.data.dialectWarning) { warn.className = 'banner warn'; warn.textContent = 'คำเตือน dialect: ' + r.data.dialectWarning; }
+  box.innerHTML = `<p>${r.data.testOnly === false ? '' : '[TestOnly] '}สำเร็จ <span class="ok">${esc(r.data.okCount ?? '')}</span> · ผิดพลาด <span class="bad">${esc(r.data.errCount ?? '')}</span></p>` +
+    tbl(['file', 'ok', 'status', 'changedTables', 'sourceEngine', 'msg'], (r.data.files || []).map(f => [f.file, okTxt(f.ok), f.status ?? '', Array.isArray(f.changedTables) ? f.changedTables.join(', ') : (f.changedTables ?? ''), f.sourceEngine ?? '', f.msg]));
+}$('#btnSlRun').onclick = async () => {
+  const a = setlocArgs(); if (!a.folderOrFiles.length) { msg('ยังไม่ได้เลือกไฟล์/โฟลเดอร์', 'warn'); return; }
+  if (!setlocCheck(a)) return;
+  if (!a.testOnly && !confirm('TestOnly ปิดอยู่ - จะเขียนทับไฟล์ .rpt จริง ' + (a.backup ? '(มี backup)' : '(ไม่มี backup!)') + ' ดำเนินการต่อ?')) return;
+  const r = await run('setloc', 'Run', a, 'เปลี่ยนการเชื่อมต่อ');
+  $('#slPw').value = '';
+  if (r && r.cancelled) { $('#slWarn').className = 'banner'; showCancelled(r, $('#slResult'), null); return; }
+  showSetloc(r, $('#slResult'), $('#slWarn'));
+};
+
+/* ---------- import map ---------- */
+function renderMap() {
+  $('#mapTable thead').innerHTML = '<tr><th><input type="checkbox" id="mapAll"></th>' + MAP_COLS.map(c => `<th>${c}</th>`).join('') + '</tr>';
+  const f = $('#mapFilter').value.trim().toLowerCase();
+  let shown = 0;
+  $('#mapTable tbody').innerHTML = S.mapRows.map((r, i) => {
+    if (f && !MAP_COLS.some(c => String(r[c] ?? '').toLowerCase().includes(f))) return '';
+    shown++;
+    const flag = r._flag || r.Object_Type === '-' || !r.Object_Type;
+    return `<tr class="${flag ? 'flag' : ''}"><td><input type="checkbox" data-tick="${i}" ${r._tick ? 'checked' : ''}></td>` + MAP_COLS.map(c => `<td class="ed"><input data-i="${i}" data-c="${c}" value="${esc(r[c])}"></td>`).join('') + '</tr>';
+  }).join('');
+  $('#mapCount').textContent = `${S.mapRows.length} แถว · แสดง ${shown} · ติ๊ก ${S.mapRows.filter(r => r._tick).length}`;
+  $('#mapAll').onchange = e => { $$('#mapTable tbody [data-tick]').forEach(c => { c.checked = e.target.checked; S.mapRows[+c.dataset.tick]._tick = c.checked; }); renderMapCount(); };
+}
+function renderMapCount() { $('#mapCount').textContent = `${S.mapRows.length} แถว · ติ๊ก ${S.mapRows.filter(r => r._tick).length}`; }
+$('#mapTable').addEventListener('change', e => {
+  const t = e.target;
+  if (t.dataset.tick !== undefined) { S.mapRows[+t.dataset.tick]._tick = t.checked; renderMapCount(); }
+  else if (t.dataset.c) { const r = S.mapRows[+t.dataset.i]; r[t.dataset.c] = t.value; if (t.dataset.c === 'Object_Type') { r._flag = !t.value || t.value === '-'; t.closest('tr').classList.toggle('flag', r._flag); } }
+});
+$('#mapFilter').oninput = renderMap;
+$('#btnMapTickAll').onclick = () => { $$('#mapTable tbody [data-tick]').forEach(c => S.mapRows[+c.dataset.tick]._tick = true); renderMap(); };
+$('#btnMapUntick').onclick = () => { S.mapRows.forEach(r => r._tick = false); renderMap(); };
+$('#btnMapRead').onclick = async () => {
+  const mp = $('#mapPath').value.trim(); if (!mp) { msg('ระบุไฟล์ Map', 'warn'); return; }
+  const r = await run('map', 'Read', { mapPath: mp }, 'Map Read'); if (!r || !r.ok) return;
+  S.mapRows = ((r.data && r.data.rows) || []).map(x => ({ ...x, _tick: false, _flag: x.flagged === true }));
+  renderMap();
+};
+$('#btnMapScan').onclick = async () => {
+  const mp = $('#mapPath').value.trim(), dir = $('#mapScanDir').value.trim();
+  if (!mp || !dir) { msg('ระบุไฟล์ Map และโฟลเดอร์ที่จะ scan', 'warn'); return; }
+  await mapScan({ folder: dir });
+};
+// Scan with {folder} or {files:[...]} -> append new rows to grid
+async function mapScan(extra) {
+  const mp = $('#mapPath').value.trim(); if (!mp) { msg('ระบุไฟล์ Map ก่อน', 'warn'); return; }
+  const a = { mapPath: mp, ...extra }; if ($('#mapIndexCsv').value.trim()) a.indexCsv = $('#mapIndexCsv').value.trim();
+  const r = await run('map', 'Scan', a, 'Map Scan'); if (!r || !r.ok) return;
+  const added = (r.data && r.data.added) || [];
+  const have = new Set(S.mapRows.map(x => (x.RPT_FolderPath + '|' + x.RPT_FileName).toLowerCase()));
+  let n = 0;
+  added.forEach(x => { const k = (x.RPT_FolderPath + '|' + x.RPT_FileName).toLowerCase(); if (!have.has(k)) { S.mapRows.push({ ...x, _tick: true, _flag: x.flagged === true }); n++; } });
+  renderMap();
+  $('#mapResult').innerHTML = `<p>เพิ่มแถวใหม่ ${n} แถว (ติ๊กให้แล้ว) · มีอยู่เดิม ${esc(r.data.existing)} · ข้ามเพราะซ้ำ ${esc(r.data.duplicatesSkipped ?? 0)} · ยังไม่บันทึกลง Excel จนกว่าจะกดบันทึก</p>`;
+};
+const cleanRow = r => { const o = {}; MAP_COLS.forEach(c => o[c] = r[c] ?? ''); return o; };
+$('#btnMapSave').onclick = async () => {
+  const mp = $('#mapPath').value.trim(); if (!mp) { msg('ระบุไฟล์ Map', 'warn'); return; }
+  const ticked = S.mapRows.filter(r => r._tick).map(r => (r.RPT_FolderPath ?? '') + '|' + (r.RPT_FileName ?? '')); // key = RPT_FolderPath|RPT_FileName
+  let rd = $('#mapRoundDir').value.trim(); if (!rd) rd = mp.replace(/[\\/][^\\/]*$/, '');
+  if (!confirm(`บันทึก ${S.mapRows.length} แถวลง ${mp} (มี backup อัตโนมัติ) และสร้างไฟล์รอบจาก ${ticked.length} แถวที่ติ๊ก?`)) return;
+  const r = await run('map', 'Save', { mapPath: mp, rows: S.mapRows.map(cleanRow), ticked, roundDir: rd }, 'Map Save');
+  if (r && r.ok) $('#mapResult').innerHTML = `<p class="ok">บันทึกแล้ว</p><p>backup: ${esc(r.data.masterBackup)}<br>master: ${esc(r.data.masterPath)}<br>ไฟล์รอบ: ${esc(r.data.roundFile)}</p>`;
+};
+// decision 8: Map columns -> Precheck/Import fields
+const toImportRow = r => ({ file: r.RPT_FileName, folder: r.RPT_FolderPath, objectType: r.Object_Type, layoutName: r.LayoutName_Suggest });
+$('#btnMapToImport').onclick = () => {
+  const t = S.mapRows.filter(r => r._tick); if (!t.length) { msg('ยังไม่ได้ติ๊กแถว', 'warn'); return; }
+  S.imRows = t.map(toImportRow); renderImport(); $('#btnImportReal').hidden = true; showTab('import');
+};
+
+/* ---------- import ---------- */
+function renderImport(resRows) {
+  if (resRows) S.imRows = S.imRows.map((r, i) => ({ ...r, ...(resRows[i] || {}) }));
+  $('#imTable tbody').innerHTML = S.imRows.map((r, i) => {
+    const st = r.status || ''; const cls = st === 'Error' ? 'bad' : st === 'Skip' ? 'wn' : st ? 'ok' : '';
+    return `<tr><td>${i + 1}</td><td>${esc(r.file)}</td><td>${esc(r.folder)}</td><td>${esc(r.objectType)}</td><td>${esc(r.layoutName)}</td><td class="${cls}">${esc(st)}</td><td>${esc(r.result ?? r.reason ?? '')}</td></tr>`;
+  }).join('');
+  $('#imCount').textContent = S.imRows.length + ' แถว';
+}
+const imBase = () => S.imRows.map(r => ({ file: r.file, folder: r.folder, objectType: r.objectType, layoutName: r.layoutName }));
+$('#btnPrecheck').onclick = async () => {
+  const p = curProfile(); if (!p || !S.imRows.length) { msg('ยังไม่มีแถว (ส่งมาจากแท็บ Import Map)', 'warn'); return; }
+  const r = await run('rdoc', 'Precheck', { profile: p.name, rows: imBase() }, 'Precheck');
+  if (r && r.ok) { renderImport(r.data.rows); summarize(r.data.rows); }
+};
+function summarize(rows) { const c = {}; (rows || []).forEach(x => c[x.status] = (c[x.status] || 0) + 1); $('#imResult').innerHTML = '<p>' + Object.entries(c).map(([k, v]) => `${esc(k)}: <b>${v}</b>`).join(' · ') + '</p>'; }
+async function doImport(dry) {
+  const p = curProfile(); if (!p || !S.imRows.length) { msg('ยังไม่มีแถว', 'warn'); return; }
+  const a = { profile: p.name, rows: imBase(), onDuplicate: $('#imDup').value, dryRun: dry, backup: true };
+  if (!dry) {
+    const typed = prompt(`Import จริงเข้า ${p.companyDb} (${S.imRows.length} แถว)\nพิมพ์ชื่อ Company DB เพื่อยืนยัน:`);
+    if (typed === null) return;
+    if (typed !== p.companyDb) { msg('ชื่อ Company DB ไม่ตรง - ยกเลิก', 'err'); return; }
+    a.confirmDb = typed;
+  }
+  const r = await run('rdoc', 'Import', a, dry ? 'ดูตัวอย่างการนำเข้า' : 'นำเข้าจริง');
+  if (r && r.cancelled) { showCancelled(r, $('#imResult'), S.imRows.length); if (!dry) $('#imResult').innerHTML += '<p class="muted">รายการที่นำเข้าไปแล้วย้อนได้ในแท็บ "ประวัติ / ย้อนกลับ"</p>'; return; }
+  if (r && r.data) {
+    renderImport(r.data.rows);
+    const bid = r.data.batchId || r.data.backupId;
+    $('#imResult').innerHTML = `<p>${dry ? '<b>ตัวอย่าง (ยังไม่ได้นำเข้า):</b> ' : '<b class="ok">นำเข้าแล้ว:</b> '}เพิ่มใหม่ ${esc(r.data.inserted)} · เขียนทับ ${esc(r.data.updated)} · ข้าม ${esc(r.data.skipped)} · ผิดพลาด ${esc(r.data.errors)}</p>` +
+      (!dry && bid ? `<p>เลขชุดการนำเข้า: <b>${esc(bid)}</b> <button id="btnGoBatches">ดู / ย้อนได้ในประวัติ →</button></p>` : '');
+    if (!dry && bid) $('#btnGoBatches').onclick = () => { showTab('history'); $('#btnBatches').click(); };
+    // after a successful preview, offer the real import (still gated by typing companyDb)
+    $('#btnImportReal').hidden = !(dry && r.ok);
+    $('#imHint').textContent = dry && r.ok ? 'ตรวจผลด้านล่างแล้ว ถ้าถูกต้องกด "ยืนยันนำเข้าจริง" (ต้องพิมพ์ชื่อ Company DB ยืนยัน และระบบจะสำรองข้อมูลก่อน)' : 'ขั้นแรกดูก่อนว่าจะเพิ่มใหม่ / เขียนทับ / ข้าม อันไหนบ้าง ยังไม่มีอะไรเปลี่ยนในระบบ';
+  }
+}
+$('#btnDryRun').onclick = () => doImport(true);
+$('#btnImportReal').onclick = () => doImport(false);
+
+/* ---------- history / undo ---------- */
+$('#btnJobs').onclick = async () => {
+  const r = await api('GET', '/api/jobs');
+  $('#jobTable tbody').innerHTML = (r.jobs || []).map(j => `<tr><td>${esc(j.id)}</td><td>${esc(j.tool)}</td><td>${esc(j.action)}</td><td class="${j.status === 'done' ? 'ok' : j.status === 'failed' ? 'bad' : 'wn'}">${esc(j.status)}</td><td>${esc(j.started)}</td><td>${esc(j.ended)}</td><td><button data-log="${esc(j.id)}">ดู log</button></td></tr>`).join('');
+};
+$('#jobTable').addEventListener('click', async e => {
+  const id = e.target.dataset && e.target.dataset.log; if (!id) return;
+  const l = await api('GET', '/api/jobs/' + id + '/log?from=0');
+  $('#logBody').textContent = ''; $('#logJob').textContent = id; (l.lines || []).forEach(logLine); $('#logPanel').classList.remove('min');
+});
+let bkItems = [];
+$('#btnBackups').onclick = async () => {
+  const p = curProfile(); if (!p) return;
+  const r = await run('rdoc', 'ListBackups', { profile: p.name }, 'ListBackups'); if (!r || !r.ok) return;
+  bkItems = (r.data && r.data.items) || [];
+  $('#bkTable tbody').innerHTML = bkItems.map((b, i) => `<tr><td><input type="radio" name="bk" value="${i}"></td><td>${esc(b.backupId)}</td><td>${esc(b.time)}</td><td>${esc(b.profile)}</td><td>${esc(b.rowCount)}</td><td>${esc(b.path)}</td></tr>`).join('');
+};
+$('#btnBackupNow').onclick = async () => { const p = curProfile(); if (!p) return; const r = await run('rdoc', 'Backup', { profile: p.name }, 'Backup'); if (r && r.cancelled) { showCancelled(r, $('#rbResult'), null); return; } if (r && r.ok) { msg('Backup แล้ว: ' + r.data.backupId, 'info'); $('#btnBackups').click(); } };
+async function doRollback(dry) {
+  const p = curProfile(); const sel = $('input[name=bk]:checked'); if (!p || !sel) { msg('เลือก backup ก่อน', 'warn'); return; }
+  const b = bkItems[+sel.value];
+  const a = { profile: p.name, backupId: b.backupId, docCodes: $('#rbCodes').value.split(',').map(s => s.trim()).filter(Boolean), dryRun: dry };
+  if (!dry) {
+    const typed = prompt(`Rollback จริงที่ ${p.companyDb} จาก backup ${b.backupId}\nพิมพ์ชื่อ Company DB เพื่อยืนยัน:`);
+    if (typed === null) return;
+    if (typed !== p.companyDb) { msg('ชื่อ Company DB ไม่ตรง - ยกเลิก', 'err'); return; }
+    a.confirmDb = typed;
+  }
+  const r = await run('rdoc', 'Rollback', a, dry ? 'Rollback DryRun' : 'Rollback');
+  if (r && r.cancelled) { showCancelled(r, $('#rbResult'), a.docCodes.length || null); return; }
+  if (r && r.data) $('#rbResult').innerHTML = `<p>${r.data.dryRun || dry ? '[DryRun] ' : ''}restored: ${esc(JSON.stringify(r.data.restored))} · deleted: ${esc(JSON.stringify(r.data.deleted))}</p>` + (Array.isArray(r.data.plan) && r.data.plan.length ? tbl(['docCode', 'action', 'reason'], r.data.plan.map(p => [p.docCode, p.action, p.reason])) : '');
+}
+let batchItems = [];
+const BATCH_ST = { running: 'กำลังทำ', complete: 'เสร็จ', cancelled: 'ถูกยกเลิก', failed: 'ไม่สำเร็จ', undone: 'ย้อนแล้ว' };
+$('#btnBatches').onclick = async () => {
+  const p = curProfile(); if (!p) return;
+  const r = await run('rdoc', 'ListImportBatches', { profile: p.name }, 'รายการนำเข้า'); if (!r || !r.ok) return;
+  batchItems = (r.data && r.data.items) || [];
+  $('#batchDetail').innerHTML = ''; $('#undoBox').innerHTML = '';
+  $('#batchTable tbody').innerHTML = batchItems.length ? batchItems.map((b, i) => `<tr><td>${esc(b.time || b.batchId)}</td><td>${esc(b.profile || p.name)}</td><td>${esc(b.insertedCount)}</td><td>${esc(b.updatedCount)}</td><td class="${b.undone || b.status === 'undone' ? 'wn' : b.status === 'complete' ? 'ok' : 'bad'}">${esc(BATCH_ST[b.status] || b.status)}</td><td><button data-bdetail="${i}">ดูรายละเอียด</button> <button class="danger" data-bundo="${i}" ${b.undone || b.status === 'undone' ? 'disabled' : ''}>ย้อนการนำเข้านี้</button></td></tr>`).join('') : '<tr><td colspan="6" class="muted">ยังไม่มีประวัติการนำเข้า</td></tr>';
+};
+$('#batchTable').addEventListener('click', async e => {
+  const d = e.target.dataset || {}; const p = curProfile(); if (!p) return;
+  if (d.bdetail !== undefined) {
+    const b = batchItems[+d.bdetail];
+    const r = await run('rdoc', 'GetImportBatch', { profile: p.name, batchId: b.batchId }, 'รายละเอียดการนำเข้า'); if (!r || !r.ok) return;
+    const m = r.data.manifest || {};
+    const rows = [...(m.inserted || []).map(x => ['เพิ่มใหม่', x.docCode, x.docName, x.typeCode]), ...(m.updated || []).map(x => ['เขียนทับ', x.docCode, x.docName, x.typeCode])];
+    $('#batchDetail').innerHTML = `<p>ชุด <b>${esc(m.batchId)}</b> · ${esc(m.companyDb)} · สถานะ ${esc(BATCH_ST[m.status] || m.status)}${m.undoneAt ? ' · ย้อนเมื่อ ' + esc(m.undoneAt) : ''}</p>` + tbl(['ประเภท', 'รหัส', 'ชื่อแบบฟอร์ม', 'ชนิด'], rows);
+  }
+  if (d.bundo !== undefined) undoPlan(batchItems[+d.bundo], false);
+});
+const UNDO_ACT = { delete: 'ลบออก', restore: 'คืนค่าเดิม', refuse: 'ไม่ทำ (ถูกแก้หลังนำเข้า)', none: 'ไม่ต้องทำ' };
+// step 1: dry run -> show plan; step 2: confirm with companyDb (+ optional force)
+async function undoPlan(b, force) {
+  const p = curProfile(); if (!p) return;
+  const r = await run('rdoc', 'UndoImport', { profile: p.name, batchId: b.batchId, dryRun: true, force: !!force }, 'แผนย้อนการนำเข้า');
+  if (r && r.cancelled) { showCancelled(r, $('#undoBox'), null); return; }
+  if (!r || !r.ok) return;
+  const plan = r.data.plan || [];
+  const refused = plan.filter(x => x.action === 'refuse').length;
+  $('#undoBox').innerHTML = `<h3 style="margin-top:14px">แผนย้อนการนำเข้า ${esc(b.batchId)} (ยังไม่ได้ทำจริง)</h3>` +
+    tbl(['รหัส', 'จะทำ', 'เหตุผล'], plan.map(x => [x.docCode, UNDO_ACT[x.action] || x.action, x.reason || ''])) +
+    `<div class="row" style="margin-top:10px"><label><input type="checkbox" id="undoForce" ${force ? 'checked' : ''}> บังคับย้อน แม้แบบฟอร์มถูกแก้หลังนำเข้า</label></div>
+     <p class="danger-note">คำเตือน: บังคับย้อนจะทับการแก้ไขที่คนอื่นทำหลังการนำเข้านี้ และกู้คืนไม่ได้${refused ? ` (มี ${refused} รายการที่ถูกแก้แล้ว)` : ''}</p>
+     <div class="row"><input type="text" id="undoConfirm" placeholder="พิมพ์ชื่อ ${esc(p.companyDb)} เพื่อยืนยัน" style="min-width:240px"><button class="danger" id="btnUndoReal">ยืนยันย้อนการนำเข้าจริง</button><button class="danger stopbtn" hidden>หยุด</button></div>
+     <div class="hint">ย้อนทั้งชุดในครั้งเดียว ถ้ามีข้อผิดพลาดระบบจะไม่เปลี่ยนอะไรเลย</div><div id="undoResult"></div>`;
+  $('#undoForce').onchange = e => undoPlan(b, e.target.checked);
+  $('#btnUndoReal').onclick = async () => {
+    const typed = $('#undoConfirm').value.trim();
+    if (typed !== p.companyDb) { msg('ชื่อ Company DB ไม่ตรง - ยังไม่ได้ย้อน', 'err'); return; }
+    const f = $('#undoForce').checked;
+    if (f && !confirm('ยืนยันบังคับย้อน? การแก้ไขหลังนำเข้าจะหายไป')) return;
+    const rr = await run('rdoc', 'UndoImport', { profile: p.name, batchId: b.batchId, dryRun: false, confirmDb: typed, force: f }, 'ย้อนการนำเข้า');
+    if (rr && rr.cancelled) { showCancelled(rr, $('#undoResult'), null); $('#undoResult').innerHTML += '<p class="muted">การย้อนทำในครั้งเดียว หยุดก่อนบันทึก = ไม่มีการเปลี่ยนแปลง</p>'; return; }
+    if (rr && rr.ok) { $('#undoResult').innerHTML = `<p class="ok">ย้อนแล้ว · ลบ ${esc(rr.data.deleted)} · คืนค่า ${esc(rr.data.restored)}</p>`; $('#btnBatches').click(); }
+  };
+}
+$('#btnRbDry').onclick = () => doRollback(true);
+$('#btnRbReal').onclick = () => doRollback(false);
+
+$('#btnPipeline').onclick = async () => {
+  const p = curProfile(); if (!p) return;
+  const steps = [];
+  if ($('#pExport').checked) { const a = exportArgs(); if (!a.docCodes.length) { msg('Pipeline: ยังไม่ได้ติ๊ก layout ในแท็บ Export', 'warn'); return; } delete a.profile; steps.push({ tool: 'rdoc', action: 'Export', args: a }); }
+  if ($('#pSetloc').checked) {
+    const a = setlocArgs();
+    if (!a.folderOrFiles.length) { const d = $('#exOut').value.trim() || $('#exOut').placeholder; if (d) a.folderOrFiles = [d]; }
+    if (!a.folderOrFiles.length) { msg('Pipeline: ไม่มีไฟล์สำหรับ Set Location', 'warn'); return; }
+    if (!setlocCheck(a)) return;
+    steps.push({ tool: 'setloc', action: 'Run', args: a });
+  }
+  if ($('#pPrecheck').checked || $('#pDry').checked) { if (!S.imRows.length) { msg('Pipeline: ไม่มีแถวในแท็บ Import', 'warn'); return; } }
+  if ($('#pPrecheck').checked) steps.push({ tool: 'rdoc', action: 'Precheck', args: { rows: imBase() } });
+  if ($('#pDry').checked) steps.push({ tool: 'rdoc', action: 'Import', args: { rows: imBase(), onDuplicate: $('#imDup').value, dryRun: true, backup: true } });
+  if (!steps.length) { msg('ยังไม่ได้เลือกขั้นตอน', 'warn'); return; }
+  if (S.busy) { msg('มีงานกำลังรันอยู่', 'warn'); return; }
+  S.busy = true; $('#logDot').classList.add('live');
+  try {
+    const st = await api('POST', '/api/pipeline', { profile: p.name, steps, async: true });
+    if (!st.jobId) { msg('เริ่ม pipeline ไม่ได้: ' + (st.error || ''), 'err'); return; }
+    const r = await follow(st.jobId, 'ทำทุกขั้นต่อกัน');
+    if (r.cancelled) { showCancelled(r, $('#pResult'), null); return; }
+    $('#pResult').innerHTML = tbl(['ขั้น', 'tool', 'action', 'ok', 'error'], ((r.data && r.data.steps) || []).map((s, i) => [i + 1, s.tool, s.action, okTxt(s.result && s.result.ok), (s.result && s.result.error) || '']));
+    const sl = ((r.data && r.data.steps) || []).find(s => s.tool === 'setloc');
+    if (sl) showSetloc(sl.result, $('#slResult'), $('#slWarn'));
+    if (r.ok) msg('Pipeline เสร็จครบทุกขั้น', 'info');
+  } finally { S.busy = false; $('#logDot').classList.remove('live'); }
+};
+
+/* ---------- file/folder browser ---------- */
+const BR = { mode: 'folder', cb: null, path: '' };
+function openBrowser(mode, start, cb) {
+  BR.mode = mode; BR.cb = cb;
+  $('#brTitle').textContent = mode === 'folder' ? 'เลือกโฟลเดอร์' : mode === 'rpt' ? 'เลือกไฟล์ .rpt' : 'เลือกไฟล์ .xlsx';
+  $('#brHint').textContent = mode === 'folder' ? 'แสดงเฉพาะไฟล์ .rpt / .xlsx' : 'คลิกไฟล์เพื่อเลือก';
+  $('#brPickDir').style.display = mode === 'folder' ? '' : 'none';
+  $('#brModal').classList.add('open');
+  let s = (start || '').trim(); if (s && /\.(rpt|xlsx)$/i.test(s)) s = s.replace(/[\\/][^\\/]*$/, '');
+  brLoad(s);
+}
+async function brLoad(path) {
+  const r = await api('GET', '/api/browse?path=' + encodeURIComponent(path || ''));
+  if (r.ok === false) { $('#brList').innerHTML = `<div class="bad">${esc(r.error)}</div>`; return; }
+  BR.path = r.path || ''; BR.parent = r.parent; $('#brPath').value = BR.path;
+  const files = (r.files || []).filter(f => BR.mode === 'folder' || f.name.toLowerCase().endsWith('.' + BR.mode));
+  $('#brList').innerHTML = (r.dirs || []).map(d => `<div data-dir="${esc(d.path)}">[โฟลเดอร์] ${esc(d.name)}</div>`).join('') +
+    files.map(f => `<div data-file="${esc(f.path)}" style="${BR.mode === 'folder' ? 'color:#6b7385;cursor:default' : ''}">${esc(f.name)} <span class="muted">${Math.round((f.size || 0) / 1024)} KB · ${esc(f.mtime)}</span></div>`).join('') || '<div class="muted">ว่าง</div>';
+}
+$('#brList').addEventListener('click', e => {
+  const d = e.target.closest('[data-dir],[data-file]'); if (!d) return;
+  if (d.dataset.dir) brLoad(d.dataset.dir);
+  else if (BR.mode !== 'folder') { BR.cb(d.dataset.file); $('#brModal').classList.remove('open'); }
+});
+$('#brUp').onclick = () => brLoad(BR.parent || '');
+$('#brGo').onclick = () => brLoad($('#brPath').value);
+$('#brClose').onclick = () => $('#brModal').classList.remove('open');
+$('#brPickDir').onclick = () => { if (!BR.path) return; BR.cb(BR.path); $('#brModal').classList.remove('open'); };
+document.addEventListener('click', e => {
+  const b = e.target.closest('button[data-pick],button[data-pickid],button[data-addlist]'); if (!b) return;
+  e.preventDefault();
+  if (b.dataset.pick) { const inp = $(`#profileForm [data-k="${b.dataset.pick}"]`); openBrowser(b.dataset.mode, inp.value, v => { inp.value = v; readForm(); }); }
+  else if (b.dataset.pickid) { const inp = $('#' + b.dataset.pickid); openBrowser(b.dataset.mode, inp.value || inp.placeholder, v => inp.value = v); }
+  else openBrowser(b.dataset.mode, curProfile()?.rptRoot || '', v => addLine(b.dataset.addlist, v));
+});
+
+/* ---------- native pick dialogs + drag & drop upload ---------- */
+// apply picked/uploaded paths: kind = 'files' | 'folder'
+async function applyPaths(target, kind, paths) {
+  if (!paths.length) return;
+  if (target === 'sl') { paths.forEach(p => addLine('slFiles', p)); msg(`เพิ่ม ${paths.length} รายการเข้า Set Location`, 'info'); return; }
+  if (kind === 'files') await mapScan({ files: paths });
+  else for (const f of paths) await mapScan({ folder: f });
+}
+async function nativePick(kind) {
+  const st = await api('POST', '/api/pick/' + kind, {});
+  if (!st.pickId) { msg('เปิดหน้าต่างเลือกไม่ได้: ' + (st.error || ''), 'err'); return null; }
+  msg('หน้าต่างเลือก' + (kind === 'files' ? 'ไฟล์' : 'โฟลเดอร์') + 'เปิดอยู่ (อาจอยู่หลังเบราว์เซอร์ ดูที่ taskbar)', 'info');
+  for (;;) {
+    await new Promise(r => setTimeout(r, 500));
+    const r = await api('GET', '/api/pick/' + st.pickId);
+    if (r.status === 'pending') continue;
+    msg('');
+    if (r.status === 'error') { msg('เลือกไม่สำเร็จ: ' + (r.error || ''), 'err'); return null; }
+    return r.paths || [];
+  }
+}
+document.addEventListener('click', async e => {
+  const b = e.target.closest('button[data-native]'); if (!b) return;
+  b.disabled = true;
+  try { const p = await nativePick(b.dataset.native); if (p) await applyPaths(b.dataset.target, b.dataset.native, p); }
+  finally { b.disabled = false; }
+});
+// walk dropped entries (files + folders recursively) -> [{file, rel}]
+function readEntry(entry, prefix, out) {
+  return new Promise(resolve => {
+    if (entry.isFile) { entry.file(f => { out.push({ file: f, rel: prefix + f.name }); resolve(); }, () => resolve()); return; }
+    if (!entry.isDirectory) { resolve(); return; }
+    const rd = entry.createReader(); const all = [];
+    const next = () => rd.readEntries(async ents => {
+      if (!ents.length) { for (const c of all) await readEntry(c, prefix + entry.name + '/', out); resolve(); return; }
+      all.push(...ents); next();
+    }, () => resolve());
+    next();
+  });
+}
+async function handleDrop(target, dt) {
+  const items = Array.from(dt.items || []).map(i => i.webkitGetAsEntry && i.webkitGetAsEntry()).filter(Boolean);
+  const out = []; const tops = new Set();
+  if (items.length) { for (const en of items) { if (en.isDirectory) tops.add(en.name); await readEntry(en, '', out); } }
+  else Array.from(dt.files || []).forEach(f => out.push({ file: f, rel: f.name }));
+  const rpts = out.filter(x => /\.rpt$/i.test(x.rel));
+  if (!rpts.length) { msg('ไม่พบไฟล์ .rpt ในสิ่งที่ลากมา', 'warn'); return; }
+  const big = rpts.filter(x => x.file.size > 50 * 1024 * 1024);
+  if (big.length) { msg('ไฟล์ใหญ่เกิน 50 MB: ' + big.map(x => x.rel).join(', '), 'err'); return; }
+  const bg = await api('POST', '/api/upload/begin', {});
+  if (!bg.batch) { msg('เริ่มอัปโหลดไม่ได้: ' + (bg.error || ''), 'err'); return; }
+  const files = []; let i = 0;
+  for (const x of rpts) {
+    i++; msg(`กำลังคัดลอกเข้า staging ${i}/${rpts.length}: ${x.rel}`, 'info');
+    const r = await fetch('/api/upload?batch=' + encodeURIComponent(bg.batch) + '&rel=' + encodeURIComponent(x.rel), { method: 'POST', body: x.file });
+    const j = await r.json().catch(() => ({ ok: false, error: 'HTTP ' + r.status }));
+    if (!j.ok) { msg('อัปโหลดไม่สำเร็จ ' + x.rel + ': ' + (j.error || ''), 'err'); return; }
+    if (!x.rel.includes('/')) files.push(j.path);
+  }
+  msg(`คัดลอก ${rpts.length} ไฟล์ไปที่ ${bg.dir}`, 'info');
+  const folders = Array.from(tops).filter(t => rpts.some(x => x.rel.startsWith(t + '/'))).map(t => bg.dir + '\\' + t);
+  if (files.length) await applyPaths(target, 'files', files);
+  if (folders.length) await applyPaths(target, 'folder', folders);
+}
+$$('[data-drop]').forEach(z => {
+  z.addEventListener('dragover', e => { e.preventDefault(); z.classList.add('over'); });
+  z.addEventListener('dragleave', () => z.classList.remove('over'));
+  z.addEventListener('drop', e => { e.preventDefault(); z.classList.remove('over'); handleDrop(z.dataset.drop, e.dataTransfer); });
+});
+// prevent the browser from opening a file dropped outside a drop zone
+window.addEventListener('dragover', e => e.preventDefault());
+window.addEventListener('drop', e => e.preventDefault());
+
+loadProfiles();
+</script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+# ใบสั่งงาน RPT Studio (ฉบับขัดเกลาโดย prompt-architect + ข้อตัดสินของนะโม)
+
+## ข้อตัดสินกลาง (ทับ CONTRACT.md ถ้าขัด) - ทุกคนต้องทำตาม
+1. Rollback args เพิ่ม `dryRun` และ `confirmDb` (dryRun=false ต้อง confirmDb = companyDb ของ profile)
+2. ArgsFile ที่มีรหัสผ่านลบใน `finally` หลัง child จบ
+3. รหัสผ่านปลายทาง Set Location: args ใช้ `target.profile` (ชื่อ profile ที่มี secret) -> Run-SetLocation dot-source lib\Secrets.ps1 (sap-b1 สร้าง; ฟังก์ชัน `Get-ProfilePassword -Name <profile>` คืน plaintext string) แล้วใช้ภายใน process เท่านั้น; หรือ `target.password` ที่ผู้ใช้พิมพ์ในหน้า UI (ส่งผ่าน ArgsFile ชั่วคราว) ห้ามพิมพ์ลง log/RESULT
+4. ListBackups items = `{backupId,time,path,rowCount,profile}`; /api/pipeline body = `{profile, steps:[{tool:"rdoc|map|setloc",action,args}]}` รันตามลำดับ หยุดเมื่อ step ใด ok=false (webdev ทำ)
+5. Export ค่าเริ่มต้น = `rptRoot\<companyDb>`; Import อ่านจาก folder ในแต่ละ row; ไม่ wipe โฟลเดอร์อัตโนมัติ
+6. ไม่มี test DB: Import/Rollback จริง (dryRun=false) ห้ามยิง SBO_ENCONFUND / SBO_Seoul_Clinic - ทดสอบถึง DryRun เท่านั้น (ทดสอบ logic เขียนจริงอาจทำกับ mock/temp SQLite? ไม่ต้อง - ระบุเป็น "ยังไม่ได้ทดสอบ")
+7. ชื่อไฟล์ตาม CONTRACT (Import-RDOC.ps1, Rollback-RDOC.ps1). Stub ทดสอบ webdev วางที่ scratch\stubs\ ไฟล์ทดสอบ crystal วางที่ scratch\test\
+8. ชื่อช่อง Map-Excel (RPT_FileName/RPT_FolderPath/Object_Type/LayoutName_Suggest) กับ Precheck/Import (file/folder/objectType/layoutName) ต่างกัน - UI เป็นฝ่ายแปลง
+9. ProfilesGet/ProfilesSave/SetPassword/ListBackups รันได้ทั้ง 32/64-bit; server รัน 64-bit
+
+ทุกใบ: อ่าน C:\Users\User\.claude\ORG.md ก่อนเริ่มงาน และปิดท้ายด้วยบล็อกส่งงาน 5 ข้อ ([ทำอะไรไป] [ไฟล์] [สมมติฐาน] [ยังไม่ได้ทำ] [ต้องระวัง]). อ้างอิงหลัก: C:\Users\User\Documents\GitHub\RPT-Studio\docs\CONTRACT.md และแผน C:\Users\User\.claude\plans\c-users-user-desktop-set-datasourcelocat-cheerful-umbrella.md
+
+---
+## ใบ 1/3 -> webdev
+[งาน] สร้าง Start-RPTStudio.bat, server.ps1 และ ui\index.html ตาม "Server HTTP API" และ "Layout" ใน CONTRACT.md
+[บริบท] RPT Studio รวม Export layout จาก SAP B1 (RDOC), Set datasource ของ .rpt, และ Import กลับ RDOC เป็นเว็บ UI ในเครื่อง คุณทำเว็บ+runner; sap-b1 ทำ lib\rdoc-cli.ps1/Map-Excel.ps1; crystal-report ทำ lib\Run-SetLocation.ps1 (ขนานกัน ตอนนี้ lib ยังไม่มี -> ทดสอบด้วย stub). UI เรียก lib ผ่าน POST /api/run ยกเว้น /api/profiles (ภายในเรียก rdoc-cli ProfilesGet/Save). UI 6 แท็บ: Settings, Export, Set Location, Import Map (grid + scan folder + ติ๊กแถว + Save), Import (precheck -> dryRun -> real), History/Undo + ปุ่ม Run pipeline.
+[ของที่มี] CONTRACT.md, แผน, root C:\Users\User\Documents\GitHub\RPT-Studio\, PowerShell32 C:\Windows\SysWOW64\WindowsPowerShell\v1.0\powershell.exe
+[ข้อจำกัด] ไม่ใช้ CDN/framework/build step; index.html ไฟล์เดียว ข้อความไทย. bind 127.0.0.1:8765 เท่านั้น. ทุกงานรันเป็น child process ตาม bitness (rdoc-cli+HANA=SysWOW64, อื่น ๆ 64-bit) log -> jobs\<jobId>.log อ่านผลจากบรรทัด ##RESULT##. ArgsFile ที่มีรหัสผ่านลบใน finally; รหัสผ่านต้องไม่โผล่ใน jobs\, log, API response. .bat = ASCII+CRLF ไม่มี BOM ไม่มี chcp; .ps1 มีไทย = UTF-8 BOM. Import/Rollback เมื่อ dryRun=false: UI ให้ผู้ใช้พิมพ์ชื่อ companyDb ยืนยันแล้วส่ง args.confirmDb. /api/browse แสดงเฉพาะโฟลเดอร์ .rpt .xlsx. UI รองรับ log สด (poll /log?from=N) และแสดง dialectWarning ของ Set Location.
+[ขอบเขตที่ไม่ต้องทำ] ห้ามเขียนโค้ดใน lib\ (stub ไว้ที่ scratch\stubs\ เท่านั้น) ไม่แตะ config\profiles.json ไม่ต่อ DB จริง ไม่แก้ CONTRACT.md (ถ้าเห็นปัญหาเขียนใน [ต้องระวัง]) ไม่ทำ login
+[เกณฑ์ว่าเสร็จ] 1) ดับเบิลคลิก bat -> server ขึ้น เบราว์เซอร์เปิด http://localhost:8765/ เห็น 6 แท็บ+profile picker 2) stub ที่พิมพ์ log หลายบรรทัดจบด้วย ##RESULT## ทดสอบ /api/run async=false และ true, GET /api/jobs/{id}, /log?from=N คืนเฉพาะบรรทัดใหม่ 3) log ยืนยัน bitness ถูก 4) หลัง SetPassword ไม่มี ArgsFile ค้าง และ grep jobs\ ไม่เจอรหัสผ่านทดสอบ 5) เรียกผ่าน IP เครื่องจริงแล้วเข้าไม่ได้ 6) แนบคำสั่งทดสอบ+ผลจริง
+[ผลลัพธ์] รายการไฟล์ path เต็ม, ผลทดสอบแต่ละข้อ, รูปแบบ /api/pipeline ที่ใช้
+
+---
+## ใบ 2/3 -> sap-b1 (skill: sap-b1-query ก่อนเขียน SQL)
+[งาน] สร้าง lib\rdoc-cli.ps1, DB-HANA.ps1, DB-MSSQL.ps1, Export-RDOCToRpt.ps1, Import-RDOC.ps1, Backup-RDOC.ps1, Rollback-RDOC.ps1, Secrets.ps1 (รวม Get-ProfilePassword), Map-Excel.ps1, config\profiles.json, .gitignore ทุก Action ตรงตารางใน CONTRACT.md แล้วสร้าง profile Enconfund และ Seoul เก็บรหัสด้วย DPAPI
+[บริบท] ส่วน DB+Excel ของ RPT Studio; webdev เรียกสคริปต์คุณเป็น child process; crystal-report ทำ Run-SetLocation แยก. บั๊กเดิมต้องแก้: (ก) โฟลเดอร์ export/import ไม่ตรง -> rptRoot เดียว, Export default rptRoot\<companyDb>, ไม่ลบโฟลเดอร์อัตโนมัติ (ข) Import โหลด DB-MSSQL เสมอ -> โหลดตาม engine (ค) $DB_ISNUM ว่างใน DB-HANA
+[ของที่มี] CONTRACT.md; แผน (หัวข้อ Import conditions, Fix known bugs); ต้นทางอ่าน+คัดลอกเท่านั้น: C:\Users\User\Documents\GitHub\Enconfund\Tool\Scripts\ และ C:\Users\User\Documents\GitHub\SBO_Seoul\Form-Layout\ImportLayouts\ (Config\RPT_Import_Map.xlsx sheets RPT_MAP, Legend; headers A..K = No,Module,RPT_FileName,RPT_FolderPath,SAP_Document,Header_Table,Line_Table,Object_Type,Form_MenuUID,LayoutName_Suggest,Note). Enconfund: HANA 10.21.100.31:30015 SBO_ENCONFUND user SYSTEM รหัสผ่านใน C:\Users\User\.claude\projects\C--Users-User\memory\reference_enconfund_hana_connection.md. Seoul: MSSQL 172.17.0.22 SBO_Seoul_Clinic user/รหัสจาก _settings.bat ใต้ ImportLayouts (ตรวจ path จริง)
+[ข้อจำกัด] คงกฎเดิม: ไฟล์ต้องมีอยู่; ObjectType != '-' และอยู่ใน $TypeCodeMap; DocName=LayoutName ถ้าไม่มีใช้ชื่อไฟล์; dup key DocName+TypeCode; DocCode=TypeCode+เลข 4 หลักถัดไป; Author เฉพาะ insert; ห้ามแตะ System layouts. เขียนได้เฉพาะ RDOC/RITM/RDC1/RCON ตามโค้ดเดิม. SBO_ENCONFUND และ SBO_Seoul_Clinic = production: อ่านได้ (TestConnection, ListRdoc, Export, Precheck, DryRun) แต่ Import/Rollback dryRun=false ห้ามยิง; ต้องมี confirmDb ตาม CONTRACT (Rollback ก็มี dryRun+confirmDb). HANA ห้าม N'..' MSSQL ใช้ได้. ห้ามรหัสผ่าน plaintext ในไฟล์ repo/log/RESULT -> config\secrets\<profile>.dpapi (CurrentUser); profiles.json มีแค่ hasPassword. Map-Excel unzip+แก้ XML ห้าม Excel COM, ห้ามเปลี่ยนชื่อ sheet/หัวคอลัมน์, backup .bak_yyyyMMdd_HHmm ก่อนเขียน, Save เขียน master + Round_yyyyMMdd_HHmm.xlsx เฉพาะแถวที่ติ๊ก. .ps1 ไทย = UTF-8 BOM; รันได้ใน PS 5.1 ทั้ง 32/64-bit
+[ขอบเขตที่ไม่ต้องทำ] ไม่ทำ server/UI/Set Location; ไม่แก้ไฟล์ต้นทาง; ไม่เพิ่ม TypeCode ใหม่ (162 ที่ยังไม่ map ปล่อยไว้); ไม่สร้าง test DB
+[เกณฑ์ว่าเสร็จ] 1) TestConnection ผ่านทั้ง Enconfund (SysWOW64) และ Seoul (64-bit) คืน rdocCount 2) Export 3 layout จาก SBO_ENCONFUND ได้ .rpt+_ExportIndex.csv ตรงกับ Export-RDOCToRpt ต้นฉบับ (ชื่อ+ขนาด) 3) Import DryRun บน HANA และ MSSQL ได้ New/Update/Skip อธิบายได้ 4) Import dryRun=false ไม่มี confirmDb ถูกปฏิเสธ 5) Map-Excel Scan เพิ่มแถวใหม่ (ทำกับสำเนา xlsx), Save สร้าง .bak, RPT_MAP+Legend ครบ, Round มีแต่แถวที่ติ๊ก 6) grep รหัสผ่านทั้งสองใน RPT-Studio\ (ยกเว้น config\secrets\) ไม่เจอ 7) ทุก Action จบด้วย ##RESULT## และ exit code ถูก
+[ผลลัพธ์] รายการไฟล์ path เต็ม, ผลทดสอบทีละข้อพร้อมคำสั่ง+output จริง, schema สุดท้ายของ profiles.json, สรุปการแก้บั๊ก (ก)(ข)(ค), ระบุตรง ๆ ว่า Import/Rollback จริงไม่ได้ทดสอบเพราะไม่มี test DB
+
+---
+## ใบ 3/3 -> crystal-report
+[งาน] คัดลอก Set-DatasourceLocation.ps1, CrConnections.ps1, Run-FromSettings.ps1 (v4) เข้า lib\ แล้วเขียน lib\Run-SetLocation.ps1 มี Action Run และ ListHistory ตรงตาราง CONTRACT.md
+[บริบท] server ของ webdev เรียกเป็น child process 64-bit (Crystal SDK GAC_64) ส่งค่าผ่าน ArgsFile JSON แทน settings.ini; ผลแยกรายไฟล์; ถ้า engine ต้นทาง/ปลายทางต่างกัน (HANA<->MSSQL) คืน dialectWarning
+[ของที่มี] CONTRACT.md; ต้นฉบับ v4 อ่านอย่างเดียว C:\Users\User\Desktop\Set-DatasourceLocation\ (log เดิมใช้เทียบ); ปลายทาง C:\Users\User\Documents\GitHub\RPT-Studio\lib\; ที่ทดสอบ C:\Users\User\Documents\GitHub\RPT-Studio\scratch\test\ ; ฟังก์ชันรหัสผ่านโปรไฟล์ Get-ProfilePassword อยู่ lib\Secrets.ps1 (sap-b1 สร้างขนานกัน - ถ้ายังไม่มี ให้เขียนโค้ดเรียกไว้ตามชื่อนี้และระบุว่าไม่ได้ทดสอบ)
+[ข้อจำกัด] ห้ามแก้ Desktop\Set-DatasourceLocation. ทดสอบเฉพาะ .rpt สำเนาใต้ scratch\test\ (Set Location เขียนทับไฟล์). target.password / รหัสจาก target.profile ห้ามขึ้น stdout/log/RESULT. ตาม CLI convention (-Action -ArgsFile, ไม่ถามกลางทาง, ##RESULT## บรรทัดสุดท้าย, exit 0/1). .ps1 ไทย = UTF-8 BOM. ห้ามบอกทดสอบแล้วถ้าไม่ได้รันจริง
+[ขอบเขตที่ไม่ต้องทำ] ไม่แก้ตรรกะเปลี่ยน connection ของ v4 ถ้าไม่จำเป็น (หุ้ม wrapper); ไม่ทำ UI/server; ไม่แตะ DB/RDOC; ไม่อ่าน profiles.json
+[เกณฑ์ว่าเสร็จ] 1) Run testOnly=true บนสำเนา ได้ผลรายไฟล์ (changedTables, ok) ตรงกับ log v4 กับไฟล์ชุดเดียวกัน แนบตารางเทียบ 2) ไฟล์ต้นฉบับใน Desktop timestamp+hash เดิม 3) ListHistory ตรงกับที่ v4 เห็น 4) HANA->MSSQL ได้ dialectWarning ไม่ null 5) grep รหัสผ่านทดสอบใน output ไม่เจอ 6) รัน 64-bit exit code ถูก
+[ผลลัพธ์] ไฟล์ path เต็ม, ผลทดสอบพร้อมคำสั่ง, ระดับความเชื่อมั่น (สูง/กลาง/ต่ำ+เหตุผล), ระบุชัดว่ารัน testOnly=false แล้วหรือยัง (ควรยัง ยกเว้นบนสำเนา)
